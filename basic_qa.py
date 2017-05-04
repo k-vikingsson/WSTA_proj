@@ -91,7 +91,8 @@ def eval_query(query, posting, no_docs):
 		posting_list = posting.get(term, [])
 		for (doc_id, weight) in posting_list:
 			scores[doc_id] = scores.get(doc_id, 0) + weight
-	return sorted(scores.items(), key=lambda x:x[1], reverse=True)
+	sorted_scores = sorted(scores.items(), key=lambda x:x[1], reverse=True)
+	return [d for d, w in sorted_scores]
 
 def get_most_prob_sent(question, doc_set):
 	query = process_query(question)
@@ -99,7 +100,7 @@ def get_most_prob_sent(question, doc_set):
 	no_docs = len(doc_set)
 	return eval_query(query, posting, no_docs)[:3]
 
-def test_with_dev():
+def test_with_dev(n):
 	with open('QA_dev.json') as dev_file:
 		dev = json.load(dev_file)
 
@@ -115,13 +116,14 @@ def test_with_dev():
 			total += 1
 			if len(possible_sents) == 0:
 				continue
-			else: sent = possible_sents[0]
-			if sent[0] == question['answer_sentence']:
+			else: sent = possible_sents[:n]
+			if sent[0] == question['answer_sentence'] or question['answer_sentence'] in sent:
 				match += 1
 
-	print match / total
+	return match / total
 
 if __name__ == '__main__':
-	test_with_dev()
+	for n in range(1,20):
+		print n, test_with_dev(n)
 	
 
