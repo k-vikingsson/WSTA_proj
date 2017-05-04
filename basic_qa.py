@@ -99,12 +99,7 @@ def get_most_prob_sent(question, doc_set):
 	no_docs = len(doc_set)
 	return eval_query(query, posting, no_docs)[:3]
 
-if __name__ == '__main__':
-	documents = []
-	qas = []
-	BOWs = []
-	dict_vectorizer = DictVectorizer()
-
+def test_with_dev():
 	with open('QA_dev.json') as dev_file:
 		dev = json.load(dev_file)
 
@@ -126,7 +121,7 @@ if __name__ == '__main__':
 
 	print match / total
 
-
-
-
+if __name__ == '__main__':
+	test_with_dev()
+	
 
