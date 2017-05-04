@@ -18,12 +18,12 @@ def remove_stop(sentence):
 		new.append(word)
 	return new
 
-def get_bow(document):
-	bow = {}
-	for word in document.split():
-		if word in STOPWORDS: continue
-		bow[word] = bow.get(word, 0) + 1
-	return bow
+# def get_bow(document):
+# 	bow = {}
+# 	for word in document.split():
+# 		if word in STOPWORDS: continue
+# 		bow[word] = bow.get(word, 0) + 1
+# 	return bow
 
 def lemmatize(word):
     lemma = lemmatizer.lemmatize(word,'v')
@@ -36,6 +36,8 @@ def lemmatize_doc(document):
 	for word in document:
 		output.append(lemmatize(word))
 	return output
+
+
 
 if __name__ == '__main__':
 	documents = []
@@ -68,6 +70,6 @@ if __name__ == '__main__':
 		for word, count in term_freqs[i].items():
 			tf_idf[word] = count * (1.0 / doc_freqs[i][word])
 
-
+	
 
 
