@@ -133,7 +133,7 @@ def get_entities(sentences, doc_set):
 
 def parse_entities(sentence):
 	entities = []
-
+	# TODO
 	return entities
 
 def get_question_type(question):
