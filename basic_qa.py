@@ -34,8 +34,8 @@ def lemmatize(word):
 def lemmatize_doc(document):
 	output = []
 	for word in document:
-		if word.isalpha():
-			output.append(lemmatize(word))
+		if word.isalnum():
+			output.append(lemmatize(word.lower()))
 	return output
 
 def get_freqencies(documents):
@@ -121,6 +121,20 @@ def test_with_dev(n):
 				match += 1
 
 	return match / total
+
+def get_entities(sentences, doc_set):
+	entities = []
+	for s_id in sentences:
+		sentence = doc_set[s_id]
+		entities_in_sent = parse_entities(sentence)
+		for (entity, entity_type) in entities_in_sent:
+			entities.append((s_id, entity, entity_type))
+	return entities
+
+def parse_entities(sentence):
+	entities = []
+
+	return entities
 
 def get_question_type(question):
 	"""Determine question type.
