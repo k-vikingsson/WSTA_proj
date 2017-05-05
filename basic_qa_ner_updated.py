@@ -135,20 +135,6 @@ def test_with_dev(n):
 
 	return match / total
 
-# def get_entities(sentences, doc_set):
-# 	entities = []
-# 	for s_id in sentences:
-# 		sentence = doc_set[s_id]
-# 		entities_in_sent = parse_entities(sentence)
-# 		for (entity, entity_type) in entities_in_sent:
-# 			entities.append((s_id, entity, entity_type))
-# 	return entities
-
-# def parse_entities(sentence):
-# 	entities = []
-# 	# TODO
-# 	return entities
-
 # nia -start
 def prepare_doc(doc_set):
     # doc as a single sentence
@@ -158,7 +144,7 @@ def prepare_doc(doc_set):
         new_docs.append(doc)
     return new_docs 
 
-def get_next_tag (tagged_sent,cur_tag):
+def get_next_tag(tagged_sent,cur_tag):
     for word, tag in tagged_sent:
         if tag != cur_tag:
             pos = tagged_sent.index((word,tag))
