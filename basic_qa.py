@@ -35,7 +35,7 @@ def lemmatize_doc(document):
 	output = []
 	for word in document:
 		if word.isalpha():
-			output.append(lemmatize(word.lower()))
+			output.append(lemmatize(word))
 	return output
 
 def get_freqencies(documents):
