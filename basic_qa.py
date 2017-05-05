@@ -26,10 +26,10 @@ def remove_stop(sentence):
 # 	return bow
 
 def lemmatize(word):
-    lemma = lemmatizer.lemmatize(word,'v')
-    if lemma == word:
-        lemma = lemmatizer.lemmatize(word,'n')
-    return lemma
+	lemma = lemmatizer.lemmatize(word,'v')
+	if lemma == word:
+		lemma = lemmatizer.lemmatize(word,'n')
+	return lemma
 
 def lemmatize_doc(document):
 	output = []
@@ -121,6 +121,79 @@ def test_with_dev(n):
 				match += 1
 
 	return match / total
+
+def get_question_type(question):
+	"""Determine question type.
+
+	Args:
+		question (str): the question as a string
+
+	Returns:
+		(str): type of question as a string
+	"""
+	question = " ".join(word_tokenizer.tokenize(question)).lower()
+	# TODO more rules
+	if "who" in question:
+		return "PERSON"
+	elif "where" in question:
+		return "LOCATION"
+	elif "how many" in question:
+		return "NUMBER"
+	else:
+		return "OTHER"
+
+def get_score(question, answer):
+	"""Calculate the score of an answer given a question.
+
+	Args:
+		question (str): the question as a string
+		answers [(str, str, str)]: an answer to the question
+			being a 3-tuple of (sentence, entity, entity type)
+
+	Returns:
+		(float): score of answer
+	"""
+	# First, answers whose content words all appear
+	# in the question should be ranked lowest.
+	ans_words = word_tokenizer.tokenize(answer)
+	question_words = set(word_tokenizer.tokenize(question))
+	all_appear = True
+	for w in ans_words:
+		if w not in question_words:
+			all_appear = False
+			break
+	if all_appear:
+		return 0.0
+
+	# Second, answers which match the question type
+	# should be ranked higher than those that don't;
+	if answer[2] != get_question_type(question):
+		return 1.0
+
+	# Third, among entities of the same type, the
+	# prefered entity should be the one which is closer
+	# in the sentence to a closed-class word from the question.
+	# TODO
+
+	return 3.0
+
+
+def get_best_answer(question, answers):
+	"""Return the best answer from answers to a question.
+
+	Args:
+		question (str): the question as a string
+		answers [(str, str, str)]: a list of answers,
+			each being a 3-tuple of (sentence, entity, entity type)
+	
+	Returns:
+		(str, str, str): the best answer to the question
+	"""
+	answer_scores = []
+	for ans in answers:
+		answer_scores.append((ans, get_score(question, ans)))
+	return max(answer_scores, key=lambda x: x[1])[0]
+
 
 if __name__ == '__main__':
 	for n in range(1,20):
