@@ -54,26 +54,27 @@ def get_continuous_chunks(tagged_sents):
     return sents_chunks
 
 def get_tagged(processed_docs):
-    no_docs = len(processed_docs)
     ner_tagged_sents = st.tag_sents(processed_docs)
     tagged_sents = []
 
     for sent in ner_tagged_sents:
         tagged_sent =[]
         for token,tag in sent:
-            if tag != 'O':
-                tagged_sent.append((token,tag))
+			if token != '':
+				if tag != 'O':
+					  tagged_sent.append((token,tag))
 
-            else:
-                if tag == 'O' and token[0].isupper():
-                    tag = 'OTHER'
-                    tagged_sent.append((token,tag))
+				else:
+					if tag == 'O' and token[0].isupper():
+						tag = 'OTHER'
+						tagged_sent.append((token,tag))
 
-                elif tag == 'O' and token.isdigit():
-                    tag = 'NUMBER'
-                    tagged_sent.append((token,tag))
-                else:
-                    tagged_sent.append((token,tag))
+					elif tag == 'O' and token.isdigit():
+						tag = 'NUMBER'
+						tagged_sent.append((token,tag))
+					else:
+						tagged_sent.append((token,tag))
+					
         tagged_sents.append(tagged_sent)
     return tagged_sents
 
