@@ -136,7 +136,7 @@ def test_with_dev(n):
 	return match / total
 
 # nia -start
-def prepare_doc(doc_set):
+def process_doc_ner(doc_set):
     # doc as a single sentence
     new_docs = []
     for doc in doc_set:
@@ -199,7 +199,7 @@ def get_tagged(processed_docs):
 
 
 def parse_docs(doc_set):
-    processed_docs = prepare_doc(sents)
+    processed_docs = process_doc_ner(doc_set)
     no_docs = len(processed_docs)
     tagged_sents = get_tagged(processed_docs)
 
