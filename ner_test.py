@@ -65,7 +65,7 @@ def get_tagged(processed_docs):
 					  tagged_sent.append((token,tag))
 
 				else:
-					if tag == 'O' and token[0].isupper():
+					if tag == 'O' and sent.index((token,tag)) != 0 and token[0].isupper():
 						tag = 'OTHER'
 						tagged_sent.append((token,tag))
 
