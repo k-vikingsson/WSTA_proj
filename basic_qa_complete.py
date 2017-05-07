@@ -273,7 +273,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# 	answer_scores.append((ans, get_score(question, ans, doc_set)))
 	# return max(answer_scores, key=lambda x: x[1])[0]
 	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
-	pp.pprint(sorted(answers, reverse=True, key=key_func))
+	# pp.pprint(sorted(answers, reverse=True, key=key_func))
 	return max(answers, key=key_func)
 
 
@@ -330,6 +330,7 @@ def process_doc_ner(doc_set):
         new_docs.append(doc)
     return new_docs 
 
+from tqdm import tqdm
 
 def test_with_dev():
 	# load json
@@ -337,7 +338,10 @@ def test_with_dev():
 		dev = json.load(dev_file)
 
 	total = 0.0
-	match = 0.0
+	match_sentences = 0.0
+	match_first_sentence = 0.0
+	match_entity = 0.0
+	match_best_answer = 0.0
 	for trial in dev:
 		# make posting list
 		doc_set = trial['sentences']
@@ -352,22 +356,29 @@ def test_with_dev():
 			total += 1
 			if len(possible_sents) == 0:
 				continue
+
+			if question['answer_sentence'] in possible_sents:
+				match_sentences += 1
+
+			if question['answer_sentence'] == possible_sents[0]:
+				match_first_sentence += 1
+			
 			# search for entities in possible sents
 			matches = []
 
-			# # take only the best match in sentence retrieval
-			# matches = [e for e in entities if e[0] == possible_sents[0]]
+			# take only the best match in sentence retrieval
+			matches = [e for e in entities if e[0] == possible_sents[0]]
 
 			# OR...
 
-			# take all sentences into ranking
-			for sent in possible_sents:
-				matches.extend([e for e in entities if e[0] == sent])
+			# # take all sentences into ranking
+			# for sent in possible_sents:
+			# 	matches.extend([e for e in entities if e[0] == sent])
 
-			# # determine if correct answer exists in entities
-			# matches_entities = {m[1] for m in matches}
-			# if question['answer'] in matches_entities:
-			# 	match += 1
+			# determine if correct answer exists in entities
+			matches_entities = {m[1] for m in matches}
+			if question['answer'] in matches_entities:
+				match_entity += 1
 
 			if len(matches) == 0:
 				continue
@@ -375,17 +386,26 @@ def test_with_dev():
 			# find best answer
 			best_match = get_best_answer(question['question'], matches, doc_set, possible_sents)
 
-			print "question:", question['question']
-			print "expected:", question['answer']
-			print "actual:", best_match[1]
-			print "\n\n"
+			
 
 			if best_match[1] == question['answer']:
 				# exact match
-				match += 1
+				match_best_answer += 1
+			elif question['answer'] in matches_entities:
+				print "question:", question['question'].encode('utf-8')
+				print "expected:", question['answer'].encode('utf-8')
+				print "actual:", best_match
+				print "expected id:", question['answer_sentence']
+				print "extracted id:", possible_sents
+				print "predicted question type:", get_question_type(question['question']).encode('utf-8')
+				# pp.pprint(matches)
+				print "\n\n"
 
-	return match / total
+	print "% sentence retrieved:", match_sentences / total
+	print "% sentence retrieved as first:", match_first_sentence / total
+	print "% entity identified:", match_entity / total
+	print "% correct best answer:", match_best_answer / total
 
 if __name__ == '__main__':
-	print test_with_dev()
+	test_with_dev()
 	
