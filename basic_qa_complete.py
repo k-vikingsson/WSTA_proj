@@ -170,6 +170,10 @@ def get_question_type(question):
 		return "LOCATION"
 	elif "how many" in question:
 		return "NUMBER"
+	elif "what" in question and "year" in question:
+		return "NUMBER"
+	elif "when" in question:
+		return "NUMBER"
 	else:
 		return "OTHER"
 
@@ -274,8 +278,8 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# return max(answer_scores, key=lambda x: x[1])[0]
 	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
 
-	top = sorted(answers, reverse=True, key=key_func)[:10]
-	pp.pprint(top)
+	# top = sorted(answers, reverse=True, key=key_func)[:10]
+	# pp.pprint(top)
 	return max(answers, key=key_func)
 
 
@@ -345,7 +349,7 @@ def test_with_dev():
 	match_first_sentence = 0.0
 	match_entity = 0.0
 	match_best_answer = 0.0
-	for trial in dev:
+	for trial in tqdm(dev):
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
@@ -392,15 +396,15 @@ def test_with_dev():
 			if best_match[1] == question['answer']:
 				# exact match
 				match_best_answer += 1
-			elif question['answer'] in matches_entities:
-				print "question:", question['question'].encode('utf-8')
-				print "expected:", question['answer'].encode('utf-8')
-				print "actual:", best_match
-				print "expected id:", question['answer_sentence']
-				print "extracted id:", possible_sents
-				print "predicted question type:", get_question_type(question['question']).encode('utf-8')
-				# pp.pprint(matches[:5])
-				print "\n\n"
+			# elif question['answer'] in matches_entities:
+			# 	print "question:", question['question'].encode('utf-8')
+			# 	print "expected:", question['answer'].encode('utf-8')
+			# 	print "actual:", best_match
+			# 	print "expected id:", question['answer_sentence']
+			# 	print "extracted id:", possible_sents
+			# 	print "predicted question type:", get_question_type(question['question']).encode('utf-8')
+			# 	# pp.pprint(matches[:5])
+			# 	print "\n\n"
 
 	print "% sentence retrieved:", match_sentences / total
 	print "% sentence retrieved as first:", match_first_sentence / total
