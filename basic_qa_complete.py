@@ -247,7 +247,7 @@ def make_answer_cmp_func(question, doc_set, sentences):
 		# TODO
 
 		# # consider relavance in sentence retrieval
-		return sentences.index(a[0]) - sentences.index(b[0])
+		return sentences.index(b[0]) - sentences.index(a[0])
 		# return 0
 	return cmp_answer
 
@@ -273,7 +273,9 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# 	answer_scores.append((ans, get_score(question, ans, doc_set)))
 	# return max(answer_scores, key=lambda x: x[1])[0]
 	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
-	# pp.pprint(sorted(answers, reverse=True, key=key_func))
+
+	top = sorted(answers, reverse=True, key=key_func)[:10]
+	pp.pprint(top)
 	return max(answers, key=key_func)
 
 
@@ -367,14 +369,14 @@ def test_with_dev():
 			# search for entities in possible sents
 			matches = []
 
-			# take only the best match in sentence retrieval
-			matches = [e for e in entities if e[0] == possible_sents[0]]
+			# # take only the best match in sentence retrieval
+			# matches = [e for e in entities if e[0] == possible_sents[0]]
 
 			# OR...
 
-			# # take all sentences into ranking
-			# for sent in possible_sents:
-			# 	matches.extend([e for e in entities if e[0] == sent])
+			# take all sentences into ranking
+			for sent in possible_sents:
+				matches.extend([e for e in entities if e[0] == sent])
 
 			# determine if correct answer exists in entities
 			matches_entities = {m[1] for m in matches}
@@ -387,8 +389,6 @@ def test_with_dev():
 			# find best answer
 			best_match = get_best_answer(question['question'], matches, doc_set, possible_sents)
 
-			
-
 			if best_match[1] == question['answer']:
 				# exact match
 				match_best_answer += 1
@@ -399,7 +399,7 @@ def test_with_dev():
 				print "expected id:", question['answer_sentence']
 				print "extracted id:", possible_sents
 				print "predicted question type:", get_question_type(question['question']).encode('utf-8')
-				# pp.pprint(matches)
+				# pp.pprint(matches[:5])
 				print "\n\n"
 
 	print "% sentence retrieved:", match_sentences / total
