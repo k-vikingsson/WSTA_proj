@@ -94,10 +94,11 @@ def parse_docs(doc_set):
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
         name_entity_pairs = [(i," ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity]
         for sent_id,entity,tag in name_entity_pairs:
-            if tag == 'ORGANIZATION':
-                doc_ne_pairs.append((sent_id,entity,'OTHER'))
-            elif tag == 'PERSON' or tag == 'LOCATION' or tag == 'NUMBER':
-                doc_ne_pairs.append((sent_id,entity,tag))
+			if tag != '0':
+				if tag == 'ORGANIZATION':
+					doc_ne_pairs.append((sent_id,entity,'OTHER'))
+				else:
+                	doc_ne_pairs.append((sent_id,entity,tag))
     return doc_ne_pairs
 
 
