@@ -290,7 +290,7 @@ def get_tagged(processed_docs):
 					tagged_sent.append((token,tag))
 
 				else:
-					if tag == 'O' and token[0].isupper():
+					if tag == 'O' and sent.index((token,tag)) != 0 and token[0].isupper():
 						tag = 'OTHER'
 						tagged_sent.append((token,tag))
 
@@ -316,10 +316,11 @@ def parse_docs(doc_set):
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
         name_entity_pairs = [(i," ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity]
         for sent_id,entity,tag in name_entity_pairs:
-            if tag == 'ORGANIZATION':
-                doc_ne_pairs.append((sent_id,entity,'OTHER'))
-            elif tag == 'PERSON' or tag == 'LOCATION' or tag == 'NUMBER':
-                doc_ne_pairs.append((sent_id,entity,tag))
+			if tag != 'O':
+				if tag == 'ORGANIZATION':
+					doc_ne_pairs.append((sent_id,entity,'OTHER'))
+				else:
+					doc_ne_pairs.append((sent_id,entity,tag))
     return doc_ne_pairs
 
 def process_doc_ner(doc_set):
