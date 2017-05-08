@@ -230,8 +230,8 @@ def make_answer_cmp_func(question, doc_set, sentences):
 	def cmp_answer(a, b):
 		# First, answers whose content words all appear
 		# in the question should be ranked lowest.
-		a_words = word_tokenizer.tokenize(doc_set[a[0]])
-		b_words = word_tokenizer.tokenize(doc_set[b[0]])
+		a_words = word_tokenizer.tokenize(a[1])
+		b_words = word_tokenizer.tokenize(b[1])
 		a_all_appear = contains_all(question_words, a_words)
 		b_all_appear = contains_all(question_words, b_words)
 		if a_all_appear != b_all_appear:
@@ -277,12 +277,11 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# 	answer_scores.append((ans, get_score(question, ans, doc_set)))
 	# return max(answer_scores, key=lambda x: x[1])[0]
 	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
-
-	# top = sorted(answers, reverse=True, key=key_func)[:10]
-	# pp.pprint(top)
 	return max(answers, key=key_func)
 
-
+def get_top_answers(question, answers, doc_set, sentences):
+	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
+	return sorted(answers, reverse=True, key=key_func)[:10]
 
 def get_tagged(processed_docs):
 	ner_tagged_sents = st.tag_sents(processed_docs)
@@ -348,6 +347,7 @@ def test_with_dev():
 	match_sentences = 0.0
 	match_first_sentence = 0.0
 	match_entity = 0.0
+	match_first_sentence_entity = 0.0
 	match_best_answer = 0.0
 	for trial in tqdm(dev):
 		# make posting list
@@ -384,8 +384,12 @@ def test_with_dev():
 
 			# determine if correct answer exists in entities
 			matches_entities = {m[1] for m in matches}
+			first_sentence_entities = {m[1] for m in matches if m[0] == possible_sents[0]}
 			if question['answer'] in matches_entities:
 				match_entity += 1
+
+			if question['answer'] in first_sentence_entities:
+				match_first_sentence_entity += 1
 
 			if len(matches) == 0:
 				continue
@@ -396,20 +400,24 @@ def test_with_dev():
 			if best_match[1] == question['answer']:
 				# exact match
 				match_best_answer += 1
-			# elif question['answer'] in matches_entities:
-			# 	print "question:", question['question'].encode('utf-8')
-			# 	print "expected:", question['answer'].encode('utf-8')
-			# 	print "actual:", best_match
-			# 	print "expected id:", question['answer_sentence']
-			# 	print "extracted id:", possible_sents
-			# 	print "predicted question type:", get_question_type(question['question']).encode('utf-8')
-			# 	# pp.pprint(matches[:5])
-			# 	print "\n\n"
+			elif question['answer'] in first_sentence_entities and possible_sents[0] == question['answer_sentence']:
+				top = get_top_answers(question['question'], matches, doc_set, possible_sents)
+				pp.pprint(top)
+				print "question:", question['question'].encode('utf-8')
+				print "expected:", question['answer'].encode('utf-8')
+				print "actual:", best_match
+				print "expected id:", question['answer_sentence']
+				print "extracted id:", possible_sents
+				print "predicted question type:", get_question_type(question['question']).encode('utf-8')
+				# pp.pprint(matches[:5])
+				print "\n\n"
 
 	print "% sentence retrieved:", match_sentences / total
 	print "% sentence retrieved as first:", match_first_sentence / total
 	print "% entity identified:", match_entity / total
+	print "% entity identified in first sentence:", match_first_sentence_entity / total
 	print "% correct best answer:", match_best_answer / total
+
 
 if __name__ == '__main__':
 	test_with_dev()
