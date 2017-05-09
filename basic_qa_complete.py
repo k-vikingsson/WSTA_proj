@@ -215,6 +215,40 @@ def contains_all(items, elems):
 # 	rank = sentences.index(answer[0])
 # 	return 1.0 + 100.0/(rank+1)
 
+def get_closed_class_words(question_words):
+	tagged = nltk.pos_tag(question_words, tagset="universal")
+	# consider pronouns, determiners, conjunctions, and prepositions as closed class
+	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP"]]
+
+def get_dist_to_question_word(question_words, sentence_words, answer):
+	closed_class_words = get_closed_class_words(question_words)
+	# print closed_class_words
+	answer_words = nltk.word_tokenize(answer)
+	# cannot proceed if answer word not found in sentence
+	for w in answer_words:
+		if w not in sentence_words:
+			return None
+	# (naive way to) find answer position in sentence
+	answer_start_pos = sentence_words.index(answer_words[0])
+	answer_end_pos = sentence_words.index(answer_words[-1])
+	# print "ans start", answer_start_pos
+	# print "ans end", answer_end_pos
+	# get positions of closed class question words
+	question_words_pos = []
+	for w in closed_class_words:
+		for i in range(len(sentence_words)):
+			if w == sentence_words[i]:
+				question_words_pos.append(i)
+	# print question_words_pos
+	# cannot proceed if no such closed word in sentence
+	if len(question_words_pos) == 0:
+		return None
+	# calculate distance and find closest
+	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
+		for p in question_words_pos ]
+	# print dists
+	return min(dists)
+
 def make_answer_cmp_func(question, doc_set, sentences):
 	"""Make comparision function of answers.
 
@@ -248,11 +282,20 @@ def make_answer_cmp_func(question, doc_set, sentences):
 		# Third, among entities of the same type, the
 		# prefered entity should be the one which is closer
 		# in the sentence to a closed-class word from the question.
-		# TODO
+		a_sent_words = word_tokenizer.tokenize(doc_set[a[0]])
+		b_sent_words = word_tokenizer.tokenize(doc_set[a[0]])
+		a_dist = get_dist_to_question_word(question_words, a_sent_words, a[1])
+		b_dist = get_dist_to_question_word(question_words, b_sent_words, b[1])
+		if a_dist != b_dist:
+			if a_dist == None:
+				return -1
+			elif b_dist == None:
+				return 1
+			else:
+				return b_dist - a_dist
 
 		# # consider relavance in sentence retrieval
 		return sentences.index(b[0]) - sentences.index(a[0])
-		# return 0
 	return cmp_answer
 
 import pprint
@@ -373,14 +416,14 @@ def test_with_dev():
 			# search for entities in possible sents
 			matches = []
 
-			# # take only the best match in sentence retrieval
-			# matches = [e for e in entities if e[0] == possible_sents[0]]
+			# take only the best match in sentence retrieval
+			matches = [e for e in entities if e[0] == possible_sents[0]]
 
 			# OR...
 
-			# take all sentences into ranking
-			for sent in possible_sents:
-				matches.extend([e for e in entities if e[0] == sent])
+			# # take all sentences into ranking
+			# for sent in possible_sents:
+			# 	matches.extend([e for e in entities if e[0] == sent])
 
 			# determine if correct answer exists in entities
 			matches_entities = {m[1] for m in matches}
