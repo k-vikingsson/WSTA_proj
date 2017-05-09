@@ -153,7 +153,7 @@ def parse_entities(sentence):
 	# TODO
 	return entities
 
-def get_question_type(question):
+def get_question_type(question_words):
 	"""Determine question type.
 
 	Args:
@@ -162,17 +162,16 @@ def get_question_type(question):
 	Returns:
 		(str): type of question as a string
 	"""
-	question = " ".join(word_tokenizer.tokenize(question)).lower()
 	# TODO more rules
-	if "who" in question:
+	if "who" in question_words:
 		return "PERSON"
-	elif "where" in question:
+	elif "where" in question_words:
 		return "LOCATION"
-	elif "how many" in question:
+	elif "how many" in question_words:
 		return "NUMBER"
-	elif "what" in question and "year" in question:
+	elif "what" in question_words and "year" in question_words:
 		return "NUMBER"
-	elif "when" in question:
+	elif "when" in question_words:
 		return "NUMBER"
 	else:
 		return "OTHER"
@@ -220,19 +219,13 @@ def get_closed_class_words(question_words):
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
 	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP"]]
 
-def get_dist_to_question_word(question_words, sentence_words, answer):
-	closed_class_words = get_closed_class_words(question_words)
+def get_dist_to_question_word(closed_class_words, sentence_words, answer):
 	# print closed_class_words
 	answer_words = nltk.word_tokenize(answer)
 	# cannot proceed if answer word not found in sentence
 	for w in answer_words:
 		if w not in sentence_words:
 			return None
-	# (naive way to) find answer position in sentence
-	answer_start_pos = sentence_words.index(answer_words[0])
-	answer_end_pos = sentence_words.index(answer_words[-1])
-	# print "ans start", answer_start_pos
-	# print "ans end", answer_end_pos
 	# get positions of closed class question words
 	question_words_pos = []
 	for w in closed_class_words:
@@ -243,6 +236,11 @@ def get_dist_to_question_word(question_words, sentence_words, answer):
 	# cannot proceed if no such closed word in sentence
 	if len(question_words_pos) == 0:
 		return None
+	# (naive way to) find answer position in sentence
+	answer_start_pos = sentence_words.index(answer_words[0])
+	answer_end_pos = sentence_words.index(answer_words[-1])
+	# print "ans start", answer_start_pos
+	# print "ans end", answer_end_pos
 	# calculate distance and find closest
 	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
 		for p in question_words_pos ]
@@ -253,19 +251,21 @@ def make_answer_cmp_func(question, doc_set, sentences):
 	"""Make comparision function of answers.
 
 	Args:
-		question (str): the question as a string
+
 		doc_set [str]: a list of all answers, indexed by answer id
 
 	Returns:
 		comparision funtion of two answers, more relavant answer
 		is considered greater
 	"""
-	question_words = set(word_tokenizer.tokenize(question))
+	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
+	closed_class_words = get_closed_class_words(question_words)
+	question_type = get_question_type(question_words)
 	def cmp_answer(a, b):
 		# First, answers whose content words all appear
 		# in the question should be ranked lowest.
-		a_words = word_tokenizer.tokenize(a[1])
-		b_words = word_tokenizer.tokenize(b[1])
+		a_words = word_tokenizer.tokenize(a[1].lower())
+		b_words = word_tokenizer.tokenize(b[1].lower())
 		a_all_appear = contains_all(question_words, a_words)
 		b_all_appear = contains_all(question_words, b_words)
 		if a_all_appear != b_all_appear:
@@ -273,19 +273,24 @@ def make_answer_cmp_func(question, doc_set, sentences):
 
 		# Second, answers which match the question type
 		# should be ranked higher than those that don't;
-		question_type = get_question_type(question)
 		a_matches_type = a[2] == question_type
 		b_matches_type = b[2] == question_type
 		if a_matches_type != b_matches_type:
 			return a_matches_type - b_matches_type
 
+		# consider relavance in sentence retrieval
+		a_rank = sentences.index(a[0])
+		b_rank = sentences.index(b[0])
+		if a_rank != b_rank:
+			return b_rank - a_rank
+
 		# Third, among entities of the same type, the
 		# prefered entity should be the one which is closer
 		# in the sentence to a closed-class word from the question.
-		a_sent_words = word_tokenizer.tokenize(doc_set[a[0]])
-		b_sent_words = word_tokenizer.tokenize(doc_set[a[0]])
-		a_dist = get_dist_to_question_word(question_words, a_sent_words, a[1])
-		b_dist = get_dist_to_question_word(question_words, b_sent_words, b[1])
+		a_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[a[0]]) ]
+		b_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[b[0]]) ]
+		a_dist = get_dist_to_question_word(question_words, a_sent_words, a[1].lower())
+		b_dist = get_dist_to_question_word(question_words, b_sent_words, b[1].lower())
 		if a_dist != b_dist:
 			if a_dist == None:
 				return -1
@@ -293,9 +298,6 @@ def make_answer_cmp_func(question, doc_set, sentences):
 				return 1
 			else:
 				return b_dist - a_dist
-
-		# # consider relavance in sentence retrieval
-		return sentences.index(b[0]) - sentences.index(a[0])
 	return cmp_answer
 
 import pprint
@@ -306,7 +308,6 @@ def get_best_answer(question, answers, doc_set, sentences):
 	"""Return the best answer from answers to a question.
 
 	Args:
-		question (str): the question as a string
 		answers [(str, str, str)]: a list of answers,
 			each being a 3-tuple of (sentence, entity, entity type)
 		doc_set [str]: a list of all answers, indexed by answer id
@@ -319,12 +320,14 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# for ans in answers:
 	# 	answer_scores.append((ans, get_score(question, ans, doc_set)))
 	# return max(answer_scores, key=lambda x: x[1])[0]
-	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
+	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
+	key_func = cmp_to_key(cmp_func)
 	return max(answers, key=key_func)
 
 def get_top_answers(question, answers, doc_set, sentences):
-	key_func = cmp_to_key(make_answer_cmp_func(question, doc_set, sentences))
-	return sorted(answers, reverse=True, key=key_func)[:10]
+	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
+	key_func = cmp_to_key(cmp_func)
+	return sorted(answers, reverse=True, key=key_func)[:20]
 
 def get_tagged(processed_docs):
 	ner_tagged_sents = st.tag_sents(processed_docs)
@@ -399,7 +402,7 @@ def test_with_dev():
 		no_docs = len(doc_set)
 		# NER for all sentences
 		entities = parse_docs(doc_set)
-		for question in trial['qa']:
+		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
 			possible_sents = eval_query(query, posting, no_docs)
@@ -416,14 +419,14 @@ def test_with_dev():
 			# search for entities in possible sents
 			matches = []
 
-			# take only the best match in sentence retrieval
-			matches = [e for e in entities if e[0] == possible_sents[0]]
+			# # take only the best match in sentence retrieval
+			# matches = [e for e in entities if e[0] == possible_sents[0]]
 
 			# OR...
 
-			# # take all sentences into ranking
-			# for sent in possible_sents:
-			# 	matches.extend([e for e in entities if e[0] == sent])
+			# take all sentences into ranking
+			for sent in possible_sents:
+				matches.extend([e for e in entities if e[0] == sent])
 
 			# determine if correct answer exists in entities
 			matches_entities = {m[1] for m in matches}
@@ -438,16 +441,26 @@ def test_with_dev():
 				continue
 			
 			# find best answer
-			best_match = get_best_answer(question['question'], matches, doc_set, possible_sents)
+			best_match = get_best_answer(
+				question['question'],
+				matches,
+				doc_set,
+				possible_sents)
 
 			if best_match[1] == question['answer']:
 				# exact match
 				match_best_answer += 1
 			elif question['answer'] in first_sentence_entities and possible_sents[0] == question['answer_sentence']:
-				top = get_top_answers(question['question'], matches, doc_set, possible_sents)
+				top = get_top_answers(
+					question['question'],
+					matches,
+					doc_set,
+					possible_sents)
+				print "all results:"
 				pp.pprint(top)
 				print "question:", question['question'].encode('utf-8')
 				print "expected:", question['answer'].encode('utf-8')
+				print "expected sentence:", doc_set[question['answer_sentence']].encode('utf-8')
 				print "actual:", best_match
 				print "expected id:", question['answer_sentence']
 				print "extracted id:", possible_sents
