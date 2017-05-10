@@ -153,6 +153,11 @@ def parse_entities(sentence):
 	# TODO
 	return entities
 
+words_after_num = set()
+with open("words_after_num.txt") as file:
+	for line in file:
+		words_after_num.add(line)
+
 def get_question_type(question_words):
 	"""Determine question type.
 
@@ -174,6 +179,9 @@ def get_question_type(question_words):
 	elif "when" in question_words:
 		return "NUMBER"
 	else:
+		for w in question_words:
+			if w in words_after_num:
+				return "NUMBER"
 		return "OTHER"
 
 def contains_all(items, elems):
@@ -270,27 +278,24 @@ def make_answer_cmp_func(question, doc_set, sentences):
 		b_all_appear = contains_all(question_words, b_words)
 		if a_all_appear != b_all_appear:
 			return b_all_appear - a_all_appear
-
 		# Second, answers which match the question type
 		# should be ranked higher than those that don't;
 		a_matches_type = a[2] == question_type
 		b_matches_type = b[2] == question_type
 		if a_matches_type != b_matches_type:
 			return a_matches_type - b_matches_type
-
 		# consider relavance in sentence retrieval
 		a_rank = sentences.index(a[0])
 		b_rank = sentences.index(b[0])
 		if a_rank != b_rank:
 			return b_rank - a_rank
-
 		# Third, among entities of the same type, the
 		# prefered entity should be the one which is closer
 		# in the sentence to a closed-class word from the question.
 		a_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[a[0]]) ]
 		b_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[b[0]]) ]
-		a_dist = get_dist_to_question_word(question_words, a_sent_words, a[1].lower())
-		b_dist = get_dist_to_question_word(question_words, b_sent_words, b[1].lower())
+		a_dist = get_dist_to_question_word(closed_class_words, a_sent_words, a[1].lower())
+		b_dist = get_dist_to_question_word(closed_class_words, b_sent_words, b[1].lower())
 		if a_dist != b_dist:
 			if a_dist == None:
 				return -1
@@ -329,35 +334,45 @@ def get_top_answers(question, answers, doc_set, sentences):
 	key_func = cmp_to_key(cmp_func)
 	return sorted(answers, reverse=True, key=key_func)[:20]
 
-def get_tagged(processed_docs):
-	ner_tagged_sents = st.tag_sents(processed_docs)
-	tagged_sents = []
+def get_tagged(processed_docs,no_docs):
+    ner_tagged_sents = st.tag_sents(processed_docs)
+    pos_tagged_sents = nltk.pos_tag_sents(processed_docs)
+    tagged_sents = []
 
-	for sent in ner_tagged_sents:
-		tagged_sent =[]
-		for token,tag in sent:
-			if token != '':
-				if tag != 'O':
-					tagged_sent.append((token,tag))
+    for j in range (0,no_docs):
+        tagged_sent =[]
+        sent = ner_tagged_sents[j]
 
-				else:
-					if tag == 'O' and sent.index((token,tag)) != 0 and token[0].isupper():
-						tag = 'OTHER'
-						tagged_sent.append((token,tag))
+        for token,tag in sent:
+            if token != '':
+                if tag != 'O':
+                    tagged_sent.append((token,tag))
 
-					elif tag == 'O' and token.isdigit():
-						tag = 'NUMBER'
-						tagged_sent.append((token,tag))
-					else:
-						tagged_sent.append((token,tag))
-		tagged_sents.append(tagged_sent)
-	return tagged_sents
+                else:
+                    i = sent.index((token,tag))
+                    if tag == 'O' and i != 0 and token[0].isupper():
+                        tag = 'OTHER'
+                        tagged_sent.append((token,tag))
+
+                    elif tag == 'O' and pos_tagged_sents[j][i][1] == 'CD':
+                        sent_len = len(sent)
+                        # if sent_len > i+1 and len(token) != 4:
+                            # if pos_tagged_sents[j][i+1][1] == 'NN' or pos_tagged_sents[j][i+1][1] == 'NNS':
+                                # token = token + ' ' + pos_tagged_sents[j][i+1][0]
+                                # print token
+
+                        tag = 'NUMBER'
+                        tagged_sent.append((token,tag))
+                    else:
+                        tagged_sent.append((token,tag))
+        tagged_sents.append(tagged_sent)
+    return tagged_sents
 
 
 def parse_docs(doc_set):
     processed_docs = process_doc_ner(doc_set)
     no_docs = len(processed_docs)
-    tagged_sents = get_tagged(processed_docs)
+    tagged_sents = get_tagged(processed_docs,no_docs)
 
     name_entity_list = get_continuous_chunks(tagged_sents)
 
@@ -367,11 +382,11 @@ def parse_docs(doc_set):
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
         name_entity_pairs = [(i," ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity]
         for sent_id,entity,tag in name_entity_pairs:
-			if tag != 'O':
-				if tag == 'ORGANIZATION':
-					doc_ne_pairs.append((sent_id,entity,'OTHER'))
-				else:
-					doc_ne_pairs.append((sent_id,entity,tag))
+            if tag != 'O':
+                if tag == 'ORGANIZATION':
+                    doc_ne_pairs.append((sent_id,entity,'OTHER'))
+                else:
+                    doc_ne_pairs.append((sent_id,entity,tag))
     return doc_ne_pairs
 
 def process_doc_ner(doc_set):
