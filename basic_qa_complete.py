@@ -161,10 +161,15 @@ def parse_entities(sentence):
 	# TODO
 	return entities
 
-words_after_num = set()
-with open("words_after_num.txt") as file:
+common_measurements = set()
+with open("common_measurements.txt") as file:
 	for line in file:
-		words_after_num.add(line)
+		common_measurements.add(line)
+
+common_localities = set()
+with open("common_localities.txt") as file:
+	for line in file:
+		common_localities.add(line)
 
 def get_question_type(question_words):
 	"""Determine question type.
@@ -180,8 +185,6 @@ def get_question_type(question_words):
 		return "PERSON"
 	elif "where" in question_words:
 		return "LOCATION"
-	elif "what" in question_words and "country" in question_words:
-		return "LOCATION"
 	elif "how" in question_words and "many" in question_words:
 		return "NUMBER"
 	elif "what" in question_words and "year" in question_words:
@@ -189,9 +192,12 @@ def get_question_type(question_words):
 	elif "when" in question_words:
 		return "NUMBER"
 	else:
-		for w in question_words:
-			if w in words_after_num:
-				return "NUMBER"
+		if "what" in question_words:
+			for w in question_words:
+				if w in common_measurements:
+					return "NUMBER"
+				elif w in common_localities:
+					return "LOCATION"
 		return "OTHER"
 
 def contains_all(items, elems):
@@ -337,6 +343,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
 	key_func = cmp_to_key(cmp_func)
 	return max(answers, key=key_func)
+	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
 def get_top_answers(question, answers, doc_set, sentences):
 	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
@@ -442,8 +449,6 @@ def parse_docs(doc_set):
     return doc_ne_pairs
 
 from tqdm import tqdm
-
-
 def test_with_dev():
 
 	# load json
@@ -457,6 +462,7 @@ def test_with_dev():
 	match_first_sentence_entity = 0.0
 	match_correct_sentence_entity = 0.0
 	match_first_correct_sentence_entity = 0.0
+	ranking_failed = 0.0
 	match_best_answer = 0.0
 	for trial in tqdm(dev):
 		# make posting list
@@ -468,7 +474,7 @@ def test_with_dev():
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, no_docs)
+			possible_sents = eval_query(query, posting, no_docs)[:20]
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -495,6 +501,7 @@ def test_with_dev():
 			matches_entities = {m[1] for m in matches}
 			first_sentence_entities = {m[1] for m in matches if m[0] == possible_sents[0]}
 
+			retrieval_and_ner_correct = False
 			e = None
 			for entity in matches:
 				if entity[1] == question['answer']:
@@ -507,6 +514,7 @@ def test_with_dev():
 					match_correct_sentence_entity += 1
 					if possible_sents[0] == e[0]:
 						match_first_correct_sentence_entity += 1
+						retrieval_and_ner_correct = True
 
 			if question['answer'] in first_sentence_entities:
 				match_first_sentence_entity += 1
@@ -524,7 +532,8 @@ def test_with_dev():
 			if best_match[1] == question['answer']:
 				# exact match
 				match_best_answer += 1
-			elif question['answer'] in first_sentence_entities and possible_sents[0] == question['answer_sentence']:
+			elif retrieval_and_ner_correct:
+				ranking_failed += 1
 				top = get_top_answers(
 					question['question'],
 					matches,
@@ -549,6 +558,7 @@ def test_with_dev():
 	print "% entity identified in first sentence:", match_first_sentence_entity / total
 	print "% entity identified in correct sentence:", match_correct_sentence_entity / total
 	print "% entity identified in first and correct sentence:", match_first_correct_sentence_entity / total
+	print "% above but ranking failed:", ranking_failed / total
 	print "% correct best answer:", match_best_answer / total
 
 def escape_csv(answer):
