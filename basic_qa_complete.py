@@ -20,6 +20,16 @@ jar = os.environ.get('CLASSPATH')
  
 st = StanfordNERTagger(classifier,jar)
 
+common_measurements = set()
+with open("common_measurements.txt") as file:
+	for line in file:
+		common_measurements.add(line.strip())
+
+common_localities = set()
+with open("common_localities.txt") as file:
+	for line in file:
+		common_localities.add(line.strip())
+
 def process_doc_ner(doc_set):
     # doc as a single sentence
     new_docs = []
@@ -55,34 +65,6 @@ def get_continuous_chunks(tagged_sents):
         sents_chunks.append(continuous_chunk)
     return sents_chunks
 
-
-
-
-
-def get_entities(sentences, doc_set):
-	entities = []
-	for s_id in sentences:
-		sentence = doc_set[s_id]
-		entities_in_sent = parse_entities(sentence)
-		for (entity, entity_type) in entities_in_sent:
-			entities.append((s_id, entity, entity_type))
-	return entities
-
-def parse_entities(sentence):
-	entities = []
-	# TODO
-	return entities
-
-common_measurements = set()
-with open("common_measurements.txt") as file:
-	for line in file:
-		common_measurements.add(line.strip())
-
-common_localities = set()
-with open("common_localities.txt") as file:
-	for line in file:
-		common_localities.add(line.strip())
-
 def get_question_type(question_words):
 	"""Determine question type.
 
@@ -104,12 +86,12 @@ def get_question_type(question_words):
 	elif "when" in question_words:
 		return "NUMBER"
 	else:
-		if "what" in question_words:
+		if "what" in question_words or "which" in question_words:
+			if "king" in question_words: return "PERSON"
+			elif "name" in question_words: return "PERSON"
 			for w in question_words:
-				if w in common_measurements:
-					return "NUMBER"
-				elif w in common_localities:
-					return "LOCATION"
+				if w in common_measurements: return "NUMBER"
+				elif w in common_localities: return "LOCATION"
 		return "OTHER"
 
 def contains_all(items, elems):

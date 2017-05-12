@@ -267,41 +267,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (22, u'Transformer', 'OTHER', 14, 14),
-    (22, u'\u0422ransformator', 'OTHER', 7, 7),
-    (   22,
-        u'\u0422\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0442\u043e\u0440',
-        'OTHER',
-        11,
-        11),
-    (22, u'Russian', 'OTHER', 9, 9),
-    (24, u'Japanese', 'OTHER', 4, 4),
-    (24, u'NHK', 'OTHER', 7, 7),
-    (41, u'DVB', 'OTHER', 1, 1),
-    (41, u'ETSI', 'OTHER', 12, 12),
-    (101, u'Hz', 'OTHER', 29, 29),
-    (101, u'NTSC', 'OTHER', 22, 22),
-    (101, u'HDTV', 'OTHER', 19, 19),
-    (101, u'Hz', 'OTHER', 16, 16),
-    (101, u'SECAM', 'OTHER', 5, 5),
-    (101, u'PAL', 'OTHER', 3, 3),
-    (101, u'HDTV', 'OTHER', 0, 0),
-    (18, u'European', 'OTHER', 39, 39),
-    (18, u'NTSC', 'OTHER', 26, 26),
-    (18, u'HDTV', 'OTHER', 14, 14),
-    (18, u'PAL', 'OTHER', 43, 43),
-    (18, u'SECAM', 'OTHER', 45, 45)]
-question: Which country developed the 441-line system?
-expected: France
-expected sentence: In 1938 France followed with their own 441-line system, variants of which were also used by a number of other countries.
-actual: (22, u'Transformer', 'OTHER', 14, 14)
-expected id: 4
-extracted id: [4, 22, 24, 41, 101, 7, 18, 0, 100, 103, 104, 2, 8, 19, 56, 36, 72, 73, 10, 25]
-predicted question type: OTHER
-
-
-
-all results:
 [   (12, u'Olympics', 'OTHER', 38, 38),
     (12, u'Japan Broadcasting Corporation', 'OTHER', 8, 10),
     (12, u'Nippon H\u014ds\u014d Ky\u014dkai', 'OTHER', 1, 3),
@@ -453,37 +418,6 @@ actual: (24, u'3 display', 'NUMBER', 19, 20)
 expected id: 24
 extracted id: [24, 51, 14, 7, 27, 22, 41, 72, 66, 59, 52, 123, 16, 35, 67, 114, 117, 50, 53, 94]
 predicted question type: NUMBER
-
-
-
-all results:
-[   (59, u'C', 'OTHER', 56, 56),
-    (59, u'July', 'OTHER', 61, 61),
-    (59, u'D', 'OTHER', 54, 54),
-    (59, u'HD Model Station', 'OTHER', 48, 50),
-    (59, u'WHD', 'OTHER', 68, 68),
-    (59, u'TV', 'OTHER', 70, 70),
-    (59, u'NBC', 'OTHER', 78, 78),
-    (59, u'TV', 'OTHER', 35, 35),
-    (59, u'WRC', 'OTHER', 83, 83),
-    (59, u'WRAL', 'OTHER', 33, 33),
-    (59, u'TV', 'OTHER', 85, 85),
-    (59, u'HD', 'OTHER', 25, 25),
-    (59, u'WRAL', 'OTHER', 23, 23),
-    (59, u'July', 'OTHER', 11, 11),
-    (101, u'Hz', 'OTHER', 29, 29),
-    (101, u'NTSC', 'OTHER', 22, 22),
-    (101, u'Hz', 'OTHER', 16, 16),
-    (101, u'SECAM', 'OTHER', 5, 5),
-    (101, u'PAL', 'OTHER', 3, 3),
-    (123, u'VHS', 'OTHER', 16, 16)]
-question: Which country had successful public analog HDTV broadcasting?
-expected: Japan
-expected sentence: Japan remained the only country with successful public broadcasting of analog HDTV, with seven broadcasters sharing a single channel.
-actual: (59, u'C', 'OTHER', 56, 56)
-expected id: 36
-extracted id: [36, 61, 59, 101, 123, 60, 72, 32, 117, 100, 34, 37, 93, 68, 4, 73, 103, 104, 62, 118]
-predicted question type: OTHER
 
 
 
@@ -1041,33 +975,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (89, u'K\xf6ppen Dfa', 'OTHER', 51, 52),
-    (89, u'January', 'OTHER', 25, 25),
-    (89, u'C', 'OTHER', 16, 16),
-    (89, u'Downtown', 'OTHER', 97, 97),
-    (89, u'F', 'OTHER', 20, 20),
-    (89, u'K\xf6ppen Cfa', 'OTHER', 42, 43),
-    (78, u'The Graves', 'OTHER', 73, 74),
-    (78, u'Boston Harbor Islands National Recreation Area', 'OTHER', 8, 13),
-    (78, u'Shag Rocks', 'OTHER', 67, 68),
-    (78, u'Nixes Mate', 'OTHER', 57, 58),
-    (141, u'Puerto Rican', 'OTHER', 6, 7),
-    (141, u'Colombian', 'OTHER', 51, 51),
-    (141, u'Mexican', 'OTHER', 66, 66),
-    (141, u'Guatemalan', 'OTHER', 82, 82),
-    (127, u'Hispanic', 'OTHER', 16, 16),
-    (127, u'Hispanic', 'OTHER', 28, 28),
-    (35, u'Town', 'OTHER', 16, 16),
-    (35, u'March', 'OTHER', 29, 29),
-    (39, u'Irish', 'OTHER', 15, 15),
-    (39, u'Polish Jews', 'OTHER', 29, 30)]
+[   (89, u'South Boston', u'LOCATION', 99, 100),
+    (89, u'East Boston', u'LOCATION', 103, 104),
+    (89, u'Boston', u'LOCATION', 0, 0),
+    (78, u'Spectacle Island', u'LOCATION', 70, 71),
+    (78, u'Boston Harbor', u'LOCATION', 4, 5),
+    (78, u'Thompson Island', u'LOCATION', 77, 78),
+    (78, u'Calf Island', u'LOCATION', 26, 27),
+    (78, u'Rainsford Island', u'LOCATION', 64, 65),
+    (78, u'Gallops Island', u'LOCATION', 29, 30),
+    (78, u'Outer Brewster Island', u'LOCATION', 60, 62),
+    (78, u'Great Brewster Island', u'LOCATION', 32, 34),
+    (78, u'Green Island', u'LOCATION', 36, 37),
+    (78, u'Middle Brewster Island', u'LOCATION', 53, 55),
+    (78, u'Little Brewster Island', u'LOCATION', 39, 41),
+    (78, u'Lovells Island', u'LOCATION', 50, 51),
+    (78, u'Little Calf Island', u'LOCATION', 43, 45),
+    (78, u'Long Island', u'LOCATION', 47, 48),
+    (141, u'Boston', u'LOCATION', 2, 2),
+    (141, u'Salvadoran', u'LOCATION', 37, 37),
+    (141, u'Dominican', u'LOCATION', 22, 22)]
 question: Most of the city lies in which USDA plant hardiness zone?
 expected: 6b
 expected sentence: Boston has a continental climate with some maritime influence, and using the −3 °C (27 °F) coldest month (January) isotherm, the city lies within the transition zone from a humid subtropical climate (Köppen Cfa) to a humid continental climate (Köppen Dfa), although the suburbs north and west of the city are significantly colder in winter and solidly fall under the latter categorization; the city lies at the transition between USDA plant hardiness zones 6b (most of the city) and 7a (Downtown, South Boston, and East Boston neighborhoods).
-actual: (89, u'K\xf6ppen Dfa', 'OTHER', 51, 52)
+actual: (89, u'South Boston', u'LOCATION', 99, 100)
 expected id: 89
 extracted id: [89, 78, 141, 2, 127, 284, 27, 35, 36, 39, 69, 81, 102, 113, 134, 138, 154, 216, 246, 301]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -3002,6 +2936,37 @@ predicted question type: PERSON
 
 
 all results:
+[   (88, u'Eritrea', u'LOCATION', 36, 36),
+    (88, u'Tigrinya', u'LOCATION', 20, 20),
+    (177, u'Italy', u'LOCATION', 43, 43),
+    (177, u'Eritrea', u'LOCATION', 35, 35),
+    (177, u'Italy', u'LOCATION', 25, 25),
+    (134, u'Eritrea', u'LOCATION', 15, 15),
+    (134, u'Ethiopia', u'LOCATION', 20, 20),
+    (134, u'Somaliland', u'LOCATION', 27, 27),
+    (134, u'Ethiopia', u'LOCATION', 34, 34),
+    (134, u'Italian East Africa', u'LOCATION', 38, 40),
+    (134, u'Africa Orientale Italiana', u'LOCATION', 42, 44),
+    (73, u'Eritrea', u'LOCATION', 11, 11),
+    (81, u'Eritrea', u'LOCATION', 5, 5),
+    (39, u'Eritrea', u'LOCATION', 4, 4),
+    (123, u'Eritrea', u'LOCATION', 20, 20),
+    (123, u'Eritrea', u'LOCATION', 0, 0),
+    (41, u'Italians', 'OTHER', 13, 13),
+    (42, u'Italians', 'OTHER', 3, 3),
+    (42, u'five years', 'NUMBER', 18, 19),
+    (42, u'4,600', 'NUMBER', 10, 12)]
+question: Besides Eritreans, which other nationality increased its city population because of new industries?
+expected: Italians
+expected sentence: The establishment of industries also made an increase in the number of both Italians and Eritreans residing in the cities.
+actual: (88, u'Eritrea', u'LOCATION', 36, 36)
+expected id: 41
+extracted id: [41, 31, 42, 154, 193, 145, 38, 160, 44, 88, 92, 177, 134, 28, 135, 176, 73, 81, 39, 123]
+predicted question type: LOCATION
+
+
+
+all results:
 [   (55, u'Afar Triangle', 'OTHER', 1, 2),
     (55, u'Danakil Depression', 'OTHER', 4, 5),
     (174, u'Imam', 'OTHER', 11, 11),
@@ -3032,37 +2997,6 @@ expected sentence: The Afar Triangle or Danakil Depression of Eritrea is the pro
 actual: (55, u'Afar Triangle', 'OTHER', 1, 2)
 expected id: 55
 extracted id: [55, 174, 128, 7, 8, 97, 108, 112, 120, 123, 0, 2, 133, 134, 10, 11, 140, 142, 143, 144]
-predicted question type: OTHER
-
-
-
-all results:
-[   (76, u'Reporters Without Borders', 'OTHER', 21, 23),
-    (75, u'Reporters Without Borders', 'OTHER', 7, 9),
-    (75, u'Press Freedom Index', 'OTHER', 3, 5),
-    (193, u'Christianity', 'OTHER', 12, 12),
-    (193, u'Islam', 'OTHER', 14, 14),
-    (167, u'MTN', 'OTHER', 25, 25),
-    (167, u'Tour', 'OTHER', 16, 16),
-    (167, u'Qhubeka', 'OTHER', 27, 27),
-    (167, u'Eritrean Merhawi', 'OTHER', 3, 4),
-    (167, u'July', 'OTHER', 41, 41),
-    (141, u'Eritrean', 'OTHER', 12, 12),
-    (55, u'Afar Triangle', 'OTHER', 1, 2),
-    (55, u'Danakil Depression', 'OTHER', 4, 5),
-    (57, u'Lycaon', 'OTHER', 6, 6),
-    (91, u'Millennium Development Goal', 'OTHER', 22, 24),
-    (91, u'MDG', 'OTHER', 26, 26),
-    (15, u'Berber', 'OTHER', 31, 31),
-    (15, u'C', 'OTHER', 20, 20),
-    (15, u'Cushitic', 'OTHER', 33, 33),
-    (15, u'Afroasiatic', 'OTHER', 27, 27)]
-question: According to the BBC, which African country is the only one that has no privately owned news media?
-expected: Eritrea
-expected sentence: According to the BBC, "Eritrea is the only African country to have no privately owned news media", and Reporters Without Borders said of the public media, "[they] do nothing but relay the regime's belligerent and ultra-nationalist discourse.
-actual: (76, u'Reporters Without Borders', 'OTHER', 21, 23)
-expected id: 76
-extracted id: [76, 78, 75, 79, 193, 167, 141, 55, 57, 91, 15, 186, 61, 194, 93, 0, 142, 17, 21, 165]
 predicted question type: OTHER
 
 
@@ -5188,33 +5122,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (6, u'Jr', 'OTHER', 27, 27),
+[   (424, u'Faith Hill', u'LOCATION', 16, 17),
+    (471, u'Geffen', u'LOCATION', 33, 33),
+    (6, u'Jr', 'OTHER', 27, 27),
+    (6, u'Harry Connick', u'PERSON', 24, 25),
+    (6, u'Jennifer Lopez', u'PERSON', 18, 19),
+    (6, u'Keith Urban', u'PERSON', 12, 13),
     (429, u'CMT', 'OTHER', 3, 3),
     (429, u'TV', 'OTHER', 36, 36),
     (429, u'Idol', 'OTHER', 38, 38),
     (429, u'Idol', 'OTHER', 11, 11),
     (429, u'Idol', 'OTHER', 52, 52),
-    (424, u'Country Music Awards', 'OTHER', 12, 14),
-    (424, u'Best Female Artist', 'OTHER', 8, 10),
-    (333, u'Bible Belt', 'OTHER', 78, 79),
-    (333, u'South', 'OTHER', 52, 52),
-    (333, u'S', 'OTHER', 23, 23),
-    (333, u'Southern U', 'OTHER', 20, 21),
-    (333, u'Idol', 'OTHER', 8, 8),
-    (333, u'Southerners', 'OTHER', 6, 6),
-    (365, u'Big Three', 'OTHER', 37, 38),
-    (365, u'American', 'OTHER', 30, 30),
-    (365, u'TV', 'OTHER', 13, 13),
-    (471, u'M Records', 'OTHER', 37, 38),
-    (471, u'Interscope', 'OTHER', 31, 31),
-    (471, u'UMG', 'OTHER', 28, 28)]
+    (168, u'Josh Gracin', u'PERSON', 5, 6),
+    (272, u'Scotty McCreery', u'PERSON', 9, 10),
+    (272, u'Lauren Alaina', u'PERSON', 6, 7),
+    (272, u'2011', 'NUMBER', 4, 4),
+    (272, u'two finalists', 'NUMBER', 1, 2),
+    (5, u'Simon Cowell', u'PERSON', 23, 24),
+    (5, u'Paula Abdul', u'PERSON', 16, 17),
+    (5, u'Randy Jackson', u'PERSON', 9, 10),
+    (424, u'Carrie', u'PERSON', 24, 24)]
 question: Which judge is a country music singer?
 expected: Keith Urban
 expected sentence: The judging panel for the most recent season consisted of country singer Keith Urban, singer and actress Jennifer Lopez, and jazz singer Harry Connick, Jr.
-actual: (6, u'Jr', 'OTHER', 27, 27)
+actual: (424, u'Faith Hill', u'LOCATION', 16, 17)
 expected id: 6
 extracted id: [6, 429, 168, 272, 5, 424, 428, 333, 365, 471, 16, 31, 90, 469, 171, 172, 189, 415, 418, 303]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -7345,33 +7279,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (307, u'Jr', 'OTHER', 10, 10),
-    (40, u'Jr', 'OTHER', 22, 22),
-    (40, u'Jr', 'OTHER', 14, 14),
-    (6, u'Jr', 'OTHER', 27, 27),
-    (316, u'Jr', 'OTHER', 16, 16),
-    (271, u'Idol', 'OTHER', 7, 7),
-    (402, u'Broadway', 'OTHER', 9, 9),
-    (402, u'American Idol', 'OTHER', 5, 6),
-    (58, u'Hollywood', 'OTHER', 12, 12),
-    (95, u'CBS Television City', 'OTHER', 8, 10),
-    (34, u'Award', 'OTHER', 1, 1),
+[   (95, u'Los Angeles', u'LOCATION', 12, 13),
     (317, u'Adam Lambert', u'PERSON', 5, 6),
     (28, u'Angie Martinez', u'PERSON', 9, 10),
+    (307, u'Jr', 'OTHER', 10, 10),
     (307, u'Harry Connick', u'PERSON', 7, 8),
     (307, u'Jennifer Lopez', u'PERSON', 2, 3),
     (37, u'Randy Jackson', u'PERSON', 19, 20),
     (37, u'12', 'NUMBER', 23, 23),
     (37, u'Nicki Minaj', u'PERSON', 11, 12),
     (37, u'Mariah Carey', u'PERSON', 8, 9),
-    (37, u'three', 'NUMBER', 4, 4)]
+    (37, u'three', 'NUMBER', 4, 4),
+    (309, u'Gregg Gelfand', u'PERSON', 18, 19),
+    (309, u'Horvitz', u'PERSON', 16, 16),
+    (309, u'Louis J', u'PERSON', 13, 14),
+    (309, u'Warwick', u'PERSON', 3, 3),
+    (309, u'Bill DeRonde', u'PERSON', 0, 1),
+    (54, u'10,000', 'NUMBER', 4, 6),
+    (54, u'hundred', 'NUMBER', 14, 14),
+    (40, u'Jr', 'OTHER', 22, 22),
+    (40, u'Connick', u'PERSON', 20, 20)]
 question: Which former contestant replaced Keith Urban for auditions in New York City?
 expected: Adam Lambert
 expected sentence: Eighth season runner-up Adam Lambert filled in for Urban during the New York City auditions.
-actual: (307, u'Jr', 'OTHER', 10, 10)
+actual: (95, u'Los Angeles', u'LOCATION', 12, 13)
 expected id: 317
 extracted id: [317, 28, 307, 37, 309, 54, 40, 6, 292, 305, 316, 327, 125, 271, 402, 47, 58, 95, 34, 180]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -9178,37 +9112,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (5, u'June', 'OTHER', 27, 27),
-    (43, u'April', 'OTHER', 19, 19),
-    (43, u'Australian', 'OTHER', 7, 7),
-    (118, u'Emperor of India', 'OTHER', 5, 7),
-    (71, u'His Royal Highness Prince', 'OTHER', 6, 9),
-    (71, u'Royal Highness', 'OTHER', 40, 41),
-    (72, u'Letters Patent', 'OTHER', 33, 34),
-    (72, u'His Royal Highness The Duke', 'OTHER', 23, 27),
-    (119, u'Commonwealth', 'OTHER', 39, 39),
-    (119, u'Head', 'OTHER', 36, 36),
-    (119, u'Nations', 'OTHER', 18, 18),
-    (119, u'Commonwealth', 'OTHER', 16, 16),
-    (7, u'Commonwealth', 'OTHER', 9, 9),
-    (7, u'Head', 'OTHER', 6, 6),
-    (110, u'Low Countries', 'OTHER', 33, 34),
-    (110, u'October', 'OTHER', 36, 36),
-    (110, u'July', 'OTHER', 28, 28),
-    (110, u'December', 'OTHER', 9, 9),
-    (110, u'June', 'OTHER', 22, 22),
-    (110, u'June', 'OTHER', 17, 17)]
-question: For which country did George VI stop using the title Emperor but continue to use the title of King?
-expected: India
-expected sentence: After the independence of India and Pakistan in 1947, George remained as king of both countries, but the title Emperor of India was abandoned in June 1948.
-actual: (5, u'June', 'OTHER', 27, 27)
-expected id: 5
-extracted id: [5, 43, 118, 70, 71, 72, 119, 7, 73, 110, 1, 103, 120, 135, 138, 69, 75, 77, 80, 89]
-predicted question type: OTHER
-
-
-
-all results:
 [   (26, u'August', 'OTHER', 16, 16),
     (26, u"Squadron of the Boys ' Wing", 'OTHER', 7, 12),
     (26, u'RAF', 'OTHER', 23, 23),
@@ -9271,23 +9174,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (77, u'Durbar', 'OTHER', 3, 3),
-    (77, u'Delhi', u'LOCATION', 6, 6),
-    (77, u'George VI', u'PERSON', 8, 9),
-    (77, u'India', u'LOCATION', 30, 30),
-    (98, u'Buckingham Palace', u'LOCATION', 4, 5),
-    (98, u'Windsor Castle', u'LOCATION', 16, 17)]
-question: In which city are Durbars usually held?
-expected: Delhi
-expected sentence: There was no Durbar held in Delhi for George VI, as had occurred for his father, as the cost would have been a burden to the government of India.
-actual: (77, u'Durbar', 'OTHER', 3, 3)
-expected id: 77
-extracted id: [77, 98]
-predicted question type: OTHER
-
-
-
-all results:
 [   (92, u'Queen', 'OTHER', 27, 27),
     (86, u'Canadian Prime Minister', 'OTHER', 10, 12),
     (86, u'Queen', 'OTHER', 27, 27),
@@ -9345,37 +9231,6 @@ expected sentence: While broadly popular among the general public, Chamberlain's
 actual: (84, u'House of Commons', 'OTHER', 22, 24)
 expected id: 84
 extracted id: [84, 90, 72, 81, 82, 67, 68, 106, 86, 88, 118, 119, 128, 129, 130, 131, 5, 135, 139, 30]
-predicted question type: OTHER
-
-
-
-all results:
-[   (97, u'German', 'OTHER', 12, 12),
-    (100, u'September', 'OTHER', 2, 2),
-    (100, u'German', 'OTHER', 13, 13),
-    (100, u'Buckingham Palace', 'OTHER', 20, 21),
-    (101, u'I', 'OTHER', 9, 9),
-    (94, u'White House', 'OTHER', 20, 21),
-    (94, u'President', 'OTHER', 13, 13),
-    (94, u'Fair', 'OTHER', 9, 9),
-    (94, u'Roosevelt', 'OTHER', 17, 17),
-    (94, u'New York World', 'OTHER', 4, 6),
-    (104, u'U', 'OTHER', 8, 8),
-    (104, u'S', 'OTHER', 10, 10),
-    (104, u'Palace', 'OTHER', 39, 39),
-    (104, u'First Lady', 'OTHER', 12, 13),
-    (136, u'Princess', 'OTHER', 28, 28),
-    (11, u'Duke of York', 'OTHER', 28, 30),
-    (11, u'Prince', 'OTHER', 22, 22),
-    (11, u'Prince Consort', 'OTHER', 4, 5),
-    (86, u'Canadian Prime Minister', 'OTHER', 10, 12),
-    (128, u'Duke', 'OTHER', 15, 15)]
-question: Which city did the king and queen stay in even with the bombing threats?
-expected: London
-expected sentence: George VI and his wife resolved to stay in London, despite German bombing raids.
-actual: (97, u'German', 'OTHER', 12, 12)
-expected id: 97
-extracted id: [97, 100, 109, 101, 94, 98, 104, 136, 11, 86, 128, 82, 85, 92, 95, 13, 15, 64, 74, 76]
 predicted question type: OTHER
 
 
@@ -9717,68 +9572,6 @@ expected sentence: [citation needed] The sector has been helped enormously by ma
 actual: (62, u'Virgin Blue', 'OTHER', 44, 45)
 expected id: 62
 extracted id: [62, 124, 117, 121, 120, 125, 0, 10, 18, 32, 69, 8, 15, 28, 30, 33, 34, 35, 36, 38]
-predicted question type: OTHER
-
-
-
-all results:
-[   (65, u'World War I', 'OTHER', 17, 19),
-    (65, u'Great War', 'OTHER', 14, 15),
-    (31, u'Mau', 'OTHER', 1, 1),
-    (62, u'Virgin Blue', 'OTHER', 44, 45),
-    (62, u'The', 'OTHER', 4, 4),
-    (18, u'External Affairs', 'OTHER', 12, 13),
-    (18, u'Department', 'OTHER', 10, 10),
-    (18, u'Island Territories', 'OTHER', 29, 30),
-    (44, u'Fono', 'OTHER', 10, 10),
-    (34, u'August', 'OTHER', 22, 22),
-    (34, u'Nations', 'OTHER', 19, 19),
-    (34, u'Commonwealth', 'OTHER', 17, 17),
-    (36, u'Prime Minister', 'OTHER', 28, 29),
-    (36, u'II', 'OTHER', 8, 8),
-    (36, u'Mata', 'OTHER', 1, 1),
-    (56, u'Central Bank of Samoa', 'OTHER', 13, 16),
-    (56, u'Samoan', 'OTHER', 5, 5),
-    (0, u'Unitary Parliamentary Republic', 'OTHER', 41, 43),
-    (0, u'S\u0101moa', 'OTHER', 30, 30),
-    (0, u'Samoan', 'OTHER', 28, 28)]
-question: Which country's government wanted Samoa to grow bananas for them?
-expected: New Zealand
-expected sentence: When the value of natural rubber fell drastically, about the end of the Great War (World War I), the New Zealand government encouraged the production of bananas, for which there is a large market in New Zealand.
-actual: (65, u'World War I', 'OTHER', 17, 19)
-expected id: 65
-extracted id: [65, 31, 72, 62, 67, 68, 18, 44, 60, 34, 36, 56, 43, 108, 0, 10, 32, 69, 117, 120]
-predicted question type: OTHER
-
-
-
-all results:
-[   (6, u'Samoans', 'OTHER', 18, 18),
-    (6, u'Lapita', 'OTHER', 27, 27),
-    (6, u'BCE', 'OTHER', 43, 43),
-    (11, u'British', 'OTHER', 6, 6),
-    (13, u'March', 'OTHER', 9, 9),
-    (13, u'Samoan', 'OTHER', 1, 1),
-    (65, u'Great War', 'OTHER', 14, 15),
-    (65, u'World War I', 'OTHER', 17, 19),
-    (122, u'National Leagues', 'OTHER', 16, 17),
-    (122, u'Super League', 'OTHER', 13, 14),
-    (122, u'New Zealanders', 'OTHER', 3, 4),
-    (122, u'Samoans', 'OTHER', 1, 1),
-    (122, u'Australians', 'OTHER', 6, 6),
-    (34, u'Commonwealth', 'OTHER', 17, 17),
-    (34, u'Nations', 'OTHER', 19, 19),
-    (34, u'August', 'OTHER', 22, 22),
-    (36, u'II', 'OTHER', 8, 8),
-    (36, u'Prime Minister', 'OTHER', 28, 29),
-    (36, u'Mata', 'OTHER', 1, 1),
-    (56, u'Central Bank of Samoa', 'OTHER', 13, 16)]
-question: Besides Melanesia, which country sent many workers for the cocoa and rubber plantations in Samoa?
-expected: China
-expected sentence: German merchants and settlers were active in introducing large scale plantation operations and developing new industries, notably cocoa bean and rubber, relying on imported labourers from China and Melanesia.
-actual: (6, u'Samoans', 'OTHER', 18, 18)
-expected id: 64
-extracted id: [64, 74, 6, 11, 13, 108, 67, 65, 70, 122, 34, 36, 56, 62, 43, 0, 10, 18, 32, 69]
 predicted question type: OTHER
 
 
@@ -12585,33 +12378,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (20, u'Russian Socialist Federative', 'OTHER', 53, 55),
-    (20, u'Russian Constitution', 'OTHER', 45, 46),
-    (20, u'On July', 'OTHER', 38, 39),
-    (20, u'Russian Empire', 'OTHER', 24, 25),
-    (20, u'Treaty', 'OTHER', 7, 7),
-    (20, u'March', 'OTHER', 1, 1),
-    (41, u'Russian Empire', 'OTHER', 23, 24),
-    (41, u'On July', 'OTHER', 39, 40),
-    (41, u'Russian Constitution', 'OTHER', 46, 47),
-    (41, u'March', 'OTHER', 9, 9),
-    (41, u'Russian Socialist Federative', 'OTHER', 54, 56),
-    (41, u'Treaty', 'OTHER', 1, 1),
-    (58, u'RSFSR', 'OTHER', 23, 23),
-    (58, u'World War II Soviet', 'OTHER', 4, 7),
-    (75, u'Independent States', 'OTHER', 54, 55),
-    (75, u'Commonwealth', 'OTHER', 52, 52),
-    (21, u'Russian Civil War', 'OTHER', 5, 7),
-    (21, u'Russian Empire', 'OTHER', 14, 15),
-    (42, u'Russian Civil War', 'OTHER', 5, 7),
-    (42, u'Russian Empire', 'OTHER', 14, 15)]
+[   (20, u'Soviet Republic', u'LOCATION', 56, 57),
+    (20, u'Germany', u'LOCATION', 27, 27),
+    (20, u'Brest', u'LOCATION', 9, 9),
+    (41, u'Germany', u'LOCATION', 26, 26),
+    (41, u'Soviet Republic', u'LOCATION', 57, 58),
+    (41, u'Brest', u'LOCATION', 3, 3),
+    (58, u'Kuril Islands', u'LOCATION', 15, 16),
+    (58, u'Sakhalin Island', u'LOCATION', 11, 12),
+    (12, u'Soviet Russia', u'LOCATION', 4, 5),
+    (67, u'Soviet Union', u'LOCATION', 40, 41),
+    (67, u'Russian Federation', u'LOCATION', 44, 45),
+    (1, u'Soviet Union', u'LOCATION', 56, 57),
+    (1, u'Soviet Union', u'LOCATION', 44, 45),
+    (1, u'Soviet Russia', u'LOCATION', 15, 16),
+    (44, u'Soviet Union', u'LOCATION', 4, 5),
+    (70, u'Moscow', u'LOCATION', 13, 13),
+    (70, u'Soviet Union', u'LOCATION', 19, 20),
+    (70, u'Russia Yeltsin', u'LOCATION', 26, 27),
+    (70, u'Soviet Union', u'LOCATION', 34, 35),
+    (10, u'Soviet Union', u'LOCATION', 11, 12)]
 question: To which country did Russia give land during World War I?
 expected: Germany
 expected sentence: On March 3, 1918, the Treaty of Brest-Litovsk was signed, giving away much of the land of the former Russian Empire to Germany, in exchange for peace in World War I. On July 10, 1918, the Russian Constitution of 1918 renamed the country the Russian Socialist Federative Soviet Republic.
-actual: (20, u'March', 'OTHER', 1, 1)
+actual: (20, u'Brest', u'LOCATION', 9, 9)
 expected id: 20
 extracted id: [20, 41, 58, 75, 21, 42, 12, 8, 18, 67, 1, 14, 44, 70, 10, 26, 34, 36, 39, 47]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -15372,37 +15165,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (58, u'Sons', 'OTHER', 13, 13),
-    (58, u'October', 'OTHER', 9, 9),
-    (58, u'Liberty', 'OTHER', 15, 15),
-    (58, u'British', 'OTHER', 28, 28),
-    (396, u'Yankee Stadium', 'OTHER', 12, 13),
-    (396, u'U', 'OTHER', 37, 37),
-    (396, u'Square Garden', 'OTHER', 1, 2),
-    (396, u'S', 'OTHER', 39, 39),
-    (416, u'Wanamaker Mile', 'OTHER', 15, 16),
-    (416, u'Millrose Games', 'OTHER', 1, 2),
-    (67, u'Confederation', 'OTHER', 10, 10),
-    (69, u'United States Bill of Rights', 'OTHER', 39, 43),
-    (69, u'Supreme Court', 'OTHER', 24, 25),
-    (69, u'President', 'OTHER', 5, 5),
-    (69, u'Federal Hall', 'OTHER', 49, 50),
-    (69, u'Wall Street', 'OTHER', 52, 53),
-    (71, u'New York State', 'OTHER', 1, 3),
-    (87, u'South', 'OTHER', 21, 21),
-    (87, u'Mayor', 'OTHER', 3, 3),
-    (270, u'August', 'OTHER', 13, 13)]
-question: The Stamp Act Congress had a meeting in 1765 in which US city?
-expected: New York
-expected sentence: The Stamp Act Congress met in New York in October 1765 as the Sons of Liberty organized in the city, skirmishing over the next ten years with British troops stationed there.
-actual: (58, u'October', 'OTHER', 9, 9)
-expected id: 58
-extracted id: [58, 396, 416, 67, 69, 71, 87, 270, 8, 543, 384, 247, 458, 542, 179, 192, 198, 199, 258, 349]
-predicted question type: OTHER
-
-
-
-all results:
 [   (59, u'August', 'OTHER', 18, 18),
     (59, u'American Revolutionary War', 'OTHER', 11, 13),
     (400, u'World Series', 'OTHER', 6, 7),
@@ -16609,37 +16371,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (184, u'National Park Service', 'OTHER', 15, 17),
-    (184, u'Ellis Island Immigration Museum', 'OTHER', 7, 10),
-    (184, u'Liberty National Monument', 'OTHER', 3, 5),
-    (184, u'Statue', 'OTHER', 1, 1),
-    (205, u'European', 'OTHER', 24, 24),
-    (296, u'Central Park', 'OTHER', 122, 123),
-    (296, u'Central Park', 'OTHER', 107, 108),
-    (296, u'Halloween Parade', 'OTHER', 68, 69),
-    (296, u'Madison Avenues', 'OTHER', 60, 61),
-    (296, u'Fifth', 'OTHER', 58, 58),
-    (296, u'Central Park', 'OTHER', 41, 42),
-    (296, u'Tribeca Film Festival', 'OTHER', 114, 116),
-    (296, u'Summerstage', 'OTHER', 125, 125),
-    (296, u'Macy', 'OTHER', 75, 75),
-    (296, u'Rockefeller Center', 'OTHER', 48, 49),
-    (296, u'Art', 'OTHER', 36, 36),
-    (296, u'Thanksgiving Day Parade', 'OTHER', 78, 80),
-    (296, u'Day', 'OTHER', 97, 97),
-    (296, u'Metropolitan Museum', 'OTHER', 33, 34),
-    (296, u'St', 'OTHER', 92, 92)]
-question: Ellis Island is considered in New York state and which other?
-expected: New Jersey
-expected sentence: The Statue of Liberty National Monument and Ellis Island Immigration Museum are managed by the National Park Service and are in both the states of New York and New Jersey.
-actual: (184, u'Liberty National Monument', 'OTHER', 3, 5)
-expected id: 184
-extracted id: [184, 205, 296, 112, 374, 148, 418, 493, 523, 215, 130, 0, 26, 69, 25, 134, 436, 513, 517, 40]
-predicted question type: OTHER
-
-
-
-all results:
 [   (188, u'Clay Pit Ponds State Park Preserve', 'OTHER', 14, 19),
     (181, u'Wildlife Refuge', 'OTHER', 34, 35),
     (181, u'Gateway National Recreation Area', 'OTHER', 0, 3),
@@ -16718,37 +16449,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (196, u'National Guard', 'OTHER', 8, 9),
-    (183, u'Battery Weed', 'OTHER', 17, 18),
-    (183, u'Civil War', 'OTHER', 14, 15),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (523, u'The', 'OTHER', 53, 53),
-    (365, u'MetroTech Center', 'OTHER', 7, 8),
-    (365, u'FDNY Fire Academy', 'OTHER', 15, 17),
-    (365, u'FDNY', 'OTHER', 1, 1),
-    (395, u'Citi Field', 'OTHER', 24, 25),
-    (395, u'Madison Square Garden', 'OTHER', 19, 21),
-    (395, u'Yankee Stadium', 'OTHER', 16, 17),
-    (395, u'MetLife Stadium', 'OTHER', 11, 12),
-    (192, u'S', 'OTHER', 12, 12),
-    (192, u'U', 'OTHER', 10, 10),
-    (   194,
-        u'North Atlantic Division of the United States Army Corps of Engineers',
-        'OTHER',
-        9,
-        19),
-    (194, u'Recruiting Battalion', 'OTHER', 28, 29),
-    (41, u'Nieuw Amsterdam', 'OTHER', 22, 23),
-    (193, u'American Revolution', 'OTHER', 15, 16),
-    (0, u'State', 'OTHER', 19, 19),
-    (215, u'Chinese', 'OTHER', 88, 88)]
+[   (196, u'Queens', u'LOCATION', 29, 29),
+    (196, u'Staten Island', u'LOCATION', 23, 24),
+    (183, u'Great Kills Park', u'LOCATION', 24, 26),
+    (183, u'Fort Tompkins', u'LOCATION', 20, 21),
+    (183, u'Staten Island', u'LOCATION', 1, 2),
+    (523, u'Brooklyn', u'LOCATION', 39, 39),
+    (523, u'Queens', u'LOCATION', 37, 37),
+    (523, u'Staten Island', u'LOCATION', 22, 23),
+    (523, u'Manhattan', u'LOCATION', 20, 20),
+    (523, u'Bronx', u'LOCATION', 54, 54),
+    (523, u'Long Island', u'LOCATION', 49, 50),
+    (365, u'Downtown Brooklyn', u'LOCATION', 10, 11),
+    (365, u'Randalls Island', u'LOCATION', 21, 22),
+    (192, u'Fort Hamilton', u'LOCATION', 6, 7),
+    (194, u'Fort Hamilton', u'LOCATION', 1, 2),
+    (41, u'Fort Amsterdam', u'LOCATION', 11, 12),
+    (41, u'Manhattan Island', u'LOCATION', 14, 15),
+    (41, u'New Amsterdam', u'LOCATION', 19, 20),
+    (182, u'Fort Tilden', u'LOCATION', 22, 23),
+    (182, u'Queens', u'LOCATION', 2, 2)]
 question: Fort Wadsworth and Fort Totten are located in which area of New York City?
 expected: Queens
 expected sentence: Other formerly active military reservations still utilized for National Guard and military training or reserve operations in the city include Fort Wadsworth in Staten Island and Fort Totten in Queens.
-actual: (196, u'National Guard', 'OTHER', 8, 9)
+actual: (196, u'Staten Island', u'LOCATION', 23, 24)
 expected id: 196
 extracted id: [196, 183, 523, 365, 395, 192, 194, 41, 182, 193, 0, 215, 7, 26, 233, 175, 118, 200, 399, 401]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -18097,37 +17824,6 @@ expected sentence: The city is represented in the National Football League by th
 actual: (408, u'New York Jets', 'OTHER', 16, 18)
 expected id: 408
 extracted id: [408, 395, 65, 111, 240, 100, 396, 46, 402, 276, 502, 506, 233, 109, 187, 415]
-predicted question type: OTHER
-
-
-
-all results:
-[   (409, u'National Hockey League', 'OTHER', 14, 16),
-    (409, u'New York Rangers', 'OTHER', 6, 8),
-    (409, u'New York Islanders', 'OTHER', 1, 3),
-    (391, u'National Hockey League', 'OTHER', 24, 26),
-    (391, u'National Basketball Association', 'OTHER', 19, 21),
-    (391, u'National Football League', 'OTHER', 10, 12),
-    (391, u'Major League Baseball', 'OTHER', 14, 16),
-    (391, u'Major League Soccer', 'OTHER', 29, 31),
-    (402, u'New York Yankees', 'OTHER', 26, 28),
-    (402, u'New York Mets', 'OTHER', 12, 14),
-    (402, u'Major League Baseball', 'OTHER', 6, 8),
-    (408, u'New York Jets', 'OTHER', 16, 18),
-    (408, u'New York Giants', 'OTHER', 11, 13),
-    (408, u'National Football League', 'OTHER', 6, 8),
-    (408, u'Super Bowl XLVIII', 'OTHER', 40, 42),
-    (408, u'Stadium', 'OTHER', 29, 29),
-    (408, u'MetLife', 'OTHER', 28, 28),
-    (400, u'World Series', 'OTHER', 6, 7),
-    (400, u'Subway Series', 'OTHER', 22, 23),
-    (413, u'NBA', 'OTHER', 40, 40)]
-question: Which town do the New Jersey Devils hockey team play?
-expected: Newark
-expected sentence: Also within the metropolitan area are the New Jersey Devils, who play in nearby Newark, New Jersey.
-actual: (409, u'New York Islanders', 'OTHER', 1, 3)
-expected id: 410
-extracted id: [410, 409, 391, 402, 408, 400, 394, 413, 503, 514, 446, 411, 392, 398, 504, 502, 505, 506, 47, 399]
 predicted question type: OTHER
 
 
@@ -19857,37 +19553,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (74, u'Algonquian', 'OTHER', 7, 7),
-    (74, u'King', 'OTHER', 35, 35),
-    (211, u'Bermudian', 'OTHER', 9, 9),
-    (208, u'Bermudians', 'OTHER', 4, 4),
-    (208, u'Admiral Lord', 'OTHER', 19, 20),
-    (208, u'Royal Marines Brigadier', 'OTHER', 27, 29),
-    (66, u'African', 'OTHER', 41, 41),
-    (66, u'European', 'OTHER', 29, 29),
-    (66, u'British West Indian', 'OTHER', 14, 16),
-    (66, u'Native American', 'OTHER', 31, 32),
-    (45, u'British', 'OTHER', 3, 3),
-    (185, u'West Indian Association of Bermuda', 'OTHER', 26, 30),
-    (185, u'PLP', 'OTHER', 2, 2),
-    (185, u'Trinidadian', 'OTHER', 13, 13),
-    (44, u'Bermudian', 'OTHER', 9, 9),
-    (62, u'Bermudian', 'OTHER', 10, 10),
-    (64, u'European', 'OTHER', 35, 35),
-    (64, u'East', 'OTHER', 15, 15),
-    (64, u'West Indian', 'OTHER', 5, 6),
-    (59, u'West Indies', u'LOCATION', 40, 41)]
-question: There has been a double in the population of people born in which country?
-expected: Asian
-expected sentence: The number of persons born in Asian countries doubled between the 2000 and the 2010 censuses), blacks have remained in the majority, with new white immigration from Portugal, Britain and elsewhere countered by black immigration from the West Indies.
-actual: (74, u'Algonquian', 'OTHER', 7, 7)
-expected id: 59
-extracted id: [59, 46, 48, 167, 74, 211, 208, 66, 162, 45, 57, 61, 185, 43, 44, 49, 50, 60, 62, 64]
-predicted question type: OTHER
-
-
-
-all results:
 [   (229, u'FA', 'OTHER', 15, 15),
     (69, u'Africans', 'OTHER', 31, 31),
     (69, u'Spanish', 'OTHER', 35, 35),
@@ -20074,37 +19739,6 @@ predicted question type: PERSON
 
 
 all results:
-[   (225, u"UK ' s Financial Services Authority", 'OTHER', 26, 31),
-    (225, u'Designated Investment Exchange', 'OTHER', 20, 22),
-    (225, u'FIF', 'OTHER', 15, 15),
-    (225, u'Foreign Investment Fund', 'OTHER', 11, 13),
-    (224, u'World Federation of Exchanges', 'OTHER', 8, 11),
-    (224, u'OECD', 'OTHER', 17, 17),
-    (149, u'Constitution', 'OTHER', 7, 7),
-    (211, u'Bermudian', 'OTHER', 9, 9),
-    (175, u'CARICOM', 'OTHER', 41, 41),
-    (212, u'Bermudian', 'OTHER', 8, 8),
-    (212, u'Bermudian', 'OTHER', 35, 35),
-    (225, u'Australia', u'LOCATION', 8, 8),
-    (222, u'three hundred', 'NUMBER', 14, 15),
-    (222, u'four', 'NUMBER', 2, 2),
-    (222, u'Bermuda', u'LOCATION', 25, 25),
-    (149, u'Bermuda', u'LOCATION', 9, 9),
-    (167, u'US', u'LOCATION', 32, 32),
-    (167, u'China', u'LOCATION', 36, 36),
-    (167, u'China', u'LOCATION', 23, 23),
-    (167, u'US', u'LOCATION', 15, 15)]
-question: Which foreign country offers the BSX Approved Stock Exchange Status?
-expected: Australia
-expected sentence: It also has Approved Stock Exchange status under Australia's Foreign Investment Fund (FIF) taxation rules and Designated Investment Exchange status by the UK's Financial Services Authority.
-actual: (225, u"UK ' s Financial Services Authority", 'OTHER', 26, 31)
-expected id: 225
-extracted id: [225, 224, 222, 149, 167, 211, 59, 162, 148, 221, 41, 175, 15, 49, 196, 212, 223]
-predicted question type: OTHER
-
-
-
-all results:
 [   (171, u'Ian Kawaley', u'PERSON', 14, 15),
     (184, u'Gordon', u'PERSON', 31, 31),
     (207, u'Glyn Charles Anglim Gilbert', u'PERSON', 7, 10),
@@ -20132,37 +19766,6 @@ actual: (171, u'Ian Kawaley', u'PERSON', 14, 15)
 expected id: 236
 extracted id: [236, 252, 255, 162, 17, 35, 39, 43, 62, 128, 143, 171, 184, 188, 202, 204, 207, 210, 231, 249]
 predicted question type: PERSON
-
-
-
-all results:
-[   (10, u'THz', 'OTHER', 30, 30),
-    (10, u'Hz', 'OTHER', 37, 37),
-    (47, u'Assuming', 'OTHER', 80, 80),
-    (39, u'Nobel Prize', 'OTHER', 17, 18),
-    (12, u'NA', 'OTHER', 32, 32),
-    (10, u'555 nanometres', 'NUMBER', 9, 10),
-    (10, u'7014540000000000000', 'NUMBER', 27, 27),
-    (10, u'540', 'NUMBER', 29, 29),
-    (10, u'7014540000000000000', 'NUMBER', 32, 32),
-    (10, u'540', 'NUMBER', 34, 34),
-    (10, u'1012', 'NUMBER', 36, 36),
-    (23, u'Wien', u'PERSON', 0, 0),
-    (41, u'Einstein', u'PERSON', 2, 2),
-    (13, u'555 nm', 'NUMBER', 8, 9),
-    (13, u'7005216000000000000', 'NUMBER', 14, 14),
-    (13, u'216 kJ', 'NUMBER', 16, 17),
-    (39, u'1905 paper', 'NUMBER', 3, 4),
-    (39, u'Robert Andrews Millikan', u'PERSON', 33, 35),
-    (39, u'1921', 'NUMBER', 20, 20),
-    (39, u'Einstein', u'PERSON', 0, 0)]
-question: Which light wavelength is the human eye most sensitive to?
-expected: 555 nanometres
-expected sentence: For example, green light with a wavelength of 555 nanometres (the approximate wavelength to which human eyes are most sensitive) has a frequency of 7014540000000000000♠540 THz (7014540000000000000♠540×1012 Hz).
-actual: (10, u'THz', 'OTHER', 30, 30)
-expected id: 10
-extracted id: [10, 23, 41, 13, 43, 17, 18, 47, 2, 36, 39, 8, 12, 45, 20, 93]
-predicted question type: OTHER
 
 
 
@@ -22010,64 +21613,33 @@ predicted question type: PERSON
 
 
 all results:
-[   (169, u'American Presbyterians', 'OTHER', 7, 8),
-    (169, u'Muslim', 'OTHER', 39, 39),
-    (161, u'Presbyterian Church', 'OTHER', 18, 19),
-    (161, u'PCK', 'OTHER', 23, 23),
-    (161, u'United Presbyterian Assembly', 'OTHER', 30, 32),
-    (38, u'General Assembly', 'OTHER', 16, 17),
-    (94, u'English Civil War', 'OTHER', 25, 27),
-    (94, u'Parliamentarians', 'OTHER', 22, 22),
-    (94, u'Covenanters', 'OTHER', 1, 1),
-    (125, u'Westminster Presbyterian Church', 'OTHER', 63, 65),
-    (125, u'Reformed Presbyterian Church', 'OTHER', 27, 29),
-    (125, u'RPCUS', 'OTHER', 35, 35),
-    (125, u'Korean American Presbyterian Church', 'OTHER', 72, 75),
-    (125, u'Presbyterian Reformed Church', 'OTHER', 58, 60),
-    (125, u'ARP', 'OTHER', 24, 24),
-    (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14),
-    (125, u'Reformed Presbyterian', 'OTHER', 38, 39),
-    (125, u'Associate Reformed Presbyterian Church', 'OTHER', 19, 22),
-    (125, u'Church General Assembly', 'OTHER', 40, 42),
-    (125, u'Covenant Presbyterian Church', 'OTHER', 53, 55)]
-question: Korean Presbyterian missionaries being sent over seas are second in numbers to only which other country?
-expected: United States
-expected sentence: Korean Presbyterian denominations are active in evangelism and many of its missionaries are being sent overseas, being the second biggest missionary sender in the world after the United States.
-actual: (169, u'American Presbyterians', 'OTHER', 7, 8)
-expected id: 167
-extracted id: [167, 169, 161, 144, 38, 94, 125, 168, 23, 109, 151, 163, 183, 191, 192, 198, 56, 117, 148, 159]
-predicted question type: OTHER
-
-
-
-all results:
-[   (169, u'American Presbyterians', 'OTHER', 7, 8),
-    (169, u'Korean', 'OTHER', 5, 5),
-    (169, u'Korean', 'OTHER', 46, 46),
-    (165, u'General Assembly of Presbyterian Church', 'OTHER', 21, 25),
-    (165, u'Hapdong', 'OTHER', 29, 29),
-    (165, u'The', 'OTHER', 20, 20),
-    (165, u'Tonghap', 'OTHER', 15, 15),
-    (165, u'The Presbyterian Church', 'OTHER', 9, 11),
-    (165, u'PCK', 'OTHER', 4, 4),
-    (168, u'Presbyterian Churches', 'OTHER', 13, 14),
-    (168, u'General Assembly', 'OTHER', 10, 11),
-    (168, u'Hapdong', 'OTHER', 8, 8),
-    (161, u'Korean', 'OTHER', 11, 11),
-    (161, u'Korean Presbyterian', 'OTHER', 3, 4),
-    (161, u'PCK', 'OTHER', 23, 23),
-    (161, u'United Presbyterian Assembly', 'OTHER', 30, 32),
-    (162, u'Koshin Presbyterian Church', 'OTHER', 36, 38),
-    (162, u'Koshin', 'OTHER', 42, 42),
-    (162, u'The', 'OTHER', 35, 35),
-    (162, u'Japanese', 'OTHER', 11, 11)]
+[   (169, u'Australia', u'LOCATION', 33, 33),
+    (169, u'United States', u'LOCATION', 11, 12),
+    (169, u'New Zealand', u'LOCATION', 35, 36),
+    (169, u'Saudi Arabia', u'LOCATION', 43, 44),
+    (192, u'Vanuatu', u'LOCATION', 4, 4),
+    (192, u'Vanuatu', u'LOCATION', 22, 22),
+    (162, u'Koryu', u'LOCATION', 28, 28),
+    (151, u'Africa', u'LOCATION', 7, 7),
+    (151, u'Nigeria', u'LOCATION', 4, 4),
+    (163, u'Republic of Korea', u'LOCATION', 40, 42),
+    (198, u'South Pacific', u'LOCATION', 7, 8),
+    (198, u'Vanuatu', u'LOCATION', 0, 0),
+    (125, u'United States', u'LOCATION', 68, 69),
+    (125, u'United States', u'LOCATION', 32, 33),
+    (125, u'United States', u'LOCATION', 5, 6),
+    (125, u'Hanover Presbytery', u'LOCATION', 49, 50),
+    (125, u'North America', u'LOCATION', 83, 84),
+    (124, u'America', u'LOCATION', 70, 70),
+    (124, u'America', u'LOCATION', 40, 40),
+    (124, u'USA', u'LOCATION', 21, 21)]
 question: Which muslim country does Korea have a Presbyterian church in?
 expected: Saudi Arabia
 expected sentence: In addition there are many Korean-American Presbyterians in the United States, either with their own church sites or sharing space in pre-existing churches as is the case in Australia, New Zealand and even Muslim countries such as Saudi Arabia with Korean immigration.
-actual: (169, u'American Presbyterians', 'OTHER', 7, 8)
+actual: (169, u'Australia', u'LOCATION', 33, 33)
 expected id: 169
 extracted id: [169, 165, 168, 161, 192, 162, 144, 151, 163, 198, 125, 124, 121, 39, 136, 137, 185, 2, 105, 113]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -22099,37 +21671,6 @@ actual: (188, u'1974', 'NUMBER', 9, 9)
 expected id: 188
 extracted id: [188, 189, 160, 33, 166, 147, 53, 63]
 predicted question type: NUMBER
-
-
-
-all results:
-[   (181, u'Presbyterian', 'OTHER', 21, 21),
-    (181, u'Christianity', 'OTHER', 10, 10),
-    (181, u'Commonwealth Census', 'OTHER', 25, 26),
-    (181, u'Presbyterianism', 'OTHER', 3, 3),
-    (181, u'Australians', 'OTHER', 17, 17),
-    (152, u'Rivers', 'OTHER', 11, 11),
-    (125, u'Free Presbyterian Church', 'OTHER', 79, 81),
-    (125, u'Korean American Presbyterian Church', 'OTHER', 72, 75),
-    (125, u'Westminster Presbyterian Church', 'OTHER', 63, 65),
-    (125, u'Presbyterian Reformed Church', 'OTHER', 58, 60),
-    (125, u'Covenant Presbyterian Church', 'OTHER', 53, 55),
-    (125, u'Reformed Presbyterian Church', 'OTHER', 45, 47),
-    (125, u'Reformed Presbyterian', 'OTHER', 38, 39),
-    (125, u'Reformed Presbyterian Church', 'OTHER', 27, 29),
-    (125, u'Associate Reformed Presbyterian Church', 'OTHER', 19, 22),
-    (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14),
-    (125, u'Church General Assembly', 'OTHER', 40, 42),
-    (125, u'RPCUS', 'OTHER', 35, 35),
-    (125, u'ARP', 'OTHER', 24, 24),
-    (125, u'RPCNA', 'OTHER', 16, 16)]
-question: The approval of women elders which was given in 1960 has been rescinded in all of the Australian states except one, which state did not?
-expected: New South Wales
-expected sentence: The approval of women elders given in the 1960s has been rescinded in all states except New South Wales, which has the largest membership.
-actual: (181, u'Christianity', 'OTHER', 10, 10)
-expected id: 189
-extracted id: [189, 188, 181, 152, 125, 151, 32, 37, 26, 130, 13, 167, 169, 176, 177, 184, 123, 1, 7, 27]
-predicted question type: OTHER
 
 
 
@@ -22927,33 +22468,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (98, u'Government', 'OTHER', 72, 72),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (88, u'Hampshire County Council', 'OTHER', 4, 6),
-    (88, u'Corporation', 'OTHER', 43, 43),
-    (45, u'March', 'OTHER', 11, 11),
-    (45, u'Redbridge', 'OTHER', 6, 6),
-    (45, u'Royalists', 'OTHER', 1, 1),
-    (12, u'Solent City', 'OTHER', 21, 22),
-    (101, u'Local Government Act', 'OTHER', 44, 46),
-    (101, u'April', 'OTHER', 36, 36),
-    (252, u'Banister Court Stadium', 'OTHER', 5, 7),
-    (97, u'County', 'OTHER', 49, 49),
-    (97, u'The Town', 'OTHER', 46, 47),
-    (97, u'June', 'OTHER', 36, 36),
-    (97, u'In', 'OTHER', 31, 31),
-    (99, u'County', 'OTHER', 7, 7),
-    (99, u'The Town', 'OTHER', 4, 5)]
+[   (98, u'England', u'LOCATION', 55, 55),
+    (98, u'Wales', u'LOCATION', 57, 57),
+    (88, u'Hampshire', u'LOCATION', 23, 23),
+    (12, u'South Hampshire', u'LOCATION', 13, 14),
+    (101, u'Hampshire County', u'LOCATION', 19, 20),
+    (97, u'Portsmouth', u'LOCATION', 21, 21),
+    (111, u'South Korea', u'LOCATION', 50, 51),
+    (111, u'China', u'LOCATION', 42, 42),
+    (111, u'Qingdao', u'LOCATION', 40, 40),
+    (111, u'USA', u'LOCATION', 38, 38),
+    (111, u'Virginia', u'LOCATION', 36, 36),
+    (111, u'Italy', u'LOCATION', 29, 29),
+    (111, u'Trieste', u'LOCATION', 27, 27),
+    (111, u'Germany', u'LOCATION', 22, 22),
+    (111, u'France', u'LOCATION', 11, 11),
+    (301, u'Fawley', u'LOCATION', 31, 31),
+    (301, u'Totton', u'LOCATION', 34, 34),
+    (301, u'Fareham', u'LOCATION', 42, 42),
+    (136, u'Weston', u'LOCATION', 5, 5),
+    (98, u'Government', 'OTHER', 72, 72)]
 question: After 1888, which Council took over some governance of Southampton Town?
 expected: Hampshire County Council
 expected sentence: These charters and Royal Grants, of which there were many, also set out the governance and regulation of the town and port which remained the 'constitution' of the town until the local government organisation of the later Victorian period which from about 1888 saw the setting up of County Councils across England and Wales and including Hampshire County Council who now took on some of the function of Government in Southampton Town.
-actual: (98, u'County Councils', 'OTHER', 52, 53)
+actual: (98, u'England', u'LOCATION', 55, 55)
 expected id: 98
 extracted id: [98, 88, 45, 12, 101, 252, 288, 97, 105, 99, 103, 111, 133, 280, 301, 8, 104, 136, 154, 247]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -23051,33 +22592,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (111, u'Busan', 'OTHER', 48, 48),
-    (111, u'Rems', 'OTHER', 16, 16),
-    (15, u'Britons', 'OTHER', 15, 15),
-    (15, u'AD', 'OTHER', 7, 7),
-    (15, u'AD', 'OTHER', 18, 18),
-    (15, u'Roman', 'OTHER', 2, 2),
-    (293, u'A34', 'OTHER', 16, 16),
-    (293, u'E05', 'OTHER', 23, 23),
-    (293, u'European', 'OTHER', 21, 21),
-    (293, u'M3', 'OTHER', 1, 1),
-    (88, u'Corporation', 'OTHER', 43, 43),
-    (88, u'Hampshire County Council', 'OTHER', 4, 6),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (199, u'April', 'OTHER', 14, 14),
-    (199, u'September', 'OTHER', 16, 16),
-    (199, u'Boat Show', 'OTHER', 1, 2)]
+[   (111, u'South Korea', u'LOCATION', 50, 51),
+    (111, u'China', u'LOCATION', 42, 42),
+    (111, u'Qingdao', u'LOCATION', 40, 40),
+    (111, u'USA', u'LOCATION', 38, 38),
+    (111, u'Virginia', u'LOCATION', 36, 36),
+    (111, u'Italy', u'LOCATION', 29, 29),
+    (111, u'Trieste', u'LOCATION', 27, 27),
+    (111, u'Germany', u'LOCATION', 22, 22),
+    (111, u'France', u'LOCATION', 11, 11),
+    (23, u'Hamwic', u'LOCATION', 10, 10),
+    (15, u'Britain', u'LOCATION', 5, 5),
+    (293, u'Midlands', u'LOCATION', 30, 30),
+    (293, u'Winchester', u'LOCATION', 26, 26),
+    (293, u'London', u'LOCATION', 7, 7),
+    (88, u'Hampshire', u'LOCATION', 23, 23),
+    (98, u'Southampton Town', u'LOCATION', 74, 75),
+    (98, u'England', u'LOCATION', 55, 55),
+    (98, u'Wales', u'LOCATION', 57, 57),
+    (199, u'Sea City', u'LOCATION', 8, 9),
+    (292, u'England', u'LOCATION', 11, 11)]
 question: Which Italian city did Southampton City Council establish a twinning link with in 2002?
 expected: Trieste
 expected sentence: Southampton City Council has developed twinning links with Le Havre in France (since 1973), Rems-Murr-Kreis in Germany (since 1991), Trieste in Italy (since 2002); Hampton, Virginia in USA, Qingdao in China (since 1998), and Busan in South Korea (since 1978).
-actual: (111, u'Busan', 'OTHER', 48, 48)
+actual: (111, u'France', u'LOCATION', 11, 11)
 expected id: 111
 extracted id: [111, 23, 15, 293, 88, 98, 105, 199, 106, 292, 294, 329, 330, 103, 8, 154, 291, 327, 62, 316]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -23113,33 +22654,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (115, u'Itchen', 'OTHER', 26, 26),
-    (115, u'Test', 'OTHER', 1, 1),
-    (129, u'Woodmill Bridge', 'OTHER', 9, 10),
-    (129, u'Swaythling', 'OTHER', 6, 6),
-    (300, u'Sholing', 'OTHER', 37, 37),
-    (300, u'Bitterne', 'OTHER', 35, 35),
-    (300, u'South West Trains', 'OTHER', 19, 21),
-    (300, u'Redbridge', 'OTHER', 33, 33),
-    (300, u'Swaythling', 'OTHER', 26, 26),
-    (37, u'Castle Way', 'OTHER', 23, 24),
-    (2, u'River Test', 'OTHER', 14, 15),
-    (2, u'Southampton Water', 'OTHER', 7, 8),
-    (106, u'Southampton North', 'OTHER', 56, 57),
-    (106, u'Southampton Test', 'OTHER', 36, 37),
-    (106, u'Itchen', 'OTHER', 17, 17),
-    (106, u'Dr', 'OTHER', 28, 28),
-    (106, u'Conservative', 'OTHER', 51, 51),
-    (106, u'Labour', 'OTHER', 33, 33),
-    (106, u'Conservative', 'OTHER', 13, 13),
-    (151, u'Plymouth', 'OTHER', 24, 24)]
+[   (300, u'Millbrook', u'LOCATION', 31, 31),
+    (300, u'St Denys', u'LOCATION', 28, 29),
+    (2, u'River Hamble', u'LOCATION', 22, 23),
+    (2, u'River Itchen', u'LOCATION', 17, 18),
+    (151, u'South Coast', u'LOCATION', 21, 22),
+    (151, u'South East England', u'LOCATION', 11, 13),
+    (162, u'South East', u'LOCATION', 22, 23),
+    (297, u'Cardiff', u'LOCATION', 31, 31),
+    (297, u'Bristol', u'LOCATION', 29, 29),
+    (297, u'London', u'LOCATION', 14, 14),
+    (297, u'Midlands', u'LOCATION', 12, 12),
+    (297, u'Winchester', u'LOCATION', 9, 9),
+    (297, u'Bournemouth', u'LOCATION', 19, 19),
+    (297, u'Weymouth', u'LOCATION', 25, 25),
+    (297, u'Portsmouth', u'LOCATION', 5, 5),
+    (297, u'Dorchester', u'LOCATION', 23, 23),
+    (316, u'Cowes', u'LOCATION', 22, 22),
+    (316, u'East Cowes', u'LOCATION', 19, 20),
+    (221, u'River Itchen', u'LOCATION', 23, 24),
+    (221, u'Northam', u'LOCATION', 13, 13)]
 question: Which river splits the city of Southampton into an east section and a west section?
 expected: Itchen
 expected sentence: The Test—which has salt marsh that makes it ideal for salmon fishing—runs along the western edge of the city, while the Itchen splits Southampton in two—east and west.
-actual: (115, u'Test', 'OTHER', 1, 1)
+actual: (300, u'Millbrook', u'LOCATION', 31, 31)
 expected id: 115
 extracted id: [115, 129, 300, 37, 2, 106, 151, 162, 186, 297, 316, 116, 124, 126, 221, 112, 114, 0, 179, 237]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -25007,5 +24548,5 @@ predicted question type: LOCATION
 % entity identified in first sentence: 0.202410492733
 % entity identified in correct sentence: 0.275197920359
 % entity identified in first and correct sentence: 0.189767222025
-% above but ranking failed: 0.0954744180551
-% correct best answer: 0.104336523691
+% above but ranking failed: 0.0937019969278
+% correct best answer: 0.106345267636
