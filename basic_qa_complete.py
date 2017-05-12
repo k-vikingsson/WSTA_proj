@@ -35,16 +35,24 @@ def remove_stop(sentence):
 # 		bow[word] = bow.get(word, 0) + 1
 # 	return bow
 
+def process_doc_ner(doc_set):
+    # doc as a single sentence
+    new_docs = []
+    for doc in doc_set:
+        doc = word_tokenizer.tokenize(doc)
+        new_docs.append(doc)
+    return new_docs 
+
 def get_next_tag (tagged_sent,cur_tag):
-    for word, tag in tagged_sent:
+    for token, tag, i in tagged_sent:
         if tag != cur_tag:
-            pos = tagged_sent.index((word,tag))
+            pos = tagged_sent.index((token,tag,i))
             return pos
 
 def get_continuous_chunks(tagged_sents):
     sents_chunks = []
     for tagged_sent in tagged_sents:
-        tagged_sent.append(('end','END'))
+        tagged_sent.append(('end','END','END'))
         continuous_chunk = []
         sent_not_empty = True
 
@@ -172,7 +180,9 @@ def get_question_type(question_words):
 		return "PERSON"
 	elif "where" in question_words:
 		return "LOCATION"
-	elif "how many" in question_words:
+	elif "what" in question_words and "country" in question_words:
+		return "LOCATION"
+	elif "how" in question_words and "many" in question_words:
 		return "NUMBER"
 	elif "what" in question_words and "year" in question_words:
 		return "NUMBER"
@@ -225,15 +235,16 @@ def contains_all(items, elems):
 def get_closed_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP"]]
+	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP", "AUX", "NUM", "PART"]]
 
-def get_dist_to_question_word(closed_class_words, sentence_words, answer):
-	# print closed_class_words
-	answer_words = nltk.word_tokenize(answer)
-	# cannot proceed if answer word not found in sentence
-	for w in answer_words:
-		if w not in sentence_words:
-			return None
+def get_dist_to_question_word(closed_class_words, sentence_words, entity):
+	# # print closed_class_words
+	# answer = entity[1].lower()
+	# answer_words = nltk.word_tokenize(answer)
+	# # cannot proceed if answer word not found in sentence
+	# for w in answer_words:
+	# 	if w not in sentence_words:
+	# 		return None
 	# get positions of closed class question words
 	question_words_pos = []
 	for w in closed_class_words:
@@ -244,9 +255,11 @@ def get_dist_to_question_word(closed_class_words, sentence_words, answer):
 	# cannot proceed if no such closed word in sentence
 	if len(question_words_pos) == 0:
 		return None
-	# (naive way to) find answer position in sentence
-	answer_start_pos = sentence_words.index(answer_words[0])
-	answer_end_pos = sentence_words.index(answer_words[-1])
+	# # (naive way to) find answer position in sentence
+	# answer_start_pos = sentence_words.index(answer_words[0])
+	# answer_end_pos = sentence_words.index(answer_words[-1])
+	answer_start_pos = entity[3]
+	answer_end_pos = entity[4]
 	# print "ans start", answer_start_pos
 	# print "ans end", answer_end_pos
 	# calculate distance and find closest
@@ -294,8 +307,8 @@ def make_answer_cmp_func(question, doc_set, sentences):
 		# in the sentence to a closed-class word from the question.
 		a_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[a[0]]) ]
 		b_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[b[0]]) ]
-		a_dist = get_dist_to_question_word(closed_class_words, a_sent_words, a[1].lower())
-		b_dist = get_dist_to_question_word(closed_class_words, b_sent_words, b[1].lower())
+		a_dist = get_dist_to_question_word(closed_class_words, a_sent_words, a)
+		b_dist = get_dist_to_question_word(closed_class_words, b_sent_words, b)
 		if a_dist != b_dist:
 			if a_dist == None:
 				return -1
@@ -321,10 +334,6 @@ def get_best_answer(question, answers, doc_set, sentences):
 	Returns:
 		(str, str, str): the best answer to the question
 	"""
-	# answer_scores = []
-	# for ans in answers:
-	# 	answer_scores.append((ans, get_score(question, ans, doc_set)))
-	# return max(answer_scores, key=lambda x: x[1])[0]
 	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
 	key_func = cmp_to_key(cmp_func)
 	return max(answers, key=key_func)
@@ -341,30 +350,67 @@ def get_tagged(processed_docs,no_docs):
 
     for j in range (0,no_docs):
         tagged_sent =[]
-        sent = ner_tagged_sents[j]
+        no_tokens = len(ner_tagged_sents[j])
 
-        for token,tag in sent:
+        for i in range (0,no_tokens):
+            token = ner_tagged_sents[j][i][0]
+            tag = ner_tagged_sents[j][i][1]
+
+
             if token != '':
                 if tag != 'O':
-                    tagged_sent.append((token,tag))
+                    tagged_sent.append((token,tag,i))
 
                 else:
-                    i = sent.index((token,tag))
-                    if tag == 'O' and i != 0 and token[0].isupper():
+                    if i != 0 and token[0].isupper():
                         tag = 'OTHER'
-                        tagged_sent.append((token,tag))
+                        tagged_sent.append((token,tag,i))
 
-                    elif tag == 'O' and pos_tagged_sents[j][i][1] == 'CD':
-                        sent_len = len(sent)
-                        # if sent_len > i+1 and len(token) != 4:
-                            # if pos_tagged_sents[j][i+1][1] == 'NN' or pos_tagged_sents[j][i+1][1] == 'NNS':
-                                # token = token + ' ' + pos_tagged_sents[j][i+1][0]
-                                # print token
+                    elif pos_tagged_sents[j][i][1] == 'CD':
+                        # 5/five people / meters
+                        if no_tokens > i+1:
+                            if pos_tagged_sents[j][i+1][1] == 'NN' or pos_tagged_sents[j][i+1][1] == 'NNS':
+                                token = token + ' ' + pos_tagged_sents[j][i+1][0]
 
-                        tag = 'NUMBER'
-                        tagged_sent.append((token,tag))
+                            # 14,372
+                            elif (pos_tagged_sents[j][i+1][1] == ',' or pos_tagged_sents[j][i+1][1] == '.') and no_tokens > i+2 and pos_tagged_sents[j][i+2][1] == 'CD':
+                                token = token + pos_tagged_sents[j][i+1][0] + pos_tagged_sents[j][i+2][0]
+                                tem = pos_tagged_sents[j].pop(i+2)
+                                tem_token = tem[0]
+                                pos_tagged_sents[j].insert(i+2,(tem_token,'NONE'))
+
+                                # 16,290 people
+                                if no_tokens > i + 3 and (pos_tagged_sents[j][i+3][1] == 'NN' or pos_tagged_sents[j][i+3][1] == 'NNS'):
+                                    token = token + ' ' + pos_tagged_sents[j][i+3][0]
+
+
+                                # 1.5 million
+                                elif no_tokens > i + 3 and pos_tagged_sents[j][i+3][1] == 'CD':
+                                    token = token + ' ' + pos_tagged_sents[j][i+3][0]
+                                    tem1 = pos_tagged_sents[j].pop(i+3)
+                                    tem1_token = tem1[0]
+                                    pos_tagged_sents[j].insert(i+2,(tem1_token,'NONE'))
+
+                                    if no_tokens > i + 4 and (pos_tagged_sents[j][i+4][1] == 'NN' or pos_tagged_sents[j][i+4][1] == 'NNS'):
+                                        token = token + ' ' + pos_tagged_sents[j][i+4][0]
+
+
+
+
+
+                            tag = 'NUMBER'
+                            tagged_sent.append((token,tag,i))
+
+
+                            pos_tagged_sents[j][i+1][1] == ','
+
+
                     else:
-                        tagged_sent.append((token,tag))
+                        tagged_sent.append((token,tag,i))
+
+            else:
+                tagged_sent.append((token,tag,i))
+
         tagged_sents.append(tagged_sent)
     return tagged_sents
 
@@ -380,26 +426,26 @@ def parse_docs(doc_set):
     for i in range (0,no_docs):
         name_entity = name_entity_list[i]
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
-        name_entity_pairs = [(i," ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity]
-        for sent_id,entity,tag in name_entity_pairs:
+        name_entity_pairs = [(i," ".join([token for token, tag, start in ne]), ne[0][1],ne[0][2],ne[-1][2]) for ne in name_entity]
+        for sent_id,entity,tag,start_i,end_i in name_entity_pairs:
             if tag != 'O':
                 if tag == 'ORGANIZATION':
-                    doc_ne_pairs.append((sent_id,entity,'OTHER'))
+                    doc_ne_pairs.append((sent_id,entity,'OTHER',start_i,end_i))
+                elif tag == 'NUMBER':
+                    text = word_tokenizer.tokenize(entity)
+                    n = len(text)
+                    if n != 1:
+                        end_i = end_i + n - 1
+                    doc_ne_pairs.append((sent_id,entity,tag,start_i,end_i))
                 else:
-                    doc_ne_pairs.append((sent_id,entity,tag))
+                    doc_ne_pairs.append((sent_id,entity,tag,start_i,end_i))
     return doc_ne_pairs
-
-def process_doc_ner(doc_set):
-    # doc as a single sentence
-    new_docs = []
-    for doc in doc_set:
-        doc = word_tokenizer.tokenize(doc)
-        new_docs.append(doc)
-    return new_docs 
 
 from tqdm import tqdm
 
+
 def test_with_dev():
+
 	# load json
 	with open('QA_dev.json') as dev_file:
 		dev = json.load(dev_file)
@@ -409,6 +455,8 @@ def test_with_dev():
 	match_first_sentence = 0.0
 	match_entity = 0.0
 	match_first_sentence_entity = 0.0
+	match_correct_sentence_entity = 0.0
+	match_first_correct_sentence_entity = 0.0
 	match_best_answer = 0.0
 	for trial in tqdm(dev):
 		# make posting list
@@ -446,8 +494,19 @@ def test_with_dev():
 			# determine if correct answer exists in entities
 			matches_entities = {m[1] for m in matches}
 			first_sentence_entities = {m[1] for m in matches if m[0] == possible_sents[0]}
-			if question['answer'] in matches_entities:
+
+			e = None
+			for entity in matches:
+				if entity[1] == question['answer']:
+					e = entity
+					break
+			
+			if e:
 				match_entity += 1
+				if e[0] == question['answer_sentence']:
+					match_correct_sentence_entity += 1
+					if possible_sents[0] == e[0]:
+						match_first_correct_sentence_entity += 1
 
 			if question['answer'] in first_sentence_entities:
 				match_first_sentence_entity += 1
@@ -479,7 +538,8 @@ def test_with_dev():
 				print "actual:", best_match
 				print "expected id:", question['answer_sentence']
 				print "extracted id:", possible_sents
-				print "predicted question type:", get_question_type(question['question']).encode('utf-8')
+				question_words = { w.lower() for w in word_tokenizer.tokenize(question['question']) }
+				print "predicted question type:", get_question_type(question_words).encode('utf-8')
 				# pp.pprint(matches[:5])
 				print "\n\n"
 
@@ -487,9 +547,66 @@ def test_with_dev():
 	print "% sentence retrieved as first:", match_first_sentence / total
 	print "% entity identified:", match_entity / total
 	print "% entity identified in first sentence:", match_first_sentence_entity / total
+	print "% entity identified in correct sentence:", match_correct_sentence_entity / total
+	print "% entity identified in first and correct sentence:", match_first_correct_sentence_entity / total
 	print "% correct best answer:", match_best_answer / total
+
+def escape_csv(answer):
+	return answer.replace('"','').replace(',','-COMMA-')
+
+import csv
+def make_csv():
+	# load json
+	with open('QA_test.json') as dev_file:
+		dev = json.load(dev_file)
+
+	csv_file = open('output.csv', 'w')
+	writer = csv.writer(csv_file)
+	writer.writerow(['id', 'answer'])
+
+	for trial in tqdm(dev):
+		# make posting list
+		doc_set = trial['sentences']
+		posting = prepare_doc(doc_set)
+		no_docs = len(doc_set)
+		# NER for all sentences
+		entities = parse_docs(doc_set)
+		for question in tqdm(trial['qa']):
+			# sentence retrieval
+			query = process_query(question['question'])
+			possible_sents = eval_query(query, posting, no_docs)
+			if len(possible_sents) == 0:
+				writer.writerow( [question['id'], ''] )
+				continue
+			
+			# search for entities in possible sents
+			matches = []
+
+			# # take only the best match in sentence retrieval
+			# matches = [e for e in entities if e[0] == possible_sents[0]]
+
+			# OR...
+
+			# take all sentences into ranking
+			for sent in possible_sents:
+				matches.extend([e for e in entities if e[0] == sent])
+
+			if len(matches) == 0:
+				writer.writerow( [question['id'], ''] )
+				continue
+			
+			# find best answer
+			best_match = get_best_answer(
+				question['question'],
+				matches,
+				doc_set,
+				possible_sents)
+
+			writer.writerow( [question['id'], escape_csv(best_match[1]).encode('utf-8')] )
+
+	csv_file.close()
 
 
 if __name__ == '__main__':
 	test_with_dev()
-	
+	# make_csv()
