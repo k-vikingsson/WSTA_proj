@@ -164,12 +164,12 @@ def parse_entities(sentence):
 common_measurements = set()
 with open("common_measurements.txt") as file:
 	for line in file:
-		common_measurements.add(line)
+		common_measurements.add(line.strip())
 
 common_localities = set()
 with open("common_localities.txt") as file:
 	for line in file:
-		common_localities.add(line)
+		common_localities.add(line.strip())
 
 def get_question_type(question_words):
 	"""Determine question type.

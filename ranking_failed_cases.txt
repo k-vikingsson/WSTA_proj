@@ -1,35 +1,4 @@
 all results:
-[   (8, u'Wood', 'OTHER', 55, 55),
-    (41, u'Sun', 'OTHER', 4, 4),
-    (61, u'X', 'OTHER', 35, 35),
-    (6, u'780 nm', 'NUMBER', 40, 41),
-    (5, u'700', 'NUMBER', 10, 10),
-    (7, u'1050 nm', 'NUMBER', 6, 7),
-    (88, u'three', 'NUMBER', 19, 19),
-    (37, u'Herschel', u'PERSON', 0, 0),
-    (41, u'49 %', 'NUMBER', 7, 8),
-    (41, u'Earth', u'LOCATION', 13, 13),
-    (6, u'IR LED', 'OTHER', 17, 18),
-    (6, u'IR', 'OTHER', 14, 14),
-    (6, u'IR', 'OTHER', 6, 6),
-    (8, u'IR', 'OTHER', 7, 7),
-    (8, u'IR', 'OTHER', 60, 60),
-    (8, u'IR', 'OTHER', 18, 18),
-    (8, u'IR', 'OTHER', 43, 43),
-    (7, u'IR', 'OTHER', 26, 26),
-    (45, u'IR', 'OTHER', 18, 18),
-    (25, u'IR', 'OTHER', 10, 10)]
-question: Up to what wavelength does the human eye perceive IR LED sources as red?
-expected: 780 nm
-expected sentence: However, particularly intense near-IR light (e.g., from IR lasers, IR LED sources, or from bright daylight with the visible light removed by colored gels) can be detected up to approximately 780 nm, and will be perceived as red light.
-actual: (8, u'Wood', 'OTHER', 55, 55)
-expected id: 6
-extracted id: [6, 5, 55, 8, 7, 17, 73, 2, 88, 27, 37, 41, 74, 45, 46, 81, 25, 60, 61]
-predicted question type: OTHER
-
-
-
-all results:
 [   (47, u'Stratocumulus', 'OTHER', 22, 22),
     (47, u'Stratus', 'OTHER', 20, 20),
     (47, u'Cumulonimbus', 'OTHER', 9, 9),
@@ -53,33 +22,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (191, u'Guam Regional Medical City', 'OTHER', 5, 8),
-    (39, u'Viceroyalty', 'OTHER', 23, 23),
-    (0, u'Territory', 'OTHER', 19, 19),
-    (0, u'IPA', 'OTHER', 15, 15),
-    (0, u'Gu\xe5h\xe5n', 'OTHER', 12, 12),
-    (0, u'Chamorro', 'OTHER', 10, 10),
-    (43, u'Spanish', 'OTHER', 23, 23),
-    (43, u'Mexican', 'OTHER', 25, 25),
-    (43, u'Spanish', 'OTHER', 32, 32),
-    (58, u'American', 'OTHER', 29, 29),
-    (58, u'A', 'OTHER', 19, 19),
-    (58, u'Executive Order', 'OTHER', 15, 16),
-    (58, u'December', 'OTHER', 12, 12),
-    (58, u'Navy', 'OTHER', 8, 8),
-    (58, u'S', 'OTHER', 6, 6),
-    (58, u'U', 'OTHER', 4, 4),
-    (65, u'Guam Organic Act', 'OTHER', 6, 8),
-    (65, u'U', 'OTHER', 39, 39),
-    (65, u'World War II', 'OTHER', 1, 3),
-    (65, u'S', 'OTHER', 41, 41)]
+[   (2, u'Hag\xe5t\xf1a', u'LOCATION', 4, 4),
+    (2, u'Dededo', u'LOCATION', 12, 12),
+    (39, u'Mexico City', u'LOCATION', 29, 30),
+    (39, u'Philippines', u'LOCATION', 14, 14),
+    (39, u'Spanish East Indies', u'LOCATION', 8, 10),
+    (39, u'New Spain', u'LOCATION', 25, 26),
+    (0, u'United States', u'LOCATION', 31, 32),
+    (43, u'Northern Marianas', u'LOCATION', 17, 18),
+    (58, u'Northern Mariana Islands', u'LOCATION', 40, 42),
+    (58, u'Philippines', u'LOCATION', 36, 36),
+    (58, u'Germany', u'LOCATION', 45, 45),
+    (58, u'Japan', u'LOCATION', 50, 50),
+    (65, u'United States', u'LOCATION', 20, 21),
+    (113, u'Okinawa', u'LOCATION', 34, 34),
+    (113, u'Japan', u'LOCATION', 36, 36),
+    (144, u'United States', u'LOCATION', 13, 14),
+    (154, u'Chamorro', u'LOCATION', 14, 14),
+    (187, u'Tamuning', u'LOCATION', 19, 19),
+    (1, u'Pacific Ocean', u'LOCATION', 4, 5),
+    (191, u'Guam Regional Medical City', 'OTHER', 5, 8)]
 question: What is the most populous city in Guam?
 expected: Dededo
 expected sentence: The capital city is Hagåtña, and the most populous city is Dededo.
-actual: (191, u'Guam Regional Medical City', 'OTHER', 5, 8)
+actual: (2, u'Hag\xe5t\xf1a', u'LOCATION', 4, 4)
 expected id: 2
 extracted id: [2, 191, 39, 0, 43, 58, 65, 66, 67, 106, 113, 130, 137, 144, 154, 177, 178, 182, 187, 1]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -204,37 +173,6 @@ actual: (68, u'13.2', 'NUMBER', 3, 5)
 expected id: 68
 extracted id: [68, 74, 185, 162, 43, 124, 158, 91, 157, 167, 0, 58, 65, 66, 67, 106, 113, 130, 137, 144]
 predicted question type: NUMBER
-
-
-
-all results:
-[   (31, u'Sails', 'OTHER', 15, 15),
-    (31, u'Island', 'OTHER', 13, 13),
-    (31, u'Magellan', 'OTHER', 5, 5),
-    (103, u'Chamorros', 'OTHER', 22, 22),
-    (103, u'Chamorros', 'OTHER', 37, 37),
-    (103, u'While', 'OTHER', 4, 4),
-    (30, u'Islands', 'OTHER', 19, 19),
-    (30, u'Latinas', 'OTHER', 17, 17),
-    (30, u'Magellan', 'OTHER', 10, 10),
-    (30, u'Proas', 'OTHER', 5, 5),
-    (91, u'Cat\xe1logo', 'OTHER', 21, 21),
-    (91, u'Roman Catholic Christianity', 'OTHER', 11, 13),
-    (91, u'Spanish', 'OTHER', 4, 4),
-    (91, u'Chamorros', 'OTHER', 1, 1),
-    (67, u'Since Guam', 'OTHER', 2, 3),
-    (123, u'Trust Territory', 'OTHER', 33, 34),
-    (123, u'Republic', 'OTHER', 24, 24),
-    (123, u'Republic', 'OTHER', 17, 17),
-    (123, u'Free Association', 'OTHER', 3, 4),
-    (123, u'Compacts', 'OTHER', 1, 1)]
-question: What is the name of this U.S state that could possibly form a union with Guam?
-expected: Hawaii
-expected sentence: Other movements advocate U.S. statehood for Guam, union with the state of Hawaii, union with the Northern Mariana Islands as a single territory, or independence.
-actual: (31, u'Magellan', 'OTHER', 5, 5)
-expected id: 112
-extracted id: [112, 31, 136, 125, 103, 30, 91, 67, 123, 65, 106, 130, 179, 0, 58, 113, 144, 13, 14, 59]
-predicted question type: OTHER
 
 
 
@@ -919,37 +857,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (0, u'Commonwealth', 'OTHER', 15, 15),
-    (289, u'Massachusetts Port Authority', 'OTHER', 37, 39),
-    (289, u'Massachusetts Water Resources Authority', 'OTHER', 28, 31),
-    (289, u'Boston Public Health Commission', 'OTHER', 22, 25),
-    (   289,
-        u'Massachusetts Department of Conservation and Recreation',
-        'OTHER',
-        14,
-        19),
-    (289, u'MWRA', 'OTHER', 33, 33),
-    (289, u'Massport', 'OTHER', 41, 41),
-    (168, u'Santander Bank', 'OTHER', 8, 9),
-    (182, u'Boston College', 'OTHER', 55, 56),
-    (182, u'Northeastern University', 'OTHER', 33, 34),
-    (182, u'South End', 'OTHER', 30, 31),
-    (182, u'Boston University', 'OTHER', 5, 6),
-    (182, u'Suffolk University', 'OTHER', 40, 41),
-    (278, u'Franklin Park Zoo', 'OTHER', 29, 31),
-    (278, u'Emerald Necklace', 'OTHER', 1, 2),
-    (155, u'Greater Boston', 'OTHER', 6, 7),
-    (162, u'Route', 'OTHER', 1, 1),
-    (319, u'Spaulding Rehabilitation Hospital', 'OTHER', 15, 17),
-    (319, u'Ear Infirmary', 'OTHER', 12, 13),
-    (319, u'Eye', 'OTHER', 10, 10)]
+[   (0, u'United States', u'LOCATION', 20, 21),
+    (0, u'Boston', u'LOCATION', 0, 0),
+    (290, u'Boston', u'LOCATION', 6, 6),
+    (289, u'Bostonians', u'LOCATION', 50, 50),
+    (2, u'United States', u'LOCATION', 37, 38),
+    (2, u'New England', u'LOCATION', 28, 29),
+    (164, u'Boston', u'LOCATION', 0, 0),
+    (168, u'Boston', u'LOCATION', 12, 12),
+    (182, u'Boston', u'LOCATION', 61, 61),
+    (182, u'Fenway', u'LOCATION', 37, 37),
+    (182, u'Commonwealth Avenue', u'LOCATION', 22, 23),
+    (182, u'Brighton', u'LOCATION', 63, 63),
+    (182, u'Newton', u'LOCATION', 65, 65),
+    (182, u'Beacon Hill', u'LOCATION', 43, 44),
+    (278, u'Jamaica Pond', u'LOCATION', 4, 5),
+    (278, u'Boston', u'LOCATION', 7, 7),
+    (26, u'Boston', u'LOCATION', 8, 8),
+    (75, u'Atlantic Ocean', u'LOCATION', 4, 5),
+    (75, u'United States', u'LOCATION', 16, 17),
+    (75, u'Boston', u'LOCATION', 7, 7)]
 question: What is the capital and largest city in Massachusetts?
 expected: Boston
 expected sentence: Boston (pronounced i/ˈbɒstən/) is the capital and largest city of the Commonwealth of Massachusetts in the United States.
-actual: (0, u'Commonwealth', 'OTHER', 15, 15)
+actual: (0, u'United States', u'LOCATION', 20, 21)
 expected id: 0
 extracted id: [0, 290, 289, 2, 161, 164, 168, 182, 278, 26, 75, 155, 162, 204, 307, 319, 333, 3, 132, 137]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -1072,6 +1006,37 @@ actual: (66, u'Boston', u'LOCATION', 0, 0)
 expected id: 66
 extracted id: [66, 166, 167, 46, 83, 276, 251, 61]
 predicted question type: PERSON
+
+
+
+all results:
+[   (81, u'Boston', u'LOCATION', 0, 0),
+    (164, u'Boston', u'LOCATION', 0, 0),
+    (289, u'Bostonians', u'LOCATION', 50, 50),
+    (323, u'Massachusetts', u'LOCATION', 10, 10),
+    (1, u'Suffolk County', u'LOCATION', 9, 10),
+    (1, u'Massachusetts', u'LOCATION', 12, 12),
+    (1, u'Boston', u'LOCATION', 0, 0),
+    (12, u'Boston', u'LOCATION', 0, 0),
+    (83, u'South Boston', u'LOCATION', 37, 38),
+    (285, u'Boston', u'LOCATION', 0, 0),
+    (89, u'South Boston', u'LOCATION', 99, 100),
+    (89, u'East Boston', u'LOCATION', 103, 104),
+    (89, u'Boston', u'LOCATION', 0, 0),
+    (79, u'Milton', u'LOCATION', 21, 21),
+    (79, u'Neponset River', u'LOCATION', 1, 2),
+    (79, u'Boston', u'LOCATION', 7, 7),
+    (140, u'East Boston', u'LOCATION', 5, 6),
+    (320, u'Brighton', u'LOCATION', 9, 9),
+    (320, u'Brighton', u'LOCATION', 16, 16),
+    (322, u'Jamaica Plain', u'LOCATION', 9, 10)]
+question: What division of the City Government designated the 23 neighborhoods?
+expected: Office of Neighborhood Services
+expected sentence: Boston is sometimes called a "city of neighborhoods" because of the profusion of diverse subsections; the city government's Office of Neighborhood Services has officially designated 23 neighborhoods.
+actual: (81, u'Boston', u'LOCATION', 0, 0)
+expected id: 81
+extracted id: [81, 270, 93, 96, 104, 164, 289, 323, 1, 12, 55, 83, 285, 89, 79, 140, 320, 322, 328, 40]
+predicted question type: LOCATION
 
 
 
@@ -1235,33 +1200,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (132, u'Irish', 'OTHER', 2, 2),
-    (132, u'Italians', 'OTHER', 26, 26),
-    (175, u'Boston Latin School', 'OTHER', 1, 3),
-    (272, u'Football Championship Subdivision', 'OTHER', 10, 12),
-    (272, u'Harvard', 'OTHER', 0, 0),
-    (141, u'Puerto Rican', 'OTHER', 6, 7),
-    (141, u'Colombian', 'OTHER', 51, 51),
-    (141, u'Mexican', 'OTHER', 66, 66),
-    (141, u'Guatemalan', 'OTHER', 82, 82),
-    (37, u'European', 'OTHER', 25, 25),
-    (133, u'Haitian', 'OTHER', 23, 23),
-    (133, u'West Indian', 'OTHER', 2, 3),
-    (196, u'Boston Police Department', 'OTHER', 14, 16),
-    (196, u'District Attorney', 'OTHER', 43, 44),
-    (210, u'Boston Symphony Orchestra', 'OTHER', 1, 3),
-    (210, u'American', 'OTHER', 17, 17),
-    (210, u'Big Five', 'OTHER', 9, 10),
-    (210, u'Gramophone', 'OTHER', 25, 25),
-    (182, u'Northeastern University', 'OTHER', 33, 34),
-    (182, u'South End', 'OTHER', 30, 31)]
+[   (175, u'United States', u'LOCATION', 22, 23),
+    (175, u'US', u'LOCATION', 16, 16),
+    (175, u'Boston', u'LOCATION', 18, 18),
+    (141, u'Boston', u'LOCATION', 2, 2),
+    (141, u'Dominican', u'LOCATION', 22, 22),
+    (141, u'Salvadoran', u'LOCATION', 37, 37),
+    (37, u'Boston', u'LOCATION', 4, 4),
+    (133, u'Caribbean', u'LOCATION', 5, 5),
+    (196, u'United States Attorney', u'LOCATION', 39, 41),
+    (196, u'Boston', u'LOCATION', 0, 0),
+    (2, u'United States', u'LOCATION', 37, 38),
+    (2, u'New England', u'LOCATION', 28, 29),
+    (182, u'Boston', u'LOCATION', 61, 61),
+    (182, u'Fenway', u'LOCATION', 37, 37),
+    (182, u'Brighton', u'LOCATION', 63, 63),
+    (182, u'Newton', u'LOCATION', 65, 65),
+    (182, u'Commonwealth Avenue', u'LOCATION', 22, 23),
+    (182, u'Beacon Hill', u'LOCATION', 43, 44),
+    (278, u'Jamaica Pond', u'LOCATION', 4, 5),
+    (278, u'Boston', u'LOCATION', 7, 7)]
 question: What is the second largest ethnic group in the city?
 expected: Italians
 expected sentence: People of Irish descent form the largest single ethnic group in the city, making up 15.8% of the population, followed by Italians, accounting for 8.3% of the population.
-actual: (132, u'Irish', 'OTHER', 2, 2)
+actual: (175, u'US', u'LOCATION', 16, 16)
 expected id: 132
 extracted id: [132, 175, 272, 141, 37, 216, 133, 196, 210, 2, 182, 278, 155, 307, 0, 3, 137, 328, 4, 22]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -4665,33 +4630,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (34, u'East', 'OTHER', 21, 21),
+[   (34, u'Cambridge', u'LOCATION', 25, 25),
+    (34, u'United Kingdom', u'LOCATION', 10, 11),
+    (34, u'England', u'LOCATION', 23, 23),
+    (35, u'Newark', u'LOCATION', 31, 31),
+    (35, u'London', u'LOCATION', 25, 25),
+    (35, u'Newcastle', u'LOCATION', 14, 14),
+    (53, u'UK', u'LOCATION', 39, 39),
+    (3, u'Portland Place', u'LOCATION', 10, 11),
+    (31, u'London', u'LOCATION', 3, 3),
+    (26, u'UK', u'LOCATION', 32, 32),
+    (40, u'Portland Place', u'LOCATION', 9, 10),
+    (43, u'Victoria', u'LOCATION', 11, 11),
+    (43, u'Europe', u'LOCATION', 39, 39),
+    (43, u'North America', u'LOCATION', 41, 42),
+    (34, u'1966', 'NUMBER', 27, 27),
+    (34, u'East', 'OTHER', 21, 21),
     (34, u'Institute', 'OTHER', 1, 1),
     (35, u'Bonhill Street', 'OTHER', 22, 23),
     (35, u'RIBA Enterprises', 'OTHER', 0, 1),
-    (10, u'Institute', 'OTHER', 30, 30),
-    (10, u'RIBA Guide', 'OTHER', 1, 2),
-    (10, u'Archive', 'OTHER', 5, 5),
-    (10, u'History', 'OTHER', 7, 7),
-    (10, u'J', 'OTHER', 46, 46),
-    (10, u'H', 'OTHER', 48, 48),
-    (59, u'Royal Gold Medal', 'OTHER', 18, 20),
-    (59, u'Stirling Prize', 'OTHER', 6, 7),
-    (71, u'Part II', 'OTHER', 39, 40),
-    (71, u'Part I', 'OTHER', 10, 11),
-    (53, u'V', 'OTHER', 16, 16),
-    (53, u'Architecture Gallery', 'OTHER', 8, 9),
-    (53, u'A', 'OTHER', 18, 18),
-    (53, u'Room', 'OTHER', 11, 11),
-    (57, u'Partnership', 'OTHER', 2, 2),
-    (57, u'V', 'OTHER', 20, 20)]
+    (35, u'15', 'NUMBER', 21, 21)]
 question: In what city was the first RIBA branch office opened?
 expected: Cambridge
 expected sentence: The Institute also maintains a dozen regional offices around the United Kingdom, it opened its first regional office for the East of England at Cambridge in 1966.
-actual: (34, u'Institute', 'OTHER', 1, 1)
+actual: (34, u'United Kingdom', u'LOCATION', 10, 11)
 expected id: 34
 extracted id: [34, 35, 10, 59, 71, 53, 50, 57, 3, 31, 46, 48, 49, 37, 19, 25, 26, 38, 40, 43]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -7535,37 +7500,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (335, u'People', 'OTHER', 17, 17),
-    (335, u'South', 'OTHER', 20, 20),
-    (192, u'American Idol', 'OTHER', 10, 11),
-    (192, u'May', 'OTHER', 1, 1),
-    (3, u'SMS', 'OTHER', 10, 10),
-    (3, u'Internet', 'OTHER', 7, 7),
-    (193, u'My Destiny', 'OTHER', 20, 21),
-    (193, u'Do I Make You Proud', 'OTHER', 1, 5),
-    (331, u'American Idol', 'OTHER', 24, 25),
-    (19, u'Pop Idol', 'OTHER', 16, 17),
-    (19, u'TV', 'OTHER', 8, 8),
-    (480, u'Idol', 'OTHER', 1, 1),
-    (400, u'Idol', 'OTHER', 12, 12),
-    (400, u'American Idol', 'OTHER', 5, 6),
-    (486, u'ABC', 'OTHER', 25, 25),
-    (486, u'Friday', 'OTHER', 9, 9),
-    (486, u'QTV', 'OTHER', 32, 32),
-    (486, u'Thursday', 'OTHER', 7, 7),
-    (486, u'GMA News TV', 'OTHER', 35, 37),
-    (486, u'ETC', 'OTHER', 43, 43)]
-question: What state is Taylor Hicks from? 
-expected: Alabama
-expected sentence: According to season five winner Taylor Hicks, who is from the state of Alabama, "People in the South have a lot of pride ...
-actual: (335, u'People', 'OTHER', 17, 17)
-expected id: 335
-extracted id: [335, 192, 3, 195, 193, 331, 19, 480, 400, 229, 486, 455, 328, 330, 139, 387, 336, 241, 498, 373]
-predicted question type: OTHER
-
-
-
-all results:
 [   (337, u'seven', 'NUMBER', 8, 8),
     (337, u'five', 'NUMBER', 1, 1),
     (273, u'25', 'NUMBER', 6, 6),
@@ -8120,37 +8054,6 @@ actual: (418, u'Idol', 'OTHER', 16, 16)
 expected id: 418
 extracted id: [418, 17, 338, 475, 6, 424, 9, 216, 421, 426, 90, 97, 179, 5, 16, 31, 168, 171, 172, 189]
 predicted question type: OTHER
-
-
-
-all results:
-[   (424, u'Faith Hill', u'LOCATION', 16, 17),
-    (11, u'Fantasia', u'LOCATION', 37, 37),
-    (424, u'2006', 'NUMBER', 19, 19),
-    (424, u'Country Music Awards', 'OTHER', 12, 14),
-    (424, u'LeAnn Rimes', u'PERSON', 0, 1),
-    (185, u'American Idol', 'OTHER', 50, 51),
-    (185, u'Grammys', 'OTHER', 46, 46),
-    (185, u'Grammy Awards', 'OTHER', 41, 42),
-    (185, u'seven', 'NUMBER', 40, 40),
-    (185, u'S', 'OTHER', 32, 32),
-    (185, u'U', 'OTHER', 30, 30),
-    (185, u'14 million albums', 'NUMBER', 24, 27),
-    (185, u'S', 'OTHER', 20, 20),
-    (185, u'U', 'OTHER', 18, 18),
-    (185, u'Idol', 'OTHER', 14, 14),
-    (185, u'65 million records', 'NUMBER', 4, 7),
-    (394, u'Kelly Clarkson', u'PERSON', 13, 14),
-    (394, u'Daughtry', u'PERSON', 16, 16),
-    (11, u'TV', 'OTHER', 56, 56),
-    (11, u'Jordin Sparks', u'PERSON', 51, 52)]
-question: What year did Carrie Underwood win a Country Music Award for Best Female Artist? 
-expected: 2006
-expected sentence: LeAnn Rimes, commenting on Carrie Underwood winning Best Female Artist in Country Music Awards over Faith Hill in 2006, said that "Carrie has not paid her dues long enough to fully deserve that award".
-actual: (424, u'Faith Hill', u'LOCATION', 16, 17)
-expected id: 424
-extracted id: [424, 185, 394, 11, 431, 3, 183, 429, 433, 179, 396, 428, 432, 299, 347, 34, 404, 6, 66, 90]
-predicted question type: LOCATION
 
 
 
@@ -11889,37 +11792,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (121, u'PlayStation Portable', 'OTHER', 22, 23),
-    (121, u'Sony Computer Entertainment', 'OTHER', 15, 17),
-    (121, u'PlayStation Network', 'OTHER', 0, 1),
-    (8, u'September', 'OTHER', 18, 18),
-    (8, u'Game Show', 'OTHER', 15, 16),
-    (8, u'Metal Gear Solid', 'OTHER', 26, 28),
-    (8, u'Guns', 'OTHER', 31, 31),
-    (8, u'Patriots', 'OTHER', 34, 34),
-    (190, u'Week', 'OTHER', 1, 1),
-    (13, u'November', 'OTHER', 18, 18),
-    (13, u'November', 'OTHER', 10, 10),
-    (14, u'Blu', 'OTHER', 30, 30),
-    (14, u'September', 'OTHER', 1, 1),
-    (14, u'PAL', 'OTHER', 9, 9),
-    (14, u'March', 'OTHER', 18, 18),
-    (15, u'September', 'OTHER', 6, 6),
-    (15, u'Game Show', 'OTHER', 3, 4),
-    (15, u'HDMI', 'OTHER', 18, 18),
-    (15, u'GB', 'OTHER', 23, 23),
-    (15, u'Wi', 'OTHER', 38, 38)]
-question: In what city did Sony hold their 2006 PlayStation Business Briefing?
-expected: Tokyo
-expected sentence: PlayStation Network is the unified online multiplayer gaming and digital media delivery service provided by Sony Computer Entertainment for PlayStation 3 and PlayStation Portable, announced during the 2006 PlayStation Business Briefing meeting in Tokyo.
-actual: (121, u'PlayStation Portable', 'OTHER', 22, 23)
-expected id: 121
-extracted id: [121, 153, 8, 190, 13, 14, 15, 44, 46, 0, 10, 118, 168, 188, 215, 2, 132, 166, 24, 124]
-predicted question type: OTHER
-
-
-
-all results:
 [   (137, u'PSP', 'OTHER', 1, 1),
     (137, u'Media Go', 'OTHER', 11, 12),
     (186, u'June', 'OTHER', 12, 12),
@@ -12744,68 +12616,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (43, u'Treaty', 'OTHER', 24, 24),
-    (5, u'Ukrainian SSR', 'OTHER', 21, 22),
-    (5, u'Byelorussian SSR', 'OTHER', 17, 18),
-    (5, u'Baltic', 'OTHER', 7, 7),
-    (5, u'USSR', 'OTHER', 2, 2),
-    (83, u'UN', 'OTHER', 12, 12),
-    (83, u'Ukrainian SSR', 'OTHER', 24, 25),
-    (83, u'Byelorussian SSR', 'OTHER', 30, 31),
-    (83, u'October', 'OTHER', 15, 15),
-    (57, u'Pytalovsky Districts', 'OTHER', 23, 24),
-    (57, u'Russian SFSR', 'OTHER', 9, 10),
-    (15, u'People', 'OTHER', 41, 41),
-    (15, u"Democratic People ' s Republic of Korea", 'OTHER', 25, 31),
-    (15, u'Republic', 'OTHER', 37, 37),
-    (15, u'Republic', 'OTHER', 44, 44),
-    (15, u'Mongolian People', 'OTHER', 33, 34),
-    (72, u'USSR', 'OTHER', 14, 14),
-    (72, u'Communist Parties', 'OTHER', 10, 11),
-    (72, u'November', 'OTHER', 1, 1),
-    (23, u'November', 'OTHER', 5, 5)]
+[   (43, u'Tartu', u'LOCATION', 26, 26),
+    (43, u'Irish Republic', u'LOCATION', 33, 34),
+    (83, u'Belarus', u'LOCATION', 28, 28),
+    (83, u'Ukraine', u'LOCATION', 22, 22),
+    (83, u'Russia', u'LOCATION', 2, 2),
+    (57, u'Pechorsky', u'LOCATION', 21, 21),
+    (57, u'Ivangorod', u'LOCATION', 16, 16),
+    (15, u'Norway', u'LOCATION', 12, 12),
+    (15, u'Poland', u'LOCATION', 7, 7),
+    (15, u'China', u'LOCATION', 46, 46),
+    (4, u'Caspian Sea', u'LOCATION', 42, 43),
+    (4, u'Black sea', u'LOCATION', 39, 40),
+    (4, u'Pacific Ocean', u'LOCATION', 32, 33),
+    (4, u'Arctic Ocean', u'LOCATION', 25, 26),
+    (4, u'North Korea', u'LOCATION', 20, 21),
+    (4, u'Mongolia', u'LOCATION', 18, 18),
+    (4, u'Poland', u'LOCATION', 9, 9),
+    (4, u'Norway', u'LOCATION', 7, 7),
+    (4, u'China', u'LOCATION', 16, 16),
+    (0, u'Russian', u'LOCATION', 12, 12)]
 question: Along with Estonia, Latvia, Finland and Lithuania, what state recognized the RSFSR in 1920?
 expected: Irish Republic
 expected sentence: Internationally, in 1920, the RSFSR was recognized as an independent state only by Estonia, Finland, Latvia and Lithuania in the Treaty of Tartu and by the short-lived Irish Republic.
-actual: (43, u'Treaty', 'OTHER', 24, 24)
+actual: (43, u'Tartu', u'LOCATION', 26, 26)
 expected id: 43
 extracted id: [43, 5, 83, 57, 8, 15, 4, 72, 23, 75, 0, 16, 45, 50, 58, 68, 80, 81, 86, 1]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
 all results:
-[   (47, u'Transcaucasian Soviet Federal Socialist Republic', 'OTHER', 43, 47),
-    (47, u'USSR', 'OTHER', 23, 23),
-    (47, u'Creation', 'OTHER', 20, 20),
-    (47, u'Treaty', 'OTHER', 17, 17),
-    (47, u'USSR', 'OTHER', 14, 14),
-    (47, u'Soviets', 'OTHER', 11, 11),
-    (47, u'First Congress', 'OTHER', 7, 8),
-    (47, u'December', 'OTHER', 1, 1),
-    (83, u'UN', 'OTHER', 12, 12),
-    (83, u'Ukrainian SSR', 'OTHER', 24, 25),
-    (83, u'Byelorussian SSR', 'OTHER', 30, 31),
-    (83, u'October', 'OTHER', 15, 15),
-    (56, u'Tuvan Autonomous Oblast', 'OTHER', 18, 20),
-    (56, u'Russian SFSR', 'OTHER', 14, 15),
-    (56, u"Tuvan People ' s Republic", 'OTHER', 7, 11),
-    (56, u'October', 'OTHER', 1, 1),
-    (56, u'Autonomous Soviet Socialist Republic', 'OTHER', 26, 29),
-    (10, u'Union of Soviet Socialist Republics', 'OTHER', 25, 29),
-    (10, u'December', 'OTHER', 1, 1),
-    (   1,
-        u'Rossiyskaya Sovetskaya Federativnaya Sotsialisticheskaya Respublika',
-        'OTHER',
-        0,
-        4)]
+[   (83, u'Belarus', u'LOCATION', 28, 28),
+    (83, u'Ukraine', u'LOCATION', 22, 22),
+    (5, u'Estonia', u'LOCATION', 14, 14),
+    (5, u'Latvia', u'LOCATION', 12, 12),
+    (5, u'Lithuania', u'LOCATION', 10, 10),
+    (73, u'Belarus', u'LOCATION', 11, 11),
+    (73, u'Brest', u'LOCATION', 9, 9),
+    (73, u'Viskuli', u'LOCATION', 7, 7),
+    (70, u'Moscow', u'LOCATION', 13, 13),
+    (70, u'Russia Yeltsin', u'LOCATION', 26, 27),
+    (16, u'Georgian', u'LOCATION', 25, 25),
+    (16, u'Azerbaijan', u'LOCATION', 23, 23),
+    (16, u'Latvian', u'LOCATION', 15, 15),
+    (16, u'Belarusian', u'LOCATION', 11, 11),
+    (67, u'Russian Federation', u'LOCATION', 44, 45),
+    (0, u'Russian', u'LOCATION', 12, 12),
+    (20, u'Brest', u'LOCATION', 9, 9),
+    (20, u'Germany', u'LOCATION', 27, 27),
+    (41, u'Brest', u'LOCATION', 3, 3),
+    (41, u'Germany', u'LOCATION', 26, 26)]
 question: Along with the Ukrainian Soviet Socialist Republic and Byelorussian Soviet Socialist Republic, what state joined Russia to form the Soviet Union?
 expected: Transcaucasian Soviet Federal Socialist Republic
 expected sentence: On December 30, 1922, the First Congress of the Soviets of the USSR approved the Treaty on the Creation of the USSR, by which Russia was united with the Ukrainian Soviet Socialist Republic, Byelorussian Soviet Socialist Republic, and Transcaucasian Soviet Federal Socialist Republic into a single federal state, the Soviet Union.
-actual: (47, u'First Congress', 'OTHER', 7, 8)
+actual: (83, u'Ukraine', u'LOCATION', 22, 22)
 expected id: 47
 extracted id: [47, 83, 56, 10, 1, 11, 5, 3, 86, 73, 53, 90, 38, 44, 70, 16, 67, 0, 20, 41]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -12841,33 +12709,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (57, u'Pytalovsky Districts', 'OTHER', 23, 24),
-    (57, u'Russian SFSR', 'OTHER', 9, 10),
-    (73, u'Commonwealth', 'OTHER', 37, 37),
-    (73, u'Establishment', 'OTHER', 34, 34),
-    (73, u'Russian SFSR', 'OTHER', 17, 18),
-    (73, u'President', 'OTHER', 14, 14),
-    (73, u'Agreement', 'OTHER', 31, 31),
-    (73, u'Ukrainian SSR', 'OTHER', 26, 27),
-    (73, u'Belavezha Accords', 'OTHER', 47, 48),
-    (73, u'Independent States', 'OTHER', 39, 40),
-    (73, u'Byelorussian SSR', 'OTHER', 23, 24),
-    (73, u'December', 'OTHER', 1, 1),
-    (60, u'Russian SFSR', 'OTHER', 33, 34),
-    (60, u'German', 'OTHER', 16, 16),
-    (60, u'Oblast', 'OTHER', 8, 8),
-    (60, u'East Prussia', 'OTHER', 19, 20),
-    (60, u'April', 'OTHER', 1, 1),
-    (72, u'USSR', 'OTHER', 14, 14),
-    (72, u'Communist Parties', 'OTHER', 10, 11),
-    (72, u'November', 'OTHER', 1, 1)]
+[   (57, u'Latvia', u'LOCATION', 4, 4),
+    (57, u'Pechorsky', u'LOCATION', 21, 21),
+    (57, u'Ivangorod', u'LOCATION', 16, 16),
+    (57, u'Estonia', u'LOCATION', 2, 2),
+    (73, u'Brest', u'LOCATION', 9, 9),
+    (73, u'Viskuli', u'LOCATION', 7, 7),
+    (73, u'Belarus', u'LOCATION', 11, 11),
+    (60, u'Soviet Union', u'LOCATION', 26, 27),
+    (60, u'Kaliningrad', u'LOCATION', 7, 7),
+    (22, u'Central Asia', u'LOCATION', 18, 19),
+    (71, u'Russia', u'LOCATION', 35, 35),
+    (0, u'Russian', u'LOCATION', 12, 12),
+    (80, u'Soviet Union', u'LOCATION', 18, 19),
+    (43, u'Lithuania', u'LOCATION', 21, 21),
+    (43, u'Tartu', u'LOCATION', 26, 26),
+    (43, u'Latvia', u'LOCATION', 19, 19),
+    (43, u'Irish Republic', u'LOCATION', 33, 34),
+    (43, u'Finland', u'LOCATION', 17, 17),
+    (43, u'Estonia', u'LOCATION', 15, 15),
+    (15, u'Finland', u'LOCATION', 14, 14)]
 question: Near what town did the RSFSR annex territory in 1944?
 expected: Ivangorod
 expected sentence: After reconquering Estonia and Latvia in 1944, the Russian SFSR annexed their easternmost territories around Ivangorod and within the modern Pechorsky and Pytalovsky Districts in 1944-1945.
-actual: (57, u'Russian SFSR', 'OTHER', 9, 10)
+actual: (57, u'Latvia', u'LOCATION', 4, 4)
 expected id: 57
 extracted id: [57, 73, 60, 72, 56, 54, 22, 71, 55, 0, 80, 68, 43, 45, 15, 16, 81, 50, 86, 23]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -14201,68 +14069,64 @@ predicted question type: PERSON
 
 
 all results:
-[   (45, u'Slavs', 'OTHER', 13, 13),
-    (45, u'Avar', 'OTHER', 16, 16),
-    (44, u'Byzantine Emperors', 'OTHER', 24, 25),
-    (44, u'Holy Roman Emperors', 'OTHER', 19, 21),
-    (43, u'Slavs', 'OTHER', 10, 10),
-    (3, u'Byzantines', 'OTHER', 25, 25),
-    (3, u'Arabs', 'OTHER', 27, 27),
-    (3, u'Slavic', 'OTHER', 20, 20),
-    (56, u'Slovenes', 'OTHER', 27, 27),
-    (56, u'Second Polish Republic', 'OTHER', 19, 21),
-    (56, u'Slavs', 'OTHER', 10, 10),
-    (56, u'Croats', 'OTHER', 29, 29),
-    (56, u'World War I', 'OTHER', 4, 6),
-    (56, u'Serbs', 'OTHER', 31, 31),
-    (68, u'Russian SFSR', 'OTHER', 34, 35),
-    (68, u'Pact', 'OTHER', 19, 19),
-    (68, u'Ukrainian SSR', 'OTHER', 37, 38),
-    (68, u'Slavic', 'OTHER', 24, 24),
-    (68, u'Byelorussian SSR', 'OTHER', 40, 41),
-    (68, u'Soviet', 'OTHER', 1, 1)]
+[   (1, u'Central Asia', u'LOCATION', 14, 15),
+    (1, u'North Asia', u'LOCATION', 11, 12),
+    (1, u'Southeast Europe', u'LOCATION', 8, 9),
+    (1, u'Eastern Europe', u'LOCATION', 5, 6),
+    (3, u'Eastern Europe', u'LOCATION', 13, 14),
+    (3, u'Asia Minor', u'LOCATION', 29, 30),
+    (3, u'Southeast Europe', u'LOCATION', 16, 17),
+    (3, u'Syria', u'LOCATION', 36, 36),
+    (56, u'Czechoslovakia', u'LOCATION', 16, 16),
+    (68, u'Warsaw', u'LOCATION', 18, 18),
+    (48, u'Austria', u'LOCATION', 31, 31),
+    (48, u'Balaton Principality', u'LOCATION', 14, 15),
+    (139, u'Eastern Europe', u'LOCATION', 21, 22),
+    (139, u'Siberia', u'LOCATION', 49, 49),
+    (139, u'Central Asia', u'LOCATION', 53, 54),
+    (110, u'Blagoevgrad Province', u'LOCATION', 188, 189),
+    (110, u'Masurians', u'LOCATION', 175, 175),
+    (110, u'Miziytsi', u'LOCATION', 167, 167),
+    (110, u'Central Balkan Mountains', u'LOCATION', 163, 165),
+    (110, u'Balkandzhii', u'LOCATION', 161, 161)]
 question: What Frankish merchant was the ruler of the first Slav state in Central Europe?
 expected: Samo
 expected sentence: In the 7th century, the Frankish merchant Samo, who supported the Slavs fighting their Avar rulers, became the ruler of the first known Slav state in Central Europe, which, however, most probably did not outlive its founder and ruler.
-actual: (45, u'Slavs', 'OTHER', 13, 13)
+actual: (1, u'Eastern Europe', u'LOCATION', 5, 6)
 expected id: 45
 extracted id: [45, 44, 1, 43, 3, 56, 68, 48, 158, 139, 64, 110, 114, 127, 26, 25, 49, 60, 85, 36]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
 all results:
-[   (46, u'Slavic', 'OTHER', 6, 6),
-    (10, u'Slavs', 'OTHER', 20, 20),
-    (10, u'Old Church Slavonic', 'OTHER', 5, 7),
-    (   10,
-        u'\u0421\u043b\u043e\u0432\u0463\u043d\u0435 Slov\u011bne',
-        'OTHER',
-        15,
-        16),
-    (45, u'Slavs', 'OTHER', 13, 13),
-    (45, u'Frankish', 'OTHER', 6, 6),
-    (45, u'Avar', 'OTHER', 16, 16),
-    (3, u'Byzantines', 'OTHER', 25, 25),
-    (3, u'Arabs', 'OTHER', 27, 27),
-    (3, u'Slavic', 'OTHER', 20, 20),
-    (56, u'Second Polish Republic', 'OTHER', 19, 21),
-    (56, u'Slavs', 'OTHER', 10, 10),
-    (56, u'Slovenes', 'OTHER', 27, 27),
-    (56, u'World War I', 'OTHER', 4, 6),
-    (56, u'Croats', 'OTHER', 29, 29),
-    (56, u'Serbs', 'OTHER', 31, 31),
-    (68, u'Russian SFSR', 'OTHER', 34, 35),
-    (68, u'Pact', 'OTHER', 19, 19),
-    (68, u'Ukrainian SSR', 'OTHER', 37, 38),
-    (68, u'Byelorussian SSR', 'OTHER', 40, 41)]
+[   (1, u'Central Asia', u'LOCATION', 14, 15),
+    (1, u'North Asia', u'LOCATION', 11, 12),
+    (1, u'Southeast Europe', u'LOCATION', 8, 9),
+    (1, u'Eastern Europe', u'LOCATION', 5, 6),
+    (3, u'Asia Minor', u'LOCATION', 29, 30),
+    (3, u'Southeast Europe', u'LOCATION', 16, 17),
+    (3, u'Eastern Europe', u'LOCATION', 13, 14),
+    (3, u'Syria', u'LOCATION', 36, 36),
+    (56, u'Czechoslovakia', u'LOCATION', 16, 16),
+    (68, u'Warsaw', u'LOCATION', 18, 18),
+    (48, u'Balaton Principality', u'LOCATION', 14, 15),
+    (48, u'Austria', u'LOCATION', 31, 31),
+    (139, u'Siberia', u'LOCATION', 49, 49),
+    (139, u'Eastern Europe', u'LOCATION', 21, 22),
+    (139, u'Central Asia', u'LOCATION', 53, 54),
+    (110, u'Blagoevgrad Province', u'LOCATION', 188, 189),
+    (110, u'Masurians', u'LOCATION', 175, 175),
+    (110, u'Miziytsi', u'LOCATION', 167, 167),
+    (110, u'Central Balkan Mountains', u'LOCATION', 163, 165),
+    (110, u'Balkandzhii', u'LOCATION', 161, 161)]
 question: What is the oldest Slav state in Central Europe?
 expected: Carantania
 expected sentence: This provided the foundation for subsequent Slavic states to arise on the former territory of this realm with Carantania being the oldest of them.
-actual: (46, u'Slavic', 'OTHER', 6, 6)
+actual: (1, u'Eastern Europe', u'LOCATION', 5, 6)
 expected id: 46
 extracted id: [46, 10, 1, 45, 3, 56, 68, 48, 158, 139, 64, 110, 114, 127, 43, 36, 174, 159, 51, 0]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -14822,33 +14686,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (470, u'Nobel', 'OTHER', 21, 21),
-    (313, u'New York Daily News', 'OTHER', 9, 12),
-    (108, u'World War II', 'OTHER', 1, 3),
-    (0, u'State', 'OTHER', 19, 19),
-    (118, u'World Trade Center', 'OTHER', 64, 66),
-    (118, u'South Tower', 'OTHER', 60, 61),
-    (118, u'World Trade Center', 'OTHER', 50, 52),
-    (118, u'North Tower', 'OTHER', 46, 47),
-    (118, u'September', 'OTHER', 23, 23),
-    (118, u'Flight', 'OTHER', 56, 56),
-    (118, u'Flight', 'OTHER', 42, 42),
-    (118, u'United Airlines', 'OTHER', 54, 55),
-    (118, u'American Airlines', 'OTHER', 40, 41),
-    (18, u'New York Stock Exchange', 'OTHER', 53, 56),
-    (18, u'Financial District', 'OTHER', 6, 7),
-    (18, u'Wall Street', 'OTHER', 2, 3),
-    (18, u'NASDAQ', 'OTHER', 58, 58),
-    (492, u'Brooklynese', 'OTHER', 21, 21),
-    (492, u'New Yorkese', 'OTHER', 23, 24),
-    (288, u'Roosevelt Island', 'OTHER', 41, 42)]
+[   (9, u'Dutch Republic', u'LOCATION', 18, 19),
+    (9, u'New Amsterdam', u'LOCATION', 23, 24),
+    (470, u'United States', u'LOCATION', 16, 17),
+    (108, u'Queens', u'LOCATION', 21, 21),
+    (0, u'United States', u'LOCATION', 58, 59),
+    (0, u'United States', u'LOCATION', 38, 39),
+    (18, u'Lower Manhattan', u'LOCATION', 9, 10),
+    (288, u'US', u'LOCATION', 28, 28),
+    (33, u'Hudson River', u'LOCATION', 23, 24),
+    (33, u'Mauritis River', u'LOCATION', 15, 16),
+    (33, u'North River', u'LOCATION', 9, 10),
+    (33, u'Albany', u'LOCATION', 39, 39),
+    (36, u'Netherlands', u'LOCATION', 16, 16),
+    (36, u'Cape Cod', u'LOCATION', 6, 7),
+    (36, u'Delaware Bay', u'LOCATION', 9, 10),
+    (36, u'New Netherland', u'LOCATION', 23, 24),
+    (41, u'New Amsterdam', u'LOCATION', 19, 20),
+    (41, u'Manhattan Island', u'LOCATION', 14, 15),
+    (41, u'Fort Amsterdam', u'LOCATION', 11, 12),
+    (87, u'United States', u'LOCATION', 17, 18)]
 question: What was the trading post that preceded New York City called?
 expected: New Amsterdam
 expected sentence: New York City traces its roots to its 1624 founding as a trading post by colonists of the Dutch Republic and was named New Amsterdam in 1626.
-actual: (470, u'Nobel', 'OTHER', 21, 21)
+actual: (9, u'Dutch Republic', u'LOCATION', 18, 19)
 expected id: 9
 extracted id: [9, 470, 313, 108, 0, 118, 18, 492, 160, 288, 33, 36, 41, 87, 403, 486, 498, 252, 275, 40]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -15663,33 +15527,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (236, u'Hispanic', 'OTHER', 77, 77),
-    (236, u'Dominican American', 'OTHER', 62, 63),
-    (236, u'Russian American', 'OTHER', 49, 50),
-    (236, u'Asian Indian', 'OTHER', 39, 40),
-    (236, u'Koreatowns', 'OTHER', 35, 35),
-    (236, u'Census', 'OTHER', 119, 119),
-    (236, u'African American', 'OTHER', 56, 57),
-    (236, u'Indian Americans', 'OTHER', 14, 15),
-    (236, u'Puerto Rican American', 'OTHER', 65, 67),
-    (236, u'Italian American', 'OTHER', 52, 53),
-    (236, u'Korean Americans', 'OTHER', 31, 32),
-    (236, u'Chinese', 'OTHER', 115, 115),
-    (236, u'Chinatowns', 'OTHER', 96, 96),
-    (236, u'Little', 'OTHER', 20, 20),
-    (272, u'NASDAQ', 'OTHER', 30, 30),
-    (272, u'New York Stock Exchange', 'OTHER', 19, 22),
-    (272, u'Broadway', 'OTHER', 34, 34),
-    (272, u'Wall Street', 'OTHER', 25, 26),
-    (359, u'Tokyo Fire Department', 'OTHER', 25, 27),
-    (359, u'New York City Fire Department', 'OTHER', 1, 5)]
+[   (70, u'Philadelphia', u'LOCATION', 7, 7),
+    (70, u'New York', u'LOCATION', 3, 4),
+    (11, u'New York', u'LOCATION', 0, 1),
+    (236, u'Western Hemisphere', u'LOCATION', 44, 45),
+    (236, u'Asia', u'LOCATION', 126, 126),
+    (236, u'New York City', u'LOCATION', 98, 100),
+    (236, u'South American', u'LOCATION', 70, 71),
+    (236, u'India', u'LOCATION', 21, 21),
+    (272, u'Manhattan', u'LOCATION', 1, 1),
+    (302, u'New York City', u'LOCATION', 74, 76),
+    (302, u'New York', u'LOCATION', 52, 53),
+    (302, u'New York City', u'LOCATION', 4, 6),
+    (233, u'New York City', u'LOCATION', 2, 4),
+    (233, u'Los Angeles', u'LOCATION', 23, 24),
+    (349, u'New York City', u'LOCATION', 3, 5),
+    (214, u'New York City', u'LOCATION', 1, 3),
+    (214, u'Asian American', u'LOCATION', 15, 16),
+    (214, u'Queens', u'LOCATION', 6, 6),
+    (337, u'Brooklyn', u'LOCATION', 26, 26),
+    (0, u'New York', u'LOCATION', 45, 46)]
 question: What was the second largest city in the United States in 1790?
 expected: Philadelphia
 expected sentence: By 1790, New York had surpassed Philadelphia as the largest city in the United States.
-actual: (236, u'Koreatowns', 'OTHER', 35, 35)
+actual: (70, u'New York', u'LOCATION', 3, 4)
 expected id: 70
 extracted id: [70, 11, 12, 236, 272, 359, 302, 69, 233, 349, 214, 337, 0, 239, 281, 179, 198, 418, 197, 144]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -15725,33 +15589,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (88, u'Draft Riots', 'OTHER', 48, 49),
-    (88, u'American Civil War', 'OTHER', 8, 10),
-    (88, u'Irish', 'OTHER', 59, 59),
-    (236, u'Census', 'OTHER', 119, 119),
-    (236, u'Chinese', 'OTHER', 115, 115),
-    (236, u'Hispanic', 'OTHER', 77, 77),
-    (236, u'Dominican American', 'OTHER', 62, 63),
-    (236, u'Russian American', 'OTHER', 49, 50),
-    (236, u'Asian Indian', 'OTHER', 39, 40),
-    (236, u'Koreatowns', 'OTHER', 35, 35),
-    (236, u'Korean Americans', 'OTHER', 31, 32),
-    (236, u'Indian Americans', 'OTHER', 14, 15),
-    (236, u'Puerto Rican American', 'OTHER', 65, 67),
-    (236, u'Italian American', 'OTHER', 52, 53),
-    (236, u'Chinatowns', 'OTHER', 96, 96),
-    (236, u'Little', 'OTHER', 20, 20),
-    (102, u'Great Migration', 'OTHER', 17, 18),
-    (102, u'African Americans', 'OTHER', 13, 14),
-    (55, u'Africans', 'OTHER', 27, 27),
-    (55, u'African Burying Ground', 'OTHER', 3, 5)]
+[   (92, u'Manhattan', u'LOCATION', 38, 38),
+    (92, u'New Jersey', u'LOCATION', 31, 32),
+    (92, u'Williamsburg', u'LOCATION', 24, 24),
+    (92, u'Brooklyn', u'LOCATION', 26, 26),
+    (236, u'Asia', u'LOCATION', 126, 126),
+    (236, u'United States', u'LOCATION', 81, 82),
+    (236, u'Western Hemisphere', u'LOCATION', 44, 45),
+    (236, u'South American', u'LOCATION', 70, 71),
+    (236, u'India', u'LOCATION', 21, 21),
+    (102, u'North America', u'LOCATION', 40, 41),
+    (102, u'American South', u'LOCATION', 21, 22),
+    (55, u'Foley Square', u'LOCATION', 18, 19),
+    (369, u'United States', u'LOCATION', 26, 27),
+    (38, u'Manhattan', u'LOCATION', 13, 13),
+    (38, u'Portuguese', u'LOCATION', 5, 5),
+    (38, u'Santo Domingo', u'LOCATION', 2, 3),
+    (316, u'Harlem', u'LOCATION', 8, 8),
+    (73, u'United States', u'LOCATION', 3, 4),
+    (186, u'Manhattan Island', u'LOCATION', 6, 7),
+    (214, u'United States', u'LOCATION', 35, 36)]
 question: What was the approximate African-American population of New York City in 1865?
 expected: 10,000
 expected sentence: In all, eleven black men were lynched over five days, and the riots forced hundreds of blacks to flee the city for Williamsburg, Brooklyn, as well as New Jersey; the black population in Manhattan fell below 10,000 by 1865, which it had last been in 1820.
-actual: (88, u'American Civil War', 'OTHER', 8, 10)
+actual: (92, u'Manhattan', u'LOCATION', 38, 38)
 expected id: 92
 extracted id: [92, 88, 236, 102, 55, 369, 38, 316, 225, 200, 73, 75, 489, 186, 204, 214, 223, 215, 222, 202]
-predicted question type: OTHER
+predicted question type: LOCATION
+
+
+
+all results:
+[   (66, u'West Side of Lower Manhattan', u'LOCATION', 20, 24),
+    (66, u'New York', u'LOCATION', 11, 12),
+    (400, u'New York City', u'LOCATION', 11, 13),
+    (113, u'New York City', u'LOCATION', 11, 13),
+    (535, u'Greenpoint', u'LOCATION', 57, 57),
+    (535, u'Port of New York', u'LOCATION', 11, 14),
+    (535, u'New Jersey', u'LOCATION', 16, 17),
+    (535, u'New York City', u'LOCATION', 64, 66),
+    (535, u'US', u'LOCATION', 43, 43),
+    (149, u'United States', u'LOCATION', 10, 11),
+    (130, u'Long Island', u'LOCATION', 12, 13),
+    (130, u'New York City', u'LOCATION', 2, 4),
+    (130, u'Manhattan', u'LOCATION', 15, 15),
+    (130, u'Staten Island', u'LOCATION', 18, 19),
+    (143, u'Manhattan', u'LOCATION', 0, 0),
+    (144, u'Hong Kong', u'LOCATION', 38, 39),
+    (144, u'New York City', u'LOCATION', 4, 6),
+    (158, u'New York City', u'LOCATION', 28, 30),
+    (260, u'New York City', u'LOCATION', 0, 2),
+    (260, u'US', u'LOCATION', 35, 35)]
+question: In what building did the city's deadliest industrial disaster occur?
+expected: Triangle Shirtwaist Factory
+expected sentence: In 1911, the Triangle Shirtwaist Factory fire, the city's worst industrial disaster, took the lives of 146 garment workers and spurred the growth of the International Ladies' Garment Workers' Union and major improvements in factory safety standards.
+actual: (66, u'West Side of Lower Manhattan', u'LOCATION', 20, 24)
+expected id: 100
+extracted id: [100, 66, 400, 113, 535, 145, 147, 148, 149, 97, 532, 533, 130, 143, 144, 154, 155, 156, 158, 260]
+predicted question type: LOCATION
 
 
 
@@ -15818,37 +15713,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (157, u'Jackson Heights', 'OTHER', 13, 14),
-    (201, u'Census', 'OTHER', 74, 74),
-    (206, u'Lower East Side', 'OTHER', 17, 19),
-    (504, u'American', 'OTHER', 22, 22),
-    (504, u'New York Cosmos', 'OTHER', 8, 10),
-    (504, u'Pel\xe9', 'OTHER', 25, 25),
-    (331, u'American', 'OTHER', 35, 35),
-    (362, u'New York City Fire Department', 'OTHER', 1, 5),
-    (149, u'Seagram Building', 'OTHER', 14, 15),
-    (149, u'I', 'OTHER', 28, 28),
-    (232, u'Americans', 'OTHER', 1, 1),
-    (102, u'Great Migration', 'OTHER', 17, 18),
-    (102, u'African', 'OTHER', 37, 37),
-    (102, u'African Americans', 'OTHER', 13, 14),
-    (   290,
-        u"New York City Economic Development Corporation ' s Early Stage Life Sciences Funding Initiative",
-        'OTHER',
-        1,
-        14),
-    (290, u'Eli Lilly', 'OTHER', 28, 29),
-    (290, u'General Electric Ventures', 'OTHER', 23, 25),
-    (290, u'Celgene', 'OTHER', 21, 21),
-    (13, u'Statue', 'OTHER', 1, 1),
-    (13, u'Liberty', 'OTHER', 3, 3)]
+[   (105, u'New York', u'LOCATION', 0, 1),
+    (105, u'London', u'LOCATION', 17, 17),
+    (201, u'United States', u'LOCATION', 42, 43),
+    (201, u'Hudson County', u'LOCATION', 60, 61),
+    (201, u'New Jersey', u'LOCATION', 63, 64),
+    (5, u'United States', u'LOCATION', 38, 39),
+    (5, u'New York', u'LOCATION', 27, 28),
+    (152, u'New York City', u'LOCATION', 3, 5),
+    (331, u'Manhattan', u'LOCATION', 7, 7),
+    (362, u'New York', u'LOCATION', 16, 17),
+    (149, u'United States', u'LOCATION', 10, 11),
+    (232, u'Bronx', u'LOCATION', 8, 8),
+    (102, u'North America', u'LOCATION', 40, 41),
+    (102, u'American South', u'LOCATION', 21, 22),
+    (102, u'New York City', u'LOCATION', 28, 30),
+    (102, u'New York City', u'LOCATION', 0, 2),
+    (290, u'US', u'LOCATION', 35, 35),
+    (13, u'United States', u'LOCATION', 32, 33),
+    (13, u'Americas', u'LOCATION', 13, 13),
+    (51, u'New York', u'LOCATION', 0, 1)]
 question: In the early 1920s, what was the second most highly populated city in the world?
 expected: London
 expected sentence: New York became the most populous urbanized area in the world in the early 1920s, overtaking London.
-actual: (157, u'Jackson Heights', 'OTHER', 13, 14)
+actual: (105, u'New York', u'LOCATION', 0, 1)
 expected id: 105
 extracted id: [105, 157, 201, 5, 152, 206, 504, 331, 362, 149, 232, 102, 290, 13, 51, 106, 111, 145, 302, 144]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -16008,33 +15899,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (458, u'Croton Watershed', 'OTHER', 1, 2),
-    (33, u'State', 'OTHER', 36, 36),
-    (459, u'Water Tunnel No', 'OTHER', 7, 9),
-    (181, u'Wildlife Refuge', 'OTHER', 34, 35),
-    (181, u'Gateway National Recreation Area', 'OTHER', 0, 3),
-    (132, u'Troy', 'OTHER', 5, 5),
-    (133, u'U', 'OTHER', 8, 8),
-    (188, u'Clay Pit Ponds State Park Preserve', 'OTHER', 14, 19),
-    (29, u'January', 'OTHER', 23, 23),
-    (29, u'La Anunciada', 'OTHER', 32, 33),
-    (29, u'Emperor', 'OTHER', 13, 13),
-    (29, u'Portuguese', 'OTHER', 10, 10),
-    (29, u'Spanish', 'OTHER', 1, 1),
-    (79, u'North American', 'OTHER', 23, 24),
-    (79, u'Erie Canal', 'OTHER', 5, 6),
-    (136, u'Bronx', u'LOCATION', 8, 8),
-    (136, u'Bronx River', u'LOCATION', 1, 2),
-    (136, u'Westchester County', u'LOCATION', 10, 11),
-    (458, u'20 %', 'NUMBER', 42, 43),
-    (458, u'US', u'LOCATION', 12, 12)]
-question: What is the city's sole fresh water river?
-expected: Bronx River
-expected sentence: The Bronx River, which flows through the Bronx and Westchester County, is the only entirely fresh water river in the city.
-actual: (458, u'Croton Watershed', 'OTHER', 1, 2)
-expected id: 136
-extracted id: [136, 458, 457, 33, 459, 156, 135, 538, 139, 155, 181, 456, 535, 524, 129, 132, 133, 188, 29, 79]
-predicted question type: OTHER
+[   (125, u'New York', u'LOCATION', 14, 15),
+    (86, u'South', u'LOCATION', 18, 18),
+    (467, u'New York City', u'LOCATION', 25, 27),
+    (466, u'New York City', u'LOCATION', 0, 2),
+    (545, u'Upper East Side', u'LOCATION', 8, 10),
+    (270, u'US', u'LOCATION', 55, 55),
+    (270, u'US', u'LOCATION', 83, 83),
+    (0, u'United States', u'LOCATION', 58, 59),
+    (0, u'New York', u'LOCATION', 45, 46),
+    (0, u'United States', u'LOCATION', 38, 39),
+    (0, u'New York City', u'LOCATION', 5, 7),
+    (0, u'New York', u'LOCATION', 21, 22),
+    (0, u'New York', u'LOCATION', 12, 13),
+    (0, u'New York', u'LOCATION', 0, 1),
+    (18, u'Lower Manhattan', u'LOCATION', 9, 10),
+    (18, u'New York City', u'LOCATION', 12, 14),
+    (550, u'New York City', u'LOCATION', 0, 2),
+    (176, u'New York City', u'LOCATION', 8, 10),
+    (176, u'Lower Manhattan', u'LOCATION', 30, 31),
+    (197, u'United States', u'LOCATION', 11, 12)]
+question: A presidential candidate from what party derided the city for its liberalism?
+expected: Republican
+expected sentence: When one Republican presidential candidate for the 2016 election ridiculed the liberalism of "New York values" in January 2016, Donald Trump, leading in the polls, vigorously defended his city.
+actual: (125, u'New York', u'LOCATION', 14, 15)
+expected id: 125
+extracted id: [125, 86, 467, 466, 468, 545, 464, 270, 0, 18, 550, 176, 197, 549, 247, 321, 330, 458, 459, 463]
+predicted question type: LOCATION
 
 
 
@@ -16082,33 +15973,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (487, u'Mile', 'OTHER', 1, 1),
-    (202, u'American', 'OTHER', 51, 51),
-    (201, u'Census', 'OTHER', 74, 74),
-    (181, u'Wildlife Refuge', 'OTHER', 34, 35),
-    (181, u'Gateway National Recreation Area', 'OTHER', 0, 3),
-    (260, u'June', 'OTHER', 85, 85),
-    (260, u'Madison Avenue', 'OTHER', 90, 91),
-    (260, u'American', 'OTHER', 64, 64),
-    (260, u'Park Avenue', 'OTHER', 25, 26),
-    (260, u'July', 'OTHER', 30, 30),
-    (18, u'New York Stock Exchange', 'OTHER', 53, 56),
-    (18, u'Financial District', 'OTHER', 6, 7),
-    (18, u'Wall Street', 'OTHER', 2, 3),
-    (18, u'NASDAQ', 'OTHER', 58, 58),
-    (296, u'Central Park', 'OTHER', 122, 123),
-    (296, u'Tribeca Film Festival', 'OTHER', 114, 116),
-    (296, u'Central Park', 'OTHER', 107, 108),
-    (296, u'St', 'OTHER', 92, 92),
-    (296, u'Rockefeller Center Christmas Tree', 'OTHER', 86, 89),
-    (296, u'Macy', 'OTHER', 75, 75)]
+[   (5, u'United States', u'LOCATION', 38, 39),
+    (202, u'United States', u'LOCATION', 41, 42),
+    (202, u'Manhattan', u'LOCATION', 12, 12),
+    (202, u'New York County', u'LOCATION', 5, 7),
+    (201, u'United States', u'LOCATION', 42, 43),
+    (201, u'Hudson County', u'LOCATION', 60, 61),
+    (201, u'New Jersey', u'LOCATION', 63, 64),
+    (181, u'Jamaica Bay', u'LOCATION', 62, 63),
+    (181, u'Brooklyn', u'LOCATION', 37, 37),
+    (181, u'Jamaica Bay', u'LOCATION', 32, 33),
+    (181, u'Queens', u'LOCATION', 39, 39),
+    (260, u'US', u'LOCATION', 35, 35),
+    (18, u'Lower Manhattan', u'LOCATION', 9, 10),
+    (281, u'United States', u'LOCATION', 28, 29),
+    (281, u'Midtown Manhattan', u'LOCATION', 32, 33),
+    (281, u'Manhattan', u'LOCATION', 0, 0),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Ellis Island', u'LOCATION', 21, 22),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46)]
 question: What is the total area of New York City in square miles?
 expected: 468.9
 expected sentence: The city's total area is 468.9 square miles (1,214 km2). 164.1 sq mi (425 km2) of this is water and 304.8 sq mi (789 km2) is land.
-actual: (487, u'Mile', 'OTHER', 1, 1)
+actual: (5, u'United States', u'LOCATION', 38, 39)
 expected id: 139
 extracted id: [139, 5, 487, 202, 201, 181, 260, 18, 281, 296, 180, 258, 270, 212, 213, 273, 486, 234, 246, 272]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -16152,33 +16043,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (355, u'Five Points', 'OTHER', 22, 23),
-    (355, u'Roach Guards', 'OTHER', 18, 19),
-    (355, u'Forty Thieves', 'OTHER', 14, 15),
-    (171, u'F', 'OTHER', 21, 21),
-    (171, u'C', 'OTHER', 27, 27),
-    (171, u'June', 'OTHER', 30, 30),
-    (171, u'F', 'OTHER', 36, 36),
-    (171, u'C', 'OTHER', 42, 42),
-    (171, u'August', 'OTHER', 45, 45),
-    (441, u'Gothic', 'OTHER', 24, 24),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (452, u'Walk Score', 'OTHER', 8, 9),
-    (496, u'New Yawk', 'OTHER', 44, 45),
-    (330, u'City University of New York', 'OTHER', 36, 40),
-    (330, u'CUNY', 'OTHER', 42, 42),
-    (29, u'January', 'OTHER', 23, 23),
-    (29, u'La Anunciada', 'OTHER', 32, 33),
-    (29, u'Emperor', 'OTHER', 13, 13),
-    (29, u'Portuguese', 'OTHER', 10, 10),
-    (29, u'Spanish', 'OTHER', 1, 1)]
+[   (140, u'Maine', u'LOCATION', 40, 40),
+    (140, u'Eastern Seaboard', u'LOCATION', 36, 37),
+    (140, u'Todt Hill', u'LOCATION', 7, 8),
+    (140, u'Staten Island', u'LOCATION', 10, 11),
+    (441, u'Brooklyn Bridge', u'LOCATION', 4, 5),
+    (441, u'Rosendale', u'LOCATION', 14, 14),
+    (523, u'Bronx', u'LOCATION', 54, 54),
+    (523, u'Manhattan', u'LOCATION', 20, 20),
+    (523, u'Long Island', u'LOCATION', 49, 50),
+    (523, u'Staten Island', u'LOCATION', 22, 23),
+    (523, u'Brooklyn', u'LOCATION', 39, 39),
+    (523, u'Queens', u'LOCATION', 37, 37),
+    (452, u'United States', u'LOCATION', 21, 22),
+    (9, u'Dutch Republic', u'LOCATION', 18, 19),
+    (9, u'New Amsterdam', u'LOCATION', 23, 24),
+    (330, u'United States', u'LOCATION', 27, 28),
+    (29, u'Hudson River', u'LOCATION', 41, 42),
+    (29, u'New York Harbor', u'LOCATION', 19, 21),
+    (29, u'Rio de San Antonio', u'LOCATION', 47, 50),
+    (33, u'Albany', u'LOCATION', 39, 39)]
 question: What is the name of New York City's highest point?
 expected: Todt Hill
 expected sentence: The highest point in the city is Todt Hill on Staten Island, which, at 409.8 feet (124.9 m) above sea level, is the highest point on the Eastern Seaboard south of Maine.
-actual: (355, u'Forty Thieves', 'OTHER', 14, 15)
+actual: (140, u'Eastern Seaboard', u'LOCATION', 36, 37)
 expected id: 140
 extracted id: [140, 355, 171, 441, 523, 452, 9, 496, 330, 29, 33, 17, 28, 247, 39, 486, 202, 213, 230, 248]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -16404,181 +16295,188 @@ predicted question type: OTHER
 
 
 all results:
-[   (167, u'F', 'OTHER', 19, 19),
-    (167, u'C', 'OTHER', 25, 25),
-    (167, u'F', 'OTHER', 35, 35),
-    (167, u'C', 'OTHER', 39, 39),
-    (167, u'F', 'OTHER', 50, 50),
-    (167, u'C', 'OTHER', 54, 54),
-    (169, u'July', 'OTHER', 28, 28),
-    (169, u'C', 'OTHER', 25, 25),
-    (169, u'F', 'OTHER', 19, 19),
-    (470, u'Nobel', 'OTHER', 21, 21),
-    (515, u'L', 'OTHER', 50, 50),
-    (515, u'PATH', 'OTHER', 8, 8),
-    (515, u'PATCO', 'OTHER', 53, 53),
-    (515, u'Speedline', 'OTHER', 54, 54),
-    (515, u'Copenhagen Metro', 'OTHER', 60, 61),
-    (244, u'Gini Coefficient', 'OTHER', 14, 15),
-    (331, u'American', 'OTHER', 35, 35),
-    (162, u'Cfa', 'OTHER', 33, 33),
-    (162, u'F', 'OTHER', 14, 14),
-    (162, u'C', 'OTHER', 10, 10)]
+[   (166, u'Pittsburgh', u'LOCATION', 54, 54),
+    (166, u'Atlantic', u'LOCATION', 24, 24),
+    (166, u'Atlantic Ocean', u'LOCATION', 19, 20),
+    (166, u'Cincinnati', u'LOCATION', 56, 56),
+    (166, u'North American', u'LOCATION', 44, 45),
+    (166, u'Indianapolis', u'LOCATION', 59, 59),
+    (456, u'Catskill Mountains', u'LOCATION', 11, 12),
+    (30, u'Spain', u'LOCATION', 12, 12),
+    (38, u'Manhattan', u'LOCATION', 13, 13),
+    (38, u'Santo Domingo', u'LOCATION', 2, 3),
+    (38, u'Portuguese', u'LOCATION', 5, 5),
+    (337, u'Brooklyn', u'LOCATION', 26, 26),
+    (326, u'United States', u'LOCATION', 26, 27),
+    (515, u'Chicago', u'LOCATION', 48, 48),
+    (515, u'New York City Subway', u'LOCATION', 2, 5),
+    (515, u'Philadelphia', u'LOCATION', 56, 56),
+    (430, u'North America', u'LOCATION', 12, 13),
+    (512, u'West Side of Manhattan', u'LOCATION', 24, 27),
+    (512, u'Pennsylvania', u'LOCATION', 20, 20),
+    (512, u'Washington', u'LOCATION', 40, 40)]
+question: What mountains serve as a barrier to keep New York City comparatively warmer in the winter?
+expected: Appalachians
+expected sentence: Winters are cold and damp, and prevailing wind patterns that blow offshore minimize the moderating effects of the Atlantic Ocean; yet the Atlantic and the partial shielding from colder air by the Appalachians keep the city warmer in the winter than inland North American cities at similar or lesser latitudes such as Pittsburgh, Cincinnati, and Indianapolis.
+actual: (166, u'Atlantic Ocean', u'LOCATION', 19, 20)
+expected id: 166
+extracted id: [166, 456, 177, 30, 167, 171, 38, 174, 337, 326, 334, 515, 430, 512, 24, 194, 11, 336, 327, 339]
+predicted question type: LOCATION
+
+
+
+all results:
+[   (470, u'United States', u'LOCATION', 16, 17),
+    (515, u'Chicago', u'LOCATION', 48, 48),
+    (515, u'New York City Subway', u'LOCATION', 2, 5),
+    (515, u'Philadelphia', u'LOCATION', 56, 56),
+    (244, u'Manhattan', u'LOCATION', 29, 29),
+    (331, u'Manhattan', u'LOCATION', 7, 7),
+    (162, u'North American', u'LOCATION', 44, 45),
+    (29, u'New York Harbor', u'LOCATION', 19, 21),
+    (29, u'Hudson River', u'LOCATION', 41, 42),
+    (29, u'Rio de San Antonio', u'LOCATION', 47, 50),
+    (458, u'US', u'LOCATION', 12, 12),
+    (312, u'United States', u'LOCATION', 9, 10),
+    (430, u'North America', u'LOCATION', 12, 13),
+    (450, u'United States', u'LOCATION', 36, 37),
+    (272, u'United States', u'LOCATION', 12, 13),
+    (272, u'Manhattan', u'LOCATION', 1, 1),
+    (315, u'Spanish', u'LOCATION', 10, 10),
+    (522, u'Manhattan', u'LOCATION', 14, 14),
+    (0, u'United States', u'LOCATION', 38, 39),
+    (0, u'United States', u'LOCATION', 58, 59)]
 question: What is New York City's daily January mean temperature in degrees celsius?
 expected: 0.3
 expected sentence: The daily mean temperature in January, the area's coldest month, is 32.6 °F (0.3 °C); however, temperatures usually drop to 10 °F (−12 °C) several times per winter, and reach 50 °F (10 °C) several days each winter month.
-actual: (167, u'F', 'OTHER', 19, 19)
+actual: (470, u'United States', u'LOCATION', 16, 17)
 expected id: 167
 extracted id: [167, 169, 470, 515, 244, 331, 162, 125, 29, 170, 172, 313, 458, 312, 430, 450, 272, 315, 522, 0]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
 all results:
-[   (   178,
-        u'New York City Department of Parks and Recreation',
-        'OTHER',
-        36,
-        43),
-    (   178,
-        u'New York State Office of Parks , Recreation and Historic Preservation',
-        'OTHER',
-        22,
-        32),
-    (178, u'National Park Service', 'OTHER', 17, 19),
-    (515, u'Copenhagen Metro', 'OTHER', 60, 61),
-    (515, u'PATCO', 'OTHER', 53, 53),
-    (515, u'PATH', 'OTHER', 8, 8),
-    (515, u'Speedline', 'OTHER', 54, 54),
-    (515, u'L', 'OTHER', 50, 50),
-    (359, u'Tokyo Fire Department', 'OTHER', 25, 27),
-    (359, u'New York City Fire Department', 'OTHER', 1, 5),
-    (190, u'Corona Park', 'OTHER', 15, 16),
-    (190, u'Prospect Park', 'OTHER', 9, 10),
-    (179, u'The Trust for Public Land', 'OTHER', 6, 10),
-    (179, u'ParkScore', 'OTHER', 3, 3),
-    (179, u'U', 'OTHER', 31, 31),
-    (179, u'S', 'OTHER', 33, 33),
-    (540, u'Second Department', 'OTHER', 16, 17),
-    (540, u'First Department of the Supreme Court', 'OTHER', 3, 8),
-    (540, u'Appellate Division', 'OTHER', 10, 11),
-    (513, u'Railway', 'OTHER', 3, 3)]
+[   (515, u'Chicago', u'LOCATION', 48, 48),
+    (515, u'New York City Subway', u'LOCATION', 2, 5),
+    (515, u'Philadelphia', u'LOCATION', 56, 56),
+    (359, u'United States', u'LOCATION', 14, 15),
+    (190, u'Washington Square Park', u'LOCATION', 22, 24),
+    (190, u'Forest Park', u'LOCATION', 18, 19),
+    (190, u'Flushing Meadows', u'LOCATION', 12, 13),
+    (190, u'Central Park', u'LOCATION', 6, 7),
+    (179, u'Minneapolis', u'LOCATION', 42, 42),
+    (540, u'Brooklyn', u'LOCATION', 13, 13),
+    (540, u'Manhattan', u'LOCATION', 0, 0),
+    (513, u'Staten Island', u'LOCATION', 1, 2),
+    (513, u'Staten Island', u'LOCATION', 9, 10),
+    (326, u'United States', u'LOCATION', 26, 27),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Ellis Island', u'LOCATION', 21, 22),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46),
+    (188, u'Hudson River', u'LOCATION', 56, 57),
+    (188, u'Riverbank State Park', u'LOCATION', 31, 33)]
 question: What is the name of the New York City department that operates the park system?
 expected: New York City Department of Parks and Recreation
 expected sentence: The City of New York has a complex park system, with various lands operated by the National Park Service, the New York State Office of Parks, Recreation and Historic Preservation, and the New York City Department of Parks and Recreation.
-actual: (178, u'National Park Service', 'OTHER', 17, 19)
+actual: (515, u'New York City Subway', u'LOCATION', 2, 5)
 expected id: 178
 extracted id: [178, 515, 359, 190, 180, 179, 540, 513, 326, 338, 321, 296, 342, 17, 188, 358, 362, 390, 90, 347]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
 all results:
-[   (179, u'ParkScore', 'OTHER', 3, 3),
-    (179, u'U', 'OTHER', 31, 31),
-    (179, u'S', 'OTHER', 33, 33),
-    (137, u'Dutch', 'OTHER', 21, 21),
-    (   178,
-        u'New York City Department of Parks and Recreation',
-        'OTHER',
-        36,
-        43),
-    (   178,
-        u'New York State Office of Parks , Recreation and Historic Preservation',
-        'OTHER',
-        22,
-        32),
-    (178, u'National Park Service', 'OTHER', 17, 19),
-    (478, u'American', 'OTHER', 25, 25),
-    (115, u'American', 'OTHER', 28, 28),
-    (190, u'Corona Park', 'OTHER', 15, 16),
-    (190, u'Prospect Park', 'OTHER', 9, 10),
-    (296, u'Tribeca Film Festival', 'OTHER', 114, 116),
-    (296, u'St', 'OTHER', 92, 92),
-    (296, u'Rockefeller Center Christmas Tree', 'OTHER', 86, 89),
-    (296, u'Macy', 'OTHER', 75, 75),
-    (296, u'Halloween Parade', 'OTHER', 68, 69),
-    (296, u'Central Park', 'OTHER', 41, 42),
-    (296, u'Metropolitan Museum', 'OTHER', 33, 34),
-    (296, u'United Nations Headquarters', 'OTHER', 25, 27),
-    (296, u'Statue', 'OTHER', 17, 17)]
+[   (186, u'Manhattan Island', u'LOCATION', 6, 7),
+    (515, u'Philadelphia', u'LOCATION', 56, 56),
+    (515, u'Chicago', u'LOCATION', 48, 48),
+    (515, u'New York City Subway', u'LOCATION', 2, 5),
+    (190, u'Washington Square Park', u'LOCATION', 22, 24),
+    (190, u'Forest Park', u'LOCATION', 18, 19),
+    (190, u'Flushing Meadows', u'LOCATION', 12, 13),
+    (190, u'Central Park', u'LOCATION', 6, 7),
+    (55, u'Foley Square', u'LOCATION', 18, 19),
+    (69, u'United States', u'LOCATION', 28, 29),
+    (69, u'United States', u'LOCATION', 19, 20),
+    (69, u'United States', u'LOCATION', 8, 9),
+    (447, u'Brooklyn', u'LOCATION', 18, 18),
+    (447, u'Queens', u'LOCATION', 16, 16),
+    (447, u'Manhattan', u'LOCATION', 14, 14),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46),
+    (296, u'Ellis Island', u'LOCATION', 21, 22),
+    (513, u'Staten Island', u'LOCATION', 9, 10)]
+question: What federal service operates New York City parks?
+expected: National Park Service
+expected sentence: The City of New York has a complex park system, with various lands operated by the National Park Service, the New York State Office of Parks, Recreation and Historic Preservation, and the New York City Department of Parks and Recreation.
+actual: (186, u'Manhattan Island', u'LOCATION', 6, 7)
+expected id: 178
+extracted id: [178, 186, 515, 180, 547, 321, 190, 55, 69, 447, 338, 296, 342, 513, 179, 188, 184, 358, 512, 530]
+predicted question type: LOCATION
+
+
+
+all results:
+[   (179, u'New York City', u'LOCATION', 17, 19),
+    (179, u'Minneapolis', u'LOCATION', 42, 42),
+    (137, u'Battery Park City', u'LOCATION', 37, 39),
+    (137, u'Lower Manhattan', u'LOCATION', 30, 31),
+    (178, u'New York', u'LOCATION', 3, 4),
+    (113, u'New York City', u'LOCATION', 11, 13),
+    (478, u'New York', u'LOCATION', 11, 12),
+    (115, u'Asia', u'LOCATION', 34, 34),
+    (115, u'Latin America', u'LOCATION', 36, 37),
+    (190, u'Washington Square Park', u'LOCATION', 22, 24),
+    (190, u'Forest Park', u'LOCATION', 18, 19),
+    (190, u'Flushing Meadows', u'LOCATION', 12, 13),
+    (190, u'Central Park', u'LOCATION', 6, 7),
+    (190, u'New York City', u'LOCATION', 2, 4),
+    (5, u'United States', u'LOCATION', 38, 39),
+    (5, u'New York', u'LOCATION', 27, 28),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Ellis Island', u'LOCATION', 21, 22),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46)]
 question: What city was rated as having the best park system by The Trust for Public Land?
 expected: Minneapolis
 expected sentence: In its 2013 ParkScore ranking, The Trust for Public Land reported that the park system in New York City was the second best park system among the 50 most populous U.S. cities, behind the park system of Minneapolis.
-actual: (179, u'ParkScore', 'OTHER', 3, 3)
+actual: (179, u'New York City', u'LOCATION', 17, 19)
 expected id: 179
 extracted id: [179, 137, 178, 113, 478, 115, 190, 180, 5, 139, 296, 326, 337, 188, 82, 336, 511, 191, 182, 183]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
 all results:
-[   (179, u'The Trust for Public Land', 'OTHER', 6, 10),
-    (179, u'U', 'OTHER', 31, 31),
-    (179, u'S', 'OTHER', 33, 33),
-    (478, u'American', 'OTHER', 25, 25),
-    (115, u'American', 'OTHER', 28, 28),
-    (247, u'U', 'OTHER', 24, 24),
-    (247, u'S', 'OTHER', 26, 26),
-    (247, u'Mayor', 'OTHER', 33, 33),
-    (247, u'Bloomberg', 'OTHER', 37, 37),
-    (330, u'City University of New York', 'OTHER', 36, 40),
-    (330, u'CUNY', 'OTHER', 42, 42),
-    (20, u'Chinatowns', 'OTHER', 19, 19),
-    (202, u'American', 'OTHER', 51, 51),
-    (213, u'U', 'OTHER', 10, 10),
-    (213, u'S', 'OTHER', 12, 12),
-    (230, u'Americans', 'OTHER', 1, 1),
-    (248, u'U', 'OTHER', 13, 13),
-    (248, u'S', 'OTHER', 15, 15),
-    (259, u'Time Warner Center', 'OTHER', 1, 3),
-    (331, u'American', 'OTHER', 35, 35)]
-question: What city had the second highest ParkScore rating?
-expected: New York City
-expected sentence: In its 2013 ParkScore ranking, The Trust for Public Land reported that the park system in New York City was the second best park system among the 50 most populous U.S. cities, behind the park system of Minneapolis.
-actual: (179, u'The Trust for Public Land', 'OTHER', 6, 10)
-expected id: 179
-extracted id: [179, 180, 113, 478, 115, 140, 247, 330, 20, 529, 202, 213, 230, 248, 259, 331, 246, 198, 302, 349]
-predicted question type: OTHER
-
-
-
-all results:
-[   (179, u'The Trust for Public Land', 'OTHER', 6, 10),
-    (179, u'U', 'OTHER', 31, 31),
-    (179, u'S', 'OTHER', 33, 33),
-    (478, u'American', 'OTHER', 25, 25),
-    (115, u'American', 'OTHER', 28, 28),
-    (190, u'Prospect Park', 'OTHER', 9, 10),
-    (190, u'Corona Park', 'OTHER', 15, 16),
-    (   178,
-        u'New York City Department of Parks and Recreation',
-        'OTHER',
-        36,
-        43),
-    (   178,
-        u'New York State Office of Parks , Recreation and Historic Preservation',
-        'OTHER',
-        22,
-        32),
-    (178, u'National Park Service', 'OTHER', 17, 19),
-    (296, u'Central Park', 'OTHER', 122, 123),
-    (296, u'Tribeca Film Festival', 'OTHER', 114, 116),
-    (296, u'Central Park', 'OTHER', 107, 108),
-    (296, u'St', 'OTHER', 92, 92),
-    (296, u'Rockefeller Center Christmas Tree', 'OTHER', 86, 89),
-    (296, u'Macy', 'OTHER', 75, 75),
-    (296, u'Halloween Parade', 'OTHER', 68, 69),
-    (296, u'Metropolitan Museum', 'OTHER', 33, 34),
-    (296, u'United Nations Headquarters', 'OTHER', 25, 27),
-    (296, u'Statue', 'OTHER', 17, 17)]
+[   (179, u'New York City', u'LOCATION', 17, 19),
+    (179, u'Minneapolis', u'LOCATION', 42, 42),
+    (113, u'New York City', u'LOCATION', 11, 13),
+    (478, u'New York', u'LOCATION', 11, 12),
+    (115, u'Asia', u'LOCATION', 34, 34),
+    (115, u'Latin America', u'LOCATION', 36, 37),
+    (190, u'New York City', u'LOCATION', 2, 4),
+    (190, u'Central Park', u'LOCATION', 6, 7),
+    (190, u'Flushing Meadows', u'LOCATION', 12, 13),
+    (190, u'Forest Park', u'LOCATION', 18, 19),
+    (190, u'Washington Square Park', u'LOCATION', 22, 24),
+    (178, u'New York', u'LOCATION', 3, 4),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Ellis Island', u'LOCATION', 21, 22),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46),
+    (188, u'Hudson River', u'LOCATION', 56, 57),
+    (188, u'New York City', u'LOCATION', 9, 11),
+    (188, u'Riverbank State Park', u'LOCATION', 31, 33),
+    (543, u'Manhattan', u'LOCATION', 27, 27)]
 question: The 2013 ParkScore rating for NYC made NYC second in best park system to what other US city?
 expected: Minneapolis
 expected sentence: In its 2013 ParkScore ranking, The Trust for Public Land reported that the park system in New York City was the second best park system among the 50 most populous U.S. cities, behind the park system of Minneapolis.
-actual: (179, u'The Trust for Public Land', 'OTHER', 6, 10)
+actual: (179, u'New York City', u'LOCATION', 17, 19)
 expected id: 179
 extracted id: [179, 180, 113, 478, 115, 190, 178, 296, 384, 188, 543, 418, 236, 270, 272, 505, 511, 300, 337, 198]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -16851,6 +16749,37 @@ actual: (196, u'National Guard', 'OTHER', 8, 9)
 expected id: 196
 extracted id: [196, 183, 523, 365, 395, 192, 194, 41, 182, 193, 0, 215, 7, 26, 233, 175, 118, 200, 399, 401]
 predicted question type: OTHER
+
+
+
+all results:
+[   (480, u'Iceland', u'LOCATION', 18, 18),
+    (480, u'Latvia', u'LOCATION', 20, 20),
+    (480, u'New York City', u'LOCATION', 0, 2),
+    (480, u'New York', u'LOCATION', 23, 24),
+    (2, u'New York', u'LOCATION', 9, 10),
+    (397, u'New York', u'LOCATION', 0, 1),
+    (482, u'New York', u'LOCATION', 2, 3),
+    (321, u'New York', u'LOCATION', 3, 4),
+    (152, u'New York City', u'LOCATION', 3, 5),
+    (160, u'New York City', u'LOCATION', 11, 13),
+    (111, u'Lower Manhattan', u'LOCATION', 45, 46),
+    (111, u'Greenwich Village', u'LOCATION', 41, 42),
+    (153, u'Queens', u'LOCATION', 20, 20),
+    (153, u'Brooklyn', u'LOCATION', 14, 14),
+    (153, u'Bronx', u'LOCATION', 8, 8),
+    (153, u'Douglaston', u'LOCATION', 17, 17),
+    (153, u'Riverdale', u'LOCATION', 4, 4),
+    (323, u'Manhattan', u'LOCATION', 13, 13),
+    (323, u'United States', u'LOCATION', 9, 10),
+    (432, u'New York', u'LOCATION', 6, 7)]
+question: 'Melting pot' was first used to describe neighborhoods in what area of the city?
+expected: Lower East Side
+expected sentence: The term "melting pot" was first coined to describe densely populated immigrant neighborhoods on the Lower East Side.
+actual: (480, u'Iceland', u'LOCATION', 18, 18)
+expected id: 206
+extracted id: [206, 480, 2, 397, 482, 475, 321, 152, 160, 111, 153, 323, 432, 69, 162, 529, 535, 520, 293, 382]
+predicted question type: LOCATION
 
 
 
@@ -17134,72 +17063,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (241, u'Judaism', 'OTHER', 24, 24),
-    (241, u'Catholicism', 'OTHER', 5, 5),
-    (207, u'Irish', 'OTHER', 13, 13),
-    (207, u'Germans', 'OTHER', 3, 3),
-    (207, u'Italians', 'OTHER', 18, 18),
-    (198, u'U', 'OTHER', 18, 18),
-    (198, u'S', 'OTHER', 20, 20),
-    (216, u'Chinese', 'OTHER', 13, 13),
-    (81, u'American', 'OTHER', 2, 2),
-    (100, u"International Ladies ' Garment Workers ' Union", 'OTHER', 30, 36),
-    (100, u'Triangle Shirtwaist Factory', 'OTHER', 4, 6),
-    (231, u'Central Asian', 'OTHER', 35, 36),
-    (231, u'Hispanic', 'OTHER', 19, 19),
-    (231, u'Uzbek Americans', 'OTHER', 4, 5),
-    (231, u'Asians', 'OTHER', 1, 1),
-    (330, u'City University of New York', 'OTHER', 36, 40),
-    (330, u'CUNY', 'OTHER', 42, 42),
-    (236, u'Census', 'OTHER', 119, 119),
-    (236, u'Chinese', 'OTHER', 115, 115),
-    (236, u'Hispanic', 'OTHER', 77, 77)]
-question: Half the population of Jews live in what borough of New York City?
-expected: Brooklyn
-expected sentence: Christianity (59%), particularly Catholicism (33%), was the most prevalently practiced religion in New York as of 2014, followed by Judaism, with approximately 1.1 million Jews in New York City, over half living in Brooklyn.
-actual: (241, u'Catholicism', 'OTHER', 5, 5)
-expected id: 241
-extracted id: [241, 207, 84, 507, 198, 216, 81, 100, 231, 330, 236, 253, 343, 32, 180, 214, 98, 200, 283, 161]
-predicted question type: OTHER
-
-
-
-all results:
-[   (0, u'State', 'OTHER', 19, 19),
-    (215, u'Chinese', 'OTHER', 88, 88),
-    (215, u'Chinese', 'OTHER', 1, 1),
-    (   178,
-        u'New York City Department of Parks and Recreation',
-        'OTHER',
-        36,
-        43),
-    (   178,
-        u'New York State Office of Parks , Recreation and Historic Preservation',
-        'OTHER',
-        22,
-        32),
-    (178, u'National Park Service', 'OTHER', 17, 19),
-    (302, u'American', 'OTHER', 68, 68),
-    (483, u'Lincoln Center', 'OTHER', 60, 61),
-    (483, u'Jazz', 'OTHER', 58, 58),
-    (483, u'Juilliard School', 'OTHER', 55, 56),
-    (483, u'Vivian Beaumont Theater', 'OTHER', 50, 52),
-    (483, u'Metropolitan Opera', 'OTHER', 28, 29),
-    (483, u'Performing Arts', 'OTHER', 4, 5),
-    (483, u'Lincoln Center', 'OTHER', 0, 1),
-    (542, u'City Hall', 'OTHER', 46, 47),
-    (542, u'Foley Square', 'OTHER', 43, 44),
-    (542, u'Southern District of New York', 'OTHER', 32, 36),
-    (542, u'American', 'OTHER', 3, 3),
-    (200, u'New York State', 'OTHER', 12, 14),
-    (293, u'NY', 'OTHER', 8, 8)]
+[   (244, u'Manhattan', u'LOCATION', 29, 29),
+    (0, u'United States', u'LOCATION', 58, 59),
+    (0, u'United States', u'LOCATION', 38, 39),
+    (215, u'Chinese', u'LOCATION', 79, 79),
+    (215, u'New York State', u'LOCATION', 69, 71),
+    (215, u'Long Island', u'LOCATION', 57, 58),
+    (215, u'Nassau County', u'LOCATION', 51, 52),
+    (215, u'Queens', u'LOCATION', 33, 33),
+    (215, u'Flushing', u'LOCATION', 31, 31),
+    (215, u'Brooklyn', u'LOCATION', 25, 25),
+    (215, u'Manhattan Chinatown', u'LOCATION', 19, 20),
+    (215, u'New York State', u'LOCATION', 10, 12),
+    (302, u'United States', u'LOCATION', 19, 20),
+    (483, u'New York City Ballet', u'LOCATION', 41, 44),
+    (483, u'New York Philharmonic', u'LOCATION', 36, 38),
+    (483, u'New York City Opera', u'LOCATION', 31, 34),
+    (483, u'Upper West Side of Manhattan', u'LOCATION', 12, 16),
+    (483, u'Lincoln Square', u'LOCATION', 8, 9),
+    (542, u'Staten Island', u'LOCATION', 86, 87),
+    (542, u'Queens', u'LOCATION', 83, 83)]
 question: What is New York City's Gini Coefficient?
 expected: 0.5
 expected sentence: New York City has a high degree of income disparity as indicated by its Gini Coefficient of 0.5 for the city overall and 0.6 for Manhattan.
-actual: (0, u'State', 'OTHER', 19, 19)
+actual: (244, u'Manhattan', u'LOCATION', 29, 29)
 expected id: 244
 extracted id: [244, 0, 215, 178, 302, 483, 542, 200, 293, 332, 18, 330, 459, 463, 549, 96, 102, 284, 304, 326]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -17611,64 +17501,64 @@ predicted question type: NUMBER
 
 
 all results:
-[   (302, u'American', 'OTHER', 68, 68),
-    (118, u'World Trade Center', 'OTHER', 64, 66),
-    (118, u'South Tower', 'OTHER', 60, 61),
-    (118, u'World Trade Center', 'OTHER', 50, 52),
-    (118, u'North Tower', 'OTHER', 46, 47),
-    (118, u'September', 'OTHER', 23, 23),
-    (118, u'Flight', 'OTHER', 56, 56),
-    (118, u'Flight', 'OTHER', 42, 42),
-    (118, u'United Airlines', 'OTHER', 54, 55),
-    (118, u'American Airlines', 'OTHER', 40, 41),
-    (301, u'American', 'OTHER', 8, 8),
-    (375, u'List', 'OTHER', 19, 19),
-    (388, u'Middle Eastern', 'OTHER', 19, 20),
-    (157, u'Jackson Heights', 'OTHER', 13, 14),
-    (296, u'Tribeca Film Festival', 'OTHER', 114, 116),
-    (296, u'St', 'OTHER', 92, 92),
-    (296, u'Rockefeller Center Christmas Tree', 'OTHER', 86, 89),
-    (296, u'Macy', 'OTHER', 75, 75),
-    (296, u'Halloween Parade', 'OTHER', 68, 69),
-    (296, u'Metropolitan Museum', 'OTHER', 33, 34)]
+[   (304, u'North American', u'LOCATION', 37, 38),
+    (304, u'Los Angeles', u'LOCATION', 32, 33),
+    (304, u'New York City', u'LOCATION', 15, 17),
+    (304, u'New York', u'LOCATION', 29, 30),
+    (302, u'New York', u'LOCATION', 52, 53),
+    (302, u'New York City', u'LOCATION', 4, 6),
+    (302, u'New York City', u'LOCATION', 74, 76),
+    (301, u'New York', u'LOCATION', 0, 1),
+    (375, u'New York City', u'LOCATION', 24, 26),
+    (129, u'Atlantic Ocean', u'LOCATION', 21, 22),
+    (129, u'Hudson River', u'LOCATION', 7, 8),
+    (234, u'New York', u'LOCATION', 1, 2),
+    (234, u'Miami', u'LOCATION', 31, 31),
+    (234, u'Los Angeles', u'LOCATION', 28, 29),
+    (388, u'New York', u'LOCATION', 31, 32),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Ellis Island', u'LOCATION', 21, 22),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46),
+    (233, u'New York City', u'LOCATION', 2, 4)]
 question: What United States city is the second most popular for pilot episode location filming?
 expected: Los Angeles
 expected sentence: In the first five months of 2014 alone, location filming for television pilots in New York City exceeded the record production levels for all of 2013, with New York surpassing Los Angeles as the top North American city for the same distinction during the 2013/2014 cycle.
-actual: (302, u'American', 'OTHER', 68, 68)
+actual: (304, u'New York City', u'LOCATION', 15, 17)
 expected id: 304
 extracted id: [304, 302, 118, 301, 375, 129, 234, 388, 157, 296, 484, 69, 233, 236, 359, 272, 0, 179, 198, 349]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
 all results:
-[   (282, u'Internet', 'OTHER', 29, 29),
-    (79, u'North American', 'OTHER', 23, 24),
-    (79, u'Erie Canal', 'OTHER', 5, 6),
-    (18, u'NASDAQ', 'OTHER', 58, 58),
-    (18, u'New York Stock Exchange', 'OTHER', 53, 56),
-    (18, u'Financial District', 'OTHER', 6, 7),
-    (18, u'Wall Street', 'OTHER', 2, 3),
-    (259, u'Time Warner Center', 'OTHER', 1, 3),
-    (275, u'U', 'OTHER', 29, 29),
-    (272, u'Broadway', 'OTHER', 34, 34),
-    (272, u'NASDAQ', 'OTHER', 30, 30),
-    (272, u'Wall Street', 'OTHER', 25, 26),
-    (272, u'New York Stock Exchange', 'OTHER', 19, 22),
-    (102, u'African', 'OTHER', 37, 37),
-    (102, u'Great Migration', 'OTHER', 17, 18),
-    (102, u'African Americans', 'OTHER', 13, 14),
-    (284, u'Internet', 'OTHER', 29, 29),
-    (430, u'Port Authority Bus Terminal', 'OTHER', 17, 20),
-    (60, u'British', 'OTHER', 25, 25),
-    (60, u'Americans', 'OTHER', 7, 7)]
-question: What city is North America's biggest media market?
-expected: New York City
-expected sentence: New York City is additionally a center for the advertising, music, newspaper, digital media, and publishing industries and is also the largest media market in North America.
-actual: (282, u'Internet', 'OTHER', 29, 29)
-expected id: 305
-extracted id: [305, 252, 282, 310, 79, 18, 259, 275, 19, 272, 281, 237, 530, 102, 284, 430, 60, 508, 48, 56]
-predicted question type: OTHER
+[   (31, u'Northeast', u'LOCATION', 33, 33),
+    (262, u'Manhattan', u'LOCATION', 18, 18),
+    (262, u'US', u'LOCATION', 26, 26),
+    (259, u'US', u'LOCATION', 19, 19),
+    (300, u'China', u'LOCATION', 11, 11),
+    (300, u'Waldorf Astoria New York', u'LOCATION', 15, 18),
+    (300, u'US', u'LOCATION', 20, 20),
+    (512, u'Washington', u'LOCATION', 40, 40),
+    (512, u'Philadelphia', u'LOCATION', 37, 37),
+    (512, u'Boston', u'LOCATION', 35, 35),
+    (512, u'North American', u'LOCATION', 61, 62),
+    (512, u'West Side of Manhattan', u'LOCATION', 24, 27),
+    (512, u'Pennsylvania', u'LOCATION', 20, 20),
+    (381, u'Broadway', u'LOCATION', 21, 21),
+    (137, u'Battery Park City', u'LOCATION', 37, 39),
+    (137, u'Lower Manhattan', u'LOCATION', 30, 31),
+    (296, u'Greenwich Village', u'LOCATION', 71, 72),
+    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
+    (296, u'Washington Square Park', u'LOCATION', 44, 46),
+    (296, u'Ellis Island', u'LOCATION', 21, 22)]
+question: Along with Warner Music Group, what top three record label is based in New York City?
+expected: Sony Music Entertainment
+expected sentence: Two of the top three record labels' headquarters are in New York: Sony Music Entertainment and Warner Music Group.
+actual: (31, u'Northeast', u'LOCATION', 33, 33)
+expected id: 308
+extracted id: [308, 31, 262, 306, 259, 309, 484, 300, 512, 381, 137, 119, 296, 321, 305, 373, 304, 14, 219, 432]
+predicted question type: LOCATION
 
 
 
@@ -17735,6 +17625,37 @@ actual: (320, u'MTV', 'OTHER', 12, 12)
 expected id: 320
 extracted id: [320, 323, 313, 306, 316, 543, 262, 287, 300, 303, 390, 473, 484, 60, 159, 280, 283, 342, 0, 215]
 predicted question type: OTHER
+
+
+
+all results:
+[   (326, u'United States', u'LOCATION', 26, 27),
+    (326, u'New York City', u'LOCATION', 1, 3),
+    (359, u'United States', u'LOCATION', 14, 15),
+    (540, u'Brooklyn', u'LOCATION', 13, 13),
+    (540, u'Manhattan', u'LOCATION', 0, 0),
+    (507, u'New York City Metropolitan Area', u'LOCATION', 45, 49),
+    (507, u'United States', u'LOCATION', 28, 29),
+    (507, u'New York City', u'LOCATION', 3, 5),
+    (48, u'New York', u'LOCATION', 17, 18),
+    (48, u'North America', u'LOCATION', 21, 22),
+    (48, u'Indonesian', u'LOCATION', 32, 32),
+    (436, u'Staten Island', u'LOCATION', 1, 2),
+    (436, u'Staten Island', u'LOCATION', 33, 34),
+    (436, u'Lower Manhattan', u'LOCATION', 36, 37),
+    (449, u'Manhattan', u'LOCATION', 20, 20),
+    (449, u'Carey Tunnel', u'LOCATION', 4, 5),
+    (449, u'Red Hook', u'LOCATION', 22, 23),
+    (449, u'Brooklyn', u'LOCATION', 25, 25),
+    (486, u'Upper East Side of Manhattan', u'LOCATION', 19, 23),
+    (486, u'Upper Carnegie Hill', u'LOCATION', 30, 32)]
+question: What city department runs the public school system?
+expected: New York City Department of Education
+expected sentence: The New York City Public Schools system, managed by the New York City Department of Education, is the largest public school system in the United States, serving about 1.1 million students in more than 1,700 separate primary and secondary schools.
+actual: (326, u'New York City', u'LOCATION', 1, 3)
+expected id: 326
+extracted id: [326, 359, 329, 335, 327, 540, 507, 48, 436, 449, 486, 328, 178, 333, 337, 179, 358, 390, 90, 347]
+predicted question type: LOCATION
 
 
 
@@ -18212,37 +18133,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (411, u'National Basketball Association', 'OTHER', 31, 33),
-    (411, u'New York Knicks', 'OTHER', 14, 16),
-    (411, u'Brooklyn Nets', 'OTHER', 10, 11),
-    (411, u'National Basketball Association', 'OTHER', 4, 6),
-    (391, u'Major League Soccer', 'OTHER', 29, 31),
-    (391, u'National Hockey League', 'OTHER', 24, 26),
-    (391, u'National Basketball Association', 'OTHER', 19, 21),
-    (391, u'Major League Baseball', 'OTHER', 14, 16),
-    (391, u'National Football League', 'OTHER', 10, 12),
-    (412, u'National Invitation Tournament', 'OTHER', 10, 12),
-    (413, u'NBA', 'OTHER', 40, 40),
-    (0, u'State', 'OTHER', 19, 19),
-    (18, u'NASDAQ', 'OTHER', 58, 58),
-    (18, u'New York Stock Exchange', 'OTHER', 53, 56),
-    (18, u'Financial District', 'OTHER', 6, 7),
-    (18, u'Wall Street', 'OTHER', 2, 3),
-    (408, u'Super Bowl XLVIII', 'OTHER', 40, 42),
-    (408, u'Stadium', 'OTHER', 29, 29),
-    (408, u'MetLife', 'OTHER', 28, 28),
-    (408, u'New York Jets', 'OTHER', 16, 18)]
-question: New York City's women's basketball team is called what?
-expected: New York Liberty
-expected sentence: The city's National Basketball Association teams are the Brooklyn Nets and the New York Knicks, while the New York Liberty is the city's Women's National Basketball Association.
-actual: (411, u'National Basketball Association', 'OTHER', 4, 6)
-expected id: 411
-extracted id: [411, 391, 412, 413, 0, 18, 408, 402, 492, 160, 288, 400, 504, 33, 392, 398, 394, 407, 36, 41]
-predicted question type: OTHER
-
-
-
-all results:
 [   (411, u'New York Knicks', 'OTHER', 14, 16),
     (411, u'Brooklyn Nets', 'OTHER', 10, 11),
     (391, u'Major League Soccer', 'OTHER', 29, 31),
@@ -18367,33 +18257,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (446, u'Lower', 'OTHER', 5, 5),
-    (514, u'Port Authority Trans', 'OTHER', 1, 3),
-    (514, u'PATH', 'OTHER', 7, 7),
-    (514, u'Midtown', 'OTHER', 11, 11),
-    (410, u'New Jersey Devils', 'OTHER', 7, 9),
-    (459, u'Water Tunnel No', 'OTHER', 7, 9),
-    (176, u'October', 'OTHER', 15, 15),
-    (176, u'Sandy', 'OTHER', 1, 1),
-    (447, u'Queens', 'OTHER', 1, 1),
-    (447, u'Midtown Tunnel', 'OTHER', 3, 4),
-    (449, u'Financial District', 'OTHER', 13, 14),
-    (449, u'Battery Park', 'OTHER', 8, 9),
-    (408, u'Super Bowl XLVIII', 'OTHER', 40, 42),
-    (408, u'Stadium', 'OTHER', 29, 29),
-    (408, u'New York Jets', 'OTHER', 16, 18),
-    (408, u'New York Giants', 'OTHER', 11, 13),
-    (408, u'National Football League', 'OTHER', 6, 8),
-    (408, u'MetLife', 'OTHER', 28, 28),
-    (201, u'Census', 'OTHER', 74, 74),
-    (509, u'Metro', 'OTHER', 20, 20)]
+[   (446, u'Manhattan', u'LOCATION', 6, 6),
+    (444, u'Hudson River', u'LOCATION', 14, 15),
+    (444, u'Lincoln Tunnel', u'LOCATION', 1, 2),
+    (444, u'Midtown Manhattan', u'LOCATION', 20, 21),
+    (521, u'New York City', u'LOCATION', 0, 2),
+    (521, u'Westchester County', u'LOCATION', 31, 32),
+    (521, u'Long Island', u'LOCATION', 34, 35),
+    (521, u'Connecticut', u'LOCATION', 39, 39),
+    (443, u'New York City', u'LOCATION', 5, 7),
+    (443, u'Manhattan Island', u'LOCATION', 0, 1),
+    (514, u'Hudson', u'LOCATION', 5, 5),
+    (514, u'Hoboken', u'LOCATION', 21, 21),
+    (514, u'Newark', u'LOCATION', 27, 27),
+    (410, u'Newark', u'LOCATION', 15, 15),
+    (459, u'New York City', u'LOCATION', 18, 20),
+    (459, u'New York City', u'LOCATION', 4, 6),
+    (176, u'Lower Manhattan', u'LOCATION', 30, 31),
+    (176, u'New York City', u'LOCATION', 8, 10),
+    (364, u'New York', u'LOCATION', 0, 1),
+    (445, u'Hudson River', u'LOCATION', 27, 28)]
 question: In what New Jersey city does the Holland Tunnel terminate?
 expected: Jersey City
 expected sentence: The Holland Tunnel, connecting Lower Manhattan to Jersey City, New Jersey, was the world's first mechanically ventilated vehicular tunnel when it opened in 1927.
-actual: (446, u'Lower', 'OTHER', 5, 5)
+actual: (446, u'Manhattan', u'LOCATION', 6, 6)
 expected id: 446
 extracted id: [446, 444, 521, 443, 514, 410, 459, 176, 525, 364, 445, 363, 447, 449, 524, 408, 535, 201, 509, 434]
-predicted question type: OTHER
+predicted question type: LOCATION
+
+
+
+all results:
+[   (265, u'Brooklyn', u'LOCATION', 23, 23),
+    (455, u'New York City', u'LOCATION', 0, 2),
+    (271, u'New York City', u'LOCATION', 7, 9),
+    (550, u'New York City', u'LOCATION', 0, 2),
+    (549, u'New York', u'LOCATION', 11, 12),
+    (549, u'New York City', u'LOCATION', 20, 22),
+    (375, u'New York City', u'LOCATION', 24, 26),
+    (289, u'US', u'LOCATION', 16, 16),
+    (242, u'Hinduism', u'LOCATION', 37, 37),
+    (242, u'New York City', u'LOCATION', 4, 6),
+    (517, u'Roosevelt Island', u'LOCATION', 33, 34),
+    (517, u'Manhattan Island', u'LOCATION', 36, 37),
+    (201, u'United States', u'LOCATION', 42, 43),
+    (201, u'Hudson County', u'LOCATION', 60, 61),
+    (201, u'New Jersey', u'LOCATION', 63, 64),
+    (181, u'Jamaica Bay', u'LOCATION', 32, 33),
+    (181, u'New York City', u'LOCATION', 26, 28),
+    (181, u'Queens', u'LOCATION', 39, 39),
+    (181, u'Brooklyn', u'LOCATION', 37, 37),
+    (181, u'Jamaica Bay', u'LOCATION', 62, 63)]
+question: What company paid for 10,000 bikes for the city's bicycle sharing program?
+expected: Citibank
+expected sentence: Citibank sponsored the introduction of 10,000 public bicycles for the city's bike-share project in the summer of 2013.
+actual: (265, u'Brooklyn', u'LOCATION', 23, 23)
+expected id: 453
+extracted id: [453, 88, 265, 455, 451, 271, 167, 550, 549, 375, 413, 289, 324, 490, 242, 517, 201, 181, 225, 284]
+predicted question type: LOCATION
 
 
 
@@ -18770,33 +18691,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (502, u'Yankee Stadium', 'OTHER', 24, 25),
-    (502, u'New York City FC of Major League Soccer', 'OTHER', 9, 16),
-    (395, u'Yankee Stadium', 'OTHER', 16, 17),
-    (395, u'MetLife Stadium', 'OTHER', 11, 12),
-    (395, u'Citi Field', 'OTHER', 24, 25),
-    (395, u'Madison Square Garden', 'OTHER', 19, 21),
-    (408, u'New York Jets', 'OTHER', 16, 18),
-    (408, u'New York Giants', 'OTHER', 11, 13),
-    (408, u'National Football League', 'OTHER', 6, 8),
-    (408, u'MetLife', 'OTHER', 28, 28),
-    (408, u'Super Bowl XLVIII', 'OTHER', 40, 42),
-    (506, u'Cosmos', 'OTHER', 1, 1),
-    (506, u'Shuart Stadium', 'OTHER', 10, 11),
-    (506, u'Hofstra University', 'OTHER', 16, 17),
-    (402, u'New York Yankees', 'OTHER', 26, 28),
-    (402, u'New York Mets', 'OTHER', 12, 14),
-    (402, u'Major League Baseball', 'OTHER', 6, 8),
-    (396, u'Yankee Stadium', 'OTHER', 12, 13),
-    (396, u'U', 'OTHER', 37, 37),
-    (396, u'Square Garden', 'OTHER', 1, 2)]
+[   (408, u'East Rutherford', u'LOCATION', 32, 33),
+    (408, u'New Jersey', u'LOCATION', 35, 36),
+    (506, u'Hempstead', u'LOCATION', 27, 27),
+    (402, u'Bronx', u'LOCATION', 37, 37),
+    (402, u'Yankee Stadium', u'LOCATION', 33, 34),
+    (402, u'Queens', u'LOCATION', 22, 22),
+    (402, u'Citi Field', u'LOCATION', 19, 20),
+    (396, u'Ebbets Field', u'LOCATION', 15, 16),
+    (18, u'Lower Manhattan', u'LOCATION', 9, 10),
+    (0, u'United States', u'LOCATION', 58, 59),
+    (0, u'United States', u'LOCATION', 38, 39),
+    (288, u'US', u'LOCATION', 28, 28),
+    (33, u'Hudson River', u'LOCATION', 23, 24),
+    (33, u'Mauritis River', u'LOCATION', 15, 16),
+    (33, u'North River', u'LOCATION', 9, 10),
+    (33, u'Albany', u'LOCATION', 39, 39),
+    (36, u'Netherlands', u'LOCATION', 16, 16),
+    (36, u'Cape Cod', u'LOCATION', 6, 7),
+    (36, u'Delaware Bay', u'LOCATION', 9, 10),
+    (36, u'New Netherland', u'LOCATION', 23, 24)]
 question: What stadium does the New York City FC call home?
 expected: Yankee Stadium
 expected sentence: In soccer, New York City is represented by New York City FC of Major League Soccer, who play their home games at Yankee Stadium.
-actual: (502, u'New York City FC of Major League Soccer', 'OTHER', 9, 16)
+actual: (408, u'East Rutherford', u'LOCATION', 32, 33)
 expected id: 502
 extracted id: [502, 395, 408, 506, 402, 396, 18, 492, 0, 160, 288, 33, 36, 41, 87, 403, 486, 498, 483, 332]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -19533,30 +19454,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (128, u'Republic', 'OTHER', 5, 5),
-    (128, u'Standard Mandarin', 'OTHER', 9, 10),
-    (86, u'Italian Unification', 'OTHER', 7, 8),
-    (86, u'Italian', 'OTHER', 11, 11),
-    (86, u'Italian', 'OTHER', 34, 34),
-    (127, u'Beijing', u'LOCATION', 18, 18),
-    (127, u'Beijing', u'LOCATION', 6, 6),
-    (128, u'Beijing', u'LOCATION', 24, 24),
-    (86, u'Italy', u'LOCATION', 27, 27),
-    (86, u'2.5 %', 'NUMBER', 22, 25),
-    (127, u'Ming', 'OTHER', 2, 2),
-    (127, u'China', u'LOCATION', 12, 12),
-    (128, u'China', u'LOCATION', 7, 7)]
-question: From the time of the Ming dynasty, what city was the capital of China?
-expected: Beijing
-expected sentence: From the Ming dynasty onward, Beijing has been the capital of China and the dialect spoken in Beijing has had the most prestige among other varieties.
-actual: (128, u'Republic', 'OTHER', 5, 5)
-expected id: 127
-extracted id: [127, 63, 128, 86, 135]
-predicted question type: OTHER
-
-
-
-all results:
 [   (132, u'Old Norse', 'OTHER', 41, 42),
     (132, u'English', 'OTHER', 33, 33),
     (132, u'Ancient Greek', 'OTHER', 24, 25),
@@ -19805,33 +19702,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (20, u'Vineyard', 'OTHER', 69, 69),
-    (27, u'Hamilton Parish', 'OTHER', 3, 4),
-    (204, u'US Navy', 'OTHER', 2, 3),
-    (204, u'Naval Facility Bermuda', 'OTHER', 7, 9),
-    (204, u'NAVFAC', 'OTHER', 11, 11),
-    (204, u'SOSUS', 'OTHER', 15, 15),
-    (204, u'Annex', 'OTHER', 25, 25),
-    (204, u'Canadian Forces', 'OTHER', 28, 29),
-    (25, u'Ice Ages', 'OTHER', 27, 28),
-    (26, u'St', 'OTHER', 115, 115),
-    (26, u'Parish', 'OTHER', 110, 110),
-    (26, u'St George', 'OTHER', 106, 107),
-    (26, u'Island', 'OTHER', 104, 104),
-    (26, u'St', 'OTHER', 100, 100),
-    (26, u'Town', 'OTHER', 96, 96),
-    (26, u'St George', 'OTHER', 92, 93),
-    (26, u'Parish', 'OTHER', 89, 89),
-    (26, u'St', 'OTHER', 84, 84),
-    (26, u'Khyber Pass', 'OTHER', 74, 75),
-    (26, u'Island', 'OTHER', 65, 65)]
+[   (21, u'Cape Sable Island', u'LOCATION', 36, 38),
+    (21, u'Nova Scotia', u'LOCATION', 41, 42),
+    (21, u'Canada', u'LOCATION', 44, 44),
+    (21, u'Florida', u'LOCATION', 20, 20),
+    (21, u'Miami', u'LOCATION', 18, 18),
+    (20, u'Massachusetts', u'LOCATION', 71, 71),
+    (20, u'Outer Banks of North Carolina', u'LOCATION', 45, 49),
+    (20, u'Cape Hatteras', u'LOCATION', 41, 42),
+    (20, u'Sargasso Sea', u'LOCATION', 21, 22),
+    (20, u'Atlantic Ocean', u'LOCATION', 12, 13),
+    (27, u'Pembroke Parish', u'LOCATION', 16, 17),
+    (27, u'Hamilton', u'LOCATION', 11, 11),
+    (140, u'Berlin', u'LOCATION', 11, 11),
+    (140, u'Azores', u'LOCATION', 14, 14),
+    (140, u'New York City', u'LOCATION', 18, 20),
+    (176, u'Caribbean Sea', u'LOCATION', 9, 10),
+    (26, u'Warwick', u'LOCATION', 79, 79),
+    (26, u'Main Island', u'LOCATION', 50, 51),
+    (26, u'Southampton', u'LOCATION', 46, 46),
+    (26, u'Somerset', u'LOCATION', 30, 30)]
 question: Bermuda is located 898 nautical miles from what US city?
 expected: Miami
 expected sentence: It is 898 nautical miles (1,664 km (1,034 mi)) northeast of Miami, Florida, and 667 nautical miles (1,236 km (768 mi)) from Cape Sable Island, in Nova Scotia, Canada.
-actual: (20, u'Vineyard', 'OTHER', 69, 69)
+actual: (21, u'Cape Sable Island', u'LOCATION', 36, 38)
 expected id: 21
 extracted id: [21, 20, 27, 140, 204, 29, 176, 25, 26, 133, 224, 162, 199, 167, 197, 203, 212, 160, 177, 194]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -20260,68 +20157,6 @@ all results:
     (39, u'1921', 'NUMBER', 20, 20),
     (39, u'Einstein', u'PERSON', 0, 0)]
 question: Which light wavelength is the human eye most sensitive to?
-expected: 555 nanometres
-expected sentence: For example, green light with a wavelength of 555 nanometres (the approximate wavelength to which human eyes are most sensitive) has a frequency of 7014540000000000000♠540 THz (7014540000000000000♠540×1012 Hz).
-actual: (10, u'THz', 'OTHER', 30, 30)
-expected id: 10
-extracted id: [10, 23, 41, 13, 43, 17, 18, 47, 2, 36, 39, 8, 12, 45, 20, 93]
-predicted question type: OTHER
-
-
-
-all results:
-[   (10, u'THz', 'OTHER', 30, 30),
-    (10, u'Hz', 'OTHER', 37, 37),
-    (47, u'Assuming', 'OTHER', 80, 80),
-    (39, u'Nobel Prize', 'OTHER', 17, 18),
-    (12, u'NA', 'OTHER', 32, 32),
-    (10, u'7014540000000000000', 'NUMBER', 27, 27),
-    (10, u'555 nanometres', 'NUMBER', 9, 10),
-    (10, u'540', 'NUMBER', 29, 29),
-    (10, u'7014540000000000000', 'NUMBER', 32, 32),
-    (10, u'540', 'NUMBER', 34, 34),
-    (10, u'1012', 'NUMBER', 36, 36),
-    (23, u'Wien', u'PERSON', 0, 0),
-    (41, u'Einstein', u'PERSON', 2, 2),
-    (13, u'7005216000000000000', 'NUMBER', 14, 14),
-    (13, u'555 nm', 'NUMBER', 8, 9),
-    (13, u'216 kJ', 'NUMBER', 16, 17),
-    (39, u'Robert Andrews Millikan', u'PERSON', 33, 35),
-    (39, u'1905 paper', 'NUMBER', 3, 4),
-    (39, u'1921', 'NUMBER', 20, 20),
-    (39, u'Einstein', u'PERSON', 0, 0)]
-question: At about what wavelength of light are human eyes most sensitive?
-expected: 555 nanometres
-expected sentence: For example, green light with a wavelength of 555 nanometres (the approximate wavelength to which human eyes are most sensitive) has a frequency of 7014540000000000000♠540 THz (7014540000000000000♠540×1012 Hz).
-actual: (10, u'THz', 'OTHER', 30, 30)
-expected id: 10
-extracted id: [10, 23, 41, 13, 43, 17, 18, 47, 2, 36, 39, 8, 12, 45, 20, 93]
-predicted question type: OTHER
-
-
-
-all results:
-[   (10, u'THz', 'OTHER', 30, 30),
-    (10, u'Hz', 'OTHER', 37, 37),
-    (47, u'Assuming', 'OTHER', 80, 80),
-    (39, u'Nobel Prize', 'OTHER', 17, 18),
-    (12, u'NA', 'OTHER', 32, 32),
-    (10, u'7014540000000000000', 'NUMBER', 27, 27),
-    (10, u'555 nanometres', 'NUMBER', 9, 10),
-    (10, u'540', 'NUMBER', 29, 29),
-    (10, u'7014540000000000000', 'NUMBER', 32, 32),
-    (10, u'540', 'NUMBER', 34, 34),
-    (10, u'1012', 'NUMBER', 36, 36),
-    (23, u'Wien', u'PERSON', 0, 0),
-    (41, u'Einstein', u'PERSON', 2, 2),
-    (13, u'7005216000000000000', 'NUMBER', 14, 14),
-    (13, u'555 nm', 'NUMBER', 8, 9),
-    (13, u'216 kJ', 'NUMBER', 16, 17),
-    (39, u'Robert Andrews Millikan', u'PERSON', 33, 35),
-    (39, u'1905 paper', 'NUMBER', 3, 4),
-    (39, u'1921', 'NUMBER', 20, 20),
-    (39, u'Einstein', u'PERSON', 0, 0)]
-question: What is the wavelength of light to which human eyes are most sensitive?
 expected: 555 nanometres
 expected sentence: For example, green light with a wavelength of 555 nanometres (the approximate wavelength to which human eyes are most sensitive) has a frequency of 7014540000000000000♠540 THz (7014540000000000000♠540×1012 Hz).
 actual: (10, u'THz', 'OTHER', 30, 30)
@@ -22299,33 +22134,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (62, u'Germanic', 'OTHER', 27, 27),
+[   (62, u'Germany', u'LOCATION', 13, 13),
+    (26, u'UK', u'LOCATION', 29, 29),
+    (62, u'Germanic', 'OTHER', 27, 27),
     (62, u'Roman', 'OTHER', 4, 4),
     (62, u'Latin', 'OTHER', 19, 19),
     (62, u'Trier', 'OTHER', 8, 8),
     (82, u'Roman Empire', 'OTHER', 27, 28),
     (61, u'Roman Empire', 'OTHER', 7, 8),
     (63, u'Roman', 'OTHER', 7, 7),
+    (139, u'one', 'NUMBER', 21, 21),
     (47, u'Stone Age', 'OTHER', 15, 16),
     (49, u'BCE', 'OTHER', 11, 11),
     (85, u'Waterford', 'OTHER', 19, 19),
     (85, u'Lalique', 'OTHER', 21, 21),
     (52, u'Cr2O3', 'OTHER', 3, 3),
     (52, u'FeO', 'OTHER', 1, 1),
-    (26, u'Pilkington Brothers', 'OTHER', 32, 33),
-    (26, u'Sir', 'OTHER', 21, 21),
-    (62, u'Germany', u'LOCATION', 13, 13),
-    (139, u'one', 'NUMBER', 21, 21),
-    (26, u'UK', u'LOCATION', 29, 29),
     (26, u'Kenneth Bickerstaff', u'PERSON', 25, 26),
-    (26, u'Alastair Pilkington', u'PERSON', 22, 23)]
+    (26, u'Pilkington Brothers', 'OTHER', 32, 33),
+    (26, u'Alastair Pilkington', u'PERSON', 22, 23),
+    (26, u'Sir', 'OTHER', 21, 21)]
 question: What city was a center of glass production for the Romans?
 expected: Trier
 expected sentence: It was in the Roman glassmaking center at Trier, now in modern Germany, that the late-Latin term glesum originated, probably from a Germanic word for a transparent, lustrous substance.
-actual: (62, u'Roman', 'OTHER', 4, 4)
+actual: (62, u'Germany', u'LOCATION', 13, 13)
 expected id: 62
 extracted id: [62, 50, 82, 61, 63, 138, 139, 41, 47, 49, 23, 85, 104, 136, 52, 80, 75, 26, 4, 7]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -22406,33 +22241,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (145, u'White', 'OTHER', 17, 17),
-    (145, u'White Irish', 'OTHER', 23, 24),
-    (145, u'South Asian', 'OTHER', 32, 33),
-    (145, u'Chinese', 'OTHER', 47, 47),
-    (145, u'Mixed Race', 'OTHER', 61, 62),
-    (227, u'The Dell', 'OTHER', 41, 42),
-    (227, u'The Saints', 'OTHER', 10, 11),
-    (227, u'Premier League', 'OTHER', 17, 18),
-    (227, u'St Mary', 'OTHER', 20, 21),
-    (227, u'Southampton Football Club', 'OTHER', 4, 6),
-    (227, u'Stadium', 'OTHER', 24, 24),
-    (245, u'Volvo Ocean Race', 'OTHER', 18, 20),
-    (245, u'World Yacht Race', 'OTHER', 8, 10),
-    (245, u'Whitbread Around', 'OTHER', 5, 6),
-    (245, u'Ocean Village', 'OTHER', 27, 28),
-    (106, u'Itchen', 'OTHER', 17, 17),
-    (106, u'Dr', 'OTHER', 28, 28),
-    (106, u'Southampton Test', 'OTHER', 36, 37),
-    (106, u'Conservative', 'OTHER', 13, 13),
-    (106, u'Conservative', 'OTHER', 51, 51)]
+[   (222, u'Portsmouth', u'LOCATION', 25, 25),
+    (88, u'Hampshire', u'LOCATION', 23, 23),
+    (330, u'Town Quay', u'LOCATION', 12, 13),
+    (98, u'Southampton Town', u'LOCATION', 74, 75),
+    (98, u'England', u'LOCATION', 55, 55),
+    (98, u'Wales', u'LOCATION', 57, 57),
+    (178, u'UK', u'LOCATION', 12, 12),
+    (178, u'Spencer', u'LOCATION', 37, 37),
+    (111, u'South Korea', u'LOCATION', 50, 51),
+    (111, u'China', u'LOCATION', 42, 42),
+    (111, u'Qingdao', u'LOCATION', 40, 40),
+    (111, u'USA', u'LOCATION', 38, 38),
+    (111, u'Virginia', u'LOCATION', 36, 36),
+    (111, u'Italy', u'LOCATION', 29, 29),
+    (111, u'Trieste', u'LOCATION', 27, 27),
+    (111, u'Germany', u'LOCATION', 22, 22),
+    (111, u'France', u'LOCATION', 11, 11),
+    (301, u'Fawley', u'LOCATION', 31, 31),
+    (301, u'Totton', u'LOCATION', 34, 34),
+    (301, u'Fareham', u'LOCATION', 42, 42)]
+question: In what month of 2014 did Southampton's City Council give the go-ahead for WestQuay Watermark?
+expected: October
+expected sentence: In October 2014, the City Council approved a follow-up from the WestQuay park, called WestQuay Watermark.
+actual: (222, u'Portsmouth', u'LOCATION', 25, 25)
+expected id: 8
+extracted id: [8, 179, 110, 216, 222, 88, 143, 330, 7, 98, 178, 105, 183, 103, 111, 154, 133, 280, 301, 104]
+predicted question type: LOCATION
+
+
+
+all results:
+[   (11, u'England', u'LOCATION', 38, 38),
+    (11, u'Portsmouth', u'LOCATION', 6, 6),
+    (92, u'Hampshire', u'LOCATION', 45, 45),
+    (92, u'County', u'LOCATION', 17, 17),
+    (92, u'Portsmouth', u'LOCATION', 72, 72),
+    (92, u'Orival', u'LOCATION', 91, 91),
+    (144, u'United Kingdom', u'LOCATION', 30, 31),
+    (144, u'UK', u'LOCATION', 9, 9),
+    (166, u'Bristol', u'LOCATION', 12, 12),
+    (166, u'London', u'LOCATION', 9, 9),
+    (194, u'England', u'LOCATION', 13, 13),
+    (5, u'UK', u'LOCATION', 29, 29),
+    (107, u'England', u'LOCATION', 15, 15),
+    (107, u'Wales', u'LOCATION', 17, 17),
+    (174, u'UK', u'LOCATION', 11, 11),
+    (237, u'Antelope Ground', u'LOCATION', 28, 29),
+    (237, u'West End', u'LOCATION', 15, 16),
+    (310, u'Cornwall', u'LOCATION', 20, 20),
+    (11, u'2011 census', 'NUMBER', 23, 24),
+    (11, u'855,569', 'NUMBER', 43, 45)]
 question: What other city merged with Southampton after the 2001 census?
 expected: Portsmouth
 expected sentence: In the 2001 census Southampton and Portsmouth were recorded as being parts of separate urban areas, however by the time of the 2011 census they had merged to become the sixth largest built-up area in England with a population of 855,569.
-actual: (145, u'White', 'OTHER', 17, 17)
+actual: (11, u'England', u'LOCATION', 38, 38)
 expected id: 11
 extracted id: [11, 145, 227, 245, 106, 211, 87, 92, 236, 100, 144, 166, 194, 285, 5, 107, 174, 237, 240, 310]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -22809,33 +22675,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (45, u'March', 'OTHER', 11, 11),
+[   (27, u'England', u'LOCATION', 7, 7),
+    (123, u'France', u'LOCATION', 16, 16),
+    (97, u'Portsmouth', u'LOCATION', 21, 21),
+    (98, u'England', u'LOCATION', 55, 55),
+    (98, u'Wales', u'LOCATION', 57, 57),
+    (92, u'Hampshire', u'LOCATION', 45, 45),
+    (92, u'County', u'LOCATION', 17, 17),
+    (92, u'Portsmouth', u'LOCATION', 72, 72),
+    (92, u'Orival', u'LOCATION', 91, 91),
+    (64, u'Oxford', u'LOCATION', 40, 40),
+    (96, u'Portsmouth', u'LOCATION', 20, 20),
+    (96, u'Hampshire', u'LOCATION', 28, 28),
+    (303, u'Hill Lane', u'LOCATION', 46, 47),
+    (304, u'Eastleigh', u'LOCATION', 11, 11),
+    (304, u'Southampton Airport', u'LOCATION', 0, 1),
+    (22, u'Hampshire', u'LOCATION', 9, 9),
+    (28, u'Monaco', u'LOCATION', 28, 28),
+    (45, u'March', 'OTHER', 11, 11),
     (45, u'Redbridge', 'OTHER', 6, 6),
-    (27, u'Black Death', 'OTHER', 4, 5),
-    (228, u'First Division', 'OTHER', 9, 10),
-    (228, u'English', 'OTHER', 6, 6),
-    (97, u'Town of Southampton', 'OTHER', 52, 54),
-    (97, u'County', 'OTHER', 49, 49),
-    (97, u'June', 'OTHER', 36, 36),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (99, u'County', 'OTHER', 7, 7),
-    (92, u'Port', 'OTHER', 70, 70),
-    (92, u'King', 'OTHER', 57, 57),
-    (92, u'Sheriff', 'OTHER', 43, 43),
-    (92, u'King', 'OTHER', 40, 40),
-    (92, u'King', 'OTHER', 26, 26),
-    (92, u'June', 'OTHER', 94, 94)]
+    (27, u'Black Death', 'OTHER', 4, 5)]
 question: What is the furthest town the Royalists reached during their advance into Southampton in 1644?
 expected: Redbridge
 expected sentence: The Royalists advanced as far as Redbridge, Southampton, in March 1644 but were prevented from taking the town.
-actual: (45, u'March', 'OTHER', 11, 11)
+actual: (27, u'England', u'LOCATION', 7, 7)
 expected id: 45
 extracted id: [45, 27, 123, 228, 97, 98, 99, 92, 64, 29, 33, 55, 96, 303, 304, 315, 327, 22, 26, 28]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -22928,37 +22794,6 @@ expected sentence: Southampton was designated No. 1 Military Embarkation port du
 actual: (53, u'Military Embarkation', 'OTHER', 6, 7)
 expected id: 53
 extracted id: [53, 302, 89, 175, 145, 52, 172, 168, 226, 196, 247, 283, 81, 146, 156, 10, 149, 150, 271, 6]
-predicted question type: OTHER
-
-
-
-all results:
-[   (64, u'The Cruise', 'OTHER', 5, 6),
-    (64, u'Steam Yacht North Star', 'OTHER', 9, 12),
-    (64, u'I', 'OTHER', 21, 21),
-    (325, u'First', 'OTHER', 5, 5),
-    (325, u'Bluestar', 'OTHER', 8, 8),
-    (97, u'Town of Southampton', 'OTHER', 52, 54),
-    (97, u'In', 'OTHER', 31, 31),
-    (97, u'County', 'OTHER', 49, 49),
-    (97, u'June', 'OTHER', 36, 36),
-    (206, u'Art House', 'OTHER', 22, 23),
-    (206, u'John Hansard Gallery', 'OTHER', 9, 11),
-    (206, u'Millais Gallery', 'OTHER', 1, 2),
-    (206, u'Southampton Solent University', 'OTHER', 4, 6),
-    (206, u'Above Bar Street', 'OTHER', 25, 27),
-    (206, u'Southampton University', 'OTHER', 13, 14),
-    (50, u'High Street', 'OTHER', 63, 64),
-    (50, u'Red Lion', 'OTHER', 57, 58),
-    (50, u'Battle', 'OTHER', 9, 9),
-    (50, u'Plot', 'OTHER', 21, 21),
-    (50, u'Agincourt', 'OTHER', 11, 11)]
-question: What town did Choules say had the only Main Street more beautiful than Southampton's?
-expected: Oxford
-expected sentence: In his 1854 book "The Cruise of the Steam Yacht North Star" John Choules described Southampton thus: "I hardly know a town that can show a more beautiful Main Street than Southampton, except it be Oxford.
-actual: (64, u'The Cruise', 'OTHER', 5, 6)
-expected id: 64
-extracted id: [64, 288, 257, 296, 325, 333, 97, 206, 50, 178, 98, 65, 67, 186, 210, 213, 99, 92, 29, 33]
 predicted question type: OTHER
 
 
@@ -23123,37 +22958,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (101, u'Local Government Act', 'OTHER', 44, 46),
-    (199, u'Boat Show', 'OTHER', 1, 2),
-    (199, u'September', 'OTHER', 16, 16),
-    (88, u'Corporation', 'OTHER', 43, 43),
-    (88, u'Hampshire County Council', 'OTHER', 4, 6),
-    (97, u'The Town', 'OTHER', 46, 47),
-    (97, u'Town of Southampton', 'OTHER', 52, 54),
-    (97, u'June', 'OTHER', 36, 36),
-    (99, u'The Town', 'OTHER', 4, 5),
-    (99, u'Town', 'OTHER', 10, 10),
-    (237, u'County Cricket Ground', 'OTHER', 23, 25),
-    (237, u'Rose Bowl', 'OTHER', 12, 13),
-    (237, u'Hampshire County Cricket Club', 'OTHER', 0, 3),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (92, u'Port', 'OTHER', 70, 70),
-    (92, u'King', 'OTHER', 57, 57)]
-question: What county did the city of Southampton become administratively independent of in April of 1997?
-expected: Hampshire County
-expected sentence: The city has undergone many changes to its governance over the centuries and once again became administratively independent from Hampshire County as it was made into a unitary authority in a local government reorganisation on 1 April 1997, a result of the 1992 Local Government Act.
-actual: (101, u'Local Government Act', 'OTHER', 44, 46)
-expected id: 101
-extracted id: [101, 199, 88, 97, 99, 237, 89, 98, 96, 92, 100, 87, 0, 154, 301, 25, 106, 22, 90, 102]
-predicted question type: OTHER
-
-
-
-all results:
 [   (92, u'Port', 'OTHER', 70, 70),
     (92, u'King', 'OTHER', 57, 57),
     (92, u'King', 'OTHER', 40, 40),
@@ -23216,33 +23020,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (111, u'Busan', 'OTHER', 48, 48),
-    (111, u'Rems', 'OTHER', 16, 16),
-    (293, u'A34', 'OTHER', 16, 16),
-    (293, u'E05', 'OTHER', 23, 23),
-    (293, u'European', 'OTHER', 21, 21),
-    (293, u'M3', 'OTHER', 1, 1),
-    (88, u'Corporation', 'OTHER', 43, 43),
-    (88, u'Hampshire County Council', 'OTHER', 4, 6),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (199, u'September', 'OTHER', 16, 16),
-    (199, u'April', 'OTHER', 14, 14),
-    (199, u'Boat Show', 'OTHER', 1, 2),
-    (106, u'Southampton North', 'OTHER', 56, 57),
-    (106, u'Conservative', 'OTHER', 51, 51),
-    (106, u'Southampton Test', 'OTHER', 36, 37),
-    (106, u'Labour', 'OTHER', 33, 33)]
+[   (111, u'South Korea', u'LOCATION', 50, 51),
+    (111, u'China', u'LOCATION', 42, 42),
+    (111, u'Qingdao', u'LOCATION', 40, 40),
+    (111, u'USA', u'LOCATION', 38, 38),
+    (111, u'Virginia', u'LOCATION', 36, 36),
+    (111, u'Italy', u'LOCATION', 29, 29),
+    (111, u'Trieste', u'LOCATION', 27, 27),
+    (111, u'Germany', u'LOCATION', 22, 22),
+    (293, u'Midlands', u'LOCATION', 30, 30),
+    (293, u'Winchester', u'LOCATION', 26, 26),
+    (293, u'London', u'LOCATION', 7, 7),
+    (88, u'Hampshire', u'LOCATION', 23, 23),
+    (98, u'Southampton Town', u'LOCATION', 74, 75),
+    (98, u'Wales', u'LOCATION', 57, 57),
+    (98, u'England', u'LOCATION', 55, 55),
+    (199, u'Sea City', u'LOCATION', 8, 9),
+    (292, u'England', u'LOCATION', 11, 11),
+    (330, u'Town Quay', u'LOCATION', 12, 13),
+    (330, u'The City', u'LOCATION', 0, 1),
+    (291, u'UK', u'LOCATION', 4, 4)]
 question: What city in France does Southampton City Council have a twinning link with?
 expected: Le Havre
 expected sentence: Southampton City Council has developed twinning links with Le Havre in France (since 1973), Rems-Murr-Kreis in Germany (since 1991), Trieste in Italy (since 2002); Hampton, Virginia in USA, Qingdao in China (since 1998), and Busan in South Korea (since 1978).
-actual: (111, u'Busan', 'OTHER', 48, 48)
+actual: (111, u'Germany', u'LOCATION', 22, 22)
 expected id: 111
 extracted id: [111, 123, 293, 88, 98, 105, 199, 106, 292, 294, 329, 330, 103, 8, 154, 291, 327, 62, 316, 336]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -23623,33 +23427,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (140, u'June', 'OTHER', 13, 13),
-    (140, u'C', 'OTHER', 19, 19),
-    (140, u'F', 'OTHER', 25, 25),
-    (231, u'The Saints', 'OTHER', 4, 5),
-    (231, u'Premier League', 'OTHER', 11, 12),
-    (232, u'First Division', 'OTHER', 16, 17),
-    (151, u'Plymouth', 'OTHER', 24, 24),
-    (156, u'March', 'OTHER', 1, 1),
-    (274, u'University of Southampton', 'OTHER', 1, 3),
-    (274, u'Southampton Solent University', 'OTHER', 5, 7),
-    (154, u'Hampshire County Council', 'OTHER', 0, 2),
-    (106, u'Itchen', 'OTHER', 17, 17),
-    (106, u'Dr', 'OTHER', 28, 28),
-    (106, u'Southampton Test', 'OTHER', 36, 37),
-    (106, u'Conservative', 'OTHER', 13, 13),
-    (106, u'Southampton North', 'OTHER', 56, 57),
-    (106, u'Conservative', 'OTHER', 51, 51),
-    (106, u'Labour', 'OTHER', 33, 33),
-    (211, u'City of Southampton Orchestra', 'OTHER', 12, 15),
-    (211, u'Bournemouth Symphony Orchestra', 'OTHER', 8, 10)]
+[   (140, u'UK', u'LOCATION', 11, 11),
+    (151, u'South Coast', u'LOCATION', 21, 22),
+    (151, u'South East England', u'LOCATION', 11, 13),
+    (152, u'England', u'LOCATION', 23, 23),
+    (11, u'England', u'LOCATION', 38, 38),
+    (11, u'Portsmouth', u'LOCATION', 6, 6),
+    (13, u'United Kingdom', u'LOCATION', 16, 17),
+    (147, u'20,000', 'NUMBER', 15, 17),
+    (3, u'253,651', 'NUMBER', 14, 16),
+    (146, u'236,900 people', 'NUMBER', 4, 7),
+    (146, u'2011', 'NUMBER', 14, 14),
+    (149, u'20 \u2013', 'NUMBER', 1, 2),
+    (149, u'24 age', 'NUMBER', 3, 4),
+    (149, u'32,300 people', 'NUMBER', 14, 17),
+    (269, u'16.7', 'NUMBER', 12, 14),
+    (269, u'1000 population', 'NUMBER', 16, 17),
+    (269, u'42.4', 'NUMBER', 21, 23),
+    (269, u'1000 population', 'NUMBER', 25, 26),
+    (140, u'June', 'OTHER', 13, 13),
+    (140, u'35.6', 'NUMBER', 15, 17)]
 question: What's the highest estimate of the Polish population of the city of Southampton?
 expected: 20,000
 expected sentence: There is a sizeable Polish population in the city, with estimates as high as 20,000.
-actual: (140, u'June', 'OTHER', 13, 13)
+actual: (140, u'UK', u'LOCATION', 11, 11)
 expected id: 147
 extracted id: [147, 3, 146, 149, 269, 140, 155, 231, 232, 290, 151, 156, 274, 152, 154, 11, 13, 106, 211, 87]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -23685,6 +23489,37 @@ predicted question type: NUMBER
 
 
 all results:
+[   (151, u'South East England', u'LOCATION', 11, 13),
+    (0, u'Hampshire', u'LOCATION', 18, 18),
+    (0, u'England', u'LOCATION', 24, 24),
+    (0, u'London', u'LOCATION', 39, 39),
+    (0, u'Portsmouth', u'LOCATION', 51, 51),
+    (292, u'England', u'LOCATION', 11, 11),
+    (235, u'Portsmouth', u'LOCATION', 6, 6),
+    (165, u'UK', u'LOCATION', 24, 24),
+    (5, u'UK', u'LOCATION', 29, 29),
+    (111, u'South Korea', u'LOCATION', 50, 51),
+    (111, u'China', u'LOCATION', 42, 42),
+    (111, u'Qingdao', u'LOCATION', 40, 40),
+    (111, u'USA', u'LOCATION', 38, 38),
+    (111, u'Virginia', u'LOCATION', 36, 36),
+    (111, u'Italy', u'LOCATION', 29, 29),
+    (111, u'Trieste', u'LOCATION', 27, 27),
+    (111, u'Germany', u'LOCATION', 22, 22),
+    (111, u'France', u'LOCATION', 11, 11),
+    (12, u'South Hampshire', u'LOCATION', 13, 14),
+    (300, u'St Denys', u'LOCATION', 28, 29)]
+question: What's the only monocentric city on the South Coast larger than Southampton?
+expected: Plymouth
+expected sentence: By population, Southampton is the largest monocentric city in the South East England region and the second largest on the South Coast after Plymouth.
+actual: (151, u'South East England', u'LOCATION', 11, 13)
+expected id: 151
+extracted id: [151, 19, 0, 292, 235, 225, 165, 5, 240, 111, 12, 145, 218, 300, 106, 2, 125, 172, 242, 130]
+predicted question type: LOCATION
+
+
+
+all results:
 [   (320, u'Isle', 'OTHER', 30, 30),
     (264, u'Southampton Safer City Partnership', 'OTHER', 3, 6),
     (84, u'Bargate', 'OTHER', 15, 15),
@@ -23711,37 +23546,6 @@ expected sentence: Between 1996 and 2004, the population of the city increased b
 actual: (320, u'Isle', 'OTHER', 30, 30)
 expected id: 152
 extracted id: [152, 320, 160, 264, 269, 84, 155, 49, 191, 110, 221, 274, 11, 151, 156, 3, 13, 147, 154, 5]
-predicted question type: OTHER
-
-
-
-all results:
-[   (153, u'Government Statistics', 'OTHER', 3, 4),
-    (92, u'Port', 'OTHER', 70, 70),
-    (92, u'King', 'OTHER', 57, 57),
-    (92, u'Sheriff', 'OTHER', 43, 43),
-    (92, u'King', 'OTHER', 40, 40),
-    (92, u'King', 'OTHER', 26, 26),
-    (92, u'June', 'OTHER', 94, 94),
-    (92, u'Port', 'OTHER', 3, 3),
-    (97, u'The Town', 'OTHER', 46, 47),
-    (97, u'Town of Southampton', 'OTHER', 52, 54),
-    (97, u'County', 'OTHER', 49, 49),
-    (97, u'June', 'OTHER', 36, 36),
-    (194, u'Medieval Merchant', 'OTHER', 69, 70),
-    (194, u'House', 'OTHER', 73, 73),
-    (194, u'House Tower', 'OTHER', 47, 48),
-    (194, u'Solent Sky', 'OTHER', 76, 77),
-    (194, u'God', 'OTHER', 44, 44),
-    (194, u'Southampton Maritime Museum', 'OTHER', 40, 42),
-    (194, u'Tudor House Museum', 'OTHER', 24, 26),
-    (194, u'July', 'OTHER', 31, 31)]
-question: What's the only other city in England besides Portsmouth more densely populated than Southampton?
-expected: London
-expected sentence: In 2005 the Government Statistics stated that Southampton was the third most densely populated city in the country after London and Portsmouth respectively.
-actual: (153, u'Government Statistics', 'OTHER', 3, 4)
-expected id: 153
-extracted id: [153, 0, 11, 92, 97, 194, 96, 222, 320, 107, 151, 94, 235, 297, 302, 32, 137, 152, 200, 292]
 predicted question type: OTHER
 
 
@@ -24282,37 +24086,6 @@ predicted question type: PERSON
 
 
 all results:
-[   (237, u'County Cricket Ground', 'OTHER', 23, 25),
-    (237, u'Hampshire County Cricket Club', 'OTHER', 0, 3),
-    (12, u'Solent City', 'OTHER', 21, 22),
-    (167, u'Ocean Village', 'OTHER', 38, 39),
-    (173, u'Princess', 'OTHER', 10, 10),
-    (173, u'Trust', 'OTHER', 1, 1),
-    (173, u'Southampton General Hospital', 'OTHER', 5, 7),
-    (173, u'Countess Mountbatten House', 'OTHER', 19, 21),
-    (190, u'Ocean Village', 'OTHER', 12, 13),
-    (293, u'European', 'OTHER', 21, 21),
-    (293, u'A34', 'OTHER', 16, 16),
-    (293, u'M3', 'OTHER', 1, 1),
-    (293, u'E05', 'OTHER', 23, 23),
-    (11, u'Southampton', 'OTHER', 4, 4),
-    (134, u'Southampton Common', 'OTHER', 16, 17),
-    (182, u'February', 'OTHER', 20, 20),
-    (182, u'Swedish', 'OTHER', 24, 24),
-    (182, u'IKEA', 'OTHER', 28, 28),
-    (106, u'Itchen', 'OTHER', 17, 17),
-    (106, u'Dr', 'OTHER', 28, 28)]
-question: What part of the city is the Rose Bowl in?
-expected: West End
-expected sentence: Hampshire County Cricket Club play close to the city, at the Rose Bowl in West End, after previously playing at the County Cricket Ground and the Antelope Ground, both near the city centre.
-actual: (237, u'County Cricket Ground', 'OTHER', 23, 25)
-expected id: 237
-extracted id: [237, 12, 167, 173, 190, 293, 11, 30, 102, 134, 182, 288, 295, 106, 87, 100, 107, 144, 166, 174]
-predicted question type: OTHER
-
-
-
-all results:
 [   (310, u'October', 'OTHER', 35, 35),
     (310, u'Queen', 'OTHER', 29, 29),
     (310, u'Queen', 'OTHER', 27, 27),
@@ -24654,6 +24427,37 @@ predicted question type: LOCATION
 
 
 all results:
+[   (305, u'UK', u'LOCATION', 4, 4),
+    (305, u'European', u'LOCATION', 7, 7),
+    (305, u'Parkway', u'LOCATION', 25, 25),
+    (305, u'Southampton Airport', u'LOCATION', 22, 23),
+    (292, u'England', u'LOCATION', 11, 11),
+    (298, u'London', u'LOCATION', 14, 14),
+    (298, u'London', u'LOCATION', 3, 3),
+    (166, u'Bristol', u'LOCATION', 12, 12),
+    (166, u'London', u'LOCATION', 9, 9),
+    (178, u'Spencer', u'LOCATION', 37, 37),
+    (178, u'UK', u'LOCATION', 12, 12),
+    (294, u'M271', 'OTHER', 1, 1),
+    (125, u'Test', 'OTHER', 5, 5),
+    (125, u'Redbridge', 'OTHER', 16, 16),
+    (119, u'Southern Railway Company', 'OTHER', 9, 11),
+    (119, u'1930s', 'NUMBER', 6, 6),
+    (115, u'Itchen', 'OTHER', 26, 26),
+    (115, u'Test', 'OTHER', 1, 1),
+    (115, u'two', 'NUMBER', 30, 30),
+    (124, u'New Forest', 'OTHER', 16, 17)]
+question: What spur of the M27 connects it to Southampton's city centre and Western Docks?
+expected: M271
+expected sentence: The M271 motorway is a spur of the M27, linking it with the Western Docks and city centre.
+actual: (305, u'UK', u'LOCATION', 4, 4)
+expected id: 294
+extracted id: [294, 305, 292, 125, 119, 115, 124, 30, 180, 298, 246, 166, 60, 323, 167, 218, 178, 184, 163, 170]
+predicted question type: LOCATION
+
+
+
+all results:
 [   (301, u'Hythe', 'OTHER', 19, 19),
     (301, u'July', 'OTHER', 8, 8),
     (301, u'Southampton Central Station', 'OTHER', 36, 38),
@@ -24680,37 +24484,6 @@ expected sentence: Plans were announced by Hampshire County Council in July 2009
 actual: (301, u'July', 'OTHER', 8, 8)
 expected id: 301
 extracted id: [301, 295, 318, 305, 88, 73, 167, 108, 109, 165, 98, 307, 308, 65, 316, 323, 71, 317, 154, 237]
-predicted question type: OTHER
-
-
-
-all results:
-[   (5, u'The University of Southampton', 'OTHER', 5, 8),
-    (5, u'Southampton Solent University', 'OTHER', 10, 12),
-    (5, u'Ordnance Survey', 'OTHER', 17, 18),
-    (5, u'BBC South', 'OTHER', 20, 21),
-    (5, u'NHS', 'OTHER', 24, 24),
-    (5, u'ABP', 'OTHER', 26, 26),
-    (5, u'Carnival', 'OTHER', 28, 28),
-    (97, u'June', 'OTHER', 36, 36),
-    (97, u'The Town', 'OTHER', 46, 47),
-    (97, u'County', 'OTHER', 49, 49),
-    (97, u'Town of Southampton', 'OTHER', 52, 54),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (194, u'Medieval Merchant', 'OTHER', 69, 70),
-    (194, u'House', 'OTHER', 73, 73),
-    (194, u'Tudor House Museum', 'OTHER', 24, 26),
-    (194, u'House Tower', 'OTHER', 47, 48)]
-question: In what town is Southampton Airport located?
-expected: Eastleigh
-expected sentence: Southampton Airport is a regional airport located in the town of Eastleigh, just north of the city.
-actual: (5, u'The University of Southampton', 'OTHER', 5, 8)
-expected id: 304
-extracted id: [304, 5, 305, 97, 98, 141, 194, 195, 223, 258, 259, 116, 174, 183, 221, 235, 99, 92, 64, 29]
 predicted question type: OTHER
 
 
@@ -24902,37 +24675,6 @@ predicted question type: LOCATION
 
 
 all results:
-[   (41, u'Washington DC', u'LOCATION', 41, 42),
-    (8, u'England', u'LOCATION', 10, 10),
-    (9, u'2000', 'NUMBER', 3, 3),
-    (58, u'four years', 'NUMBER', 28, 29),
-    (58, u'one', 'NUMBER', 24, 24),
-    (60, u'NFL', 'OTHER', 1, 1),
-    (60, u'four pre', 'NUMBER', 5, 6),
-    (60, u'two', 'NUMBER', 14, 14),
-    (60, u'two', 'NUMBER', 18, 18),
-    (60, u'two teams', 'NUMBER', 25, 26),
-    (60, u'Pro Football Hall', 'OTHER', 36, 38),
-    (60, u'Fame Game', 'OTHER', 40, 41),
-    (5, u'two', 'NUMBER', 25, 25),
-    (46, u'eight preseason', 'NUMBER', 5, 6),
-    (46, u'National Basketball Association', 'OTHER', 0, 2),
-    (70, u'American', 'OTHER', 12, 12),
-    (59, u'National Football League', 'OTHER', 7, 9),
-    (40, u'MLB', 'OTHER', 1, 1),
-    (41, u'2005 season', 'NUMBER', 45, 46),
-    (41, u'Expos', 'OTHER', 38, 38)]
-question: By what year had national football leagues been formed in nearly every country?
-expected: 2000
-expected sentence: By the year 2000, national leagues were established in almost every country throughout the world, as well as local or regional leagues for lower level teams, thus the significance of friendlies has seriously declined since the 19th century.
-actual: (41, u'Washington DC', u'LOCATION', 41, 42)
-expected id: 9
-extracted id: [9, 58, 60, 5, 46, 70, 59, 40, 41, 51, 26, 8, 7, 71, 16, 18, 55, 56, 10, 69]
-predicted question type: LOCATION
-
-
-
-all results:
 [   (28, u'Credit Union Centre', 'OTHER', 111, 113),
     (28, u'Mariner Arena', 'OTHER', 98, 99),
     (28, u'Colis\xe9e Pepsi', 'OTHER', 73, 74),
@@ -25057,33 +24799,64 @@ predicted question type: NUMBER
 
 
 all results:
-[   (44, u'Subway Series', 'OTHER', 21, 22),
-    (44, u'Crosstown Classic', 'OTHER', 14, 15),
-    (28, u'NHL', 'OTHER', 119, 119),
-    (28, u'Credit Union Centre', 'OTHER', 111, 113),
-    (28, u'Western Canada', 'OTHER', 107, 108),
-    (28, u'Hockey Classic', 'OTHER', 103, 104),
-    (28, u'Mariner Arena', 'OTHER', 98, 99),
-    (28, u'Capitals', 'OTHER', 95, 95),
-    (28, u'NHL', 'OTHER', 89, 89),
-    (28, u'Colis\xe9e Pepsi', 'OTHER', 73, 74),
-    (28, u'Montreal Canadiens', 'OTHER', 69, 70),
-    (28, u'ECHL', 'OTHER', 66, 66),
-    (28, u'Citizens Business Bank Arena', 'OTHER', 54, 57),
-    (28, u'Los Angeles Kings', 'OTHER', 49, 51),
-    (28, u'AHL', 'OTHER', 46, 46),
-    (28, u'Time Warner Cable Arena', 'OTHER', 36, 39),
-    (28, u'Carolina Hurricanes', 'OTHER', 32, 33),
-    (28, u'NHL', 'OTHER', 15, 15),
-    (28, u'NHL', 'OTHER', 5, 5),
-    (28, u'NFL', 'OTHER', 2, 2)]
+[   (44, u'New York', u'LOCATION', 17, 18),
+    (28, u'Saskatoon', u'LOCATION', 115, 115),
+    (28, u'Baltimore', u'LOCATION', 102, 102),
+    (28, u'Washington', u'LOCATION', 94, 94),
+    (28, u'Quebec City', u'LOCATION', 76, 77),
+    (28, u'California', u'LOCATION', 61, 61),
+    (28, u'Ontario', u'LOCATION', 59, 59),
+    (28, u'Charlotte', u'LOCATION', 41, 41),
+    (47, u'California', u'LOCATION', 89, 89),
+    (47, u'Indian Wells', u'LOCATION', 86, 87),
+    (47, u'South Dakota', u'LOCATION', 68, 69),
+    (47, u'North Dakota', u'LOCATION', 65, 66),
+    (64, u'China', u'LOCATION', 40, 40),
+    (64, u'Mexico', u'LOCATION', 23, 23),
+    (64, u'Australia', u'LOCATION', 13, 13),
+    (64, u'Canada', u'LOCATION', 11, 11),
+    (64, u'Japan', u'LOCATION', 9, 9),
+    (64, u'Europe', u'LOCATION', 7, 7),
+    (24, u'Japan', u'LOCATION', 29, 29),
+    (27, u'Soviet Union', u'LOCATION', 15, 16)]
+question: What inter-city exhibition game did Chicago have?
+expected: Crosstown Classic
+expected sentence: Exhibitions between inter-city teams in different leagues, like Chicago's Crosstown Classic and New York's Subway Series which used to be played solely as exhibitions for bragging rights are now blended into interleague play.
+actual: (44, u'New York', u'LOCATION', 17, 18)
+expected id: 44
+extracted id: [44, 28, 71, 47, 66, 70, 60, 0, 5, 6, 40, 45, 58, 64, 73, 74, 24, 2, 4, 27]
+predicted question type: LOCATION
+
+
+
+all results:
+[   (44, u'Chicago', u'LOCATION', 11, 11),
+    (28, u'Saskatoon', u'LOCATION', 115, 115),
+    (28, u'Baltimore', u'LOCATION', 102, 102),
+    (28, u'Washington', u'LOCATION', 94, 94),
+    (28, u'Quebec City', u'LOCATION', 76, 77),
+    (28, u'California', u'LOCATION', 61, 61),
+    (28, u'Ontario', u'LOCATION', 59, 59),
+    (28, u'Charlotte', u'LOCATION', 41, 41),
+    (47, u'California', u'LOCATION', 89, 89),
+    (47, u'Indian Wells', u'LOCATION', 86, 87),
+    (47, u'South Dakota', u'LOCATION', 68, 69),
+    (47, u'North Dakota', u'LOCATION', 65, 66),
+    (64, u'China', u'LOCATION', 40, 40),
+    (64, u'Mexico', u'LOCATION', 23, 23),
+    (64, u'Australia', u'LOCATION', 13, 13),
+    (64, u'Canada', u'LOCATION', 11, 11),
+    (64, u'Japan', u'LOCATION', 9, 9),
+    (64, u'Europe', u'LOCATION', 7, 7),
+    (24, u'Japan', u'LOCATION', 29, 29),
+    (44, u'Subway Series', 'OTHER', 21, 22)]
 question: What inter-city exhibition game did New York have?
 expected: Subway Series
 expected sentence: Exhibitions between inter-city teams in different leagues, like Chicago's Crosstown Classic and New York's Subway Series which used to be played solely as exhibitions for bragging rights are now blended into interleague play.
-actual: (44, u'Crosstown Classic', 'OTHER', 14, 15)
+actual: (44, u'Chicago', u'LOCATION', 11, 11)
 expected id: 44
 extracted id: [44, 28, 42, 69, 11, 71, 47, 66, 70, 60, 0, 5, 6, 40, 45, 58, 64, 73, 74, 24]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -25234,5 +25007,5 @@ predicted question type: LOCATION
 % entity identified in first sentence: 0.202410492733
 % entity identified in correct sentence: 0.275197920359
 % entity identified in first and correct sentence: 0.189767222025
-% above but ranking failed: 0.096183386506
-% correct best answer: 0.103391232423
+% above but ranking failed: 0.0954744180551
+% correct best answer: 0.104336523691
