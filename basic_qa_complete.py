@@ -3,7 +3,7 @@ from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
 from sent_retrieval import *
 from ner_test04 import parse_docs
-from ranking import get_best_answer, get_top_answers, get_question_type
+from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
 
 import numpy as np
 import nltk
@@ -122,6 +122,7 @@ def test_with_dev():
 				print "extracted id:", possible_sents
 				question_words = { w.lower() for w in word_tokenizer.tokenize(question['question']) }
 				print "predicted question type:", get_question_type(question_words).encode('utf-8')
+				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
 				# pp.pprint(matches[:5])
 				print "\n\n"
 

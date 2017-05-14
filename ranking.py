@@ -83,7 +83,12 @@ def get_closed_class_words(question_words):
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
 	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP", "AUX", "NUM", "PART"]]
 
-def get_dist_to_question_word(closed_class_words, sentence_words, entity):
+def get_open_class_words(question_words):
+	tagged = nltk.pos_tag(question_words, tagset="universal")
+	# consider pronouns, determiners, conjunctions, and prepositions as closed class
+	return [p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"]]
+
+def get_dist_to_question_word(target_words, sentence_words, entity):
 	# # print closed_class_words
 	# answer = entity[1].lower()
 	# answer_words = nltk.word_tokenize(answer)
@@ -93,7 +98,7 @@ def get_dist_to_question_word(closed_class_words, sentence_words, entity):
 	# 		return None
 	# get positions of closed class question words
 	question_words_pos = []
-	for w in closed_class_words:
+	for w in target_words:
 		for i in range(len(sentence_words)):
 			if w == sentence_words[i]:
 				question_words_pos.append(i)
@@ -112,58 +117,49 @@ def get_dist_to_question_word(closed_class_words, sentence_words, entity):
 	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
 		for p in question_words_pos ]
 	# print dists
-	return min(dists)
+	return sum(dists)
 
-def make_answer_cmp_func(question, doc_set, sentences):
-	"""Make comparision function of answers.
+def cmp_answer(a, b):
+	# First, answers whose content words all appear
+	# in the question should be ranked lowest.
+	a_all_appear = a[-3]
+	b_all_appear = b[-3]
+	if a_all_appear != b_all_appear:
+		return b_all_appear - a_all_appear
+	# Second, answers which match the question type
+	# should be ranked higher than those that don't;
+	a_matches_type = a[-2]
+	b_matches_type = b[-2]
+	if a_matches_type != b_matches_type:
+		return a_matches_type - b_matches_type
+	# consider relavance (rank) in sentence retrieval
+	a_rank = a[-4]
+	b_rank = b[-4]
+	if a_rank != b_rank:
+		return b_rank - a_rank
+	# Third, among entities of the same type, the
+	# prefered entity should be the one which is closer
+	# in the sentence to a closed-class word from the question.
+	a_dist = a[-1]
+	b_dist = b[-1]
+	if a_dist != b_dist:
+		if a_dist == None:
+			return -1
+		elif b_dist == None:
+			return 1
+		else:
+			return b_dist - a_dist
+	return 0
 
-	Args:
-
-		doc_set [str]: a list of all answers, indexed by answer id
-
-	Returns:
-		comparision funtion of two answers, more relavant answer
-		is considered greater
-	"""
-	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
-	closed_class_words = get_closed_class_words(question_words)
-	question_type = get_question_type(question_words)
-	def cmp_answer(a, b):
-		# First, answers whose content words all appear
-		# in the question should be ranked lowest.
-		a_words = word_tokenizer.tokenize(a[1].lower())
-		b_words = word_tokenizer.tokenize(b[1].lower())
-		a_all_appear = contains_all(question_words, a_words)
-		b_all_appear = contains_all(question_words, b_words)
-		if a_all_appear != b_all_appear:
-			return b_all_appear - a_all_appear
-		# Second, answers which match the question type
-		# should be ranked higher than those that don't;
-		a_matches_type = a[2] == question_type
-		b_matches_type = b[2] == question_type
-		if a_matches_type != b_matches_type:
-			return a_matches_type - b_matches_type
-		# consider relavance in sentence retrieval
-		a_rank = sentences.index(a[0])
-		b_rank = sentences.index(b[0])
-		if a_rank != b_rank:
-			return b_rank - a_rank
-		# Third, among entities of the same type, the
-		# prefered entity should be the one which is closer
-		# in the sentence to a closed-class word from the question.
-		a_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[a[0]]) ]
-		b_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[b[0]]) ]
-		a_dist = get_dist_to_question_word(closed_class_words, a_sent_words, a)
-		b_dist = get_dist_to_question_word(closed_class_words, b_sent_words, b)
-		if a_dist != b_dist:
-			if a_dist == None:
-				return -1
-			elif b_dist == None:
-				return 1
-			else:
-				return b_dist - a_dist
-	return cmp_answer
-
+def add_answer_properties(question_words, question_type, open_class_words, answer, doc_set, sentences):
+	answer_words = word_tokenizer.tokenize(answer[1].lower())
+	answer_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[answer[0]]) ]
+	added = list(answer)
+	added.append(sentences.index(answer[0]))
+	added.append(contains_all(question_words, answer_words))
+	added.append(answer[2] == question_type)
+	added.append(get_dist_to_question_word(open_class_words, answer_sent_words, answer))
+	return tuple(added)
 
 from functools import cmp_to_key
 def get_best_answer(question, answers, doc_set, sentences):
@@ -178,12 +174,36 @@ def get_best_answer(question, answers, doc_set, sentences):
 	Returns:
 		(str, str, str): the best answer to the question
 	"""
-	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
-	key_func = cmp_to_key(cmp_func)
-	return max(answers, key=key_func)
+	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
+	question_type = get_question_type(question_words)
+	open_class_words = get_open_class_words(question_words)
+	answers_added = [
+		add_answer_properties(
+			question_words,
+			question_type,
+			open_class_words,
+			a,
+			doc_set,
+			sentences)
+		for a in answers
+	]
+	key_func = cmp_to_key(cmp_answer)
+	return max(answers_added, key=key_func)
 	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
 def get_top_answers(question, answers, doc_set, sentences):
-	cmp_func = make_answer_cmp_func(question, doc_set, sentences)
-	key_func = cmp_to_key(cmp_func)
-	return sorted(answers, reverse=True, key=key_func)[:20]
+	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
+	question_type = get_question_type(question_words)
+	open_class_words = get_open_class_words(question_words)
+	answers_added = [
+		add_answer_properties(
+			question_words,
+			question_type,
+			open_class_words,
+			a,
+			doc_set,
+			sentences)
+		for a in answers
+	]
+	key_func = cmp_to_key(cmp_answer)
+	return sorted(answers_added, reverse=True, key=key_func)[:20]
