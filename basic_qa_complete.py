@@ -1,10 +1,10 @@
 from nltk.corpus import stopwords
 from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
-from sent_retrieval import retrieve_sentences
 from ner_test04 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type
 
+import sent_retrieval as sr
 import numpy as np
 import nltk
 import json
@@ -151,12 +151,14 @@ def make_csv():
 	for trial in tqdm(dev):
 		# make posting list
 		doc_set = trial['sentences']
+		posting = sr.prepare_doc(doc_set)
+		query = process_query(question['question'])
 		no_docs = len(doc_set)
 		# NER for all sentences
 		entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
-			possible_sents = retrieve_sentences(question['question'], doc_set, 20)
+			possible_sents = eval_query(query, posting, no_docs)[:20]
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
 				continue
