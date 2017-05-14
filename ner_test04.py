@@ -155,23 +155,23 @@ def parse_docs(doc_set):
                     doc_ne_pairs.append((sent_id,entity,tag,start_i,end_i))
     return doc_ne_pairs
 
+if __name__ == '__main__':
+    with open('QA_dev.json') as dev_file:
+        dev = json.load(dev_file)
 
-with open('QA_dev.json') as dev_file:
-    dev = json.load(dev_file)
+    for i in range (0,5):
+        doc_set = dev[i]['sentences']
+        print parse_docs(doc_set)
 
-for i in range (0,5):
-    doc_set = dev[i]['sentences']
-    print parse_docs(doc_set)
-
-#     for pair in test:
-#         if pair[2] == 'NUMBER':
-#             print pair
-# # sents =[dev[2]['sentences'][35],dev[2]['sentences'][36],dev[2]['sentences'][47]]
-# # parse_docs(sents)
-# print dev[4]['sentences'][227]
+    #     for pair in test:
+    #         if pair[2] == 'NUMBER':
+    #             print pair
+    # # sents =[dev[2]['sentences'][35],dev[2]['sentences'][36],dev[2]['sentences'][47]]
+    # # parse_docs(sents)
+    # print dev[4]['sentences'][227]
 
 
-# sent2 = word_tokenizer.tokenize('If you go to bed early, then you will wake up early')
-# pos_sent2 = nltk.pos_tag(sent2)
+    # sent2 = word_tokenizer.tokenize('If you go to bed early, then you will wake up early')
+    # pos_sent2 = nltk.pos_tag(sent2)
 
 

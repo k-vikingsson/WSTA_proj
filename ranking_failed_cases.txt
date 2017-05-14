@@ -53,33 +53,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (30, u'Islands', 'OTHER', 19, 19),
+[   (100, u'Suruhanu', u'PERSON', 50, 50),
+    (100, u'M\xe5tan Guma', u'PERSON', 38, 39),
+    (31, u'Antonio Pigafetta', u'PERSON', 0, 1),
+    (30, u'Lateen', u'LOCATION', 22, 22),
+    (30, u'Islands', 'OTHER', 19, 19),
     (30, u'Latinas', 'OTHER', 17, 17),
+    (30, u'Guam Islas de las Velas', u'LOCATION', 12, 16),
     (30, u'Magellan', 'OTHER', 10, 10),
     (30, u'Proas', 'OTHER', 5, 5),
+    (29, u'Guam', u'LOCATION', 8, 8),
     (29, u'Magellan', 'OTHER', 5, 5),
     (29, u'When', 'OTHER', 4, 4),
+    (29, u'42', 'NUMBER', 3, 3),
+    (29, u'41 \u2013', 'NUMBER', 1, 2),
+    (91, u'Philippines', u'LOCATION', 32, 32),
     (91, u'Cat\xe1logo', 'OTHER', 21, 21),
     (91, u'Roman Catholic Christianity', 'OTHER', 11, 13),
     (91, u'Spanish', 'OTHER', 4, 4),
     (91, u'Chamorros', 'OTHER', 1, 1),
-    (100, u'Spanish', 'OTHER', 3, 3),
-    (31, u'Sails', 'OTHER', 15, 15),
-    (31, u'Island', 'OTHER', 13, 13),
-    (31, u'Magellan', 'OTHER', 5, 5),
-    (30, u'Lateen', u'LOCATION', 22, 22),
-    (30, u'Guam Islas de las Velas', u'LOCATION', 12, 16),
-    (29, u'Guam', u'LOCATION', 8, 8),
-    (29, u'42', 'NUMBER', 3, 3),
-    (29, u'41 \u2013', 'NUMBER', 1, 2),
-    (91, u'Philippines', u'LOCATION', 32, 32)]
+    (100, u'Spanish', 'OTHER', 3, 3)]
 question: What were the name of outrigger canoes?
 expected: Proas
 expected sentence: These outrigger canoes were called Proas, and resulted in Magellan naming Guam Islas de las Velas Latinas ("Islands of the Lateen sails").
-actual: (30, u'Islands', 'OTHER', 19, 19)
+actual: (100, u'Suruhanu', u'PERSON', 50, 50)
 expected id: 30
 extracted id: [30, 29, 91, 100, 31]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -177,6 +177,37 @@ predicted question type: NUMBER
 
 
 all results:
+[   (31, u'Antonio Pigafetta', u'PERSON', 0, 1),
+    (123, u'Palau', u'PERSON', 26, 26),
+    (59, u'Emilio Aguinaldo', u'PERSON', 31, 32),
+    (59, u'Apolinario Mabini', u'PERSON', 34, 35),
+    (112, u'Northern Mariana Islands', u'LOCATION', 21, 23),
+    (112, u'Hawaii', u'LOCATION', 16, 16),
+    (31, u'Sails', 'OTHER', 15, 15),
+    (31, u'Island', 'OTHER', 13, 13),
+    (31, u'18', 'NUMBER', 9, 9),
+    (31, u'Magellan', 'OTHER', 5, 5),
+    (31, u'one', 'NUMBER', 3, 3),
+    (136, u'Americas', u'LOCATION', 5, 5),
+    (136, u'USA', u'LOCATION', 16, 16),
+    (136, u'Asia', u'LOCATION', 41, 41),
+    (103, u'Chamorro', u'LOCATION', 47, 47),
+    (103, u'Chamorros', 'OTHER', 22, 22),
+    (103, u'Chamorros', 'OTHER', 37, 37),
+    (103, u'While', 'OTHER', 4, 4),
+    (30, u'Lateen', u'LOCATION', 22, 22),
+    (30, u'Islands', 'OTHER', 19, 19)]
+question: What is the name of this U.S state that could possibly form a union with Guam?
+expected: Hawaii
+expected sentence: Other movements advocate U.S. statehood for Guam, union with the state of Hawaii, union with the Northern Mariana Islands as a single territory, or independence.
+actual: (31, u'Antonio Pigafetta', u'PERSON', 0, 1)
+expected id: 112
+extracted id: [112, 31, 136, 125, 103, 30, 91, 67, 123, 65, 106, 130, 179, 0, 58, 113, 144, 13, 14, 59]
+predicted question type: PERSON
+
+
+
+all results:
 [   (141, u'Antonio B', 'OTHER', 5, 6),
     (141, u'Won Pat International Airport', 'OTHER', 8, 11),
     (141, u'United Airlines', 'OTHER', 18, 19),
@@ -205,64 +236,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (180, u'Transnational Association of Christian Colleges', 'OTHER', 14, 18),
+[   (31, u'Antonio Pigafetta', u'PERSON', 0, 1),
+    (43, u'Chamorro', u'PERSON', 4, 4),
+    (180, u'Transnational Association of Christian Colleges', 'OTHER', 14, 18),
     (180, u'Schools', 'OTHER', 20, 20),
     (180, u'Pacific Islands University', 'OTHER', 0, 2),
     (31, u'Sails', 'OTHER', 15, 15),
     (31, u'Island', 'OTHER', 13, 13),
+    (31, u'18', 'NUMBER', 9, 9),
     (31, u'Magellan', 'OTHER', 5, 5),
+    (31, u'one', 'NUMBER', 3, 3),
     (178, u'Western Association of Schools', 'OTHER', 17, 20),
     (178, u'University of Guam', 'OTHER', 1, 3),
     (178, u'Colleges', 'OTHER', 22, 22),
     (178, u'UOG', 'OTHER', 5, 5),
     (178, u'Guam Community College', 'OTHER', 8, 10),
+    (30, u'Lateen', u'LOCATION', 22, 22),
     (30, u'Islands', 'OTHER', 19, 19),
     (30, u'Magellan', 'OTHER', 10, 10),
     (30, u'Latinas', 'OTHER', 17, 17),
-    (30, u'Proas', 'OTHER', 5, 5),
-    (91, u'Cat\xe1logo', 'OTHER', 21, 21),
-    (91, u'Roman Catholic Christianity', 'OTHER', 11, 13),
-    (91, u'Spanish', 'OTHER', 4, 4),
-    (91, u'Chamorros', 'OTHER', 1, 1),
-    (106, u'Electoral College', 'OTHER', 33, 34)]
+    (30, u'Guam Islas de las Velas', u'LOCATION', 12, 16)]
 question: What is the name of the small Christian college in Guam?
 expected: Pacific Islands University
 expected sentence: Pacific Islands University is a small Christian liberal arts institution nationally accredited by the Transnational Association of Christian Colleges and Schools.
-actual: (180, u'Transnational Association of Christian Colleges', 'OTHER', 14, 18)
+actual: (31, u'Antonio Pigafetta', u'PERSON', 0, 1)
 expected id: 180
 extracted id: [180, 31, 178, 30, 91, 106, 41, 177, 29, 185, 0, 43, 58, 65, 66, 67, 113, 130, 137, 144]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
 all results:
-[   (187, u'Government', 'OTHER', 1, 1),
+[   (31, u'Antonio Pigafetta', u'PERSON', 0, 1),
+    (43, u'Chamorro', u'PERSON', 4, 4),
+    (187, u'Tamuning', u'LOCATION', 19, 19),
+    (187, u'Government', 'OTHER', 1, 1),
     (187, u'Guam Memorial Hospital', 'OTHER', 14, 16),
+    (30, u'Lateen', u'LOCATION', 22, 22),
     (30, u'Islands', 'OTHER', 19, 19),
     (30, u'Magellan', 'OTHER', 10, 10),
     (30, u'Latinas', 'OTHER', 17, 17),
+    (30, u'Guam Islas de las Velas', u'LOCATION', 12, 16),
     (30, u'Proas', 'OTHER', 5, 5),
     (31, u'Sails', 'OTHER', 15, 15),
     (31, u'Island', 'OTHER', 13, 13),
+    (31, u'18', 'NUMBER', 9, 9),
     (31, u'Magellan', 'OTHER', 5, 5),
+    (31, u'one', 'NUMBER', 3, 3),
+    (91, u'Philippines', u'LOCATION', 32, 32),
     (91, u'Cat\xe1logo', 'OTHER', 21, 21),
     (91, u'Roman Catholic Christianity', 'OTHER', 11, 13),
-    (91, u'Spanish', 'OTHER', 4, 4),
-    (91, u'Chamorros', 'OTHER', 1, 1),
-    (0, u'Territory', 'OTHER', 19, 19),
-    (0, u'IPA', 'OTHER', 15, 15),
-    (0, u'Gu\xe5h\xe5n', 'OTHER', 12, 12),
-    (0, u'Chamorro', 'OTHER', 10, 10),
-    (43, u'Spanish', 'OTHER', 32, 32),
-    (43, u'Mexican', 'OTHER', 25, 25),
-    (43, u'Spanish', 'OTHER', 23, 23)]
+    (91, u'Spanish', 'OTHER', 4, 4)]
 question: What is the name of the main health care facility in Guam?
 expected: Guam Memorial Hospital
 expected sentence: The Government of Guam maintains the island's main health care facility, Guam Memorial Hospital, in Tamuning.
-actual: (187, u'Government', 'OTHER', 1, 1)
+actual: (31, u'Antonio Pigafetta', u'PERSON', 0, 1)
 expected id: 187
 extracted id: [187, 30, 31, 91, 0, 43, 58, 65, 66, 67, 106, 113, 130, 137, 144, 154, 177, 178, 182, 1]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -791,6 +822,37 @@ predicted question type: OTHER
 
 
 all results:
+[   (163, u'United Kingdom', u'LOCATION', 55, 56),
+    (163, u'China', u'LOCATION', 52, 52),
+    (163, u'Mexico', u'LOCATION', 35, 35),
+    (163, u'Canada', u'LOCATION', 33, 33),
+    (187, u'United States', u'LOCATION', 71, 72),
+    (187, u'New England Conservatory', u'LOCATION', 61, 63),
+    (318, u'Fenway', u'LOCATION', 10, 10),
+    (318, u'Hospital Boston', u'LOCATION', 42, 43),
+    (15, u'England', u'LOCATION', 36, 36),
+    (15, u'Lincolnshire', u'LOCATION', 34, 34),
+    (201, u'New England', u'LOCATION', 7, 8),
+    (260, u'Boston Garden', u'LOCATION', 18, 19),
+    (3, u'4.7 million people', 'NUMBER', 20, 24),
+    (3, u'Greater Boston', 'OTHER', 15, 16),
+    (179, u'Massachusetts Institute of Technology', 'OTHER', 24, 27),
+    (179, u'Association of American Universities', 'OTHER', 4, 7),
+    (179, u'Four members', 'NUMBER', 0, 1),
+    (179, u'Harvard University', 'OTHER', 20, 21),
+    (179, u'Boston University', 'OTHER', 29, 30),
+    (179, u'Greater Boston', 'OTHER', 10, 11)]
+question: The large metropolitan area of Boston is also called what?
+expected: Greater Boston
+expected sentence: The city is the economic and cultural anchor of a substantially larger metropolitan area called Greater Boston, home to 4.7 million people and the tenth-largest metropolitan statistical area in the country.
+actual: (163, u'United Kingdom', u'LOCATION', 55, 56)
+expected id: 3
+extracted id: [3, 179, 155, 180, 163, 187, 177, 301, 318, 15, 201, 61, 287, 260, 108, 113, 305, 342, 212, 314]
+predicted question type: LOCATION
+
+
+
+all results:
 [   (0, u'United States', u'LOCATION', 20, 21),
     (0, u'Boston', u'LOCATION', 0, 0),
     (290, u'Boston', u'LOCATION', 6, 6),
@@ -817,6 +879,37 @@ expected sentence: Boston (pronounced i/ˈbɒstən/) is the capital and largest 
 actual: (0, u'United States', u'LOCATION', 20, 21)
 expected id: 0
 extracted id: [0, 290, 289, 2, 161, 164, 168, 182, 278, 26, 75, 155, 162, 204, 307, 319, 333, 3, 132, 137]
+predicted question type: LOCATION
+
+
+
+all results:
+[   (15, u'England', u'LOCATION', 36, 36),
+    (15, u'Lincolnshire', u'LOCATION', 34, 34),
+    (5, u'Shawmut Peninsula', u'LOCATION', 15, 16),
+    (5, u'United States', u'LOCATION', 7, 8),
+    (5, u'England', u'LOCATION', 23, 23),
+    (260, u'Boston Garden', u'LOCATION', 18, 19),
+    (204, u'United States', u'LOCATION', 25, 26),
+    (204, u'Athens', u'LOCATION', 6, 6),
+    (204, u'America', u'LOCATION', 8, 8),
+    (20, u'America', u'LOCATION', 12, 12),
+    (32, u'New England', u'LOCATION', 13, 14),
+    (32, u'Atlantic', u'LOCATION', 7, 7),
+    (32, u'Salem', u'LOCATION', 22, 22),
+    (32, u'Massachusetts', u'LOCATION', 24, 24),
+    (32, u'Newport', u'LOCATION', 26, 26),
+    (32, u'Rhode Island', u'LOCATION', 28, 29),
+    (334, u'Neill Tunnel', u'LOCATION', 25, 26),
+    (15, u'Trimountaine', 'OTHER', 11, 11),
+    (15, u'European', 'OTHER', 4, 4),
+    (15, u'three mountains', 'NUMBER', 16, 17)]
+question: What did Boston's early settlers call the area?
+expected: Trimountaine
+expected sentence: Boston's early European settlers had first called the area Trimountaine (after its "three mountains"—only traces of which remain today) but later renamed it Boston after Boston, Lincolnshire, England, the origin of several prominent colonists.
+actual: (15, u'England', u'LOCATION', 36, 36)
+expected id: 15
+extracted id: [15, 5, 106, 3, 260, 212, 81, 204, 210, 301, 42, 219, 59, 347, 20, 28, 32, 195, 334, 18]
 predicted question type: LOCATION
 
 
@@ -940,6 +1033,37 @@ actual: (66, u'Boston', u'LOCATION', 0, 0)
 expected id: 66
 extracted id: [66, 166, 167, 46, 83, 276, 251, 61]
 predicted question type: PERSON
+
+
+
+all results:
+[   (78, u'Thompson Island', u'LOCATION', 77, 78),
+    (78, u'Boston Harbor', u'LOCATION', 4, 5),
+    (78, u'Spectacle Island', u'LOCATION', 70, 71),
+    (78, u'Rainsford Island', u'LOCATION', 64, 65),
+    (78, u'Gallops Island', u'LOCATION', 29, 30),
+    (78, u'Outer Brewster Island', u'LOCATION', 60, 62),
+    (78, u'Great Brewster Island', u'LOCATION', 32, 34),
+    (78, u'Middle Brewster Island', u'LOCATION', 53, 55),
+    (78, u'Little Brewster Island', u'LOCATION', 39, 41),
+    (78, u'Lovells Island', u'LOCATION', 50, 51),
+    (78, u'Little Calf Island', u'LOCATION', 43, 45),
+    (78, u'Long Island', u'LOCATION', 47, 48),
+    (281, u'East Boston', u'LOCATION', 31, 32),
+    (281, u'South Boston', u'LOCATION', 27, 28),
+    (281, u'Charlestown', u'LOCATION', 20, 20),
+    (281, u'Dorchester', u'LOCATION', 25, 25),
+    (281, u'Castle Island', u'LOCATION', 16, 17),
+    (32, u'Newport', u'LOCATION', 26, 26),
+    (32, u'Massachusetts', u'LOCATION', 24, 24),
+    (32, u'Atlantic', u'LOCATION', 7, 7)]
+question: Calf Island and Green Island are considered part of what National Recreation Area?
+expected: Boston Harbor Islands National Recreation Area
+expected sentence: To the east lie Boston Harbor and the Boston Harbor Islands National Recreation Area (which includes part of the city's territory, specifically Calf Island, Gallops Island, Great Brewster Island, Green Island, Little Brewster Island, Little Calf Island, Long Island, Lovells Island, Middle Brewster Island, Nixes Mate, Outer Brewster Island, Rainsford Island, Shag Rocks, Spectacle Island, The Graves, and Thompson Island).
+actual: (78, u'Boston Harbor', u'LOCATION', 4, 5)
+expected id: 78
+extracted id: [78, 281, 32, 289, 253, 11, 144, 161, 206, 88, 222, 257, 260, 236, 237, 242, 245, 180, 130, 277]
+predicted question type: LOCATION
 
 
 
@@ -1289,7 +1413,10 @@ predicted question type: NUMBER
 
 
 all results:
-[   (186, u'New England School of Law', 'OTHER', 48, 52),
+[   (174, u'John D', u'PERSON', 20, 21),
+    (277, u'Frederick Law Olmsted', u'PERSON', 22, 24),
+    (34, u'Franklin Pierce', u'PERSON', 15, 16),
+    (186, u'New England School of Law', 'OTHER', 48, 52),
     (186, u'Wentworth Institute of Technology', 'OTHER', 43, 46),
     (   186,
         u'Massachusetts College of Pharmacy and Health Sciences',
@@ -1297,6 +1424,7 @@ all results:
         26,
         32),
     (186, u'MGH Institute of Health Professions', 'OTHER', 20, 24),
+    (186, u'America', u'LOCATION', 57, 57),
     (186, u'Wheelock College', 'OTHER', 40, 41),
     (186, u'Fisher College', 'OTHER', 17, 18),
     (186, u'Emerson College', 'OTHER', 67, 68),
@@ -1306,20 +1434,16 @@ all results:
     (186, u'Boston Architectural College', 'OTHER', 10, 12),
     (186, u'Bentley University', 'OTHER', 7, 8),
     (186, u'Babson College', 'OTHER', 4, 5),
-    (258, u'Braves', 'OTHER', 20, 20),
-    (258, u'Beaneaters', 'OTHER', 12, 12),
-    (182, u'South End', 'OTHER', 30, 31),
-    (182, u'Northeastern University', 'OTHER', 33, 34),
-    (182, u'Boston University', 'OTHER', 5, 6),
-    (182, u'Boston College', 'OTHER', 55, 56),
-    (182, u'Suffolk University', 'OTHER', 40, 41)]
+    (258, u'1952 season', 'NUMBER', 30, 31),
+    (258, u'Milwaukee', u'LOCATION', 27, 27),
+    (258, u'Braves', 'OTHER', 20, 20)]
 question: What was the name of Americas first all female law school?
 expected: New England School of Law
 expected sentence: Smaller private schools include Babson College, Bentley University, Boston Architectural College, Emmanuel College, Fisher College, MGH Institute of Health Professions, Massachusetts College of Pharmacy and Health Sciences, Simmons College, Wellesley College, Wheelock College, Wentworth Institute of Technology, New England School of Law (originally established as America's first all female law school), and Emerson College.
-actual: (186, u'Wentworth Institute of Technology', 'OTHER', 43, 46)
+actual: (174, u'John D', u'PERSON', 20, 21)
 expected id: 186
 extracted id: [186, 258, 182, 10, 20, 174, 175, 187, 277, 265, 34, 35, 164, 82, 345, 118, 119, 120, 123, 263]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -1359,33 +1483,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (187, u'New England School of Art', 'OTHER', 40, 44),
+[   (225, u'Diller Scofidio', u'PERSON', 13, 14),
+    (225, u'Renfro', u'PERSON', 16, 16),
+    (224, u'Isabella Stewart Gardner Museum', u'PERSON', 18, 21),
+    (277, u'Frederick Law Olmsted', u'PERSON', 22, 24),
+    (174, u'John D', u'PERSON', 20, 21),
+    (241, u'Thomas Menino', u'PERSON', 8, 9),
+    (187, u'New England School of Art', 'OTHER', 40, 44),
     (187, u'New England Institute of Art', 'OTHER', 34, 38),
     (187, u'School of the Museum of Fine Arts', 'OTHER', 26, 32),
     (187, u'Massachusetts College of Art', 'OTHER', 20, 23),
     (187, u'Lesley University College of Art', 'OTHER', 12, 16),
+    (187, u'New England Conservatory', u'LOCATION', 61, 63),
     (187, u'Longy School of Music of Bard College', 'OTHER', 51, 57),
     (187, u'Suffolk University', 'OTHER', 48, 49),
     (187, u'Metropolitan Boston', 'OTHER', 0, 1),
+    (187, u'United States', u'LOCATION', 71, 72),
+    (258, u'1911', 'NUMBER', 14, 14),
     (258, u'Braves', 'OTHER', 20, 20),
     (258, u'Beaneaters', 'OTHER', 12, 12),
-    (225, u'Contemporary Art', 'OTHER', 3, 4),
-    (225, u'Institute', 'OTHER', 1, 1),
-    (225, u'Seaport District', 'OTHER', 19, 20),
-    (224, u'Museum of Fine Arts', 'OTHER', 12, 15),
-    (277, u'Emerald Necklace', 'OTHER', 13, 14),
-    (212, u'Boston Symphony Hall', 'OTHER', 6, 8),
-    (212, u'The Guardian', 'OTHER', 3, 4),
-    (212, u'Symphony Hall', 'OTHER', 25, 26),
-    (212, u'British', 'OTHER', 1, 1),
-    (265, u'New England Patriots', 'OTHER', 11, 13)]
+    (258, u'1912', 'NUMBER', 22, 22)]
 question: What is another name for New Englans school of Art and Design
 expected: Suffolk University
 expected sentence: Metropolitan Boston is home to several conservatories and art schools, including Lesley University College of Art and Design, Massachusetts College of Art, the School of the Museum of Fine Arts, New England Institute of Art, New England School of Art and Design (Suffolk University), Longy School of Music of Bard College, and the New England Conservatory (the oldest independent conservatory in the United States).
-actual: (187, u'Lesley University College of Art', 'OTHER', 12, 16)
+actual: (225, u'Diller Scofidio', u'PERSON', 13, 14)
 expected id: 187
 extracted id: [187, 258, 225, 224, 277, 212, 265, 219, 174, 175, 186, 133, 275, 279, 35, 164, 82, 345, 241, 215]
-predicted question type: OTHER
+predicted question type: PERSON
+
+
+
+all results:
+[   (153, u'Adams', u'PERSON', 3, 3),
+    (206, u'American', 'OTHER', 25, 25),
+    (206, u'Atlantic Monthly', u'LOCATION', 14, 15),
+    (206, u'Old Corner Bookstore', 'OTHER', 3, 5),
+    (258, u'1952 season', 'NUMBER', 30, 31),
+    (258, u'Milwaukee', u'LOCATION', 27, 27),
+    (258, u'Braves', 'OTHER', 20, 20),
+    (258, u'Beaneaters', 'OTHER', 12, 12),
+    (258, u'1883', 'NUMBER', 7, 7),
+    (258, u'1912', 'NUMBER', 22, 22),
+    (258, u'1911', 'NUMBER', 14, 14),
+    (153, u'Boston Tea Party', 'OTHER', 16, 18),
+    (153, u'Old South Meeting House', 'OTHER', 9, 12),
+    (153, u'1773', 'NUMBER', 1, 1),
+    (35, u'City', 'OTHER', 43, 43),
+    (35, u'Boston', u'LOCATION', 37, 37),
+    (35, u'Boston', u'LOCATION', 25, 25),
+    (35, u'City', 'OTHER', 23, 23),
+    (35, u'Boston', u'LOCATION', 18, 18),
+    (35, u'Town', 'OTHER', 16, 16)]
+question: What was the name of the bookstore the authors met in?
+expected: Old Corner Bookstore
+expected sentence: Some consider the Old Corner Bookstore, where these writers met and where The Atlantic Monthly was first published, to be "cradle of American literature.
+actual: (153, u'Adams', u'PERSON', 3, 3)
+expected id: 206
+extracted id: [206, 258, 54, 153, 35, 265, 82, 345]
+predicted question type: PERSON
 
 
 
@@ -1586,31 +1741,66 @@ predicted question type: OTHER
 all results:
 [   (265, u'Boston Patriots', 'OTHER', 25, 26),
     (265, u'National Football League', 'OTHER', 16, 18),
+    (265, u'1960', 'NUMBER', 22, 22),
+    (265, u'1971', 'NUMBER', 8, 8),
+    (265, u'Foxborough', u'LOCATION', 6, 6),
+    (258, u'1952 season', 'NUMBER', 30, 31),
+    (258, u'Milwaukee', u'LOCATION', 27, 27),
     (258, u'Braves', 'OTHER', 20, 20),
     (258, u'Beaneaters', 'OTHER', 12, 12),
+    (258, u'1883', 'NUMBER', 7, 7),
+    (258, u'1912', 'NUMBER', 22, 22),
+    (258, u'1911', 'NUMBER', 14, 14),
     (82, u'Back Bay', 'OTHER', 77, 78),
+    (82, u'Boston', u'LOCATION', 48, 48),
     (82, u'Trimountain', 'OTHER', 57, 57),
-    (82, u'Tremont Street', 'OTHER', 61, 62),
-    (250, u'TitleTown', 'OTHER', 10, 10),
-    (250, u'Red Sox', 'OTHER', 40, 41),
-    (250, u'Celtics', 'OTHER', 50, 50),
-    (250, u'Bruins', 'OTHER', 55, 55),
-    (262, u'National Hockey League', 'OTHER', 9, 11),
-    (262, u'Bruins', 'OTHER', 1, 1),
-    (262, u'American', 'OTHER', 5, 5),
-    (262, u'Original Six', 'OTHER', 14, 15),
-    (273, u'Day', 'OTHER', 42, 42),
-    (273, u'April', 'OTHER', 44, 44),
-    (187, u'New England School of Art', 'OTHER', 40, 44),
-    (187, u'New England Institute of Art', 'OTHER', 34, 38),
-    (187, u'School of the Museum of Fine Arts', 'OTHER', 26, 32)]
+    (82, u'Boston', u'LOCATION', 7, 7),
+    (82, u'Needham', u'LOCATION', 73, 73),
+    (82, u'two', 'NUMBER', 2, 2),
+    (82, u'three', 'NUMBER', 51, 51),
+    (82, u'Tremont Street', 'OTHER', 61, 62)]
 question: What was the original name of the new England patriots?
 expected: Boston Patriots
 expected sentence: While they have played in suburban Foxborough since 1971, the New England Patriots of the National Football League were founded in 1960 as the Boston Patriots, changing their name after relocating.
 actual: (265, u'National Football League', 'OTHER', 16, 18)
 expected id: 265
 extracted id: [265, 258, 82, 250, 262, 8, 273, 187, 201, 35, 345, 267, 2, 32, 306, 307, 186, 321, 327, 84]
-predicted question type: OTHER
+predicted question type: PERSON
+
+
+
+all results:
+[   (311, u'Emerson', u'PERSON', 8, 8),
+    (272, u'Football Championship Subdivision', 'OTHER', 10, 12),
+    (272, u'Harvard', 'OTHER', 0, 0),
+    (271, u'Football Bowl Subdivision', 'OTHER', 17, 19),
+    (271, u'four', 'NUMBER', 2, 2),
+    (271, u'Boston College', 'OTHER', 5, 6),
+    (258, u'1952 season', 'NUMBER', 30, 31),
+    (258, u'Milwaukee', u'LOCATION', 27, 27),
+    (258, u'Braves', 'OTHER', 20, 20),
+    (258, u'Beaneaters', 'OTHER', 12, 12),
+    (258, u'1883', 'NUMBER', 7, 7),
+    (258, u'1912', 'NUMBER', 22, 22),
+    (258, u'1911', 'NUMBER', 14, 14),
+    (186, u'New England School of Law', 'OTHER', 48, 52),
+    (186, u'Wentworth Institute of Technology', 'OTHER', 43, 46),
+    (   186,
+        u'Massachusetts College of Pharmacy and Health Sciences',
+        'OTHER',
+        26,
+        32),
+    (186, u'MGH Institute of Health Professions', 'OTHER', 20, 24),
+    (186, u'Wheelock College', 'OTHER', 40, 41),
+    (186, u'Fisher College', 'OTHER', 17, 18),
+    (186, u'America', u'LOCATION', 57, 57)]
+question: What is the name of the second highest level of college football?
+expected: Football Championship Subdivision
+expected sentence: Harvard participates in the second-highest level, the Football Championship Subdivision.
+actual: (311, u'Emerson', u'PERSON', 8, 8)
+expected id: 272
+extracted id: [272, 271, 258, 186, 175, 265, 74, 82, 345, 253, 35, 311, 184, 187, 73, 245, 246, 269, 64, 13]
+predicted question type: PERSON
 
 
 
@@ -1699,37 +1889,37 @@ predicted question type: OTHER
 
 
 all results:
-[   (289, u'Massachusetts Water Resources Authority', 'OTHER', 28, 31),
+[   (17, u'Charles River', u'PERSON', 19, 20),
+    (19, u'John Winthrop', u'PERSON', 12, 13),
+    (289, u'Massachusetts Water Resources Authority', 'OTHER', 28, 31),
     (   289,
         u'Massachusetts Department of Conservation and Recreation',
         'OTHER',
         14,
         19),
+    (289, u'Bostonians', u'LOCATION', 50, 50),
     (289, u'Boston Public Health Commission', 'OTHER', 22, 25),
     (289, u'MWRA', 'OTHER', 33, 33),
     (289, u'Massport', 'OTHER', 41, 41),
+    (258, u'1952 season', 'NUMBER', 30, 31),
+    (258, u'Milwaukee', u'LOCATION', 27, 27),
     (258, u'Braves', 'OTHER', 20, 20),
     (258, u'Beaneaters', 'OTHER', 12, 12),
+    (258, u'1883', 'NUMBER', 7, 7),
+    (258, u'1912', 'NUMBER', 22, 22),
+    (258, u'1911', 'NUMBER', 14, 14),
     (329, u'Massport', 'OTHER', 15, 15),
-    (336, u'Massachusetts Bay Transportation Authority', 'OTHER', 7, 10),
-    (336, u'T', 'OTHER', 18, 18),
-    (336, u'MBTA', 'OTHER', 12, 12),
-    (52, u'Boston Redevelopment Authority', 'OTHER', 13, 15),
-    (52, u'BRA', 'OTHER', 17, 17),
-    (265, u'Boston Patriots', 'OTHER', 25, 26),
-    (265, u'National Football League', 'OTHER', 16, 18),
-    (265, u'New England Patriots', 'OTHER', 11, 13),
-    (35, u'City', 'OTHER', 43, 43),
-    (35, u'City', 'OTHER', 23, 23),
-    (35, u'Town', 'OTHER', 16, 16),
-    (35, u'March', 'OTHER', 29, 29)]
+    (329, u'East Boston', u'LOCATION', 5, 6),
+    (329, u'Boston', u'LOCATION', 18, 18),
+    (329, u'Logan Airport', u'LOCATION', 0, 1),
+    (336, u'Massachusetts Bay Transportation Authority', 'OTHER', 7, 10)]
 question: What is the name of the massachusetts port authority?
 expected: Massport
 expected sentence: In addition to city government, numerous commissions and state authorities—including the Massachusetts Department of Conservation and Recreation, the Boston Public Health Commission, the Massachusetts Water Resources Authority (MWRA), and the Massachusetts Port Authority (Massport)—play a role in the life of Bostonians.
-actual: (289, u'Massachusetts Department of Conservation and Recreation', 'OTHER', 14, 19)
+actual: (17, u'Charles River', u'PERSON', 19, 20)
 expected id: 289
 extracted id: [289, 258, 329, 336, 52, 265, 35, 82, 345, 32, 7, 24, 165, 331, 333, 319, 0, 1, 17, 19]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -1823,6 +2013,37 @@ actual: (310, u'FM', 'OTHER', 4, 4)
 expected id: 310
 extracted id: [310, 314, 308, 311, 307, 309, 313, 260, 340, 339, 338, 315, 316, 317]
 predicted question type: OTHER
+
+
+
+all results:
+[   (326, u'Massachusetts', u'LOCATION', 11, 11),
+    (318, u'Fenway', u'LOCATION', 10, 10),
+    (318, u'Hospital Boston', u'LOCATION', 42, 43),
+    (194, u'Medford', u'LOCATION', 14, 14),
+    (194, u'Somerville', u'LOCATION', 12, 12),
+    (194, u'Boston', u'LOCATION', 23, 23),
+    (194, u'Chinatown', u'LOCATION', 26, 26),
+    (327, u'Chinatown', u'LOCATION', 19, 19),
+    (191, u'Allston', u'LOCATION', 17, 17),
+    (191, u'Boston', u'LOCATION', 14, 14),
+    (182, u'Boston', u'LOCATION', 61, 61),
+    (182, u'Fenway', u'LOCATION', 37, 37),
+    (182, u'Commonwealth Avenue', u'LOCATION', 22, 23),
+    (182, u'Brighton', u'LOCATION', 63, 63),
+    (182, u'Newton', u'LOCATION', 65, 65),
+    (182, u'Beacon Hill', u'LOCATION', 43, 44),
+    (328, u'United States', u'LOCATION', 58, 59),
+    (328, u'Boston', u'LOCATION', 32, 32),
+    (328, u'South End', u'LOCATION', 7, 8),
+    (175, u'United States', u'LOCATION', 22, 23)]
+question: The Longwood medical and Academic Area is affiliated with what medical school?
+expected: Harvard Medical School
+expected sentence: The facilities in the Longwood Medical and Academic Area and in Massachusetts General Hospital are affiliated with Harvard Medical School.
+actual: (326, u'Massachusetts', u'LOCATION', 11, 11)
+expected id: 326
+extracted id: [326, 318, 194, 327, 191, 313, 63, 182, 64, 328, 174, 175, 187, 319, 186, 320, 322, 324, 325, 288]
+predicted question type: LOCATION
 
 
 
@@ -1990,33 +2211,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (336, u'Massachusetts Bay Transportation Authority', 'OTHER', 7, 10),
+[   (23, u'Bunker Hill', u'PERSON', 33, 34),
+    (23, u'Paul Revere', u'PERSON', 19, 20),
+    (49, u'Hyde Park', u'PERSON', 66, 67),
+    (336, u'Americas', u'LOCATION', 29, 29),
+    (336, u'Massachusetts Bay Transportation Authority', 'OTHER', 7, 10),
+    (336, u'105 km', 'NUMBER', 50, 51),
     (336, u'T', 'OTHER', 18, 18),
+    (336, u'four lines', 'NUMBER', 56, 57),
+    (336, u'65.5 miles', 'NUMBER', 45, 48),
     (336, u'MBTA', 'OTHER', 12, 12),
+    (336, u'Boston', u'LOCATION', 0, 0),
+    (258, u'1952 season', 'NUMBER', 30, 31),
+    (258, u'Milwaukee', u'LOCATION', 27, 27),
     (258, u'Braves', 'OTHER', 20, 20),
     (258, u'Beaneaters', 'OTHER', 12, 12),
-    (10, u'Boston Latin School', 'OTHER', 14, 16),
-    (340, u'T', 'OTHER', 33, 33),
-    (340, u'Downeaster', 'OTHER', 5, 5),
-    (340, u'Amtrak', 'OTHER', 2, 2),
-    (35, u'City', 'OTHER', 43, 43),
-    (35, u'City', 'OTHER', 23, 23),
-    (35, u'Town', 'OTHER', 16, 16),
-    (35, u'March', 'OTHER', 29, 29),
-    (82, u'Back Bay', 'OTHER', 77, 78),
-    (82, u'Trimountain', 'OTHER', 57, 57),
-    (82, u'Tremont Street', 'OTHER', 61, 62),
-    (265, u'Boston Patriots', 'OTHER', 25, 26),
-    (265, u'National Football League', 'OTHER', 16, 18),
-    (265, u'New England Patriots', 'OTHER', 11, 13),
-    (345, u'Bicycling magazine', 'OTHER', 5, 6)]
+    (258, u'1883', 'NUMBER', 7, 7),
+    (258, u'1912', 'NUMBER', 22, 22),
+    (258, u'1911', 'NUMBER', 14, 14),
+    (10, u'United States', u'LOCATION', 7, 8),
+    (10, u'Boston', u'LOCATION', 0, 0)]
 question: What is the name of Bostons subway system?
 expected: MBTA
 expected sentence: Boston's subway system, the Massachusetts Bay Transportation Authority (MBTA—known as the "T") operates the oldest underground rapid transit system in the Americas, and is the fourth-busiest rapid transit system in the country, with 65.5 miles (105 km) of track on four lines.
-actual: (336, u'Massachusetts Bay Transportation Authority', 'OTHER', 7, 10)
+actual: (23, u'Bunker Hill', u'PERSON', 33, 34)
 expected id: 336
 extracted id: [336, 258, 10, 340, 35, 82, 265, 345, 100, 282, 283, 285, 176, 284, 328, 23, 6, 15, 31, 49]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -2207,6 +2428,37 @@ actual: (163, u'US', u'LOCATION', 45, 45)
 expected id: 31
 extracted id: [31, 163, 124, 140, 155, 32, 33, 197, 20, 190, 28, 30]
 predicted question type: LOCATION
+
+
+
+all results:
+[   (65, u'Richard Jewell', u'PERSON', 6, 7),
+    (4, u'Katz', u'PERSON', 4, 4),
+    (202, u'Luis Gutierrez', u'PERSON', 16, 17),
+    (39, u'White Slave Traffic Act', 'OTHER', 23, 26),
+    (39, u'June', 'OTHER', 34, 34),
+    (39, u'25,1910', 'NUMBER', 35, 37),
+    (162, u'Economic Espionage Act', 'OTHER', 29, 31),
+    (162, u'Accountability Act', 'OTHER', 20, 21),
+    (162, u'Law Enforcement Act', 'OTHER', 7, 9),
+    (162, u'FBI', 'OTHER', 38, 38),
+    (162, u'Health Insurance Portability', 'OTHER', 16, 18),
+    (162, u'Communications Assistance', 'OTHER', 4, 5),
+    (162, u'1996', 'NUMBER', 35, 35),
+    (162, u'EEA', 'OTHER', 33, 33),
+    (162, u'1996 ),', 'NUMBER', 25, 26),
+    (162, u'HIPAA', 'OTHER', 23, 23),
+    (162, u'1994', 'NUMBER', 13, 13),
+    (162, u'CALEA', u'LOCATION', 11, 11),
+    (162, u'Congress', 'OTHER', 1, 1),
+    (162, u'1998', 'NUMBER', 47, 47)]
+question: What was the other formal name of the Mann Act?
+expected: White Slave Traffic Act
+expected sentence: The bureau's first official task was visiting and making surveys of the houses of prostitution in preparation for enforcing the "White Slave Traffic Act," or Mann Act, passed on June 25, 1910.
+actual: (65, u'Richard Jewell', u'PERSON', 6, 7)
+expected id: 39
+extracted id: [39, 162, 146, 147, 31, 42, 65, 214, 91, 157, 161, 172, 2, 4, 26, 158, 171, 173, 68, 202]
+predicted question type: PERSON
 
 
 
@@ -2459,6 +2711,37 @@ actual: (136, u'Federal Bureau of Investigation', 'OTHER', 1, 4)
 expected id: 136
 extracted id: [136, 37, 143, 135, 45, 174, 145, 137, 144, 50, 22, 82, 13, 73, 176, 68, 133, 183, 81, 16]
 predicted question type: OTHER
+
+
+
+all results:
+[   (65, u'Richard Jewell', u'PERSON', 6, 7),
+    (78, u'Edgar Hoover', u'PERSON', 19, 20),
+    (80, u'Edgar Hoover', u'PERSON', 18, 19),
+    (160, u'Hoover', u'PERSON', 1, 1),
+    (160, u'Sam Giancana', u'PERSON', 33, 34),
+    (160, u'John Gotti', u'PERSON', 36, 37),
+    (4, u'Katz', u'PERSON', 4, 4),
+    (140, u'FBI Laboratory', 'OTHER', 14, 15),
+    (140, u'1932', 'NUMBER', 21, 21),
+    (146, u'Bureau', 'OTHER', 4, 4),
+    (146, u'1939', 'NUMBER', 1, 1),
+    (146, u'Axis', 'OTHER', 28, 28),
+    (147, u'West Coast', u'LOCATION', 35, 36),
+    (147, u'FBI', 'OTHER', 16, 16),
+    (147, u'Hawaii', u'LOCATION', 32, 32),
+    (147, u'Japanese Americans', 'OTHER', 29, 30),
+    (147, u'Issei', u'LOCATION', 10, 10),
+    (147, u'German', 'OTHER', 40, 40),
+    (147, u'Italian', 'OTHER', 42, 42),
+    (147, u'Naval Intelligence', 'OTHER', 22, 23)]
+question: What was the other name for the Scientific Crime Detection Laboratory?
+expected: FBI Laboratory
+expected sentence: He was chiefly responsible for creating the Scientific Crime Detection Laboratory, or the FBI Laboratory, which officially opened in 1932, as part of his work to professionalize investigations by the government.
+actual: (65, u'Richard Jewell', u'PERSON', 6, 7)
+expected id: 140
+extracted id: [140, 68, 146, 147, 31, 42, 178, 65, 12, 78, 80, 82, 214, 91, 62, 30, 20, 10, 160, 4]
+predicted question type: PERSON
 
 
 
@@ -3219,41 +3502,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (131, u'Sea', 'OTHER', 20, 20),
-    (177, u'Kingdom', 'OTHER', 41, 41),
-    (177, u'Italian', 'OTHER', 34, 34),
-    (177, u'Gen', 'OTHER', 13, 13),
-    (112, u'Red Sea', 'OTHER', 11, 12),
-    (112, u'Italian', 'OTHER', 24, 24),
-    (   112,
-        u'\u1f18\u03c1\u03c5\u03b8\u03c1\u1f70 \u0398\u03ac\u03bb\u03b1\u03c3\u03c3\u03b1 Erythra Thalassa',
-        'OTHER',
-        14,
-        17),
-    (   119,
-        u'\u1f18\u03c1\u03c5\u03b8\u03c1\u1f70 \u0398\u03ac\u03bb\u03b1\u03c3\u03c3\u03b1 Erythra Thalassa',
-        'OTHER',
-        14,
-        17),
-    (119, u'Red Sea', 'OTHER', 11, 12),
-    (137, u'Eritrean Liberation Front', 'OTHER', 17, 19),
-    (137, u'ELF', 'OTHER', 21, 21),
-    (165, u'Espa\xf1a', 'OTHER', 31, 31),
-    (165, u'Vuelta', 'OTHER', 29, 29),
-    (165, u'Year', 'OTHER', 7, 7),
-    (165, u'African Sportsman', 'OTHER', 3, 4),
-    (135, u'Roman Empire', 'OTHER', 15, 16),
-    (135, u'Fascist', 'OTHER', 1, 1),
-    (29, u'Eritrean Railway', 'OTHER', 1, 2),
-    (123, u'State', 'OTHER', 18, 18),
-    (181, u'Italian', 'OTHER', 17, 17)]
+[   (131, u'Ethiopia', u'LOCATION', 43, 43),
+    (131, u'Mereb', u'LOCATION', 39, 39),
+    (131, u'Tingrinya', u'LOCATION', 24, 24),
+    (177, u'Italy', u'LOCATION', 25, 25),
+    (177, u'Italy', u'LOCATION', 43, 43),
+    (177, u'Eritrea', u'LOCATION', 35, 35),
+    (112, u'Eritrea', u'LOCATION', 25, 25),
+    (112, u'Greek', u'LOCATION', 7, 7),
+    (112, u'Eritrea', u'LOCATION', 2, 2),
+    (119, u'Greek', u'LOCATION', 8, 8),
+    (119, u'Eritrea', u'LOCATION', 2, 2),
+    (129, u'Aksum', u'LOCATION', 4, 4),
+    (29, u'Asmara', u'LOCATION', 12, 12),
+    (35, u'Eritrea', u'LOCATION', 4, 4),
+    (35, u'Ethiopia', u'LOCATION', 6, 6),
+    (123, u'Eritrea', u'LOCATION', 20, 20),
+    (123, u'Eritrea', u'LOCATION', 0, 0),
+    (181, u'Ethiopian', u'LOCATION', 5, 5),
+    (181, u'Eritrea', u'LOCATION', 15, 15),
+    (181, u'Somaliland', u'LOCATION', 18, 18)]
 question: What was the area in the Eritrean highlands named under Emperor Zaro Yaqob?
 expected: Medri Bahri
 expected sentence: It was later renamed under Emperor Zara Yaqob as the domain of the Bahr Negash, the Medri Bahri ("Sea land" in Tingrinya, although it included some areas like Shire on the other side of the Mereb, today in Ethiopia).
-actual: (131, u'Sea', 'OTHER', 20, 20)
+actual: (131, u'Tingrinya', u'LOCATION', 24, 24)
 expected id: 131
 extracted id: [131, 177, 112, 119, 59, 137, 165, 186, 129, 135, 29, 35, 180, 123, 181, 130, 6, 169, 45, 52]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -6101,33 +6376,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (189, u'Fuel', 'OTHER', 32, 32),
-    (189, u'In My Hands', 'OTHER', 12, 14),
-    (189, u'Hemorrhage', 'OTHER', 10, 10),
-    (189, u'Fuel', 'OTHER', 6, 6),
-    (338, u'The Untold Story', 'OTHER', 26, 28),
-    (338, u'And', 'OTHER', 81, 81),
-    (338, u'American Idol', 'OTHER', 23, 24),
-    (338, u'You', 'OTHER', 33, 33),
-    (11, u'Billboard', 'OTHER', 2, 2),
-    (11, u'Idol', 'OTHER', 12, 12),
-    (11, u'Billboard', 'OTHER', 16, 16),
-    (11, u'TV', 'OTHER', 56, 56),
-    (329, u'American South', 'OTHER', 17, 18),
-    (192, u'American Idol', 'OTHER', 10, 11),
-    (192, u'May', 'OTHER', 1, 1),
-    (6, u'Jr', 'OTHER', 27, 27),
-    (136, u'American Idol', 'OTHER', 8, 9),
-    (97, u'The Beatles', 'OTHER', 36, 37),
-    (97, u'Billboard Number', 'OTHER', 45, 46),
-    (97, u'Motown', 'OTHER', 17, 17)]
+[   (338, u'Richard Rushfield', u'PERSON', 16, 17),
+    (338, u'Phillip Phillips', u'PERSON', 9, 10),
+    (11, u'Kelly Clarkson', u'PERSON', 28, 29),
+    (11, u'Carrie Underwood', u'PERSON', 31, 32),
+    (11, u'Ruben Studdard', u'PERSON', 39, 40),
+    (11, u'Jennifer Hudson', u'PERSON', 42, 43),
+    (11, u'Clay Aiken', u'PERSON', 45, 46),
+    (11, u'Adam Lambert', u'PERSON', 48, 49),
+    (11, u'Jordin Sparks', u'PERSON', 51, 52),
+    (329, u'Clay Aiken', u'PERSON', 21, 22),
+    (329, u'Kellie Pickler', u'PERSON', 24, 25),
+    (313, u'Jena Irene', u'PERSON', 11, 12),
+    (313, u'Caleb Johnson', u'PERSON', 0, 1),
+    (192, u'Katharine McPhee', u'PERSON', 14, 15),
+    (192, u'Taylor Hicks', u'PERSON', 6, 7),
+    (6, u'Keith Urban', u'PERSON', 12, 13),
+    (6, u'Jennifer Lopez', u'PERSON', 18, 19),
+    (6, u'Harry Connick', u'PERSON', 24, 25),
+    (136, u'Rickey Minor', u'PERSON', 14, 15),
+    (136, u'Ray Chew', u'PERSON', 22, 23)]
 question: What is the name if the band that has Chris Daughtry as its lead singer?
 expected: Daughtry
 expected sentence: Despite being eliminated earlier in the season, Chris Daughtry (as lead of the band Daughtry) became the most successful recording artist from this season.
-actual: (189, u'Fuel', 'OTHER', 32, 32)
+actual: (338, u'Phillip Phillips', u'PERSON', 9, 10)
 expected id: 194
 extracted id: [194, 189, 338, 11, 329, 313, 192, 6, 136, 394, 135, 63, 97, 265, 201, 215, 171, 5, 399, 16]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -7027,6 +7302,37 @@ actual: (271, u'Idol', 'OTHER', 7, 7)
 expected id: 271
 extracted id: [271, 270, 339, 190, 109, 237, 198, 297, 112, 145, 110, 311, 60]
 predicted question type: OTHER
+
+
+
+all results:
+[   (275, u'McCreery', u'PERSON', 0, 0),
+    (313, u'Jena Irene', u'PERSON', 11, 12),
+    (313, u'Caleb Johnson', u'PERSON', 0, 1),
+    (192, u'Katharine McPhee', u'PERSON', 14, 15),
+    (192, u'Taylor Hicks', u'PERSON', 6, 7),
+    (338, u'Richard Rushfield', u'PERSON', 16, 17),
+    (338, u'Phillip Phillips', u'PERSON', 9, 10),
+    (3, u'Nick Fradiani', u'PERSON', 54, 55),
+    (3, u'Caleb Johnson', u'PERSON', 50, 51),
+    (3, u'Candice Glover', u'PERSON', 47, 48),
+    (3, u'Phillip Phillips', u'PERSON', 44, 45),
+    (3, u'Scotty McCreery', u'PERSON', 41, 42),
+    (3, u'Lee DeWyze', u'PERSON', 38, 39),
+    (3, u'Kris Allen', u'PERSON', 35, 36),
+    (3, u'David Cook', u'PERSON', 32, 33),
+    (3, u'Jordin Sparks', u'PERSON', 29, 30),
+    (3, u'Taylor Hicks', u'PERSON', 26, 27),
+    (3, u'Carrie Underwood', u'PERSON', 23, 24),
+    (3, u'Fantasia Barrino', u'PERSON', 20, 21),
+    (3, u'Kelly Clarkson', u'PERSON', 14, 15)]
+question: What is the name of the successful album that Ruben Studdard released in 2003?
+expected: Soulful
+expected sentence: McCreery's debut album, Clear as Day, became the first debut album by an Idol winner to reach No. 1 on the US Billboard 200 since Ruben Studdard's Soulful in 2003, and he became the youngest male artist to reach No. 1 on the Billboard 200.
+actual: (275, u'McCreery', u'PERSON', 0, 0)
+expected id: 275
+extracted id: [275, 313, 192, 338, 3, 11, 163, 352, 341, 167, 153, 154, 464, 185, 155, 12, 387, 376, 381, 164]
+predicted question type: PERSON
 
 
 
@@ -8705,41 +9011,6 @@ predicted question type: LOCATION
 
 
 all results:
-[   (37, u'US Federal Reserve', 'OTHER', 32, 34),
-    (37, u'American', 'OTHER', 25, 25),
-    (37, u'New York University', 'OTHER', 16, 18),
-    (37, u'Prof', 'OTHER', 11, 11),
-    (65, u'University of California', 'OTHER', 16, 18),
-    (65, u'Legislation', 'OTHER', 30, 30),
-    (65, u'Law', 'OTHER', 28, 28),
-    (75, u'The Times', 'OTHER', 2, 3),
-    (75, u'Liberal', 'OTHER', 51, 51),
-    (75, u'May', 'OTHER', 9, 9),
-    (63, u'University of Freiburg', 'OTHER', 14, 16),
-    (63, u'Law', 'OTHER', 30, 30),
-    (63, u'Legislation', 'OTHER', 32, 32),
-    (63, u'Liberty', 'OTHER', 34, 34),
-    (50, u'Committee', 'OTHER', 23, 23),
-    (   50,
-        u'London School of Economics for the University of Chicago',
-        'OTHER',
-        6,
-        14),
-    (50, u'Social Thought', 'OTHER', 25, 26),
-    (56, u'University of Chicago Law School', 'OTHER', 63, 67),
-    (56, u'Chicago School', 'OTHER', 44, 45),
-    (56, u'U', 'OTHER', 11, 11)]
-question: What was the name of the professor Hayek worked for as a research assistant?
-expected: Jeremiah Jenks
-expected sentence: Between 1923 and 1924 Hayek worked as a research assistant to Prof. Jeremiah Jenks of New York University, compiling macroeconomic data on the American economy and the operations of the US Federal Reserve.
-actual: (37, u'New York University', 'OTHER', 16, 18)
-expected id: 37
-extracted id: [37, 65, 75, 7, 63, 50, 13, 56, 106, 126, 41, 69, 26, 134, 23, 32, 55, 1, 34, 35]
-predicted question type: OTHER
-
-
-
-all results:
 [   (58, u'Intercollegiate Studies Institute', 'OTHER', 16, 18),
     (58, u'Intercollegiate Society of Individualists', 'OTHER', 8, 11),
     (58, u'American', 'OTHER', 21, 21),
@@ -9112,6 +9383,37 @@ predicted question type: OTHER
 
 
 all results:
+[   (43, u'Albert', u'PERSON', 35, 35),
+    (43, u'Sheila', u'PERSON', 9, 9),
+    (43, u'Lady Loughborough', u'PERSON', 11, 12),
+    (71, u'Edward', u'PERSON', 28, 28),
+    (71, u'Edward', u'PERSON', 10, 10),
+    (73, u'Edward', u'PERSON', 8, 8),
+    (138, u'Edward', u'PERSON', 6, 6),
+    (69, u'Albert', u'PERSON', 0, 0),
+    (75, u'Edward', u'PERSON', 17, 17),
+    (89, u'Daniel Calhoun Roper', u'PERSON', 25, 27),
+    (5, u'India', u'LOCATION', 23, 23),
+    (5, u'India', u'LOCATION', 4, 4),
+    (5, u'Pakistan', u'LOCATION', 6, 6),
+    (5, u'June', 'OTHER', 27, 27),
+    (5, u'1947', 'NUMBER', 8, 8),
+    (5, u'1948', 'NUMBER', 28, 28),
+    (43, u'York', u'LOCATION', 32, 32),
+    (43, u'1920', 'NUMBER', 20, 20),
+    (43, u'April', 'OTHER', 19, 19),
+    (43, u'Australian', 'OTHER', 7, 7)]
+question: For which country did George VI stop using the title Emperor but continue to use the title of King?
+expected: India
+expected sentence: After the independence of India and Pakistan in 1947, George remained as king of both countries, but the title Emperor of India was abandoned in June 1948.
+actual: (43, u'Albert', u'PERSON', 35, 35)
+expected id: 5
+extracted id: [5, 43, 118, 70, 71, 72, 119, 7, 73, 110, 1, 103, 120, 135, 138, 69, 75, 77, 80, 89]
+predicted question type: PERSON
+
+
+
+all results:
 [   (26, u'August', 'OTHER', 16, 16),
     (26, u"Squadron of the Boys ' Wing", 'OTHER', 7, 12),
     (26, u'RAF', 'OTHER', 23, 23),
@@ -9143,131 +9445,140 @@ predicted question type: OTHER
 
 
 all results:
-[   (7, u'Commonwealth', 'OTHER', 9, 9),
-    (7, u'Head', 'OTHER', 6, 6),
-    (13, u'I', 'OTHER', 23, 23),
-    (13, u'York', 'OTHER', 20, 20),
-    (13, u'Duchess', 'OTHER', 18, 18),
-    (17, u'Teck', 'OTHER', 7, 7),
-    (17, u'Duchess', 'OTHER', 5, 5),
-    (12, u'I', 'OTHER', 9, 9),
-    (32, u'Trinity College', 'OTHER', 8, 9),
-    (32, u'October', 'OTHER', 1, 1),
-    (10, u'Prince Consort', 'OTHER', 24, 25),
-    (10, u'Prince', 'OTHER', 20, 20),
-    (10, u'December', 'OTHER', 4, 4),
-    (43, u'King', 'OTHER', 23, 23),
-    (43, u'April', 'OTHER', 19, 19),
-    (43, u'Australian', 'OTHER', 7, 7),
-    (14, u'Church', 'OTHER', 18, 18),
-    (14, u'St', 'OTHER', 12, 12),
-    (15, u'York', 'OTHER', 22, 22),
-    (15, u'His Highness Prince', 'OTHER', 17, 19)]
-question: What regnal name did Albert adopt?
-expected: George VI
-expected sentence: Albert assumed the regnal name "George VI" to emphasise continuity with his father and restore confidence in the monarchy.
-actual: (7, u'Head', 'OTHER', 6, 6)
-expected id: 69
-extracted id: [69, 7, 13, 17, 12, 32, 59, 49, 63, 10, 43, 14, 15, 18, 54, 87, 47, 42, 30, 31]
-predicted question type: OTHER
-
-
-
-all results:
-[   (92, u'Queen', 'OTHER', 27, 27),
-    (86, u'Canadian Prime Minister', 'OTHER', 10, 12),
-    (86, u'Queen', 'OTHER', 27, 27),
-    (76, u'Queen', 'OTHER', 6, 6),
-    (58, u'Secretary', 'OTHER', 41, 41),
-    (58, u'Duke', 'OTHER', 20, 20),
-    (58, u'Canadian Prime Minister', 'OTHER', 8, 10),
-    (58, u'State', 'OTHER', 43, 43),
-    (58, u'Governor General', 'OTHER', 22, 23),
-    (58, u'Dominion Affairs', 'OTHER', 45, 46),
-    (58, u'B', 'OTHER', 14, 14),
-    (58, u'R', 'OTHER', 12, 12),
-    (58, u'J', 'OTHER', 48, 48),
-    (58, u'H', 'OTHER', 50, 50),
-    (61, u'British Prime Minister', 'OTHER', 5, 7),
-    (107, u'Cabinet', 'OTHER', 17, 17),
-    (107, u'Lord', 'OTHER', 13, 13),
-    (107, u'British', 'OTHER', 30, 30),
-    (107, u'Churchill', 'OTHER', 8, 8),
-    (122, u'Union', 'OTHER', 5, 5)]
-question: Which prime minister was the King constitutionally bound to support?
-expected: Neville Chamberlain
-expected sentence: The King was constitutionally bound to support Prime Minister Neville Chamberlain's appeasement of Hitler.
-actual: (92, u'Queen', 'OTHER', 27, 27)
-expected id: 81
-extracted id: [81, 92, 86, 76, 58, 61, 107, 106, 122, 88, 118, 119, 128, 129, 130, 131, 5, 135, 139, 30]
-predicted question type: OTHER
-
-
-
-all results:
-[   (84, u'House of Commons', 'OTHER', 22, 24),
-    (84, u'British', 'OTHER', 54, 54),
-    (90, u'Commonwealth', 'OTHER', 37, 37),
-    (90, u'Statute', 'OTHER', 12, 12),
-    (90, u'Westminster', 'OTHER', 14, 14),
-    (72, u'Letters Patent', 'OTHER', 33, 34),
-    (72, u'His Royal Highness The Duke', 'OTHER', 23, 27),
-    (81, u'Prime Minister', 'OTHER', 7, 8),
-    (82, u'Buckingham Palace', 'OTHER', 29, 30),
-    (82, u'Agreement', 'OTHER', 16, 16),
-    (82, u'Queen', 'OTHER', 6, 6),
-    (67, u'External Relations Act', 'OTHER', 7, 9),
-    (68, u'Commonwealth', 'OTHER', 18, 18),
-    (68, u'Irish Free State', 'OTHER', 5, 7),
-    (106, u'Prime Minister', 'OTHER', 9, 10),
-    (86, u'Queen', 'OTHER', 27, 27),
-    (86, u'Canadian Prime Minister', 'OTHER', 10, 12),
-    (88, u'British Dominions', 'OTHER', 36, 37),
-    (88, u'Statute', 'OTHER', 25, 25),
-    (88, u'Westminster', 'OTHER', 27, 27)]
+[   (84, u'Hitler', u'PERSON', 13, 13),
+    (84, u'John Grigg', u'PERSON', 29, 30),
+    (90, u'Gustave Lanctot', u'PERSON', 6, 7),
+    (90, u'George', u'PERSON', 21, 21),
+    (72, u'George', u'PERSON', 5, 5),
+    (81, u'Neville Chamberlain', u'PERSON', 9, 10),
+    (81, u'Hitler', u'PERSON', 15, 15),
+    (106, u'Neville Chamberlain', u'PERSON', 6, 7),
+    (106, u'Winston Churchill', u'PERSON', 3, 4),
+    (106, u'George', u'PERSON', 14, 14),
+    (86, u'William Lyon Mackenzie King', u'PERSON', 13, 16),
+    (88, u'Mackenzie King', u'PERSON', 8, 9),
+    (88, u'Tweedsmuir', u'PERSON', 6, 6),
+    (118, u'George', u'PERSON', 0, 0),
+    (128, u'Elizabeth', u'PERSON', 9, 9),
+    (130, u'Elizabeth', u'PERSON', 5, 5),
+    (131, u'Lord Simonds', u'PERSON', 26, 27),
+    (5, u'George', u'PERSON', 10, 10),
+    (135, u'George', u'PERSON', 22, 22),
+    (30, u'Albert', u'PERSON', 6, 6)]
 question: Which historian commented that the king's act in associating with Chamberlain as unconstitutional?
 expected: John Grigg
 expected sentence: While broadly popular among the general public, Chamberlain's policy towards Hitler was the subject of some opposition in the House of Commons, which led historian John Grigg to describe the King's behaviour in associating himself so prominently with a politician as "the most unconstitutional act by a British sovereign in the present century".
-actual: (84, u'House of Commons', 'OTHER', 22, 24)
+actual: (84, u'Hitler', u'PERSON', 13, 13)
 expected id: 84
 extracted id: [84, 90, 72, 81, 82, 67, 68, 106, 86, 88, 118, 119, 128, 129, 130, 131, 5, 135, 139, 30]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
 all results:
-[   (110, u'Italy', u'LOCATION', 26, 26),
+[   (97, u'George VI', u'PERSON', 0, 1),
+    (94, u'Franklin D', u'PERSON', 14, 15),
+    (104, u'Eleanor Roosevelt', u'PERSON', 14, 15),
+    (136, u'Elizabeth The Queen Mother', u'PERSON', 16, 19),
+    (136, u'Margaret', u'PERSON', 29, 29),
+    (11, u'Queen Victoria', u'PERSON', 10, 11),
+    (86, u'William Lyon Mackenzie King', u'PERSON', 13, 16),
+    (128, u'Elizabeth', u'PERSON', 9, 9),
+    (82, u'Chamberlain', u'PERSON', 8, 8),
+    (13, u'Albert', u'PERSON', 12, 12),
+    (13, u'Victoria', u'PERSON', 1, 1),
+    (15, u'Albert', u'PERSON', 20, 20),
+    (15, u'Victoria', u'PERSON', 10, 10),
+    (64, u'Queen Mary', u'PERSON', 15, 16),
+    (76, u'Mary', u'PERSON', 7, 7),
+    (97, u'London', u'LOCATION', 9, 9),
+    (97, u'German', 'OTHER', 12, 12),
+    (100, u'September', 'OTHER', 2, 2),
+    (100, u'German', 'OTHER', 13, 13),
+    (100, u'13', 'NUMBER', 1, 1)]
+question: Which city did the king and queen stay in even with the bombing threats?
+expected: London
+expected sentence: George VI and his wife resolved to stay in London, despite German bombing raids.
+actual: (97, u'George VI', u'PERSON', 0, 1)
+expected id: 97
+extracted id: [97, 100, 109, 101, 94, 98, 104, 136, 11, 86, 128, 82, 85, 92, 95, 13, 15, 64, 74, 76]
+predicted question type: PERSON
+
+
+
+all results:
+[   (31, u'Albert', u'PERSON', 1, 1),
+    (112, u'Alan Brooke', u'PERSON', 14, 15),
+    (112, u'Bernard Montgomery', u'PERSON', 25, 26),
+    (5, u'George', u'PERSON', 10, 10),
+    (87, u'Albert', u'PERSON', 22, 22),
+    (87, u'George', u'PERSON', 0, 0),
+    (94, u'Franklin D', u'PERSON', 14, 15),
+    (122, u'Jan Smuts', u'PERSON', 10, 11),
+    (136, u'Elizabeth The Queen Mother', u'PERSON', 16, 19),
+    (136, u'Margaret', u'PERSON', 29, 29),
+    (11, u'Queen Victoria', u'PERSON', 10, 11),
+    (86, u'William Lyon Mackenzie King', u'PERSON', 13, 16),
+    (128, u'Elizabeth', u'PERSON', 9, 9),
+    (82, u'Chamberlain', u'PERSON', 8, 8),
+    (110, u'October', 'OTHER', 36, 36),
+    (110, u'Low Countries', 'OTHER', 33, 34),
+    (110, u'Italy', u'LOCATION', 26, 26),
+    (110, u'June', 'OTHER', 22, 22),
     (110, u'Normandy', u'LOCATION', 20, 20),
-    (110, u'Malta', u'LOCATION', 15, 15),
-    (110, u'North Africa', u'LOCATION', 12, 13),
-    (110, u'France', u'LOCATION', 7, 7),
-    (109, u'United Kingdom', u'LOCATION', 15, 16),
-    (5, u'Pakistan', u'LOCATION', 6, 6),
-    (5, u'India', u'LOCATION', 4, 4),
-    (5, u'India', u'LOCATION', 23, 23),
-    (120, u'Ireland', u'LOCATION', 30, 30),
-    (120, u'Arab states', u'LOCATION', 20, 21),
-    (120, u'Israel', u'LOCATION', 17, 17),
-    (120, u'Burma', u'LOCATION', 8, 8),
-    (120, u'Palestine', u'LOCATION', 13, 13),
-    (87, u'Canada', u'LOCATION', 18, 18),
-    (87, u'Canada', u'LOCATION', 7, 7),
-    (87, u'North America', u'LOCATION', 10, 11),
-    (94, u'Hyde Park', u'LOCATION', 28, 29),
-    (94, u'New York', u'LOCATION', 31, 32),
-    (122, u'South Africa', u'LOCATION', 7, 8)]
+    (110, u'June', 'OTHER', 17, 17)]
 question: What country did the King and Queen visit in July 1944?
 expected: Italy
 expected sentence: The King visited military forces abroad in France in December 1939, North Africa and Malta in June 1943, Normandy in June 1944, southern Italy in July 1944, and the Low Countries in October 1944.
-actual: (110, u'France', u'LOCATION', 7, 7)
+actual: (31, u'Albert', u'PERSON', 1, 1)
 expected id: 110
 extracted id: [110, 31, 112, 109, 5, 1, 103, 120, 36, 87, 94, 122, 136, 11, 86, 128, 82, 85, 92, 95]
-predicted question type: LOCATION
+predicted question type: PERSON
 
 
 
 all results:
-[   (0, u'Unitary Parliamentary Republic', 'OTHER', 41, 43),
+[   (134, u'George', u'PERSON', 7, 7),
+    (133, u'Mary Magdalene Church', u'PERSON', 12, 14),
+    (14, u'Mary Magdalene', u'PERSON', 14, 15),
+    (14, u'Albert Frederick Arthur George', u'PERSON', 6, 9),
+    (128, u'Elizabeth', u'PERSON', 9, 9),
+    (75, u'Edward', u'PERSON', 17, 17),
+    (75, u'George VI', u'PERSON', 0, 1),
+    (54, u'Albert', u'PERSON', 17, 17),
+    (11, u'Queen Victoria', u'PERSON', 10, 11),
+    (70, u'George VI', u'PERSON', 3, 4),
+    (127, u'Elizabeth', u'PERSON', 3, 3),
+    (86, u'William Lyon Mackenzie King', u'PERSON', 13, 16),
+    (88, u'Mackenzie King', u'PERSON', 8, 9),
+    (88, u'Tweedsmuir', u'PERSON', 6, 6),
+    (118, u'George', u'PERSON', 0, 0),
+    (130, u'Elizabeth', u'PERSON', 5, 5),
+    (131, u'Lord Simonds', u'PERSON', 26, 27),
+    (134, u'Windsor Castle', 'OTHER', 12, 13),
+    (134, u'Chapel', 'OTHER', 10, 10),
+    (134, u'St', 'OTHER', 5, 5)]
+question: What church did the King's funeral take place on the 15th?
+expected: Windsor Castle
+expected sentence: His funeral took place at St. George's Chapel, Windsor Castle, on the 15th.
+actual: (134, u'George', u'PERSON', 7, 7)
+expected id: 134
+extracted id: [134, 133, 14, 128, 75, 111, 54, 125, 26, 34, 11, 70, 127, 86, 88, 118, 119, 129, 130, 131]
+predicted question type: PERSON
+
+
+
+all results:
+[   (0, u'S\u0101moa', u'PERSON', 16, 16),
+    (0, u'Malo Sa', u'PERSON', 8, 9),
+    (10, u'Robert Louis Stevenson', u'PERSON', 2, 4),
+    (8, u'John Williams', u'PERSON', 10, 11),
+    (36, u'Faumuina Mulinu', u'PERSON', 4, 5),
+    (38, u'Malietoa Tanumafili', u'PERSON', 10, 11),
+    (38, u'Tupua Tamasese Mea', u'PERSON', 0, 2),
+    (53, u'Savai', u'PERSON', 10, 10),
+    (0, u'Unitary Parliamentary Republic', 'OTHER', 41, 43),
+    (0, u'Western Samoa', u'LOCATION', 36, 37),
     (0, u'S\u0101moa', 'OTHER', 30, 30),
     (0, u'Samoan', 'OTHER', 28, 28),
     (0, u'IPA', 'OTHER', 18, 18),
@@ -9277,23 +9588,14 @@ all results:
     (10, u'Samoans', 'OTHER', 34, 34),
     (10, u'Trouble', 'OTHER', 28, 28),
     (10, u'Eight Years', 'OTHER', 25, 26),
-    (10, u'History', 'OTHER', 23, 23),
-    (10, u'A Footnote', 'OTHER', 20, 21),
-    (18, u'Island Territories', 'OTHER', 29, 30),
-    (18, u'External Affairs', 'OTHER', 12, 13),
-    (18, u'Department', 'OTHER', 10, 10),
-    (32, u'Trusteeship Agreement', 'OTHER', 31, 32),
-    (32, u'January', 'OTHER', 25, 25),
-    (32, u'November', 'OTHER', 18, 18),
-    (32, u'Act', 'OTHER', 14, 14),
-    (32, u'Samoan', 'OTHER', 5, 5)]
+    (10, u'History', 'OTHER', 23, 23)]
 question: What was Samoa's old name?
 expected: Western Samoa
 expected sentence: The Independent State of Samoa ( Samoan: Malo Sa 'oloto Tuto 'atasi o Sāmoa, IPA: [ˌsaːˈmoa]), commonly known as Samoa (Samoan: Sāmoa) and formerly known as Western Samoa, is a Unitary Parliamentary Republic with eleven administrative divisions.
-actual: (0, u'Independent State', 'OTHER', 1, 2)
+actual: (0, u'Malo Sa', u'PERSON', 8, 9)
 expected id: 0
 extracted id: [0, 10, 18, 32, 69, 117, 120, 8, 15, 28, 30, 33, 34, 35, 36, 38, 52, 53, 54, 56]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -9453,33 +9755,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (32, u'Trusteeship Agreement', 'OTHER', 31, 32),
+[   (20, u'Samoans', u'PERSON', 2, 2),
+    (90, u'Martyn Sanderson', u'PERSON', 23, 24),
+    (90, u'Fox', u'PERSON', 6, 6),
+    (101, u'Kapisi', u'PERSON', 1, 1),
+    (0, u'Malo Sa', u'PERSON', 8, 9),
+    (0, u'S\u0101moa', u'PERSON', 16, 16),
+    (32, u'Trusteeship Agreement', 'OTHER', 31, 32),
+    (32, u'24', 'NUMBER', 17, 17),
+    (32, u'1961', 'NUMBER', 15, 15),
+    (32, u'New Zealand Western Samoa', u'LOCATION', 10, 13),
     (32, u'Samoan', 'OTHER', 5, 5),
     (32, u'November', 'OTHER', 18, 18),
     (32, u'Act', 'OTHER', 14, 14),
+    (32, u'1961', 'NUMBER', 19, 19),
+    (32, u'1962', 'NUMBER', 26, 26),
     (32, u'January', 'OTHER', 25, 25),
+    (32, u'1', 'NUMBER', 24, 24),
     (35, u'January', 'OTHER', 8, 8),
-    (35, u'June', 'OTHER', 14, 14),
-    (65, u'Great War', 'OTHER', 14, 15),
-    (65, u'World War I', 'OTHER', 17, 19),
-    (15, u'United Nations', 'OTHER', 30, 31),
-    (15, u'Nations', 'OTHER', 25, 25),
-    (15, u'League', 'OTHER', 23, 23),
-    (15, u'World War I', 'OTHER', 4, 6),
-    (15, u'Class C Mandate', 'OTHER', 16, 18),
-    (14, u'March', 'OTHER', 5, 5),
-    (18, u'External Affairs', 'OTHER', 12, 13),
-    (18, u'Department', 'OTHER', 10, 10),
-    (18, u'Island Territories', 'OTHER', 29, 30),
-    (121, u'NRL', 'OTHER', 36, 36),
-    (121, u'Rugby League World Cup', 'OTHER', 26, 29)]
+    (35, u'1', 'NUMBER', 13, 13),
+    (35, u'June', 'OTHER', 14, 14)]
 question: What's the name of the agreement that ended with the start of Samoa's independence from New Zealand?
 expected: Trusteeship Agreement
 expected sentence: After repeated efforts by the Samoan independence movement, the New Zealand Western Samoa Act 1961 of 24 November 1961 granted Samoa independence effective 1 January 1962, upon which the Trusteeship Agreement terminated.
-actual: (32, u'Samoan', 'OTHER', 5, 5)
+actual: (20, u'Samoans', u'PERSON', 2, 2)
 expected id: 32
 extracted id: [32, 35, 65, 15, 14, 37, 18, 33, 121, 16, 19, 20, 25, 70, 90, 100, 101, 0, 7, 64]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -9546,33 +9848,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (62, u'Virgin Blue', 'OTHER', 44, 45),
+[   (0, u'Malo Sa', u'PERSON', 8, 9),
+    (0, u'S\u0101moa', u'PERSON', 16, 16),
+    (10, u'Robert Louis Stevenson', u'PERSON', 2, 4),
+    (8, u'John Williams', u'PERSON', 10, 11),
+    (36, u'Faumuina Mulinu', u'PERSON', 4, 5),
+    (38, u'Malietoa Tanumafili', u'PERSON', 10, 11),
+    (38, u'Tupua Tamasese Mea', u'PERSON', 0, 2),
+    (62, u'2005 launch', 'NUMBER', 27, 28),
+    (62, u'Pacific', u'LOCATION', 22, 22),
+    (62, u'Virgin Blue', 'OTHER', 44, 45),
     (124, u'Samoan National', 'OTHER', 10, 11),
     (124, u'NZ', 'OTHER', 4, 4),
+    (117, u'Manu Samoa', u'LOCATION', 15, 16),
     (121, u'Super League', 'OTHER', 38, 39),
     (121, u'NRL', 'OTHER', 36, 36),
+    (121, u'2013', 'NUMBER', 25, 25),
+    (121, u'New Zealand', u'LOCATION', 9, 10),
     (121, u'Rugby League World Cup', 'OTHER', 26, 29),
     (121, u'Samoans', 'OTHER', 6, 6),
-    (120, u'Nations The', 'OTHER', 13, 14),
-    (120, u'Pacific Islands Rugby Alliance', 'OTHER', 30, 33),
-    (120, u'Samoa Rugby Football Union', 'OTHER', 20, 23),
-    (120, u'Pacific Nations Cup', 'OTHER', 5, 7),
-    (120, u'Pacific Islanders', 'OTHER', 43, 44),
-    (125, u'Samoan', 'OTHER', 3, 3),
-    (0, u'Independent State', 'OTHER', 1, 2),
-    (0, u'S\u0101moa', 'OTHER', 30, 30),
-    (0, u'Samoan', 'OTHER', 6, 6),
-    (0, u'Samoan', 'OTHER', 28, 28),
-    (0, u'Unitary Parliamentary Republic', 'OTHER', 41, 43),
-    (0, u'Tuto', 'OTHER', 12, 12),
-    (0, u'IPA', 'OTHER', 18, 18)]
+    (120, u'Nations The', 'OTHER', 13, 14)]
 question: What's the name of the team-up between Samoa and Virgin Australia?
 expected: Virgin Samoa
 expected sentence: [citation needed] The sector has been helped enormously by major capital investment in hotel infrastructure, political instability in neighbouring Pacific countries, and the 2005 launch of Virgin Samoa a joint-venture between the government and Virgin Australia (then Virgin Blue).
-actual: (62, u'Virgin Blue', 'OTHER', 44, 45)
+actual: (0, u'Malo Sa', u'PERSON', 8, 9)
 expected id: 62
 extracted id: [62, 124, 117, 121, 120, 125, 0, 10, 18, 32, 69, 8, 15, 28, 30, 33, 34, 35, 36, 38]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -9604,6 +9906,37 @@ actual: (76, u'Christian Congregational Church of Samoa', 'OTHER', 8, 12)
 expected id: 76
 extracted id: [76, 79, 17, 84, 115, 0, 41, 85, 89, 122, 3, 5, 6, 7, 9, 10, 12, 13, 20, 22]
 predicted question type: OTHER
+
+
+
+all results:
+[   (99, u'Punialava', u'PERSON', 15, 15),
+    (99, u'Tiafau', u'PERSON', 13, 13),
+    (99, u'Penina', u'PERSON', 11, 11),
+    (107, u'Katerina Martina Teaiwa', u'PERSON', 2, 4),
+    (0, u'S\u0101moa', u'PERSON', 16, 16),
+    (0, u'Malo Sa', u'PERSON', 8, 9),
+    (89, u'Albert Wendt', u'PERSON', 0, 1),
+    (9, u'Barbara A', u'PERSON', 2, 3),
+    (10, u'Robert Louis Stevenson', u'PERSON', 2, 4),
+    (20, u'Samoans', u'PERSON', 2, 2),
+    (99, u'The Five Stars', 'OTHER', 7, 9),
+    (6, u'one proposing', 'NUMBER', 14, 15),
+    (6, u'Samoans', 'OTHER', 18, 18),
+    (6, u'Austronesian', u'LOCATION', 21, 21),
+    (6, u'Lapita', 'OTHER', 27, 27),
+    (6, u'Southeast Asia', u'LOCATION', 31, 32),
+    (6, u'Melanesia', 'OTHER', 34, 34),
+    (6, u'2,500', 'NUMBER', 36, 38),
+    (6, u'1,500', 'NUMBER', 40, 42),
+    (6, u'BCE', 'OTHER', 43, 43)]
+question: What popular Samoan band has a number in its name?
+expected: The Five Stars
+expected sentence: In music, popular local bands include The Five Stars, Penina o Tiafau and Punialava'a.
+actual: (99, u'Punialava', u'PERSON', 15, 15)
+expected id: 99
+extracted id: [99, 6, 100, 107, 108, 115, 0, 41, 85, 89, 122, 3, 5, 7, 9, 10, 12, 13, 17, 20]
+predicted question type: PERSON
 
 
 
@@ -9901,6 +10234,37 @@ actual: (93, u'two', 'NUMBER', 10, 10)
 expected id: 93
 extracted id: [93, 89, 87, 8, 32, 36, 94, 30, 52, 75, 114, 106, 101, 117, 44, 90, 29, 61, 62, 70]
 predicted question type: NUMBER
+
+
+
+all results:
+[   (103, u'Radvilos', u'PERSON', 32, 32),
+    (103, u'K\u0119sgailos', u'PERSON', 36, 36),
+    (29, u'Noah', u'PERSON', 53, 53),
+    (29, u'Japheth', u'PERSON', 29, 29),
+    (130, u'W\u0142adys\u0142aw', u'PERSON', 1, 1),
+    (154, u'Jan Zamoyski', u'PERSON', 10, 11),
+    (8, u'Habsburg Monarchy', 'OTHER', 35, 36),
+    (8, u'Prussia', u'LOCATION', 31, 31),
+    (8, u'Kingdom', 'OTHER', 29, 29),
+    (8, u'Russian Empire', 'OTHER', 25, 26),
+    (8, u'three', 'NUMBER', 20, 20),
+    (8, u'1918', 'NUMBER', 4, 4),
+    (174, u'Habsburg Monarchy', 'OTHER', 34, 35),
+    (174, u'Prussia', u'LOCATION', 31, 31),
+    (174, u'Kingdom', 'OTHER', 29, 29),
+    (174, u'Russian Empire', 'OTHER', 25, 26),
+    (174, u'Poland', u'LOCATION', 11, 11),
+    (174, u'Partitions', 'OTHER', 9, 9),
+    (174, u'1795', 'NUMBER', 7, 7),
+    (174, u'1918', 'NUMBER', 15, 15)]
+question: What was one name of a power that the szlachta was dependent on.
+expected: Russian Empire
+expected sentence: From that point until 1918, the legal status of the nobility was essentially dependent upon the policies of the three partitioning powers: the Russian Empire, the Kingdom of Prussia, and the Habsburg Monarchy.
+actual: (103, u'Radvilos', u'PERSON', 32, 32)
+expected id: 8
+extracted id: [8, 174, 172, 38, 55, 152, 187, 44, 103, 169, 220, 29, 67, 91, 111, 123, 130, 141, 154, 182]
+predicted question type: PERSON
 
 
 
@@ -10205,6 +10569,41 @@ predicted question type: NUMBER
 
 
 all results:
+[   (4, u'Elizabeth II', u'PERSON', 18, 19),
+    (33, u'1980s', 'NUMBER', 2, 2),
+    (33, u'Canadian Armed Forces', 'OTHER', 26, 28),
+    (33, u'Canadian Armed Forces', 'OTHER', 9, 11),
+    (33, u'2013', 'NUMBER', 33, 33),
+    (104, u'764', 'NUMBER', 79, 79),
+    (104, u'Canadian Forces Station', 'OTHER', 69, 71),
+    (104, u'Canadian Forces Network Operation Centre', 'OTHER', 50, 54),
+    (104, u'Canadian Forces Electronic Warfare Centre', 'OTHER', 41, 45),
+    (   104,
+        u'Canadian Forces Information Operations Group Headquarters',
+        'OTHER',
+        31,
+        36),
+    (104, u'Canadian Forces Information Operations Group', 'OTHER', 11, 15),
+    (104, u'Communications Squadron', 'OTHER', 80, 81),
+    (104, u'CFSOC', 'OTHER', 66, 66),
+    (104, u'Forces Signals Intelligence Operations Centre', 'OTHER', 60, 64),
+    (104, u'CFNOC', 'OTHER', 56, 56),
+    (104, u'CFEWC', 'OTHER', 47, 47),
+    (104, u'CFIOGHQ', 'OTHER', 38, 38),
+    (104, u'Leitrim', 'OTHER', 75, 75),
+    (104, u'Ottawa', u'LOCATION', 22, 22),
+    (104, u'CFS', 'OTHER', 73, 73)]
+question: What is the old name of the Canadian Forces?
+expected: Canadian Armed Forces
+expected sentence: After the 1980s, the use of the "Canadian Armed Forces" name gave way to "Canadian Forces";[citation needed] The "Canadian Armed Forces" name returned in 2013.
+actual: (4, u'Elizabeth II', u'PERSON', 18, 19)
+expected id: 33
+extracted id: [33, 104, 0, 83, 73, 30, 89, 12, 137, 80, 112, 1, 84, 92, 99, 91, 71, 4, 17, 32]
+predicted question type: PERSON
+
+
+
+all results:
 [   (33, u'1980s', 'NUMBER', 2, 2),
     (33, u'2013', 'NUMBER', 33, 33),
     (0, u'one', 'NUMBER', 66, 66),
@@ -10236,9 +10635,15 @@ predicted question type: NUMBER
 
 
 all results:
-[   (0, u'Her Majesty', 'OTHER', 58, 59),
+[   (4, u'Elizabeth II', u'PERSON', 18, 19),
+    (33, u'1980s', 'NUMBER', 2, 2),
+    (33, u'2013', 'NUMBER', 33, 33),
+    (0, u'one', 'NUMBER', 66, 66),
+    (0, u'Her Majesty', 'OTHER', 58, 59),
     (0, u'National Defence Act', 'OTHER', 42, 44),
+    (0, u'Canada', u'LOCATION', 36, 36),
     (0, u'Service', 'OTHER', 67, 67),
+    (0, u'Canada', u'LOCATION', 62, 62),
     (0, u'FC', 'OTHER', 28, 28),
     (0, u'CAF', 'OTHER', 5, 5),
     (0, u'French', 'OTHER', 7, 7),
@@ -10246,23 +10651,17 @@ all results:
     (0, u'CF', 'OTHER', 19, 19),
     (0, u'FAC', 'OTHER', 13, 13),
     (42, u'Canada First Defence Strategy', 'OTHER', 11, 14),
+    (42, u'Canada', u'LOCATION', 5, 5),
     (42, u'Government', 'OTHER', 3, 3),
-    (42, u'Special Operations Regiment', 'OTHER', 43, 45),
-    (105, u'Director General Cyber', 'OTHER', 31, 33),
-    (105, u'Directorate of Cybernetics', 'OTHER', 20, 22),
-    (105, u'Canadian Armed Forces Chief of Force Development', 'OTHER', 4, 10),
-    (105, u'Brigadier General', 'OTHER', 27, 28),
-    (105, u'June', 'OTHER', 1, 1),
-    (105, u'DG Cyber', 'OTHER', 35, 36),
-    (137, u'Royal Canadian Navy', 'OTHER', 73, 75),
-    (137, u'Royal Canadian Air Force', 'OTHER', 62, 65)]
+    (42, u'2008', 'NUMBER', 1, 1),
+    (42, u'Special Operations Regiment', 'OTHER', 43, 45)]
 question: What was the new name of the Canadian Armed Forces?
 expected: Canadian Forces
 expected sentence: After the 1980s, the use of the "Canadian Armed Forces" name gave way to "Canadian Forces";[citation needed] The "Canadian Armed Forces" name returned in 2013.
-actual: (0, u'National Defence Act', 'OTHER', 42, 44)
+actual: (4, u'Elizabeth II', u'PERSON', 18, 19)
 expected id: 33
 extracted id: [33, 0, 42, 105, 137, 48, 104, 29, 100, 73, 71, 30, 83, 5, 37, 12, 89, 4, 67, 3]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -10526,6 +10925,7 @@ all results:
 [   (65, u'University of Rochester Medical Center', 'OTHER', 53, 57),
     (65, u'Buffalo', 'OTHER', 49, 49),
     (65, u'University', 'OTHER', 47, 47),
+    (65, u'Albany', u'LOCATION', 43, 43),
     (65, u'University', 'OTHER', 41, 41),
     (65, u'Icahn School of Medicine', 'OTHER', 26, 29),
     (65, u'AAI', 'OTHER', 15, 15),
@@ -10535,21 +10935,20 @@ all results:
     (65, u'Cornell University', 'OTHER', 23, 24),
     (65, u'Upstate Medical University', 'OTHER', 59, 61),
     (65, u'Albany Medical College', 'OTHER', 19, 21),
+    (65, u'New York State', u'LOCATION', 4, 6),
     (65, u'SUNY', 'OTHER', 63, 63),
+    (64, u'United States', u'LOCATION', 17, 18),
     (64, u'AAI', 'OTHER', 6, 6),
     (67, u'Introductory Course', 'OTHER', 1, 2),
     (69, u'Part II', 'OTHER', 19, 20),
-    (69, u'Part I', 'OTHER', 7, 8),
-    (71, u'Advanced Course', 'OTHER', 10, 11),
-    (66, u'AAI', 'OTHER', 1, 1),
-    (66, u'Introductory Course', 'OTHER', 6, 7)]
+    (69, u'Part I', 'OTHER', 7, 8)]
 question: What is the name of the immunology school at Mount Sinai?
 expected: Icahn School of Medicine
 expected sentence: For example, in New York State, there are several universities that offer the AAI courses immunology: Albany Medical College, Cornell University, Icahn School of Medicine at Mount Sinai, New York University Langone Medical Center, University at Albany (SUNY), University at Buffalo (SUNY), University of Rochester Medical Center and Upstate Medical University (SUNY).
 actual: (65, u'AAI', 'OTHER', 15, 15)
 expected id: 65
 extracted id: [65, 64, 72, 61, 0, 51, 2, 67, 69, 7, 71, 12, 66, 17, 19, 52, 70, 62]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -11771,7 +12170,9 @@ predicted question type: OTHER
 
 
 all results:
-[   (8, u'Chartres Cathedral', 'OTHER', 6, 7),
+[   (55, u'Krishnamurti', u'PERSON', 32, 32),
+    (55, u'Steiner', u'PERSON', 11, 11),
+    (8, u'Chartres Cathedral', 'OTHER', 6, 7),
     (8, u'Chartres Cathedral School', 'OTHER', 13, 15),
     (6, u'Early Middle Ages', 'OTHER', 7, 9),
     (55, u'Peepal Grove School', 'OTHER', 24, 26),
@@ -11781,8 +12182,6 @@ all results:
     (55, u'Friends', 'OTHER', 14, 14),
     (55, u'Waldorf', 'OTHER', 7, 7),
     (55, u'Montessori', 'OTHER', 4, 4),
-    (55, u'Krishnamurti', u'PERSON', 32, 32),
-    (55, u'Steiner', u'PERSON', 11, 11),
     (19, u'five', 'NUMBER', 18, 18),
     (19, u'eight years', 'NUMBER', 9, 10),
     (19, u'six', 'NUMBER', 7, 7),
@@ -11794,10 +12193,10 @@ all results:
 question: What was the name of the famous school during the high middle ages?
 expected: Chartres Cathedral School
 expected sentence: During the High Middle Ages, Chartres Cathedral operated the famous and influential Chartres Cathedral School.
-actual: (8, u'Chartres Cathedral', 'OTHER', 6, 7)
+actual: (55, u'Krishnamurti', u'PERSON', 32, 32)
 expected id: 8
 extracted id: [8, 156, 28, 6, 23, 55, 164, 172, 37, 19, 35, 15, 20, 22, 102, 134, 24, 25, 133, 12]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -12688,33 +13087,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (73, u'Byelorussian SSR', 'OTHER', 23, 24),
+[   (82, u'Yeltsin', u'PERSON', 4, 4),
+    (7, u'Vladimir Lenin', u'PERSON', 4, 5),
+    (73, u'Byelorussian SSR', 'OTHER', 23, 24),
     (73, u'Russian SFSR', 'OTHER', 17, 18),
     (73, u'President', 'OTHER', 14, 14),
     (73, u'December', 'OTHER', 1, 1),
     (73, u'Ukrainian SSR', 'OTHER', 26, 27),
+    (73, u'Belarus', u'LOCATION', 11, 11),
+    (73, u'8,1991', 'NUMBER', 2, 4),
+    (73, u'Brest', u'LOCATION', 9, 9),
+    (73, u'Viskuli', u'LOCATION', 7, 7),
     (73, u'Belavezha Accords', 'OTHER', 47, 48),
+    (18, u'five months', 'NUMBER', 21, 22),
+    (14, u'Russia', u'LOCATION', 34, 34),
     (14, u'Constitution', 'OTHER', 32, 32),
+    (14, u'1993', 'NUMBER', 31, 31),
     (14, u'April', 'OTHER', 15, 15),
-    (43, u'Treaty', 'OTHER', 24, 24),
-    (43, u'RSFSR', 'OTHER', 6, 6),
-    (35, u'CIS', 'OTHER', 30, 30),
-    (35, u'USSR', 'OTHER', 25, 25),
-    (35, u'Creation', 'OTHER', 22, 22),
-    (35, u'Treaty', 'OTHER', 19, 19),
-    (35, u'USSR', 'OTHER', 6, 6),
-    (82, u'UN Security Council', 'OTHER', 44, 46),
-    (82, u'CIS Russian Federation', 'OTHER', 23, 25),
-    (82, u'United Nations', 'OTHER', 12, 13),
-    (82, u'General', 'OTHER', 9, 9),
-    (82, u'Secretary', 'OTHER', 7, 7)]
+    (14, u'21,1992 amendment', 'NUMBER', 16, 19),
+    (14, u'Russia', u'LOCATION', 4, 4),
+    (43, u'Tartu', u'LOCATION', 26, 26)]
 question: What is another name for the Agreement on the Establishment of the Commonwealth of Independent States?
 expected: Belavezha Accords
 expected sentence: On December 8, 1991, at Viskuli near Brest (Belarus), the President of the Russian SFSR and the heads of Byelorussian SSR and Ukrainian SSR signed the "Agreement on the Establishment of the Commonwealth of Independent States" (known in media as Belavezha Accords).
-actual: (73, u'December', 'OTHER', 1, 1)
+actual: (82, u'Yeltsin', u'PERSON', 4, 4)
 expected id: 73
 extracted id: [73, 18, 75, 14, 43, 35, 82, 8, 36, 76, 11, 53, 86, 1, 7, 9, 19, 21, 23, 27]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -12905,6 +13304,37 @@ predicted question type: OTHER
 
 
 all results:
+[   (38, u'Edmund Duffy', u'PERSON', 11, 12),
+    (38, u'Jack Buckland', u'PERSON', 16, 17),
+    (38, u'Harry Nitz', u'PERSON', 21, 22),
+    (38, u'John', u'PERSON', 26, 26),
+    (38, u'Jack', u'PERSON', 31, 31),
+    (38, u'Brien', u'PERSON', 35, 35),
+    (38, u'Alfred Restieaux', u'PERSON', 39, 40),
+    (38, u'Emile Fenisot', u'PERSON', 42, 43),
+    (38, u'Martin Kleis', u'PERSON', 48, 49),
+    (6, u'Ellice', u'PERSON', 15, 15),
+    (6, u'Alexander George Findlay', u'PERSON', 28, 30),
+    (6, u'Ellice', u'PERSON', 8, 8),
+    (19, u'Mourelle', u'PERSON', 0, 0),
+    (21, u'Rebecca', u'PERSON', 73, 73),
+    (21, u'Edward Ellice', u'PERSON', 59, 60),
+    (21, u'Arent Schuyler de Peyster', u'PERSON', 6, 9),
+    (21, u'Rebecca', u'PERSON', 22, 22),
+    (21, u'Ellice', u'PERSON', 50, 50),
+    (22, u'Ellice', u'PERSON', 2, 2),
+    (22, u'Alexander George Findlay', u'PERSON', 15, 17)]
+question: What was the name of Davis's ship?
+expected: HMS Royalist
+expected sentence: In 1892 Captain Davis of the HMS Royalist reported on trading activities and traders on each of the islands visited.
+actual: (38, u'Edmund Duffy', u'PERSON', 11, 12)
+expected id: 37
+extracted id: [37, 38, 6, 41, 11, 19, 21, 22, 155, 194, 195, 196, 23, 24, 183, 184, 187, 60, 189, 197]
+predicted question type: PERSON
+
+
+
+all results:
 [   (52, u'Australian Museum', 'OTHER', 7, 8),
     (50, u'University of Sydney', 'OTHER', 5, 7),
     (   50,
@@ -13059,37 +13489,6 @@ expected sentence: Tuvaluan is of the Ellicean group of Polynesian languages, di
 actual: (118, u'Ellicean', 'OTHER', 4, 4)
 expected id: 118
 extracted id: [118, 117, 120, 119, 111, 31, 199, 263, 11, 146, 148, 21, 171, 183, 190, 67, 208, 93, 98, 108]
-predicted question type: OTHER
-
-
-
-all results:
-[   (119, u'Melanesia', 'OTHER', 19, 19),
-    (119, u'Polynesian', 'OTHER', 11, 11),
-    (118, u'Tongan', 'OTHER', 27, 27),
-    (118, u'Samoan', 'OTHER', 25, 25),
-    (118, u'Tahitian', 'OTHER', 23, 23),
-    (118, u'M\u0101ori', 'OTHER', 21, 21),
-    (118, u'Hawaiian', 'OTHER', 19, 19),
-    (118, u'Polynesian', 'OTHER', 15, 15),
-    (118, u'Polynesian', 'OTHER', 7, 7),
-    (118, u'Ellicean', 'OTHER', 4, 4),
-    (111, u'Refugee Convention', 'OTHER', 56, 57),
-    (111, u'New Zealand High Court', 'OTHER', 34, 37),
-    (111, u'Refugees', 'OTHER', 26, 26),
-    (111, u'Status', 'OTHER', 24, 24),
-    (111, u'Convention', 'OTHER', 20, 20),
-    (117, u'English', 'OTHER', 4, 4),
-    (120, u'Christian', 'OTHER', 13, 13),
-    (120, u'Samoan', 'OTHER', 6, 6),
-    (31, u'Church', 'OTHER', 14, 14),
-    (31, u'Te Ekalesia Kelisiano', 'OTHER', 18, 20)]
-question: To what area's language is Tuvaluan closely related?
-expected: Micronesia
-expected sentence: It is most closely related to the languages spoken on the Polynesian outliers in Micronesia and northern and central Melanesia.
-actual: (119, u'Polynesian', 'OTHER', 11, 11)
-expected id: 119
-extracted id: [119, 118, 111, 117, 120, 31, 199, 248, 4, 275, 194, 217, 220, 238, 239, 263, 11, 146, 148, 21]
 predicted question type: OTHER
 
 
@@ -13723,6 +14122,45 @@ actual: (13, u'Byzantine Greek', 'OTHER', 9, 10)
 expected id: 13
 extracted id: [13, 27, 89, 28, 30, 83, 34, 81, 84, 31, 166, 110, 79, 93, 2, 12, 16, 6, 87, 155]
 predicted question type: OTHER
+
+
+
+all results:
+[   (15, u'Proto', u'PERSON', 21, 21),
+    (57, u'Hitler', u'PERSON', 5, 5),
+    (57, u'Lebensraum', u'PERSON', 35, 35),
+    (22, u'Proto', u'PERSON', 12, 12),
+    (22, u'Bernstein', u'PERSON', 4, 4),
+    (   13,
+        u'\u03a3\u03ba\u03bb\u03b1\u03b2\u03b7\u03bd\u03bf\u03af Sklab\u0113noi',
+        u'PERSON',
+        18,
+        19),
+    (   13,
+        u'\u03a3\u03ba\u03bb\u03b1\u03c5\u03b7\u03bd\u03bf\u03af Sklauenoi',
+        u'PERSON',
+        21,
+        22),
+    (150, u'Dacians', u'PERSON', 27, 27),
+    (27, u'Theophylact Simocatta', u'PERSON', 18, 19),
+    (28, u'Procopius', u'PERSON', 0, 0),
+    (15, u'Pericles', 'OTHER', 51, 51),
+    (15, u'Indo', u'LOCATION', 23, 23),
+    (15, u'Latin', 'OTHER', 54, 54),
+    (15, u'European', u'LOCATION', 25, 25),
+    (15, u'English', 'OTHER', 61, 61),
+    (57, u'Slavic', 'OTHER', 25, 25),
+    (57, u'East', 'OTHER', 15, 15),
+    (57, u'Jewish', 'OTHER', 27, 27),
+    (57, u'Generalplan Ost', 'OTHER', 8, 9),
+    (57, u'Eastern Europe', u'LOCATION', 31, 32)]
+question: The Ancient Greek κλῆς (klês - "famous") helped create what famous name?
+expected: Pericles
+expected sentence: The word slovo ("word") and the related slava ("fame") and slukh ("hearing") originate from the Proto-Indo-European root *ḱlew- ("be spoken of, fame"), cognate with Ancient Greek κλῆς (klês - "famous"), whence the name Pericles, and Latin clueo ("be called"), and English loud.
+actual: (15, u'Proto', u'PERSON', 21, 21)
+expected id: 15
+extracted id: [15, 57, 22, 13, 78, 16, 150, 153, 34, 23, 12, 26, 27, 28, 183]
+predicted question type: PERSON
 
 
 
@@ -14510,64 +14948,64 @@ predicted question type: LOCATION
 
 
 all results:
-[   (26, u'Lower', 'OTHER', 65, 65),
+[   (43, u'Peter Minuit', u'PERSON', 6, 7),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (26, u'Lower', 'OTHER', 65, 65),
+    (26, u'Bronx', u'LOCATION', 61, 61),
+    (26, u'Long Island', u'LOCATION', 45, 46),
     (26, u'Native Americans', 'OTHER', 23, 24),
     (26, u'Algonquian', 'OTHER', 20, 20),
+    (26, u'Hudson Valley', u'LOCATION', 66, 67),
+    (26, u'Manhattan', u'LOCATION', 58, 58),
+    (26, u'Staten Island', u'LOCATION', 38, 39),
+    (26, u'Queens', u'LOCATION', 56, 56),
+    (26, u'New York City', u'LOCATION', 11, 13),
+    (26, u'Brooklyn', u'LOCATION', 54, 54),
     (26, u'Lenapehoking', 'OTHER', 35, 35),
-    (43, u'Dutch', 'OTHER', 1, 1),
-    (43, u'Director', 'OTHER', 3, 3),
-    (43, u'General', 'OTHER', 5, 5),
-    (49, u'Europeans', 'OTHER', 16, 16),
-    (49, u'Native Americans', 'OTHER', 5, 6),
-    (33, u'State', 'OTHER', 36, 36),
-    (452, u'Walk Score', 'OTHER', 8, 9),
-    (486, u'Fifth Avenue', 'OTHER', 9, 10),
-    (486, u'Mile', 'OTHER', 1, 1),
-    (39, u'Street', 'OTHER', 7, 7),
-    (39, u'Street', 'OTHER', 4, 4),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (496, u'New Yawk', 'OTHER', 44, 45),
-    (28, u'Nouvelle Angoul\xeame', 'OTHER', 10, 11),
-    (28, u'New Angoul\xeame', 'OTHER', 14, 15),
-    (29, u'January', 'OTHER', 23, 23)]
+    (43, u'24 worth', 'NUMBER', 49, 50),
+    (43, u'60 guilders', 'NUMBER', 30, 31),
+    (43, u'Canarsie', u'LOCATION', 15, 15),
+    (43, u'Manhattan', u'LOCATION', 12, 12)]
 question: What was the name of the Lenape homeland?
 expected: Lenapehoking
 expected sentence: In the precolonial era, the area of present-day New York City was inhabited by various bands of Algonquian tribes of Native Americans, including the Lenape, whose homeland, known as Lenapehoking, included Staten Island; the western portion of Long Island, including the area that would become Brooklyn and Queens; Manhattan; the Bronx; and the Lower Hudson Valley.
-actual: (26, u'Algonquian', 'OTHER', 20, 20)
+actual: (43, u'Peter Minuit', u'PERSON', 6, 7)
 expected id: 26
 extracted id: [26, 43, 49, 50, 33, 452, 486, 39, 9, 523, 496, 17, 28, 29]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
 all results:
-[   (27, u'French', 'OTHER', 23, 23),
+[   (32, u'Henry Hudson', u'PERSON', 5, 6),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (27, u'French', 'OTHER', 23, 23),
     (27, u'Florentine', 'OTHER', 16, 16),
     (27, u'European', 'OTHER', 6, 6),
     (27, u'La Dauphine', 'OTHER', 30, 31),
+    (27, u'1524', 'NUMBER', 9, 9),
+    (27, u'New York Harbor', u'LOCATION', 33, 35),
     (32, u'Dutch East India Company', 'OTHER', 45, 48),
     (32, u'Orient', 'OTHER', 39, 39),
+    (32, u'Northwest Passage', u'LOCATION', 35, 36),
     (32, u'Halve Maen', 'OTHER', 18, 19),
+    (32, u'New York Harbor', u'LOCATION', 28, 30),
     (32, u'Half Moon', 'OTHER', 21, 22),
     (32, u'English', 'OTHER', 3, 3),
     (32, u'Dutch', 'OTHER', 25, 25),
-    (13, u'Liberty', 'OTHER', 3, 3),
-    (13, u'Statue', 'OTHER', 1, 1),
-    (54, u'South', 'OTHER', 27, 27),
-    (33, u'State', 'OTHER', 36, 36),
-    (452, u'Walk Score', 'OTHER', 8, 9),
-    (486, u'Fifth Avenue', 'OTHER', 9, 10),
-    (486, u'Mile', 'OTHER', 1, 1),
-    (39, u'Street', 'OTHER', 7, 7),
-    (39, u'Street', 'OTHER', 4, 4),
-    (523, u'New York State', 'OTHER', 62, 64)]
+    (32, u'1609', 'NUMBER', 1, 1),
+    (13, u'United States', u'LOCATION', 32, 33)]
 question: What was the name of Giovanni da Verrazzano's ship?
 expected: La Dauphine
 expected sentence: The first documented visit by a European was in 1524 by Giovanni da Verrazzano, a Florentine explorer in the service of the French crown, who sailed his ship La Dauphine into New York Harbor.
-actual: (27, u'French', 'OTHER', 23, 23)
+actual: (32, u'Henry Hudson', u'PERSON', 5, 6)
 expected id: 27
 extracted id: [27, 32, 13, 445, 54, 33, 452, 486, 39, 9, 523, 496, 17, 28, 29]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -14700,33 +15138,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (29, u'January', 'OTHER', 23, 23),
+[   (29, u'Charles V', u'PERSON', 14, 15),
+    (31, u'Tierra de Esteban G\xf3mez', u'PERSON', 35, 38),
+    (32, u'Henry Hudson', u'PERSON', 5, 6),
+    (27, u'Giovanni da Verrazzano', u'PERSON', 11, 13),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (29, u'Hudson River', u'LOCATION', 41, 42),
+    (29, u'1525', 'NUMBER', 24, 24),
+    (29, u'January', 'OTHER', 23, 23),
     (29, u'La Anunciada', 'OTHER', 32, 33),
+    (29, u'New York Harbor', u'LOCATION', 19, 21),
+    (29, u'Rio de San Antonio', u'LOCATION', 47, 50),
     (29, u'Emperor', 'OTHER', 13, 13),
     (29, u'Portuguese', 'OTHER', 10, 10),
     (29, u'Spanish', 'OTHER', 1, 1),
+    (31, u'Northeast', u'LOCATION', 33, 33),
     (31, u'Padr\xf3n Real', 'OTHER', 20, 21),
+    (31, u'1527 world', 'NUMBER', 14, 15),
     (31, u'North American East', 'OTHER', 7, 9),
     (32, u'Dutch East India Company', 'OTHER', 45, 48),
-    (32, u'Orient', 'OTHER', 39, 39),
-    (32, u'Halve Maen', 'OTHER', 18, 19),
-    (32, u'Half Moon', 'OTHER', 21, 22),
-    (32, u'English', 'OTHER', 3, 3),
-    (32, u'Dutch', 'OTHER', 25, 25),
-    (13, u'Liberty', 'OTHER', 3, 3),
-    (13, u'Statue', 'OTHER', 1, 1),
-    (54, u'South', 'OTHER', 27, 27),
-    (27, u'French', 'OTHER', 23, 23),
-    (27, u'Florentine', 'OTHER', 16, 16),
-    (27, u'European', 'OTHER', 6, 6),
-    (27, u'La Dauphine', 'OTHER', 30, 31)]
+    (32, u'Orient', 'OTHER', 39, 39)]
 question: What was the name of Estêvão Gomes's ship?
 expected: La Anunciada
 expected sentence: A Spanish expedition led by captain Estêvão Gomes, a Portuguese sailing for Emperor Charles V, arrived in New York Harbor in January 1525 aboard the purpose-built caravel "La Anunciada" and charted the mouth of the Hudson River, which he named Rio de San Antonio.
-actual: (29, u'January', 'OTHER', 23, 23)
+actual: (29, u'Charles V', u'PERSON', 14, 15)
 expected id: 29
 extracted id: [29, 31, 32, 13, 445, 54, 27, 33, 452, 486, 39, 9, 523, 496, 17, 28]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -14979,64 +15417,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (45, u'English', 'OTHER', 1, 1),
-    (45, u'King', 'OTHER', 18, 18),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (29, u'January', 'OTHER', 23, 23),
-    (29, u'La Anunciada', 'OTHER', 32, 33),
-    (29, u'Emperor', 'OTHER', 13, 13),
-    (29, u'Portuguese', 'OTHER', 10, 10),
-    (29, u'Spanish', 'OTHER', 1, 1),
-    (33, u'State', 'OTHER', 36, 36),
-    (452, u'Walk Score', 'OTHER', 8, 9),
-    (496, u'New Yawk', 'OTHER', 44, 45),
-    (28, u'Nouvelle Angoul\xeame', 'OTHER', 10, 11),
-    (28, u'New Angoul\xeame', 'OTHER', 14, 15),
-    (39, u'Street', 'OTHER', 7, 7),
-    (39, u'Street', 'OTHER', 4, 4),
-    (486, u'Fifth Avenue', 'OTHER', 9, 10),
-    (486, u'Mile', 'OTHER', 1, 1),
-    (0, u'State', 'OTHER', 19, 19),
-    (0, u'City', 'OTHER', 10, 10),
-    (215, u'Chinese', 'OTHER', 1, 1)]
-question: What was the regnal name of the Duke of York?
-expected: James II
-expected sentence: The English promptly renamed the fledgling city "New York" after the Duke of York (later King James II).
-actual: (45, u'English', 'OTHER', 1, 1)
-expected id: 45
-extracted id: [45, 523, 9, 29, 33, 452, 496, 17, 28, 39, 486, 0, 215, 542, 178, 200, 293, 302, 332, 483]
-predicted question type: OTHER
-
-
-
-all results:
-[   (46, u'King', 'OTHER', 33, 33),
+[   (46, u'Anthonio Colve', u'PERSON', 8, 9),
+    (46, u'William III', u'PERSON', 34, 35),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (46, u'New York', u'LOCATION', 15, 16),
+    (46, u'King', 'OTHER', 33, 33),
     (46, u'New Orange', 'OTHER', 23, 24),
+    (46, u'England', u'LOCATION', 18, 18),
     (46, u'Dutch', 'OTHER', 6, 6),
+    (46, u'24,1673', 'NUMBER', 2, 4),
     (46, u'August', 'OTHER', 1, 1),
+    (33, u'Albany', u'LOCATION', 39, 39),
+    (33, u'Hudson River', u'LOCATION', 23, 24),
+    (33, u'Mauritis River', u'LOCATION', 15, 16),
+    (33, u'North River', u'LOCATION', 9, 10),
     (33, u'State', 'OTHER', 36, 36),
-    (452, u'Walk Score', 'OTHER', 8, 9),
-    (486, u'Fifth Avenue', 'OTHER', 9, 10),
-    (486, u'Mile', 'OTHER', 1, 1),
-    (39, u'Street', 'OTHER', 7, 7),
-    (39, u'Street', 'OTHER', 4, 4),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (496, u'New Yawk', 'OTHER', 44, 45),
-    (28, u'Nouvelle Angoul\xeame', 'OTHER', 10, 11),
-    (28, u'New Angoul\xeame', 'OTHER', 14, 15),
-    (29, u'January', 'OTHER', 23, 23),
-    (29, u'La Anunciada', 'OTHER', 32, 33),
-    (29, u'Emperor', 'OTHER', 13, 13),
-    (29, u'Portuguese', 'OTHER', 10, 10),
-    (29, u'Spanish', 'OTHER', 1, 1),
-    (46, u'New York', u'LOCATION', 15, 16)]
+    (33, u'New York', u'LOCATION', 34, 35),
+    (452, u'United States', u'LOCATION', 21, 22),
+    (452, u'New York City', u'LOCATION', 11, 13)]
 question: What was the regnal name of the Prince of Orange?
 expected: William III
 expected sentence: On August 24, 1673, Dutch captain Anthonio Colve took over the colony of New York from England and rechristened it "New Orange" to honor the Prince of Orange, King William III.
-actual: (46, u'King', 'OTHER', 33, 33)
+actual: (46, u'Anthonio Colve', u'PERSON', 8, 9)
 expected id: 46
 extracted id: [46, 33, 452, 486, 39, 9, 523, 496, 17, 28, 29]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -15098,37 +15505,6 @@ expected sentence: The trial in Manhattan of John Peter Zenger in 1735 helped to
 actual: (400, u'World Series', 'OTHER', 6, 7)
 expected id: 56
 extracted id: [56, 400, 539, 66, 130, 523, 513, 517, 134, 25, 26, 436, 4, 521, 471, 140, 141, 407, 542, 288]
-predicted question type: OTHER
-
-
-
-all results:
-[   (57, u'College', 'OTHER', 17, 17),
-    (332, u'New York Institute of Technology', 'OTHER', 27, 31),
-    (332, u'Pace University', 'OTHER', 33, 34),
-    (332, u'New York University', 'OTHER', 23, 25),
-    (332, u'Yeshiva University', 'OTHER', 37, 38),
-    (332, u'Fordham University', 'OTHER', 20, 21),
-    (332, u'Cooper Union', 'OTHER', 17, 18),
-    (332, u'Barnard College', 'OTHER', 11, 12),
-    (22, u'Rockefeller University', 'OTHER', 24, 25),
-    (22, u'New York University', 'OTHER', 19, 21),
-    (400, u'Subway Series', 'OTHER', 22, 23),
-    (400, u'World Series', 'OTHER', 6, 7),
-    (66, u'Great Fire', 'OTHER', 8, 9),
-    (66, u'British', 'OTHER', 3, 3),
-    (66, u'Trinity Church', 'OTHER', 39, 40),
-    (335, u'The School of Visual Arts', 'OTHER', 50, 54),
-    (335, u'The New School', 'OTHER', 43, 45),
-    (335, u'The College of Mount Saint Vincent', 'OTHER', 36, 41),
-    (335, u'The Juilliard School', 'OTHER', 29, 31),
-    (335, u'Pratt Institute', 'OTHER', 47, 48)]
-question: Under what king did the founding of Columbia University occur?
-expected: George II
-expected sentence: In 1754, Columbia University was founded under charter by King George II as King's College in Lower Manhattan.
-actual: (57, u'College', 'OTHER', 17, 17)
-expected id: 57
-extracted id: [57, 332, 22, 400, 66, 335, 313, 45, 46, 9, 40, 323, 126, 471, 264, 288, 454, 330, 333, 334]
 predicted question type: OTHER
 
 
@@ -15320,6 +15696,37 @@ predicted question type: LOCATION
 
 
 all results:
+[   (69, u'George Washington', u'PERSON', 11, 12),
+    (296, u'Patrick', u'PERSON', 94, 94),
+    (82, u'1857', 'NUMBER', 19, 19),
+    (82, u'Central Park', 'OTHER', 14, 15),
+    (82, u'American', 'OTHER', 27, 27),
+    (180, u'10,000 residents', 'NUMBER', 49, 52),
+    (190, u'New York City', u'LOCATION', 2, 4),
+    (190, u'Central Park', u'LOCATION', 6, 7),
+    (190, u'Prospect Park', 'OTHER', 9, 10),
+    (190, u'Flushing Meadows', u'LOCATION', 12, 13),
+    (190, u'Corona Park', 'OTHER', 15, 16),
+    (190, u'Forest Park', u'LOCATION', 18, 19),
+    (190, u'Washington Square Park', u'LOCATION', 22, 24),
+    (69, u'United States Bill of Rights', 'OTHER', 39, 43),
+    (69, u'Supreme Court', 'OTHER', 24, 25),
+    (69, u'President', 'OTHER', 5, 5),
+    (69, u'1789', 'NUMBER', 1, 1),
+    (69, u'Congress', 'OTHER', 21, 21),
+    (69, u'Federal Hall', 'OTHER', 49, 50),
+    (69, u'Wall Street', 'OTHER', 52, 53)]
+question: What was the name of the first urban landscaped park in the United States?
+expected: Central Park
+expected sentence: Public-minded members of the contemporaneous business elite lobbied for the establishment of Central Park, which in 1857 became the first landscaped park in an American city.
+actual: (69, u'George Washington', u'PERSON', 11, 12)
+expected id: 82
+extracted id: [82, 180, 190, 69, 0, 296, 178, 214, 188, 236, 215, 17, 452, 102, 170, 179, 429, 523, 33, 9]
+predicted question type: PERSON
+
+
+
+all results:
 [   (88, u'American Civil War', 'OTHER', 8, 10),
     (88, u'Irish', 'OTHER', 59, 59),
     (216, u'Chinese', 'OTHER', 13, 13),
@@ -15440,6 +15847,37 @@ actual: (100, u'1911', 'NUMBER', 1, 1)
 expected id: 100
 extracted id: [100, 359, 229, 358, 99, 362, 363, 198, 66, 366, 154, 365, 367, 20, 91, 311, 201, 202, 331, 226]
 predicted question type: NUMBER
+
+
+
+all results:
+[   (373, u'Tin Pan Alley', u'PERSON', 46, 48),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (103, u'Harlem Renaissance', 'OTHER', 1, 2),
+    (372, u'Jewish American', 'OTHER', 9, 10),
+    (26, u'Lower', 'OTHER', 65, 65),
+    (26, u'Bronx', u'LOCATION', 61, 61),
+    (26, u'Long Island', u'LOCATION', 45, 46),
+    (26, u'Lenape', u'LOCATION', 28, 28),
+    (26, u'Native Americans', 'OTHER', 23, 24),
+    (26, u'Algonquian', 'OTHER', 20, 20),
+    (26, u'Hudson Valley', u'LOCATION', 66, 67),
+    (26, u'Manhattan', u'LOCATION', 58, 58),
+    (26, u'Staten Island', u'LOCATION', 38, 39),
+    (26, u'Queens', u'LOCATION', 56, 56),
+    (26, u'New York City', u'LOCATION', 11, 13),
+    (26, u'Brooklyn', u'LOCATION', 54, 54),
+    (26, u'Lenapehoking', 'OTHER', 35, 35),
+    (183, u'Staten Island', u'LOCATION', 1, 2),
+    (183, u'Fort Wadsworth', u'LOCATION', 7, 8)]
+question: What was the name of the Prohibition-era African-American cultural flourishing in New York?
+expected: Harlem Renaissance
+expected sentence: The Harlem Renaissance of literary and cultural life flourished during the era of Prohibition.
+actual: (373, u'Tin Pan Alley', u'PERSON', 46, 48)
+expected id: 103
+extracted id: [103, 372, 26, 183, 369, 236, 102, 55, 480, 2, 373, 378, 485, 316, 380, 225, 523, 9, 496, 29]
+predicted question type: PERSON
 
 
 
@@ -15805,33 +16243,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (140, u'Maine', u'LOCATION', 40, 40),
+[   (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (247, u'Michael R', u'PERSON', 34, 35),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (140, u'Maine', u'LOCATION', 40, 40),
     (140, u'Eastern Seaboard', u'LOCATION', 36, 37),
     (140, u'Todt Hill', u'LOCATION', 7, 8),
     (140, u'Staten Island', u'LOCATION', 10, 11),
-    (441, u'Brooklyn Bridge', u'LOCATION', 4, 5),
-    (441, u'Rosendale', u'LOCATION', 14, 14),
-    (523, u'Bronx', u'LOCATION', 54, 54),
-    (523, u'Manhattan', u'LOCATION', 20, 20),
-    (523, u'Long Island', u'LOCATION', 49, 50),
-    (523, u'Staten Island', u'LOCATION', 22, 23),
-    (523, u'Brooklyn', u'LOCATION', 39, 39),
-    (523, u'Queens', u'LOCATION', 37, 37),
-    (452, u'United States', u'LOCATION', 21, 22),
-    (9, u'Dutch Republic', u'LOCATION', 18, 19),
-    (9, u'New Amsterdam', u'LOCATION', 23, 24),
-    (330, u'United States', u'LOCATION', 27, 28),
-    (29, u'Hudson River', u'LOCATION', 41, 42),
-    (29, u'New York Harbor', u'LOCATION', 19, 21),
-    (29, u'Rio de San Antonio', u'LOCATION', 47, 50),
-    (33, u'Albany', u'LOCATION', 39, 39)]
+    (140, u'124.9 m', 'NUMBER', 21, 24),
+    (140, u'409.8 feet', 'NUMBER', 16, 19),
+    (355, u'1820s', 'NUMBER', 26, 26),
+    (355, u'Five Points', 'OTHER', 22, 23),
+    (355, u'Roach Guards', 'OTHER', 18, 19),
+    (355, u'Forty Thieves', 'OTHER', 14, 15),
+    (171, u'57.3', 'NUMBER', 17, 19),
+    (171, u'F', 'OTHER', 21, 21),
+    (171, u'14.1', 'NUMBER', 23, 25),
+    (171, u'C', 'OTHER', 27, 27),
+    (171, u'June', 'OTHER', 30, 30),
+    (171, u'62.0', 'NUMBER', 32, 34)]
 question: What is the name of New York City's highest point?
 expected: Todt Hill
 expected sentence: The highest point in the city is Todt Hill on Staten Island, which, at 409.8 feet (124.9 m) above sea level, is the highest point on the Eastern Seaboard south of Maine.
-actual: (140, u'Eastern Seaboard', u'LOCATION', 36, 37)
+actual: (29, u'Charles V', u'PERSON', 14, 15)
 expected id: 140
 extracted id: [140, 355, 171, 441, 523, 452, 9, 496, 330, 29, 33, 17, 28, 247, 39, 486, 202, 213, 230, 248]
-predicted question type: LOCATION
+predicted question type: PERSON
 
 
 
@@ -15933,33 +16371,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (150, u'American Institute of Architects', 'OTHER', 24, 27),
+[   (483, u'Alice Tully Hall', u'PERSON', 64, 66),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (31, u'Gomes', u'PERSON', 26, 26),
+    (31, u'Tierra de Esteban G\xf3mez', u'PERSON', 35, 38),
+    (150, u'American Institute of Architects', 'OTHER', 24, 27),
     (150, u'Cond\xe9 Nast Building', 'OTHER', 1, 3),
     (150, u'American', 'OTHER', 15, 15),
     (150, u'AIA New York State', 'OTHER', 31, 34),
+    (150, u'2000', 'NUMBER', 5, 5),
     (520, u'Broadway', 'OTHER', 11, 11),
     (520, u'Seventh Avenue', 'OTHER', 20, 21),
+    (520, u'Wall Street', u'LOCATION', 13, 14),
     (520, u'Madison Avenue', 'OTHER', 16, 17),
     (483, u'Juilliard School', 'OTHER', 55, 56),
     (483, u'Vivian Beaumont Theater', 'OTHER', 50, 52),
     (483, u'Metropolitan Opera', 'OTHER', 28, 29),
-    (483, u'Performing Arts', 'OTHER', 4, 5),
-    (483, u'Lincoln Center', 'OTHER', 0, 1),
-    (483, u'Jazz', 'OTHER', 58, 58),
-    (483, u'Lincoln Center', 'OTHER', 60, 61),
-    (33, u'State', 'OTHER', 36, 36),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (28, u'Nouvelle Angoul\xeame', 'OTHER', 10, 11),
-    (28, u'New Angoul\xeame', 'OTHER', 14, 15),
-    (29, u'January', 'OTHER', 23, 23),
-    (29, u'Spanish', 'OTHER', 1, 1)]
+    (483, u'Upper West Side of Manhattan', u'LOCATION', 12, 16),
+    (483, u'Performing Arts', 'OTHER', 4, 5)]
 question: What is the full name of the organization known by the acronym AIA?
 expected: American Institute of Architects
 expected sentence: The Condé Nast Building (2000) is a prominent example of green design in American skyscrapers and has received an award from the American Institute of Architects as well as AIA New York State for its design.
-actual: (150, u'Cond\xe9 Nast Building', 'OTHER', 1, 3)
+actual: (483, u'Alice Tully Hall', u'PERSON', 64, 66)
 expected id: 150
 extracted id: [150, 520, 483, 378, 17, 33, 9, 523, 28, 29, 39, 452, 486, 496, 269, 14, 400, 26, 31, 413]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -16057,6 +16495,37 @@ predicted question type: OTHER
 
 
 all results:
+[   (395, u'New York', u'LOCATION', 31, 32),
+    (396, u'Ebbets Field', u'LOCATION', 15, 16),
+    (297, u'Bronx', u'LOCATION', 36, 36),
+    (297, u'New York Botanical Garden', u'LOCATION', 30, 33),
+    (297, u'Brooklyn', u'LOCATION', 26, 26),
+    (297, u'Coney Island', u'LOCATION', 23, 24),
+    (297, u'Bronx Zoo', u'LOCATION', 20, 21),
+    (297, u'Queens', u'LOCATION', 17, 17),
+    (297, u'Flushing Meadows', u'LOCATION', 8, 9),
+    (297, u'Manhattan', u'LOCATION', 6, 6),
+    (26, u'Hudson Valley', u'LOCATION', 66, 67),
+    (26, u'Bronx', u'LOCATION', 61, 61),
+    (26, u'Manhattan', u'LOCATION', 58, 58),
+    (26, u'Queens', u'LOCATION', 56, 56),
+    (26, u'Brooklyn', u'LOCATION', 54, 54),
+    (26, u'Long Island', u'LOCATION', 45, 46),
+    (26, u'Staten Island', u'LOCATION', 38, 39),
+    (26, u'Lenape', u'LOCATION', 28, 28),
+    (26, u'New York City', u'LOCATION', 11, 13),
+    (492, u'New York', u'LOCATION', 14, 15)]
+question: What area was known for its garden apartments?
+expected: Jackson Heights
+expected sentence: Garden apartments became popular during the 1920s in outlying areas, such as Jackson Heights.
+actual: (395, u'New York', u'LOCATION', 31, 32)
+expected id: 157
+extracted id: [157, 395, 396, 297, 417, 26, 492, 269, 14, 400, 31, 33, 504, 344, 485, 17, 373, 413, 381, 383]
+predicted question type: LOCATION
+
+
+
+all results:
 [   (166, u'Pittsburgh', u'LOCATION', 54, 54),
     (166, u'Atlantic', u'LOCATION', 24, 24),
     (166, u'Atlantic Ocean', u'LOCATION', 19, 20),
@@ -16119,33 +16588,41 @@ predicted question type: LOCATION
 
 
 all results:
-[   (515, u'Chicago', u'LOCATION', 48, 48),
+[   (296, u'Patrick', u'PERSON', 94, 94),
+    (   178,
+        u'New York City Department of Parks and Recreation',
+        'OTHER',
+        36,
+        43),
+    (   178,
+        u'New York State Office of Parks , Recreation and Historic Preservation',
+        'OTHER',
+        22,
+        32),
+    (178, u'National Park Service', 'OTHER', 17, 19),
+    (515, u'Copenhagen Metro', 'OTHER', 60, 61),
+    (515, u'PATCO', 'OTHER', 53, 53),
+    (515, u'Chicago', u'LOCATION', 48, 48),
+    (515, u'six', 'NUMBER', 19, 19),
+    (515, u'three', 'NUMBER', 16, 16),
+    (515, u'PATH', 'OTHER', 8, 8),
     (515, u'New York City Subway', u'LOCATION', 2, 5),
+    (515, u'Speedline', 'OTHER', 54, 54),
+    (515, u'L', 'OTHER', 50, 50),
     (515, u'Philadelphia', u'LOCATION', 56, 56),
+    (515, u'24 hours', 'NUMBER', 10, 11),
+    (515, u'24', 'NUMBER', 29, 29),
+    (359, u'Tokyo Fire Department', 'OTHER', 25, 27),
     (359, u'United States', u'LOCATION', 14, 15),
-    (190, u'Washington Square Park', u'LOCATION', 22, 24),
-    (190, u'Forest Park', u'LOCATION', 18, 19),
-    (190, u'Flushing Meadows', u'LOCATION', 12, 13),
-    (190, u'Central Park', u'LOCATION', 6, 7),
-    (179, u'Minneapolis', u'LOCATION', 42, 42),
-    (540, u'Brooklyn', u'LOCATION', 13, 13),
-    (540, u'Manhattan', u'LOCATION', 0, 0),
-    (513, u'Staten Island', u'LOCATION', 1, 2),
-    (513, u'Staten Island', u'LOCATION', 9, 10),
-    (326, u'United States', u'LOCATION', 26, 27),
-    (296, u'Manhattan Chinatown', u'LOCATION', 52, 53),
-    (296, u'Greenwich Village', u'LOCATION', 71, 72),
-    (296, u'Ellis Island', u'LOCATION', 21, 22),
-    (296, u'Washington Square Park', u'LOCATION', 44, 46),
-    (188, u'Hudson River', u'LOCATION', 56, 57),
-    (188, u'Riverbank State Park', u'LOCATION', 31, 33)]
+    (359, u'New York City Fire Department', 'OTHER', 1, 5),
+    (190, u'Washington Square Park', u'LOCATION', 22, 24)]
 question: What is the name of the New York City department that operates the park system?
 expected: New York City Department of Parks and Recreation
 expected sentence: The City of New York has a complex park system, with various lands operated by the National Park Service, the New York State Office of Parks, Recreation and Historic Preservation, and the New York City Department of Parks and Recreation.
-actual: (515, u'New York City Subway', u'LOCATION', 2, 5)
+actual: (296, u'Patrick', u'PERSON', 94, 94)
 expected id: 178
 extracted id: [178, 515, 359, 190, 180, 179, 540, 513, 326, 338, 321, 296, 342, 17, 188, 358, 362, 390, 90, 347]
-predicted question type: LOCATION
+predicted question type: PERSON
 
 
 
@@ -16914,33 +17391,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (262, u'Omnicom Group', 'OTHER', 9, 10),
+[   (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (262, u'Omnicom Group', 'OTHER', 9, 10),
+    (262, u'2013', 'NUMBER', 2, 2),
+    (262, u'US', u'LOCATION', 26, 26),
+    (262, u'21 billion', 'NUMBER', 28, 30),
     (262, u'Interpublic Group', 'OTHER', 12, 13),
+    (262, u'New York City', u'LOCATION', 32, 34),
+    (262, u'Manhattan', u'LOCATION', 18, 18),
     (262, u'Madison Avenue', 'OTHER', 55, 56),
+    (234, u'Los Angeles', u'LOCATION', 28, 29),
+    (234, u'United States', u'LOCATION', 19, 20),
+    (234, u'Miami', u'LOCATION', 31, 31),
     (375, u'List', 'OTHER', 19, 19),
+    (375, u'New York City', u'LOCATION', 24, 26),
+    (388, u'4,000', 'NUMBER', 1, 3),
     (388, u'Middle Eastern', 'OTHER', 19, 20),
-    (157, u'Jackson Heights', 'OTHER', 13, 14),
-    (520, u'Broadway', 'OTHER', 11, 11),
-    (520, u'Seventh Avenue', 'OTHER', 20, 21),
-    (520, u'Madison Avenue', 'OTHER', 16, 17),
-    (293, u'NY', 'OTHER', 8, 8),
-    (293, u'I', 'OTHER', 6, 6),
-    (293, u'Love', 'OTHER', 1, 1),
-    (523, u'New York State', 'OTHER', 62, 64),
-    (496, u'New Yawk', 'OTHER', 44, 45),
-    (29, u'January', 'OTHER', 23, 23),
-    (29, u'La Anunciada', 'OTHER', 32, 33),
-    (29, u'Emperor', 'OTHER', 13, 13),
-    (29, u'Portuguese', 'OTHER', 10, 10),
-    (29, u'Spanish', 'OTHER', 1, 1),
-    (33, u'State', 'OTHER', 36, 36)]
+    (157, u'1920s', 'NUMBER', 6, 6),
+    (157, u'Jackson Heights', 'OTHER', 13, 14)]
 question: What is the popular name of New York's advertising industry?
 expected: Madison Avenue
 expected sentence: As of 2013, the global advertising agencies of Omnicom Group and Interpublic Group, both based in Manhattan, had combined annual revenues of approximately US$21 billion, reflecting New York City's role as the top global center for the advertising industry, which is metonymously referred to as "Madison Avenue".
-actual: (262, u'Omnicom Group', 'OTHER', 9, 10)
+actual: (29, u'Charles V', u'PERSON', 14, 15)
 expected id: 262
 extracted id: [262, 234, 375, 388, 157, 305, 520, 293, 252, 307, 523, 9, 496, 29, 33, 452, 28, 17, 39, 486]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -17414,6 +17891,37 @@ actual: (326, u'1.1 million students', 'NUMBER', 31, 35)
 expected id: 326
 extracted id: [326, 335, 327, 328, 373, 333, 337, 483, 538, 288, 450, 73, 75, 484, 336, 329, 324, 325, 471, 338]
 predicted question type: NUMBER
+
+
+
+all results:
+[   (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (39, u'Juan Rodriguez Way', u'PERSON', 11, 13),
+    (337, u'Brooklyn Public Library', 'OTHER', 22, 24),
+    (337, u'Queens Borough Public Library', 'OTHER', 5, 8),
+    (337, u'Brooklyn', u'LOCATION', 26, 26),
+    (336, u'Bronx', u'LOCATION', 25, 25),
+    (336, u'United States', u'LOCATION', 18, 19),
+    (336, u'New York Public Library', 'OTHER', 1, 4),
+    (336, u'Manhattan', u'LOCATION', 22, 22),
+    (336, u'Staten Island', u'LOCATION', 28, 29),
+    (481, u'Australia', u'LOCATION', 31, 31),
+    (481, u'National Library', 'OTHER', 28, 29),
+    (481, u'1940 \u2013', 'NUMBER', 17, 18),
+    (481, u'New York', u'LOCATION', 8, 9),
+    (481, u'1965', 'NUMBER', 19, 19),
+    (523, u'New York State', 'OTHER', 62, 64),
+    (523, u'Bronx', u'LOCATION', 54, 54),
+    (523, u'Manhattan', u'LOCATION', 20, 20),
+    (523, u'one', 'NUMBER', 6, 6)]
+question: What is the name of the library system in Queens?
+expected: Queens Borough Public Library
+expected sentence: Queens is served by the Queens Borough Public Library, the nation's second largest public library system, while the Brooklyn Public Library serves Brooklyn.
+actual: (29, u'Charles V', u'PERSON', 14, 15)
+expected id: 337
+extracted id: [337, 336, 481, 523, 511, 9, 17, 28, 29, 33, 39, 179, 452, 486, 496, 217, 447, 422, 326, 423]
+predicted question type: PERSON
 
 
 
@@ -17953,6 +18461,37 @@ predicted question type: OTHER
 
 
 all results:
+[   (432, u'LaGuardia Airport', u'LOCATION', 24, 25),
+    (432, u'Kennedy International Airport', u'LOCATION', 14, 16),
+    (433, u'North America', u'LOCATION', 38, 39),
+    (433, u'JFK', u'LOCATION', 29, 29),
+    (433, u'Newark Liberty', u'LOCATION', 2, 3),
+    (434, u'Newburgh', u'LOCATION', 16, 16),
+    (434, u'New Jersey', u'LOCATION', 29, 30),
+    (434, u'Stewart International Airport', u'LOCATION', 12, 14),
+    (511, u'Long Island Rail Road', u'LOCATION', 21, 24),
+    (511, u'New York City Subway', u'LOCATION', 15, 18),
+    (511, u'JFK International Airport', u'LOCATION', 10, 12),
+    (511, u'LaGuardia Airport', u'LOCATION', 39, 40),
+    (399, u'San Francisco Bay Area', u'LOCATION', 20, 23),
+    (399, u'Washington', u'LOCATION', 16, 16),
+    (399, u'Baltimore', u'LOCATION', 14, 14),
+    (399, u'Chicago', u'LOCATION', 12, 12),
+    (399, u'Los Angeles', u'LOCATION', 9, 10),
+    (515, u'Chicago', u'LOCATION', 48, 48),
+    (515, u'New York City Subway', u'LOCATION', 2, 5),
+    (515, u'Philadelphia', u'LOCATION', 56, 56)]
+question: What is the second busiest airport in the New York metro area?
+expected: Newark Liberty International Airport
+expected sentence: The three busiest airports in the New York metropolitan area include John F. Kennedy International Airport, Newark Liberty International Airport, and LaGuardia Airport; 109 million travelers used these three airports in 2012, and the city's airspace is the busiest in the nation.
+actual: (432, u'Kennedy International Airport', u'LOCATION', 14, 16)
+expected id: 432
+extracted id: [432, 433, 434, 511, 399, 515, 509, 21, 431, 435, 451, 233, 512, 424, 430, 438, 444, 16, 436, 198]
+predicted question type: LOCATION
+
+
+
+all results:
 [   (446, u'Manhattan', u'LOCATION', 6, 6),
     (444, u'Hudson River', u'LOCATION', 14, 15),
     (444, u'Lincoln Tunnel', u'LOCATION', 1, 2),
@@ -18387,6 +18926,37 @@ predicted question type: NUMBER
 
 
 all results:
+[   (296, u'Patrick', u'PERSON', 94, 94),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (492, u'Brooklynese', 'OTHER', 21, 21),
+    (495, u'New Yorkers', 'OTHER', 36, 37),
+    (495, u'European', u'LOCATION', 7, 7),
+    (494, u'European', 'OTHER', 16, 16),
+    (381, u'Broadway', 'OTHER', 37, 37),
+    (381, u'42nd', 'NUMBER', 24, 24),
+    (381, u'1880s', 'NUMBER', 14, 14),
+    (381, u'Street', 'OTHER', 25, 25),
+    (381, u'Broadway', u'LOCATION', 21, 21),
+    (381, u'New York City', u'LOCATION', 16, 18),
+    (119, u'11 memorial', 'NUMBER', 19, 20),
+    (119, u'9 /', 'NUMBER', 17, 18),
+    (119, u'One World Trade Center', 'OTHER', 10, 13),
+    (512, u'Northeast Corridor', 'OTHER', 48, 49),
+    (512, u'West Side of Manhattan', u'LOCATION', 24, 27),
+    (512, u'C', 'OTHER', 44, 44),
+    (512, u'Station', 'OTHER', 21, 21)]
+question: Along with New Yorkese, what is another name for the New York dialect?
+expected: Brooklynese
+expected sentence: The New York area is home to a distinctive regional speech pattern called the New York dialect, alternatively known as Brooklynese or New Yorkese.
+actual: (296, u'Patrick', u'PERSON', 94, 94)
+expected id: 492
+extracted id: [492, 499, 495, 494, 381, 119, 512, 137, 296, 85, 477, 479, 135, 177, 498, 523, 9, 496, 29, 33]
+predicted question type: PERSON
+
+
+
+all results:
 [   (408, u'East Rutherford', u'LOCATION', 32, 33),
     (408, u'New Jersey', u'LOCATION', 35, 36),
     (506, u'Hempstead', u'LOCATION', 27, 27),
@@ -18600,6 +19170,37 @@ actual: (527, u'Verrazano', 'OTHER', 12, 12)
 expected id: 527
 extracted id: [527, 441, 153, 147, 142, 262, 251, 382, 442, 387, 148, 149, 438, 439, 521, 524, 525, 17, 440, 445]
 predicted question type: OTHER
+
+
+
+all results:
+[   (533, u'Bill de Blasio', u'PERSON', 1, 3),
+    (501, u'Archie Bunker', u'PERSON', 2, 3),
+    (501, u"Carroll O ' Connor", u'PERSON', 15, 18),
+    (29, u'Est\xeav\xe3o Gomes', u'PERSON', 6, 7),
+    (29, u'Charles V', u'PERSON', 14, 15),
+    (142, u'Pieter Claesen', u'PERSON', 22, 23),
+    (532, u'Hearst Tower', 'OTHER', 19, 20),
+    (150, u'American Institute of Architects', 'OTHER', 24, 27),
+    (150, u'American', 'OTHER', 15, 15),
+    (150, u'Cond\xe9 Nast Building', 'OTHER', 1, 3),
+    (150, u'2000', 'NUMBER', 5, 5),
+    (150, u'AIA New York State', 'OTHER', 31, 34),
+    (533, u'80 %', 'NUMBER', 8, 9),
+    (533, u'Green Buildings', 'OTHER', 35, 36),
+    (533, u'2050', 'NUMBER', 18, 18),
+    (533, u'2014', 'NUMBER', 16, 16),
+    (332, u'New York Institute of Technology', 'OTHER', 27, 31),
+    (332, u'Pace University', 'OTHER', 33, 34),
+    (332, u'New York University', 'OTHER', 23, 25),
+    (332, u'Yeshiva University', 'OTHER', 37, 38)]
+question: What is the name of a notable green office building in New York?
+expected: Hearst Tower
+expected sentence: The city is also a leader in the construction of energy-efficient green office buildings, including the Hearst Tower among others.
+actual: (533, u'Bill de Blasio', u'PERSON', 1, 3)
+expected id: 532
+extracted id: [532, 150, 533, 332, 423, 525, 501, 281, 29, 142, 260, 523, 368, 9, 496, 33, 452, 178, 28, 17]
+predicted question type: PERSON
 
 
 
@@ -19119,33 +19720,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (126, u'Wu', 'OTHER', 22, 22),
+[   (126, u'Xiang', u'PERSON', 20, 20),
+    (122, u'Mircea Snegur', u'PERSON', 19, 20),
+    (112, u'Darijas', u'PERSON', 5, 5),
+    (79, u'Sicilian Gallo', u'PERSON', 34, 35),
+    (96, u'Italo', u'PERSON', 31, 31),
+    (126, u'Wu', 'OTHER', 22, 22),
     (126, u'Gan', 'OTHER', 24, 24),
     (126, u'Min', 'OTHER', 26, 26),
     (126, u'Cantonese', 'OTHER', 30, 30),
     (126, u'Hakka', 'OTHER', 33, 33),
     (126, u'Old Chinese', 'OTHER', 38, 39),
     (126, u'Middle Chinese', 'OTHER', 41, 42),
+    (122, u'two countries', 'NUMBER', 47, 48),
     (122, u'Moldovan', 'OTHER', 4, 4),
+    (122, u'1996', 'NUMBER', 1, 1),
     (122, u'Romanian', 'OTHER', 29, 29),
     (122, u'President', 'OTHER', 18, 18),
+    (122, u'2003', 'NUMBER', 33, 33),
     (122, u'Romanian', 'OTHER', 11, 11),
-    (122, u'Romanian', 'OTHER', 37, 37),
-    (34, u'German', 'OTHER', 32, 32),
-    (34, u'East Franconian German', 'OTHER', 25, 27),
-    (34, u'Bavarian German', 'OTHER', 22, 23),
-    (60, u'Germanic', 'OTHER', 9, 9),
-    (8, u'Romance', 'OTHER', 8, 8),
-    (8, u'Italian', 'OTHER', 51, 51),
-    (8, u'Vulgar Latin', 'OTHER', 39, 40),
-    (8, u'Italian', 'OTHER', 33, 33)]
+    (122, u'Romanian', 'OTHER', 37, 37)]
 question: What is another name for the Yue language?
 expected: Cantonese
 expected sentence: As a series of migration to the south throughout the history, the regional languages of the south, including Xiang, Wu, Gan, Min, Yue (Cantonese), and Hakka often show traces of Old Chinese or Middle Chinese.
-actual: (126, u'Wu', 'OTHER', 22, 22)
+actual: (126, u'Xiang', u'PERSON', 20, 20)
 expected id: 126
 extracted id: [126, 122, 34, 60, 112, 8, 40, 75, 32, 41, 79, 93, 101, 5, 7, 9, 76, 96, 110, 137]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -19301,37 +19902,6 @@ actual: (151, u'one study', 'NUMBER', 1, 2)
 expected id: 151
 extracted id: [151, 150, 16, 34, 35, 137, 75, 144, 147, 148, 152, 0, 9, 11, 28, 32, 36, 46, 51, 54]
 predicted question type: PERSON
-
-
-
-all results:
-[   (0, u'Spanish', 'OTHER', 9, 9),
-    (26, u'St', 'OTHER', 84, 84),
-    (26, u'Morgan', 'OTHER', 56, 56),
-    (26, u'Khyber Pass', 'OTHER', 74, 75),
-    (26, u'Point', 'OTHER', 59, 59),
-    (26, u'Horseshoe Bays', 'OTHER', 41, 42),
-    (26, u'Parish', 'OTHER', 89, 89),
-    (26, u'St George', 'OTHER', 92, 93),
-    (26, u'Island', 'OTHER', 65, 65),
-    (26, u'Town', 'OTHER', 96, 96),
-    (26, u'Main', 'OTHER', 32, 32),
-    (26, u'St', 'OTHER', 100, 100),
-    (26, u'Island', 'OTHER', 104, 104),
-    (26, u'St George', 'OTHER', 106, 107),
-    (26, u'Parish', 'OTHER', 110, 110),
-    (26, u'St', 'OTHER', 115, 115),
-    (4, u'Spanish', 'OTHER', 1, 1),
-    (233, u'Bermudians', 'OTHER', 11, 11),
-    (142, u'Wade International Airport', 'OTHER', 23, 25),
-    (142, u'F', 'OTHER', 21, 21)]
-question: What is the name of the first European explorer to reach Bermuda?
-expected: Juan de Bermúdez
-expected sentence: The first known European explorer to reach Bermuda was Spanish sea captain Juan de Bermúdez in 1503, after whom the islands are named.
-actual: (0, u'Spanish', 'OTHER', 9, 9)
-expected id: 0
-extracted id: [0, 26, 92, 137, 4, 235, 233, 142, 56, 66, 64, 115, 53, 69, 110, 189, 199, 244, 12, 79]
-predicted question type: OTHER
 
 
 
@@ -20776,6 +21346,37 @@ predicted question type: PERSON
 
 
 all results:
+[   (150, u'Francisco Franco', u'PERSON', 16, 17),
+    (150, u'Miguel Primo de Rivera', u'PERSON', 4, 7),
+    (193, u'Santiago Bernab\xe9u', u'PERSON', 34, 35),
+    (4, u'Primo de Rivera', u'PERSON', 10, 12),
+    (113, u'Paco Aguilar', u'PERSON', 7, 8),
+    (49, u'N\xfa\xf1ez', u'PERSON', 27, 27),
+    (49, u'Cruyff', u'PERSON', 0, 0),
+    (13, u'Francisco Franco', u'PERSON', 37, 38),
+    (13, u'Cruyff', u'PERSON', 7, 7),
+    (14, u'George', u'PERSON', 16, 16),
+    (14, u'Jordi', u'PERSON', 9, 9),
+    (117, u'Salvador Artigas', u'PERSON', 28, 29),
+    (220, u'Josep Llu\xeds N\xfa\xf1ez', u'PERSON', 3, 5),
+    (118, u'1974', 'NUMBER', 9, 9),
+    (118, u'Futbol Club Barcelona', 'OTHER', 19, 21),
+    (221, u'1974', 'NUMBER', 20, 20),
+    (221, u'Spain', u'LOCATION', 13, 13),
+    (221, u'FC Barcelona', 'OTHER', 7, 8),
+    (150, u'1975', 'NUMBER', 21, 21),
+    (150, u'1939 \u2013', 'NUMBER', 19, 20)]
+question: With Franco's dictatorship over, to what did Barcelona change their name ?
+expected: Futbol Club Barcelona
+expected sentence: With the end of Franco's dictatorship in 1974, the club changed its official name back to Futbol Club Barcelona and reverted the crest to its original design, including the original letters once again.
+actual: (150, u'Miguel Primo de Rivera', u'PERSON', 4, 7)
+expected id: 118
+extracted id: [118, 221, 150, 93, 193, 4, 113, 49, 203, 13, 14, 92, 168, 191, 117, 154, 155, 71, 77, 220]
+predicted question type: PERSON
+
+
+
+all results:
 [   (129, u'Barcelona', 'OTHER', 0, 0),
     (129, u'Getafe', 'OTHER', 18, 18),
     (24, u'Valencia', 'OTHER', 57, 57),
@@ -20900,33 +21501,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (168, u'Catalan', 'OTHER', 21, 21),
+[   (193, u'Santiago Bernab\xe9u', u'PERSON', 34, 35),
+    (193, u'Franco', u'PERSON', 32, 32),
+    (14, u'George', u'PERSON', 16, 16),
+    (14, u'Jordi', u'PERSON', 9, 9),
+    (118, u'Franco', u'PERSON', 4, 4),
+    (196, u'Bar\xe7a', u'PERSON', 32, 32),
+    (75, u'Bar\xe7a', u'PERSON', 0, 0),
+    (26, u'Catalan Copa del Rey', u'PERSON', 31, 34),
+    (26, u'Bar\xe7a', u'PERSON', 39, 39),
+    (28, u'Bar\xe7a', u'PERSON', 8, 8),
+    (168, u'Spanish', u'LOCATION', 19, 19),
+    (168, u'Catalan', 'OTHER', 21, 21),
+    (91, u'Spain', u'LOCATION', 18, 18),
     (151, u'Castilian', 'OTHER', 12, 12),
     (151, u'Spanish', 'OTHER', 10, 10),
     (151, u'Spanish', 'OTHER', 6, 6),
     (193, u'Real Madrid', 'OTHER', 28, 29),
-    (92, u'Spanish', 'OTHER', 14, 14),
-    (92, u'Catalan', 'OTHER', 1, 1),
-    (191, u'UEFA', 'OTHER', 13, 13),
-    (14, u'Catalan Saint', 'OTHER', 14, 15),
-    (118, u'Futbol Club Barcelona', 'OTHER', 19, 21),
-    (93, u'Catalan', 'OTHER', 18, 18),
-    (93, u'Club de F\xfatbol Barcelona', 'OTHER', 10, 13),
-    (196, u'Barcelona', 'OTHER', 10, 10),
-    (166, u'Spanish Civil War', 'OTHER', 13, 15),
-    (166, u'Falangists', 'OTHER', 10, 10),
-    (167, u'Barcelona', 'OTHER', 17, 17),
-    (27, u'Barcelona', 'OTHER', 19, 19),
-    (28, u'Camp Nou', 'OTHER', 24, 25),
-    (28, u'Barcelona', 'OTHER', 22, 22),
-    (197, u'FC Barcelona', 'OTHER', 8, 9)]
+    (193, u'one', 'NUMBER', 15, 15),
+    (193, u'Madrid', u'LOCATION', 10, 10),
+    (92, u'Spanish', 'OTHER', 14, 14)]
 question: From what language did Espanyol translate their name?
 expected: Spanish
 expected sentence: In recent years the rivalry has become less political, as Espanyol translated its official name and anthem from Spanish to Catalan.
-actual: (168, u'Catalan', 'OTHER', 21, 21)
+actual: (193, u'Franco', u'PERSON', 32, 32)
 expected id: 168
 extracted id: [168, 91, 151, 193, 92, 191, 14, 118, 93, 196, 165, 166, 167, 75, 219, 26, 27, 28, 197]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -20962,33 +21563,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (193, u'Real Madrid', 'OTHER', 28, 29),
+[   (193, u'Franco', u'PERSON', 32, 32),
+    (193, u'Santiago Bernab\xe9u', u'PERSON', 34, 35),
+    (242, u'Alfredo di St\xe9fano', u'PERSON', 17, 19),
+    (14, u'George', u'PERSON', 16, 16),
+    (14, u'Jordi', u'PERSON', 9, 9),
+    (118, u'Franco', u'PERSON', 4, 4),
+    (193, u'one', 'NUMBER', 15, 15),
+    (193, u'Real Madrid', 'OTHER', 28, 29),
+    (193, u'Madrid', u'LOCATION', 10, 10),
     (242, u'Real Madrid', 'OTHER', 25, 26),
+    (242, u'1950s', 'NUMBER', 2, 2),
     (168, u'Catalan', 'OTHER', 21, 21),
+    (168, u'Spanish', u'LOCATION', 19, 19),
     (168, u'Espanyol', 'OTHER', 11, 11),
     (14, u'Catalan Saint', 'OTHER', 14, 15),
+    (118, u'1974', 'NUMBER', 9, 9),
     (118, u'Futbol Club Barcelona', 'OTHER', 19, 21),
     (92, u'Spanish', 'OTHER', 14, 14),
     (92, u'Catalan', 'OTHER', 1, 1),
-    (93, u'Catalan', 'OTHER', 18, 18),
-    (93, u'Club de F\xfatbol Barcelona', 'OTHER', 10, 13),
-    (191, u'UEFA', 'OTHER', 13, 13),
-    (193, u'one', 'NUMBER', 15, 15),
-    (193, u'Madrid', u'LOCATION', 10, 10),
-    (193, u'Franco', u'PERSON', 32, 32),
-    (193, u'Santiago Bernab\xe9u', u'PERSON', 34, 35),
-    (242, u'Alfredo di St\xe9fano', u'PERSON', 17, 19),
-    (242, u'1950s', 'NUMBER', 2, 2),
-    (168, u'Spanish', u'LOCATION', 19, 19),
-    (14, u'George', u'PERSON', 16, 16),
-    (14, u'Jordi', u'PERSON', 9, 9)]
+    (93, u'Catalan', 'OTHER', 18, 18)]
 question: What name inscription was a center of controversy?
 expected: Santiago Bernabéu
 expected sentence: Later this became the centre of controversy when media in Madrid picked up reports that one of the stones was inscribed with the name of long-time Real Madrid chairman and Franco supporter Santiago Bernabéu.
-actual: (193, u'Real Madrid', 'OTHER', 28, 29)
+actual: (193, u'Franco', u'PERSON', 32, 32)
 expected id: 193
 extracted id: [193, 242, 168, 14, 118, 92, 93, 191]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -21086,33 +21687,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (214, u'Basque Country', 'OTHER', 38, 39),
+[   (214, u'Marca Hispanica', u'LOCATION', 49, 50),
+    (214, u'Languedoc', u'LOCATION', 28, 28),
+    (214, u'Southern France', u'LOCATION', 34, 35),
+    (214, u'Catalonia', u'LOCATION', 41, 41),
+    (214, u'Aquitaine', u'LOCATION', 32, 32),
+    (30, u'La Liga', u'LOCATION', 16, 17),
+    (45, u'Wembley', u'LOCATION', 20, 20),
+    (171, u'La Liga', u'LOCATION', 30, 31),
+    (189, u'Castile', u'LOCATION', 21, 21),
+    (189, u'Spain', u'LOCATION', 17, 17),
+    (189, u'Catalonia', u'LOCATION', 19, 19),
+    (214, u'Basque Country', 'OTHER', 38, 39),
+    (214, u'Midi', u'PERSON', 30, 30),
     (214, u'Barcelona', 'OTHER', 5, 5),
     (69, u'Barcelona', 'OTHER', 4, 4),
     (69, u'Football Area Technical Commission', 'OTHER', 11, 14),
-    (1, u'Club World Cup', 'OTHER', 44, 46),
-    (1, u'FIFA', 'OTHER', 43, 43),
-    (1, u'Cities Fairs Cup', 'OTHER', 36, 38),
-    (1, u'Inter', 'OTHER', 34, 34),
-    (1, u'Super Cup', 'OTHER', 28, 29),
-    (1, u'UEFA', 'OTHER', 27, 27),
-    (1, u'UEFA Cup Winners', 'OTHER', 17, 19),
-    (1, u'Champions League', 'OTHER', 10, 11),
-    (1, u'UEFA', 'OTHER', 9, 9),
-    (1, u'Barcelona', 'OTHER', 5, 5),
-    (30, u'Spanish Super Cup', 'OTHER', 55, 57),
-    (30, u'UEFA Champions League', 'OTHER', 25, 27),
-    (30, u'Spanish', 'OTHER', 7, 7),
-    (30, u'Barcelona', 'OTHER', 3, 3),
-    (30, u'UEFA Super Cup', 'OTHER', 59, 61),
-    (30, u'FIFA', 'OTHER', 63, 63)]
+    (69, u'Jordi Mestre', u'PERSON', 22, 23),
+    (69, u'Javier Bordas', u'PERSON', 27, 28),
+    (69, u'Carles Rexach', u'PERSON', 30, 31),
+    (69, u'Ariedo Braida', u'PERSON', 33, 34)]
 question: From what area were the participants of the Pyrenees Cup competition?
 expected: Marca Hispanica
 expected sentence: With the new stadium, Barcelona participated in the inaugural version of the Pyrenees Cup, which, at the time, consisted of the best teams of Languedoc, Midi and Aquitaine (Southern France), the Basque Country and Catalonia; all were former members of the Marca Hispanica region.
-actual: (214, u'Basque Country', 'OTHER', 38, 39)
+actual: (214, u'Languedoc', u'LOCATION', 28, 28)
 expected id: 214
 extracted id: [214, 69, 1, 30, 251, 35, 45, 140, 36, 57, 0, 131, 143, 24, 169, 170, 171, 178, 54, 189]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -21427,33 +22028,33 @@ predicted question type: NUMBER
 
 
 all results:
-[   (113, u'United Reformed Church', 'OTHER', 23, 25),
+[   (172, u'George Leslie Mackay', u'PERSON', 2, 4),
+    (104, u'Charles I', u'PERSON', 24, 25),
+    (114, u'John Knox', u'PERSON', 20, 21),
+    (114, u'Aston Tirrold', u'PERSON', 14, 15),
+    (114, u'Stepney', u'PERSON', 25, 25),
+    (113, u'United Reformed Church', 'OTHER', 23, 25),
     (113, u'Presbyterian Church', 'OTHER', 4, 5),
+    (113, u'1972', 'NUMBER', 1, 1),
     (113, u'URC', 'OTHER', 27, 27),
+    (116, u'Scotland', u'LOCATION', 61, 61),
     (116, u'URC', 'OTHER', 53, 53),
+    (116, u'1929 ),', 'NUMBER', 46, 47),
+    (116, u'1908', 'NUMBER', 37, 37),
+    (116, u'Scotland', u'LOCATION', 35, 35),
     (116, u'St Columba', 'OTHER', 17, 18),
+    (116, u'1879 ),', 'NUMBER', 14, 15),
+    (116, u'Cambridge', u'LOCATION', 10, 10),
+    (116, u'Oxford', u'LOCATION', 22, 22),
     (116, u'St Columba', 'OTHER', 5, 6),
-    (116, u'Presbyterian', 'OTHER', 2, 2),
-    (125, u'Free Presbyterian Church', 'OTHER', 79, 81),
-    (125, u'Korean American Presbyterian Church', 'OTHER', 72, 75),
-    (125, u'Westminster Presbyterian Church', 'OTHER', 63, 65),
-    (125, u'Presbyterian Reformed Church', 'OTHER', 58, 60),
-    (125, u'Covenant Presbyterian Church', 'OTHER', 53, 55),
-    (125, u'Reformed Presbyterian Church', 'OTHER', 45, 47),
-    (125, u'Reformed Presbyterian', 'OTHER', 38, 39),
-    (125, u'Reformed Presbyterian Church', 'OTHER', 27, 29),
-    (125, u'Associate Reformed Presbyterian Church', 'OTHER', 19, 22),
-    (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14),
-    (125, u'Church General Assembly', 'OTHER', 40, 42),
-    (125, u'RPCUS', 'OTHER', 35, 35),
-    (125, u'ARP', 'OTHER', 24, 24)]
+    (116, u'Presbyterian', 'OTHER', 2, 2)]
 question: What was the name of the group that was created whenPresbyterian Church of England (PCofE) united with the Congregational Church in England and Wales were united?
 expected: United Reformed Church
 expected sentence: In 1972, the Presbyterian Church of England (PCofE) united with the Congregational Church in England and Wales to form the United Reformed Church (URC).
-actual: (113, u'Presbyterian Church', 'OTHER', 4, 5)
+actual: (172, u'George Leslie Mackay', u'PERSON', 2, 4)
 expected id: 113
 extracted id: [113, 116, 125, 4, 172, 13, 2, 104, 161, 186, 114, 133, 105, 176, 189, 98, 1, 135, 62, 96]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -21520,7 +22121,8 @@ predicted question type: NUMBER
 
 
 all results:
-[   (125, u'Free Presbyterian Church', 'OTHER', 79, 81),
+[   (125, u'North America', u'LOCATION', 83, 84),
+    (125, u'Free Presbyterian Church', 'OTHER', 79, 81),
     (125, u'Korean American Presbyterian Church', 'OTHER', 72, 75),
     (125, u'Westminster Presbyterian Church', 'OTHER', 63, 65),
     (125, u'Presbyterian Reformed Church', 'OTHER', 58, 60),
@@ -21530,54 +22132,53 @@ all results:
     (125, u'Reformed Presbyterian Church', 'OTHER', 27, 29),
     (125, u'Associate Reformed Presbyterian Church', 'OTHER', 19, 22),
     (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14),
+    (125, u'Hanover Presbytery', u'LOCATION', 49, 50),
     (125, u'Church General Assembly', 'OTHER', 40, 42),
     (125, u'RPCUS', 'OTHER', 35, 35),
     (125, u'ARP', 'OTHER', 24, 24),
     (125, u'RPCNA', 'OTHER', 16, 16),
+    (152, u'Cross River', u'LOCATION', 2, 3),
     (152, u'Rivers', 'OTHER', 11, 11),
-    (161, u'United Presbyterian Assembly', 'OTHER', 30, 32),
-    (161, u'Korean', 'OTHER', 11, 11),
-    (161, u'Korean Presbyterian', 'OTHER', 3, 4),
-    (161, u'PCK', 'OTHER', 23, 23),
-    (2, u'English Civil War', 'OTHER', 46, 48)]
+    (152, u'Lagos', u'LOCATION', 14, 14),
+    (152, u'Ebonyi', u'LOCATION', 17, 17)]
 question: What is the name of the Asian Presbyterian Church in the United States?
 expected: Korean American Presbyterian Church
 expected sentence: Other Presbyterian bodies in the United States include the Reformed Presbyterian Church of North America (RPCNA), the Associate Reformed Presbyterian Church (ARP), the Reformed Presbyterian Church in the United States (RPCUS), the Reformed Presbyterian Church General Assembly, the Reformed Presbyterian Church – Hanover Presbytery, the Covenant Presbyterian Church, the Presbyterian Reformed Church, the Westminster Presbyterian Church in the United States, the Korean American Presbyterian Church, and the Free Presbyterian Church of North America.
 actual: (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14)
 expected id: 125
 extracted id: [125, 152, 161, 2, 1, 135, 151, 169, 123, 113, 130, 13, 167, 124, 177, 184, 186, 138, 176, 121]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
 all results:
-[   (125, u'Free Presbyterian Church', 'OTHER', 79, 81),
+[   (125, u'North America', u'LOCATION', 83, 84),
+    (125, u'Free Presbyterian Church', 'OTHER', 79, 81),
     (125, u'Korean American Presbyterian Church', 'OTHER', 72, 75),
+    (125, u'United States', u'LOCATION', 68, 69),
     (125, u'Westminster Presbyterian Church', 'OTHER', 63, 65),
     (125, u'Presbyterian Reformed Church', 'OTHER', 58, 60),
     (125, u'Covenant Presbyterian Church', 'OTHER', 53, 55),
     (125, u'Reformed Presbyterian Church', 'OTHER', 45, 47),
     (125, u'Reformed Presbyterian', 'OTHER', 38, 39),
+    (125, u'United States', u'LOCATION', 32, 33),
     (125, u'Reformed Presbyterian Church', 'OTHER', 27, 29),
     (125, u'Associate Reformed Presbyterian Church', 'OTHER', 19, 22),
     (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14),
+    (125, u'United States', u'LOCATION', 5, 6),
+    (125, u'Hanover Presbytery', u'LOCATION', 49, 50),
     (125, u'Church General Assembly', 'OTHER', 40, 42),
     (125, u'RPCUS', 'OTHER', 35, 35),
     (125, u'RPCNA', 'OTHER', 16, 16),
     (67, u'Liturgical Renewal Movement', 'OTHER', 79, 81),
-    (67, u'Celtic', 'OTHER', 58, 58),
-    (67, u'Gallican Rite', 'OTHER', 68, 69),
-    (67, u'Old English', 'OTHER', 51, 52),
-    (67, u'Presbyterians', 'OTHER', 18, 18),
-    (67, u'Protestant', 'OTHER', 10, 10),
-    (169, u'American Presbyterians', 'OTHER', 7, 8)]
+    (67, u'Celtic', 'OTHER', 58, 58)]
 question: What is the full name of this American Presbyterian church under this abbreviation (ARP)?
 expected: Associate Reformed Presbyterian Church
 expected sentence: Other Presbyterian bodies in the United States include the Reformed Presbyterian Church of North America (RPCNA), the Associate Reformed Presbyterian Church (ARP), the Reformed Presbyterian Church in the United States (RPCUS), the Reformed Presbyterian Church General Assembly, the Reformed Presbyterian Church – Hanover Presbytery, the Covenant Presbyterian Church, the Presbyterian Reformed Church, the Westminster Presbyterian Church in the United States, the Korean American Presbyterian Church, and the Free Presbyterian Church of North America.
-actual: (125, u'Reformed Presbyterian Church of North America', 'OTHER', 9, 14)
+actual: (125, u'United States', u'LOCATION', 5, 6)
 expected id: 125
 extracted id: [125, 67, 35, 169, 62, 2, 1, 161, 135, 124, 121, 39, 136, 137, 185, 105, 113, 182, 186, 96]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -21640,6 +22241,37 @@ actual: (169, u'Australia', u'LOCATION', 33, 33)
 expected id: 169
 extracted id: [169, 165, 168, 161, 192, 162, 144, 151, 163, 198, 125, 124, 121, 39, 136, 137, 185, 2, 105, 113]
 predicted question type: LOCATION
+
+
+
+all results:
+[   (153, u'Mary Slessor', u'PERSON', 4, 5),
+    (153, u'Hope Waddel', u'PERSON', 7, 8),
+    (171, u'James Laidlaw Maxwell', u'PERSON', 3, 5),
+    (177, u'1840s onwards', 'NUMBER', 45, 46),
+    (177, u'Khasi Hills', u'LOCATION', 41, 42),
+    (177, u'Meghalaya', u'LOCATION', 30, 30),
+    (177, u'Khasi Hills', u'LOCATION', 21, 22),
+    (177, u'Welsh Presbyterians', 'OTHER', 5, 6),
+    (177, u'Presbyterian', 'OTHER', 36, 36),
+    (180, u'South India', u'LOCATION', 17, 18),
+    (180, u'Church', 'OTHER', 15, 15),
+    (180, u'Church of North India', 'OTHER', 9, 12),
+    (180, u'Sohra', 'OTHER', 20, 20),
+    (176, u'Presbyterian', 'OTHER', 10, 10),
+    (176, u'Christian Indian', 'OTHER', 3, 4),
+    (176, u'Wales', u'LOCATION', 26, 26),
+    (176, u'1894', 'NUMBER', 28, 28),
+    (2, u'English Civil War', 'OTHER', 46, 48),
+    (2, u'Scottish', 'OTHER', 30, 30),
+    (2, u'English', 'OTHER', 32, 32)]
+question: Before Mizoram, what was the name of the group of  missionaries that  ventured into east india?
+expected: Welsh Presbyterians
+expected sentence: Prior to Mizoram, the Welsh Presbyterians (missionaries) started venturing into the north-east of India through the Khasi Hills (presently located within the state of Meghalaya in India) and established Presbyterian churches all over the Khasi Hills from the 1840s onwards.
+actual: (153, u'Mary Slessor', u'PERSON', 4, 5)
+expected id: 177
+extracted id: [177, 180, 176, 2, 161, 1, 135, 98, 153, 168, 167, 163, 33, 34, 22, 132, 193, 179, 171, 126]
+predicted question type: PERSON
 
 
 
@@ -21875,37 +22507,6 @@ predicted question type: OTHER
 
 
 all results:
-[   (12, u'Solent City', 'OTHER', 21, 22),
-    (91, u'Southampton', 'OTHER', 0, 0),
-    (11, u'Southampton', 'OTHER', 4, 4),
-    (134, u'Southampton Common', 'OTHER', 16, 17),
-    (153, u'Southampton', 'OTHER', 7, 7),
-    (153, u'Government Statistics', 'OTHER', 3, 4),
-    (293, u'European', 'OTHER', 21, 21),
-    (293, u'A34', 'OTHER', 16, 16),
-    (293, u'E05', 'OTHER', 23, 23),
-    (293, u'M3', 'OTHER', 1, 1),
-    (167, u'Ocean Village', 'OTHER', 38, 39),
-    (173, u'Countess Mountbatten House', 'OTHER', 19, 21),
-    (173, u'Princess', 'OTHER', 10, 10),
-    (173, u'Southampton General Hospital', 'OTHER', 5, 7),
-    (173, u'Trust', 'OTHER', 1, 1),
-    (222, u'November', 'OTHER', 13, 13),
-    (222, u'Solent', 'OTHER', 3, 3),
-    (182, u'February', 'OTHER', 20, 20),
-    (182, u'Swedish', 'OTHER', 24, 24),
-    (182, u'IKEA', 'OTHER', 28, 28)]
-question: What metropolitan area is Portsmouth a part of?
-expected: South Hampshire
-expected sentence: This built-up area is part of the metropolitan area known as South Hampshire, which is also known as Solent City, particularly in the media when discussing local governance organisational changes.
-actual: (12, u'Solent City', 'OTHER', 21, 22)
-expected id: 12
-extracted id: [12, 13, 91, 11, 302, 0, 134, 153, 30, 288, 295, 293, 167, 297, 173, 222, 182, 190, 320, 92]
-predicted question type: OTHER
-
-
-
-all results:
 [   (15, u'AD', 'OTHER', 18, 18),
     (15, u'Roman', 'OTHER', 2, 2),
     (15, u'AD', 'OTHER', 7, 7),
@@ -21937,64 +22538,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (74, u'Supermarine Spitfire', 'OTHER', 1, 2),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'December', 'OTHER', 22, 22),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'Queen', 'OTHER', 29, 29),
-    (310, u'October', 'OTHER', 35, 35),
-    (310, u'Queen', 'OTHER', 11, 11),
-    (310, u'Cunard', 'OTHER', 0, 0),
-    (111, u'Busan', 'OTHER', 48, 48),
-    (111, u'Rems', 'OTHER', 16, 16),
-    (111, u'Southampton City Council', 'OTHER', 0, 2),
-    (212, u'The Joiners', 'OTHER', 21, 22),
-    (212, u'The Soul Cellar', 'OTHER', 17, 19),
-    (212, u'The Talking Heads', 'OTHER', 13, 15),
-    (212, u'Blue Keys', 'OTHER', 60, 61),
-    (212, u'Dolphin', 'OTHER', 57, 57),
-    (212, u'Platform', 'OTHER', 53, 53),
-    (213, u'Libertines', 'OTHER', 32, 32),
-    (213, u'Verve', 'OTHER', 29, 29),
-    (213, u'Manic Street Preachers', 'OTHER', 22, 24)]
-question: What name did Hamwic have in the interim as it was evolving into Hampton?
-expected: Hamtun
-expected sentence: The settlement was known as Hamwic, which evolved into Hamtun and then Hampton.
-actual: (74, u'Supermarine Spitfire', 'OTHER', 1, 2)
-expected id: 20
-extracted id: [20, 74, 23, 310, 111, 212, 213, 65, 130, 4, 311, 22, 217, 249]
-predicted question type: OTHER
-
-
-
-all results:
-[   (252, u'Banister Court Stadium', 'OTHER', 5, 7),
+[   (20, u'Hamtun', u'PERSON', 10, 10),
+    (20, u'Hampton', u'PERSON', 13, 13),
+    (15, u'Clausentum', u'PERSON', 23, 23),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (251, u'Sotonians', u'PERSON', 35, 35),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (23, u'840 onwards', 'NUMBER', 3, 4),
+    (23, u'Southampton', u'LOCATION', 28, 28),
+    (252, u'Banister Court Stadium', 'OTHER', 5, 7),
     (15, u'AD', 'OTHER', 18, 18),
+    (15, u'Britain', u'LOCATION', 5, 5),
     (15, u'Roman', 'OTHER', 2, 2),
+    (15, u'70', 'NUMBER', 17, 17),
     (15, u'Britons', 'OTHER', 15, 15),
+    (15, u'43', 'NUMBER', 8, 8),
     (15, u'AD', 'OTHER', 7, 7),
     (19, u'St Mary', 'OTHER', 20, 21),
     (19, u'Itchen', 'OTHER', 13, 13),
-    (19, u'Anglo', 'OTHER', 1, 1),
-    (19, u'Saxons', 'OTHER', 3, 3),
-    (45, u'Royalists', 'OTHER', 1, 1),
-    (45, u'Redbridge', 'OTHER', 6, 6),
-    (45, u'March', 'OTHER', 11, 11),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'October', 'OTHER', 35, 35),
-    (310, u'Queen', 'OTHER', 29, 29),
-    (310, u'December', 'OTHER', 22, 22),
-    (310, u'Queen', 'OTHER', 11, 11),
-    (310, u'Cunard', 'OTHER', 0, 0),
-    (292, u'M27', 'OTHER', 1, 1)]
+    (19, u'Anglo', 'OTHER', 1, 1)]
 question: What was the name of the 10th-century fortified settlement that took Hamwic's place?
 expected: Southampton
 expected sentence: Viking raids from 840 onwards contributed to the decline of Hamwic in the 9th century, and by the 10th century a fortified settlement, which became medieval Southampton, had been established.
-actual: (252, u'Banister Court Stadium', 'OTHER', 5, 7)
+actual: (20, u'Hamtun', u'PERSON', 10, 10)
 expected id: 23
 extracted id: [23, 20, 252, 15, 19, 288, 45, 310, 292, 98, 251, 126, 25, 130, 4, 22, 311, 65, 217, 249]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -22087,37 +22657,6 @@ expected sentence: The town was sacked in 1338 by French, Genoese and Monegasque
 actual: (28, u'French', 'OTHER', 7, 7)
 expected id: 28
 extracted id: [28, 98, 5, 211, 92, 106, 236, 25, 35, 64, 87, 88, 97, 143, 206, 227, 255, 274, 313, 0]
-predicted question type: OTHER
-
-
-
-all results:
-[   (35, u'Solent', 'OTHER', 21, 21),
-    (35, u'Southampton Water', 'OTHER', 17, 18),
-    (92, u'Port', 'OTHER', 70, 70),
-    (92, u'June', 'OTHER', 94, 94),
-    (92, u'Sheriff', 'OTHER', 43, 43),
-    (92, u'Port', 'OTHER', 3, 3),
-    (32, u'House Tower', 'OTHER', 7, 8),
-    (32, u'God', 'OTHER', 4, 4),
-    (79, u'Luftwaffe', 'OTHER', 24, 24),
-    (79, u'Allied', 'OTHER', 14, 14),
-    (79, u'Day', 'OTHER', 3, 3),
-    (79, u'D', 'OTHER', 1, 1),
-    (28, u'Monegasque', 'OTHER', 11, 11),
-    (28, u'Genoese', 'OTHER', 9, 9),
-    (28, u'French', 'OTHER', 7, 7),
-    (200, u'Gaumont', 'OTHER', 19, 19),
-    (200, u'Mayflower Theatre', 'OTHER', 12, 13),
-    (200, u'West End', 'OTHER', 35, 36),
-    (200, u'The Rocky Horror Show', 'OTHER', 43, 46),
-    (200, u'Chitty Chitty Bang Bang', 'OTHER', 48, 51)]
-question: Which king of England directed new fortifications that helped Southampton rely less on its wall?
-expected: Henry VIII
-expected sentence: The walls were completed in the 15th century, but later development of several new fortifications along Southampton Water and the Solent by Henry VIII meant that Southampton was no longer dependent upon its fortifications.
-actual: (35, u'Southampton Water', 'OTHER', 17, 18)
-expected id: 35
-extracted id: [35, 92, 32, 79, 28, 200, 50, 111, 133, 26, 162, 283, 194, 30, 88, 1, 257, 259, 19, 124]
 predicted question type: OTHER
 
 
@@ -22247,6 +22786,37 @@ predicted question type: LOCATION
 
 
 all results:
+[   (50, u'Thomas Grey', u'PERSON', 40, 41),
+    (50, u'Baron Scrope', u'PERSON', 33, 34),
+    (50, u'Earl', u'PERSON', 25, 25),
+    (50, u'Henry Scrope', u'PERSON', 29, 30),
+    (50, u'Richard', u'PERSON', 23, 23),
+    (35, u'Henry VIII', u'PERSON', 23, 24),
+    (95, u'Henry VI', u'PERSON', 4, 5),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (29, u'Edward III', u'PERSON', 6, 7),
+    (47, u'HMS Grace Dieu', 'OTHER', 6, 8),
+    (50, u'High Street', 'OTHER', 63, 64),
+    (50, u'Red Lion', 'OTHER', 57, 58),
+    (50, u'Heton', 'OTHER', 43, 43),
+    (50, u'Masham', u'LOCATION', 36, 36),
+    (50, u'Cambridge', u'LOCATION', 27, 27),
+    (50, u'1415', 'NUMBER', 13, 13),
+    (50, u'Agincourt', 'OTHER', 11, 11),
+    (50, u'Battle', 'OTHER', 9, 9)]
+question: What's the name of the famed warship built in Southampton for Henry V?
+expected: HMS Grace Dieu
+expected sentence: Henry V's famous warship HMS Grace Dieu was built in Southampton.
+actual: (50, u'Earl', u'PERSON', 25, 25)
+expected id: 47
+extracted id: [47, 50, 35, 95, 310, 4, 217, 249, 22, 65, 130, 311, 257, 32, 57, 25, 143, 11, 29, 49]
+predicted question type: PERSON
+
+
+
+all results:
 [   (50, u'Cambridge', u'LOCATION', 27, 27),
     (50, u'Masham', u'LOCATION', 36, 36),
     (239, u'Hampshire', u'LOCATION', 24, 24),
@@ -22278,33 +22848,33 @@ predicted question type: LOCATION
 
 
 all results:
-[   (50, u'High Street', 'OTHER', 63, 64),
+[   (50, u'Thomas Grey', u'PERSON', 40, 41),
+    (50, u'Baron Scrope', u'PERSON', 33, 34),
+    (50, u'Henry', u'PERSON', 3, 3),
+    (50, u'Henry Scrope', u'PERSON', 29, 30),
+    (50, u'Richard', u'PERSON', 23, 23),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (50, u'High Street', 'OTHER', 63, 64),
     (50, u'Red Lion', 'OTHER', 57, 58),
     (50, u'Heton', 'OTHER', 43, 43),
+    (50, u'Masham', u'LOCATION', 36, 36),
     (50, u'Agincourt', 'OTHER', 11, 11),
     (50, u'Battle', 'OTHER', 9, 9),
     (50, u'Southampton', 'OTHER', 20, 20),
+    (50, u'1415', 'NUMBER', 13, 13),
     (50, u'Sir', 'OTHER', 39, 39),
+    (50, u'3rd', 'NUMBER', 32, 32),
     (50, u'Plot', 'OTHER', 21, 21),
-    (50, u'King', 'OTHER', 2, 2),
-    (311, u'Royal Princess', 'OTHER', 9, 10),
-    (311, u'Duchess', 'OTHER', 1, 1),
-    (311, u'June', 'OTHER', 13, 13),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'October', 'OTHER', 35, 35),
-    (310, u'Queen', 'OTHER', 29, 29),
-    (310, u'December', 'OTHER', 22, 22),
-    (310, u'Queen', 'OTHER', 11, 11),
-    (310, u'Cunard', 'OTHER', 0, 0),
-    (228, u'English', 'OTHER', 6, 6)]
+    (50, u'King', 'OTHER', 2, 2)]
 question: What was the Earl of Cambridge's first name?
 expected: Richard
 expected sentence: Prior to King Henry's departure for the Battle of Agincourt in 1415, the ringleaders of the "Southampton Plot"—Richard, Earl of Cambridge, Henry Scrope, 3rd Baron Scrope of Masham, and Sir Thomas Grey of Heton—were accused of high treason and tried at what is now the Red Lion public house in the High Street.
-actual: (50, u'Battle', 'OTHER', 9, 9)
+actual: (50, u'Baron Scrope', u'PERSON', 33, 34)
 expected id: 50
 extracted id: [50, 311, 310, 228, 130, 4, 22, 65, 217, 249, 131, 32, 164, 179, 188, 325, 73, 334, 232, 60]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -22335,37 +22905,6 @@ expected sentence: Southampton was designated No. 1 Military Embarkation port du
 actual: (53, u'Military Embarkation', 'OTHER', 6, 7)
 expected id: 53
 extracted id: [53, 302, 89, 175, 145, 52, 172, 168, 226, 196, 247, 283, 81, 146, 156, 10, 149, 150, 271, 6]
-predicted question type: OTHER
-
-
-
-all results:
-[   (75, u'R J', 'OTHER', 3, 4),
-    (70, u'Sotonians', 'OTHER', 11, 11),
-    (12, u'Solent City', 'OTHER', 21, 22),
-    (236, u'Southampton Sunday Football League', 'OTHER', 13, 16),
-    (236, u'City', 'OTHER', 11, 11),
-    (236, u'Sunday Leagues', 'OTHER', 3, 4),
-    (236, u'District Sunday Football League', 'OTHER', 21, 24),
-    (2, u'Southampton Water', 'OTHER', 7, 8),
-    (2, u'River Test', 'OTHER', 14, 15),
-    (77, u'War II', 'OTHER', 1, 2),
-    (172, u'South', 'OTHER', 26, 26),
-    (176, u'Swaythling', 'OTHER', 3, 3),
-    (176, u'Transit', 'OTHER', 19, 19),
-    (176, u'Southampton Assembly Plant', 'OTHER', 10, 12),
-    (176, u'Ford', 'OTHER', 7, 7),
-    (303, u'Didcot', 'OTHER', 14, 14),
-    (303, u'Newbury', 'OTHER', 16, 16),
-    (303, u'Southampton Railway', 'OTHER', 18, 19),
-    (303, u'North', 'OTHER', 28, 28),
-    (19, u'Itchen', 'OTHER', 13, 13)]
-question: What area of Southampton did Mitchell hail from?
-expected: Portswood
-expected sentence: Its designer, R J Mitchell, lived in the Portswood area of Southampton, and his house is today marked with a blue plaque.
-actual: (75, u'R J', 'OTHER', 3, 4)
-expected id: 75
-extracted id: [75, 70, 11, 12, 236, 2, 77, 93, 133, 172, 176, 303, 13, 14, 19, 123, 186, 221, 254, 302]
 predicted question type: OTHER
 
 
@@ -22406,64 +22945,37 @@ predicted question type: OTHER
 
 
 all results:
-[   (92, u'King', 'OTHER', 57, 57),
-    (92, u'Sheriff', 'OTHER', 43, 43),
-    (92, u'King', 'OTHER', 40, 40),
-    (92, u'King', 'OTHER', 26, 26),
-    (92, u'June', 'OTHER', 94, 94),
-    (77, u'War II', 'OTHER', 1, 2),
-    (12, u'Solent City', 'OTHER', 21, 22),
-    (143, u'WestQuay', 'OTHER', 25, 25),
-    (143, u'Southampton District Energy Scheme', 'OTHER', 15, 18),
-    (303, u'North', 'OTHER', 28, 28),
-    (303, u'Southampton Railway', 'OTHER', 18, 19),
-    (303, u'Newbury', 'OTHER', 16, 16),
-    (303, u'Didcot', 'OTHER', 14, 14),
-    (165, u'Channel', 'OTHER', 19, 19),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (212, u'The Joiners', 'OTHER', 21, 22)]
-question: In the 1100s, the port of Southampton included everything between Lymington and what area?
-expected: Langstone
-expected sentence: The definition of the port of Southampton was apparently broader than today and embraced all of the area between Lymington and Langstone.
-actual: (92, u'King', 'OTHER', 26, 26)
-expected id: 93
-extracted id: [93, 94, 92, 11, 77, 12, 143, 303, 165, 98, 212, 236, 5, 25, 2, 75, 133, 172, 176, 106]
-predicted question type: OTHER
-
-
-
-all results:
-[   (95, u'March', 'OTHER', 10, 10),
-    (95, u'Hen', 'OTHER', 18, 18),
-    (92, u'Sheriff', 'OTHER', 43, 43),
-    (92, u'Port', 'OTHER', 3, 3),
-    (92, u'Port', 'OTHER', 70, 70),
-    (92, u'June', 'OTHER', 94, 94),
-    (98, u'Government', 'OTHER', 72, 72),
-    (98, u'Royal Grants', 'OTHER', 3, 4),
-    (98, u'Hampshire County Council', 'OTHER', 60, 62),
-    (98, u'County Councils', 'OTHER', 52, 53),
-    (98, u'Victorian', 'OTHER', 41, 41),
-    (97, u'County', 'OTHER', 49, 49),
-    (97, u'The Town', 'OTHER', 46, 47),
-    (97, u'Town of Southampton', 'OTHER', 52, 54),
-    (97, u'June', 'OTHER', 36, 36),
-    (96, u'County', 'OTHER', 23, 23),
-    (50, u'Sir', 'OTHER', 39, 39),
-    (50, u'Agincourt', 'OTHER', 11, 11),
-    (50, u'High Street', 'OTHER', 63, 64),
-    (50, u'Red Lion', 'OTHER', 57, 58)]
-question: Under what king was a charter granted in 1446/7 that separated Southampton and Portsmouth from Hampshire?
-expected: Henry VI
-expected sentence: By a charter of Henry VI, granted on 9 March 1446/7 (25+26 Hen.
-actual: (95, u'March', 'OTHER', 10, 10)
-expected id: 95
-extracted id: [95, 92, 98, 97, 96, 11, 50, 239, 26, 283, 181, 269, 270, 303, 41, 42, 124, 129, 86, 100]
-predicted question type: OTHER
+[   (283, u'Edward', u'PERSON', 13, 13),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (86, u'University of Southampton', 'OTHER', 12, 14),
+    (86, u'1952', 'NUMBER', 4, 4),
+    (86, u'Royal Charter', 'OTHER', 1, 2),
+    (201, u'University of Southampton', 'OTHER', 9, 11),
+    (201, u'Nuffield Theatre', 'OTHER', 4, 5),
+    (283, u'St Anne', 'OTHER', 7, 8),
+    (283, u'King', 'OTHER', 12, 12),
+    (283, u'two', 'NUMBER', 18, 18),
+    (   283,
+        u'Itchen College and Richard Taunton Sixth Form College',
+        'OTHER',
+        23,
+        30),
+    (285, u'Southampton City College', 'OTHER', 0, 2),
+    (310, u'Queen', 'OTHER', 27, 27),
+    (310, u'Cornwall', u'LOCATION', 20, 20),
+    (310, u'HRH The Duchess', 'OTHER', 16, 18),
+    (310, u'October', 'OTHER', 35, 35),
+    (310, u'Queen', 'OTHER', 29, 29),
+    (310, u'2007', 'NUMBER', 23, 23),
+    (310, u'December', 'OTHER', 22, 22)]
+question: What is the new name of University College at Highfield?
+expected: University of Southampton
+expected sentence: A Royal Charter in 1952 upgraded University College at Highfield to the University of Southampton.
+actual: (283, u'Edward', u'PERSON', 13, 13)
+expected id: 86
+extracted id: [86, 201, 283, 285, 310, 276, 277, 284, 286, 255, 130, 4, 5, 274, 22, 278, 311, 65, 327, 206]
+predicted question type: PERSON
 
 
 
@@ -22495,37 +23007,6 @@ actual: (98, u'England', u'LOCATION', 55, 55)
 expected id: 98
 extracted id: [98, 88, 45, 12, 101, 252, 288, 97, 105, 99, 103, 111, 133, 280, 301, 8, 104, 136, 154, 247]
 predicted question type: LOCATION
-
-
-
-all results:
-[   (92, u'Port', 'OTHER', 70, 70),
-    (92, u'King', 'OTHER', 57, 57),
-    (92, u'King', 'OTHER', 40, 40),
-    (92, u'King', 'OTHER', 26, 26),
-    (92, u'June', 'OTHER', 94, 94),
-    (92, u'Port', 'OTHER', 3, 3),
-    (107, u'Mayor', 'OTHER', 30, 30),
-    (107, u'Mayor', 'OTHER', 4, 4),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'October', 'OTHER', 35, 35),
-    (310, u'Queen', 'OTHER', 29, 29),
-    (310, u'December', 'OTHER', 22, 22),
-    (310, u'Queen', 'OTHER', 11, 11),
-    (310, u'Cunard', 'OTHER', 0, 0),
-    (4, u'Sotonian', 'OTHER', 28, 28),
-    (4, u'Soton', 'OTHER', 18, 18),
-    (4, u'So', 'OTHER', 12, 12),
-    (249, u'Men', 'OTHER', 13, 13),
-    (249, u'Fitness', 'OTHER', 16, 16)]
-question: What's the name of the 578th sheriff of Southampton?
-expected: Catherine McEwing
-expected sentence: Catherine McEwing is the current and 578th sherriff.
-actual: (92, u'King', 'OTHER', 26, 26)
-expected id: 109
-extracted id: [109, 92, 107, 310, 4, 217, 249, 22, 65, 130, 311, 5, 211, 106, 236, 25, 35, 64, 87, 88]
-predicted question type: OTHER
 
 
 
@@ -22839,37 +23320,6 @@ expected sentence: It has held the record for the highest temperature in the UK 
 actual: (140, u'C', 'OTHER', 19, 19)
 expected id: 140
 extracted id: [140, 50, 121, 97, 267, 311, 92, 65, 178, 147, 189, 11, 266, 268, 271, 272, 306]
-predicted question type: OTHER
-
-
-
-all results:
-[   (144, u'British Gas', 'OTHER', 13, 14),
-    (249, u'Men', 'OTHER', 13, 13),
-    (249, u'Fitness', 'OTHER', 16, 16),
-    (154, u'Hampshire County Council', 'OTHER', 0, 2),
-    (223, u'St Mary', 'OTHER', 58, 59),
-    (223, u'Queens Award', 'OTHER', 10, 11),
-    (223, u'FM', 'OTHER', 32, 32),
-    (223, u'Rock', 'OTHER', 86, 86),
-    (223, u'Ethnic', 'OTHER', 39, 39),
-    (223, u'Unity', 'OTHER', 13, 13),
-    (223, u'FM', 'OTHER', 5, 5),
-    (223, u'Dance', 'OTHER', 88, 88),
-    (223, u'Community Radio', 'OTHER', 15, 16),
-    (223, u'September', 'OTHER', 76, 76),
-    (223, u'Voice', 'OTHER', 43, 43),
-    (223, u'Top', 'OTHER', 91, 91),
-    (223, u'FM', 'OTHER', 44, 44),
-    (223, u'FM', 'OTHER', 74, 74),
-    (104, u'May', 'OTHER', 6, 6),
-    (7, u'WestQuay', 'OTHER', 10, 10)]
-question: In the 2006 study, Southampton was discovered to be one of the lowest carbon emitters out of major cities in what large geographical area?
-expected: United Kingdom
-expected sentence: In a 2006 survey of carbon emissions in major UK cities conducted by British Gas, Southampton was ranked as being one of the lowest carbon emitting cities in the United Kingdom.
-actual: (144, u'British Gas', 'OTHER', 13, 14)
-expected id: 144
-extracted id: [144, 251, 249, 154, 223, 141, 104, 7, 120, 121, 181, 209, 327, 77, 85, 13, 12, 11, 194, 174]
 predicted question type: OTHER
 
 
@@ -23286,33 +23736,95 @@ predicted question type: OTHER
 
 
 all results:
-[   (179, u'West Quay Retail Park', 'OTHER', 25, 28),
-    (179, u'Phase Two', 'OTHER', 3, 4),
-    (179, u'Pirelli', 'OTHER', 13, 13),
-    (179, u'Watermark Westquay', 'OTHER', 35, 36),
-    (104, u'May', 'OTHER', 6, 6),
+[   (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (200, u'Les Mis\xe9rables', u'PERSON', 40, 41),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (174, u'Ordnance Survey', 'OTHER', 7, 8),
+    (174, u'February', 'OTHER', 35, 35),
+    (174, u'2011', 'NUMBER', 36, 36),
+    (168, u'Carnival', 'OTHER', 29, 29),
+    (168, u'Department for Transport', 'OTHER', 21, 23),
+    (168, u'Marine Accident Investigation Branch', 'OTHER', 15, 18),
+    (168, u'Maritime', 'OTHER', 9, 9),
+    (168, u'Coastguard Agency', 'OTHER', 11, 12),
+    (168, u'Southampton', u'LOCATION', 0, 0),
     (310, u'Queen', 'OTHER', 27, 27),
+    (310, u'Cornwall', u'LOCATION', 20, 20),
     (310, u'HRH The Duchess', 'OTHER', 16, 18),
     (310, u'October', 'OTHER', 35, 35),
     (310, u'Queen', 'OTHER', 29, 29),
-    (310, u'December', 'OTHER', 22, 22),
-    (310, u'Queen', 'OTHER', 11, 11),
-    (310, u'Cunard', 'OTHER', 0, 0),
-    (65, u'High Street', 'OTHER', 1, 2),
-    (140, u'June', 'OTHER', 13, 13),
-    (140, u'C', 'OTHER', 19, 19),
-    (140, u'F', 'OTHER', 25, 25),
-    (197, u'Southampton', 'OTHER', 2, 2),
-    (197, u'Boat Show', 'OTHER', 3, 4),
-    (197, u'September', 'OTHER', 8, 8),
-    (198, u'Mayflower Park', 'OTHER', 8, 9)]
+    (310, u'2007', 'NUMBER', 23, 23),
+    (310, u'December', 'OTHER', 22, 22)]
+question: What's the name of the UK's national mapping agency?
+expected: Ordnance Survey
+expected sentence: Other major employers in the city include Ordnance Survey, the UK's national mapping agency, whose headquarters is located in a new building on the outskirts of the city, opened in February 2011.
+actual: (310, u'Elizabeth', u'PERSON', 30, 30)
+expected id: 174
+extracted id: [174, 168, 310, 200, 249, 130, 4, 22, 311, 65, 217, 265, 269, 280, 295, 290, 196, 162, 270, 5]
+predicted question type: PERSON
+
+
+
+all results:
+[   (142, u'West Quay', u'LOCATION', 9, 10),
+    (142, u'UK', u'LOCATION', 24, 24),
+    (140, u'UK', u'LOCATION', 11, 11),
+    (11, u'England', u'LOCATION', 38, 38),
+    (11, u'Portsmouth', u'LOCATION', 6, 6),
+    (12, u'South Hampshire', u'LOCATION', 13, 14),
+    (2, u'River Hamble', u'LOCATION', 22, 23),
+    (2, u'River Itchen', u'LOCATION', 17, 18),
+    (75, u'Portswood', u'LOCATION', 10, 10),
+    (93, u'Lymington', u'LOCATION', 19, 19),
+    (93, u'Langstone', u'LOCATION', 21, 21),
+    (172, u'England', u'LOCATION', 28, 28),
+    (303, u'Hill Lane', u'LOCATION', 46, 47),
+    (13, u'United Kingdom', u'LOCATION', 16, 17),
+    (176, u'Swaythling', 'OTHER', 3, 3),
+    (176, u'Transit', 'OTHER', 19, 19),
+    (143, u'Port', 'OTHER', 7, 7),
+    (143, u'Southampton District Energy Scheme', 'OTHER', 15, 18),
+    (143, u'WestQuay', 'OTHER', 25, 25),
+    (177, u'2013', 'NUMBER', 5, 5)]
+question: What area of Southampton holds a Ford assembly plant?
+expected: Swaythling
+expected sentence: The area of Swaythling is home to Ford's Southampton Assembly Plant, where the majority of their Transit models are manufactured.
+actual: (142, u'West Quay', u'LOCATION', 9, 10)
+expected id: 176
+extracted id: [176, 143, 142, 177, 197, 104, 140, 179, 198, 11, 12, 236, 2, 75, 77, 93, 133, 172, 303, 13]
+predicted question type: LOCATION
+
+
+
+all results:
+[   (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (35, u'Henry VIII', u'PERSON', 23, 24),
+    (179, u'West Quay Retail Park', 'OTHER', 25, 28),
+    (179, u'Phase Two', 'OTHER', 3, 4),
+    (179, u'Pirelli', 'OTHER', 13, 13),
+    (179, u'Watermark Westquay', 'OTHER', 35, 36),
+    (22, u'Hampshire', u'LOCATION', 9, 9),
+    (104, u'four', 'NUMBER', 36, 36),
+    (104, u'one third', 'NUMBER', 8, 9),
+    (104, u'three years', 'NUMBER', 32, 33),
+    (104, u'one councillor', 'NUMBER', 14, 15),
+    (104, u'May', 'OTHER', 6, 6),
+    (104, u'four', 'NUMBER', 23, 23),
+    (310, u'Queen', 'OTHER', 27, 27),
+    (310, u'Cornwall', u'LOCATION', 20, 20),
+    (310, u'HRH The Duchess', 'OTHER', 16, 18),
+    (310, u'October', 'OTHER', 35, 35),
+    (310, u'Queen', 'OTHER', 29, 29),
+    (310, u'2007', 'NUMBER', 23, 23)]
 question: What was the name of the third phase of West Quay development that got put on hold because of the recession?
 expected: Watermark Westquay
 expected sentence: The centre was Phase Two of the West Quay development of the former Pirelli undersea cables factory; the first phase of this was the West Quay Retail Park, while the third phase (Watermark Westquay) was put on hold due to the recession.
-actual: (179, u'Phase Two', 'OTHER', 3, 4)
+actual: (310, u'Elizabeth', u'PERSON', 30, 30)
 expected id: 179
 extracted id: [179, 22, 104, 310, 65, 140, 197, 198, 167, 117, 142, 57, 182, 335, 336, 337, 321, 35, 299, 190]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -23348,33 +23860,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (194, u'Medieval Merchant', 'OTHER', 69, 70),
+[   (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (92, u'John', u'PERSON', 27, 27),
+    (106, u'Royston Smith', u'PERSON', 10, 11),
+    (106, u'Caroline Nokes', u'PERSON', 48, 49),
+    (106, u'Alan Whitehead', u'PERSON', 30, 31),
+    (106, u'Romsey', u'PERSON', 54, 54),
+    (35, u'Henry VIII', u'PERSON', 23, 24),
+    (194, u'Medieval Merchant', 'OTHER', 69, 70),
+    (194, u'one', 'NUMBER', 62, 62),
+    (194, u'England', u'LOCATION', 13, 13),
     (194, u'Tudor House Museum', 'OTHER', 24, 26),
     (194, u'House', 'OTHER', 73, 73),
     (194, u'House Tower', 'OTHER', 47, 48),
     (194, u'Solent Sky', 'OTHER', 76, 77),
     (194, u'God', 'OTHER', 44, 44),
+    (194, u'30', 'NUMBER', 30, 30),
     (194, u'July', 'OTHER', 31, 31),
-    (194, u'Southampton Maritime Museum', 'OTHER', 40, 42),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'December', 'OTHER', 22, 22),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'Queen', 'OTHER', 29, 29),
-    (310, u'October', 'OTHER', 35, 35),
-    (310, u'Queen', 'OTHER', 11, 11),
-    (310, u'Cunard', 'OTHER', 0, 0),
-    (195, u'RMS Titanic', 'OTHER', 36, 37),
-    (195, u'Magistrates', 'OTHER', 21, 21),
-    (195, u'SeaCity Museum', 'OTHER', 1, 2),
-    (195, u'Hampshire Constabulary', 'OTHER', 17, 18),
-    (195, u'Court', 'OTHER', 23, 23)]
+    (194, u'Southampton Maritime Museum', 'OTHER', 40, 42)]
 question: What's the name of the aviation museum in Southampton?
 expected: Solent Sky
 expected sentence: The city is home to the longest surviving stretch of medieval walls in England, as well as a number of museums such as Tudor House Museum, reopened on 30 July 2011 after undergoing extensive restoration and improvement; Southampton Maritime Museum; God's House Tower, an archaeology museum about the city's heritage and located in one of the tower walls; the Medieval Merchant's House; and Solent Sky, which focuses on aviation.
-actual: (194, u'Medieval Merchant', 'OTHER', 69, 70)
+actual: (310, u'Elizabeth', u'PERSON', 30, 30)
 expected id: 194
 extracted id: [194, 310, 195, 259, 34, 196, 4, 217, 249, 22, 65, 130, 311, 5, 211, 92, 106, 236, 25, 35]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -23472,33 +23984,64 @@ predicted question type: OTHER
 
 
 all results:
-[   (211, u'Bournemouth Symphony Orchestra', 'OTHER', 8, 10),
+[   (215, u'Craig David', u'PERSON', 20, 21),
+    (215, u'Rob Skipper', u'PERSON', 31, 32),
+    (215, u'Howard Jones', u'PERSON', 38, 39),
+    (210, u'Amy Winehouse', u'PERSON', 32, 33),
+    (210, u'Pink Floyd', u'PERSON', 13, 14),
+    (210, u'David Bowie', u'PERSON', 16, 17),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (241, u'Anthony Allen', u'PERSON', 5, 6),
+    (213, u'Coldplay', u'PERSON', 26, 26),
+    (213, u'PJ Harvey', u'PERSON', 18, 19),
+    (213, u'Franz Ferdinand', u'PERSON', 34, 35),
+    (213, u'Hampton', u'PERSON', 38, 38),
+    (213, u'Lennon', u'PERSON', 42, 42),
+    (213, u'Kate Nash', u'PERSON', 50, 51),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (211, u'Bournemouth Symphony Orchestra', 'OTHER', 8, 10),
     (211, u'City of Southampton Orchestra', 'OTHER', 12, 15),
     (211, u'Southampton Concert Orchestra', 'OTHER', 17, 19),
-    (211, u'Southampton Philharmonic Choir', 'OTHER', 21, 23),
-    (211, u'Southampton Choral Society', 'OTHER', 25, 27),
-    (209, u'Gaumont Theatre', 'OTHER', 14, 15),
-    (209, u'Mayflower Theatre', 'OTHER', 9, 10),
-    (209, u'Southampton', 'OTHER', 0, 0),
-    (210, u'The Midnight Beast', 'OTHER', 37, 39),
-    (210, u'The Killers', 'OTHER', 25, 26),
-    (210, u'Kaiser Chiefs', 'OTHER', 29, 30),
-    (210, u'Lostprophets', 'OTHER', 35, 35),
-    (210, u'Manic Street Preachers', 'OTHER', 21, 23),
-    (210, u'Modestep', 'OTHER', 41, 41),
-    (210, u'Delirious', 'OTHER', 19, 19),
-    (210, u'All Time Low', 'OTHER', 44, 46),
-    (11, u'Southampton', 'OTHER', 4, 4),
-    (12, u'Solent City', 'OTHER', 21, 22),
-    (2, u'River Test', 'OTHER', 14, 15),
-    (2, u'Southampton Water', 'OTHER', 7, 8)]
+    (211, u'Southampton Philharmonic Choir', 'OTHER', 21, 23)]
+question: What orchestra with a name that starts with "B" has played at the Guildhall?
+expected: Bournemouth Symphony Orchestra
+expected sentence: It also hosts classical concerts presented by the Bournemouth Symphony Orchestra, City of Southampton Orchestra, Southampton Concert Orchestra, Southampton Philharmonic Choir and Southampton Choral Society.
+actual: (215, u'Craig David', u'PERSON', 20, 21)
+expected id: 211
+extracted id: [211, 215, 209, 210, 310, 237, 214, 65, 130, 227, 4, 311, 241, 299, 213, 22, 249, 217, 255, 223]
+predicted question type: PERSON
+
+
+
+all results:
+[   (11, u'Portsmouth', u'LOCATION', 6, 6),
+    (11, u'England', u'LOCATION', 38, 38),
+    (12, u'South Hampshire', u'LOCATION', 13, 14),
+    (2, u'River Hamble', u'LOCATION', 22, 23),
+    (2, u'River Itchen', u'LOCATION', 17, 18),
+    (133, u'Southampton', u'LOCATION', 0, 0),
+    (13, u'United Kingdom', u'LOCATION', 16, 17),
+    (172, u'Southampton', u'LOCATION', 12, 12),
+    (172, u'England', u'LOCATION', 28, 28),
+    (302, u'Portsmouth', u'LOCATION', 12, 12),
+    (302, u'Gosport', u'LOCATION', 14, 14),
+    (303, u'Hill Lane', u'LOCATION', 46, 47),
+    (75, u'Portswood', u'LOCATION', 10, 10),
+    (75, u'Southampton', u'LOCATION', 13, 13),
+    (77, u'Southampton', u'LOCATION', 4, 4),
+    (221, u'River Itchen', u'LOCATION', 23, 24),
+    (221, u'Northam', u'LOCATION', 13, 13),
+    (236, u'Southampton', u'LOCATION', 7, 7),
+    (211, u'Bournemouth Symphony Orchestra', 'OTHER', 8, 10),
+    (211, u'City of Southampton Orchestra', 'OTHER', 12, 15)]
 question: What choir from the area has sung at the Guildhall?
 expected: Southampton Philharmonic Choir
 expected sentence: It also hosts classical concerts presented by the Bournemouth Symphony Orchestra, City of Southampton Orchestra, Southampton Concert Orchestra, Southampton Philharmonic Choir and Southampton Choral Society.
-actual: (211, u'Bournemouth Symphony Orchestra', 'OTHER', 8, 10)
+actual: (11, u'Portsmouth', u'LOCATION', 6, 6)
 expected id: 211
 extracted id: [211, 209, 210, 11, 12, 2, 133, 13, 14, 19, 172, 302, 303, 176, 186, 323, 75, 77, 221, 236]
-predicted question type: OTHER
+predicted question type: LOCATION
 
 
 
@@ -23534,64 +24077,95 @@ predicted question type: OTHER
 
 
 all results:
-[   (215, u'B', 'OTHER', 18, 18),
-    (215, u'R', 'OTHER', 14, 14),
-    (215, u'Will Champion', 'OTHER', 25, 26),
-    (215, u'Holloways', 'OTHER', 29, 29),
-    (213, u'Skulls', 'OTHER', 59, 59),
-    (213, u'Band', 'OTHER', 57, 57),
-    (213, u'Libertines', 'OTHER', 32, 32),
-    (213, u'Verve', 'OTHER', 29, 29),
-    (213, u'Manic Street Preachers', 'OTHER', 22, 24),
-    (213, u'Joiners', 'OTHER', 1, 1),
-    (213, u'Girls', 'OTHER', 55, 55),
-    (213, u'Scouting', 'OTHER', 53, 53),
-    (213, u'Suede', 'OTHER', 16, 16),
-    (213, u'Green Day', 'OTHER', 13, 14),
-    (213, u'Oasis', 'OTHER', 9, 9),
-    (213, u'Radiohead', 'OTHER', 11, 11),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'October', 'OTHER', 35, 35),
-    (310, u'Queen', 'OTHER', 29, 29)]
+[   (215, u'Craig David', u'PERSON', 20, 21),
+    (215, u'Rob Skipper', u'PERSON', 31, 32),
+    (215, u'Howard Jones', u'PERSON', 38, 39),
+    (213, u'Lennon', u'PERSON', 42, 42),
+    (213, u'Hampton', u'PERSON', 38, 38),
+    (213, u'PJ Harvey', u'PERSON', 18, 19),
+    (213, u'Franz Ferdinand', u'PERSON', 34, 35),
+    (213, u'Kate Nash', u'PERSON', 50, 51),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (92, u'John', u'PERSON', 27, 27),
+    (106, u'Royston Smith', u'PERSON', 10, 11),
+    (106, u'Caroline Nokes', u'PERSON', 48, 49),
+    (106, u'Alan Whitehead', u'PERSON', 30, 31),
+    (106, u'Romsey', u'PERSON', 54, 54),
+    (35, u'Henry VIII', u'PERSON', 23, 24),
+    (64, u'John Choules', u'PERSON', 14, 15),
+    (215, u'B', 'OTHER', 18, 18),
+    (215, u'R', 'OTHER', 14, 14)]
 question: What's the name of the Coldplay drummer from Southampton?
 expected: Will Champion
 expected sentence: The city is home or birthplace to a number of contemporary musicians such as R'n'B singer Craig David, Coldplay drummer Will Champion, former Holloways singer Rob Skipper as well as 1980s popstar Howard Jones.
-actual: (215, u'R', 'OTHER', 14, 14)
+actual: (215, u'Craig David', u'PERSON', 20, 21)
 expected id: 215
 extracted id: [215, 213, 310, 4, 217, 249, 22, 65, 130, 311, 5, 211, 92, 106, 236, 25, 35, 64, 87, 88]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
 all results:
-[   (225, u'The Coast', 'OTHER', 64, 65),
+[   (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (15, u'Clausentum', u'PERSON', 23, 23),
+    (300, u'Woolston', u'PERSON', 39, 39),
+    (220, u'14 km', 'NUMBER', 18, 19),
+    (220, u'Meridian', 'OTHER', 5, 5),
+    (220, u'nine miles', 'NUMBER', 15, 16),
+    (220, u'Whiteley', u'LOCATION', 12, 12),
+    (242, u'Eastleigh RFC', 'OTHER', 26, 27),
+    (242, u'Millbrook RFC', 'OTHER', 23, 24),
+    (242, u'10', 'NUMBER', 20, 20),
+    (242, u'2009 /', 'NUMBER', 18, 19),
+    (242, u'1', 'NUMBER', 16, 16),
+    (242, u'Hampshire', u'LOCATION', 14, 14),
+    (242, u'Southampton RFC', 'OTHER', 10, 11),
+    (242, u'2', 'NUMBER', 8, 8),
+    (242, u'London South West', u'LOCATION', 4, 6),
+    (310, u'Queen', 'OTHER', 27, 27),
+    (310, u'Cornwall', u'LOCATION', 20, 20)]
+question: What's the name of the local ITV division?
+expected: Meridian
+expected sentence: The local ITV franchise is Meridian, which has its headquarters in Whiteley, around nine miles (14 km) from the city.
+actual: (310, u'Elizabeth', u'PERSON', 30, 30)
+expected id: 220
+extracted id: [220, 242, 310, 228, 232, 240, 130, 4, 22, 311, 65, 217, 249, 101, 137, 12, 15, 300, 167, 172]
+predicted question type: PERSON
+
+
+
+all results:
+[   (216, u'Thomas Tantrum', u'PERSON', 23, 24),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (225, u'The Coast', 'OTHER', 64, 65),
     (225, u'The Saint', 'OTHER', 12, 13),
     (225, u'The Breeze', 'OTHER', 8, 9),
+    (225, u'106', 'NUMBER', 66, 66),
     (225, u'Ocean FM', 'OTHER', 43, 44),
+    (225, u'105', 'NUMBER', 35, 35),
     (225, u'Hot', 'OTHER', 17, 17),
     (225, u'Wave', 'OTHER', 34, 34),
     (225, u'Jack FM', 'OTHER', 54, 55),
     (225, u'Capital', 'OTHER', 22, 22),
+    (225, u'106', 'NUMBER', 53, 53),
     (225, u'Galaxy', 'OTHER', 28, 28),
     (225, u'Power FM', 'OTHER', 25, 26),
     (259, u'Civic Centre', 'OTHER', 14, 15),
     (259, u'Southampton', 'OTHER', 4, 4),
-    (216, u'The Delays', 'OTHER', 13, 14),
-    (216, u'Skulls', 'OTHER', 11, 11),
-    (216, u'Band', 'OTHER', 9, 9),
-    (216, u'Bury Tomorrow', 'OTHER', 16, 17),
-    (216, u'Hand', 'OTHER', 21, 21),
-    (216, u'Kids Can', 'OTHER', 31, 32),
-    (216, u'Fly', 'OTHER', 35, 35),
-    (227, u'The Dell', 'OTHER', 41, 42)]
+    (216, u'The Delays', 'OTHER', 13, 14)]
 question: What was the old name of Heart Hampshire?
 expected: Ocean FM
 expected sentence: Commercial radio stations broadcasting to the city include The Breeze, previously The Saint and currently broadcasting Hot adult contemporary music, Capital, previously Power FM and Galaxy and broadcasting popular music, Wave 105 and Heart Hampshire, the latter previously Ocean FM and both broadcasting adult contemporary music, and 106 Jack FM (www.jackradio.com), previously The Coast 106.
-actual: (225, u'The Breeze', 'OTHER', 8, 9)
+actual: (216, u'Thomas Tantrum', u'PERSON', 23, 24)
 expected id: 225
 extracted id: [225, 259, 216, 227, 232, 250, 310, 22, 130, 4, 311, 65, 217, 249, 88, 90, 0, 256, 261, 263]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -24061,33 +24635,33 @@ predicted question type: OTHER
 
 
 all results:
-[   (314, u'Ventura', 'OTHER', 12, 12),
+[   (314, u'Azura', u'PERSON', 6, 6),
+    (71, u'Mary', u'PERSON', 21, 21),
+    (71, u'Elizabeth', u'PERSON', 28, 28),
+    (309, u'Elizabeth', u'PERSON', 14, 14),
+    (310, u'Elizabeth', u'PERSON', 30, 30),
+    (310, u'Victoria', u'PERSON', 12, 12),
+    (35, u'Henry VIII', u'PERSON', 23, 24),
+    (217, u'James Zabiela', u'PERSON', 0, 1),
+    (314, u'3', 'NUMBER', 21, 21),
+    (314, u'Ventura', 'OTHER', 12, 12),
     (314, u'July', 'OTHER', 22, 22),
+    (314, u'2012', 'NUMBER', 23, 23),
+    (314, u'Oceana', u'LOCATION', 8, 8),
+    (314, u'Aurora', u'LOCATION', 4, 4),
+    (314, u'Arcadia', u'LOCATION', 2, 2),
+    (80, u'24', 'NUMBER', 8, 8),
     (80, u'Live Another Day', 'OTHER', 10, 12),
     (80, u'Southampton', 'OTHER', 0, 0),
     (80, u'Day', 'OTHER', 14, 14),
-    (313, u'P & O Cruises', 'OTHER', 11, 14),
-    (313, u'Southampton', 'OTHER', 32, 32),
-    (313, u'Southampton', 'OTHER', 3, 3),
-    (71, u'Cunard', 'OTHER', 13, 13),
-    (71, u'Blue Riband', 'OTHER', 16, 17),
-    (71, u'RMS Queen', 'OTHER', 19, 20),
-    (71, u'RMS Queen', 'OTHER', 26, 27),
-    (307, u'Princess Cruises , P & O Cruises', 'OTHER', 11, 17),
-    (307, u'Cunard Line', 'OTHER', 19, 20),
-    (309, u'Cunard', 'OTHER', 10, 10),
-    (309, u'RMS Queen', 'OTHER', 12, 13),
-    (309, u'November', 'OTHER', 6, 6),
-    (310, u'Queen', 'OTHER', 27, 27),
-    (310, u'HRH The Duchess', 'OTHER', 16, 18),
-    (310, u'October', 'OTHER', 35, 35)]
+    (80, u'9', 'NUMBER', 15, 15)]
 question: Along with the Oriana, what's the other P&O liner with a name that starts with the same letter?
 expected: Oceana
 expected sentence: Adonia, Arcadia, Aurora, Azura, Oceana, Oriana and Ventura all left the city in a procession on 3 July 2012.
-actual: (314, u'Ventura', 'OTHER', 12, 12)
+actual: (314, u'Azura', u'PERSON', 6, 6)
 expected id: 314
 extracted id: [314, 80, 313, 71, 307, 309, 310, 35, 292, 239, 336, 115, 89, 124, 130, 65, 311, 217, 22, 249]
-predicted question type: OTHER
+predicted question type: PERSON
 
 
 
@@ -24181,6 +24755,37 @@ actual: (301, u'July', 'OTHER', 8, 8)
 expected id: 317
 extracted id: [317, 301, 315, 127, 123, 27, 228, 316, 113, 42, 318, 320, 321, 319, 330, 35, 143, 2, 120, 121]
 predicted question type: OTHER
+
+
+
+all results:
+[   (139, u'UK', u'LOCATION', 19, 19),
+    (57, u'West Quay', u'LOCATION', 9, 10),
+    (316, u'Cowes', u'LOCATION', 22, 22),
+    (316, u'East Cowes', u'LOCATION', 19, 20),
+    (300, u'St Denys', u'LOCATION', 28, 29),
+    (300, u'Millbrook', u'LOCATION', 31, 31),
+    (320, u'Southampton', u'LOCATION', 22, 22),
+    (320, u'Portsmouth', u'LOCATION', 8, 8),
+    (254, u'Hamble', u'LOCATION', 9, 9),
+    (295, u'Southampton', u'LOCATION', 0, 0),
+    (140, u'UK', u'LOCATION', 11, 11),
+    (301, u'Fareham', u'LOCATION', 42, 42),
+    (301, u'Totton', u'LOCATION', 34, 34),
+    (301, u'Fawley', u'LOCATION', 31, 31),
+    (164, u'UK', u'LOCATION', 41, 41),
+    (71, u'Southampton', u'LOCATION', 0, 0),
+    (336, u'West Quay', u'LOCATION', 4, 5),
+    (323, u'Eastern Docks', 'OTHER', 8, 9),
+    (316, u'Wight', u'PERSON', 28, 28),
+    (316, u'Isle', 'OTHER', 26, 26)]
+question: What location that was once filled with passengers, dry docks, and trains is now a holding area for new cars?
+expected: Eastern Docks
+expected sentence: Reception areas for new cars now fill the Eastern Docks where passengers, dry docks and trains used to be.
+actual: (139, u'UK', u'LOCATION', 19, 19)
+expected id: 323
+extracted id: [323, 139, 57, 316, 300, 169, 320, 254, 295, 140, 179, 197, 198, 104, 281, 282, 301, 164, 71, 336]
+predicted question type: LOCATION
 
 
 
@@ -24548,5 +25153,5 @@ predicted question type: LOCATION
 % entity identified in first sentence: 0.202410492733
 % entity identified in correct sentence: 0.275197920359
 % entity identified in first and correct sentence: 0.189767222025
-% above but ranking failed: 0.0937019969278
-% correct best answer: 0.106345267636
+% above but ranking failed: 0.095947063689
+% correct best answer: 0.104336523691
