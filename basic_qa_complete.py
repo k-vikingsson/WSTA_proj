@@ -1,10 +1,10 @@
 from nltk.corpus import stopwords
 from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
+from sent_retrieval import *
 from ner_test04 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type
 
-import sent_retrieval as sr
 import numpy as np
 import nltk
 import json
@@ -15,9 +15,6 @@ pp = pprint.PrettyPrinter(indent=4)
 STOPWORDS = set(stopwords.words('english'))
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
-
-os.environ['CLASSPATH'] = '/usr/share/stanford-ner/stanford-ner.jar'
-os.environ['STANFORD_MODELS'] = '/usr/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
 
 classifier = os.environ.get('STANFORD_MODELS')
 jar = os.environ.get('CLASSPATH')
@@ -43,12 +40,14 @@ def test_with_dev():
 	for trial in tqdm(dev):
 		# make posting list
 		doc_set = trial['sentences']
+		posting = prepare_doc(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
-			possible_sents = retrieve_sentences(question['question'], doc_set, 20)
+			query = process_query(question['question'])
+			possible_sents = eval_query(query, posting, no_docs)[:20]
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -151,13 +150,13 @@ def make_csv():
 	for trial in tqdm(dev):
 		# make posting list
 		doc_set = trial['sentences']
-		posting = sr.prepare_doc(doc_set)
-		query = process_query(question['question'])
+		posting = prepare_doc(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
+			query = process_query(question['question'])
 			possible_sents = eval_query(query, posting, no_docs)[:20]
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
