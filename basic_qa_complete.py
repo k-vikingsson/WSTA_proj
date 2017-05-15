@@ -29,6 +29,7 @@ def test_with_dev():
 	num_match_first_sentence_entity = 0.0
 	num_match_correct_sentence_entity = 0.0
 	num_match_first_correct_sentence_entity = 0.0
+	num_entity_extracted_not_correct_sent = 0.0
 	num_ranking_failed = 0.0
 	num_correct_answer = 0.0
 	for trial in tqdm(dev):
@@ -92,11 +93,8 @@ def test_with_dev():
 				doc_set,
 				possible_sents)
 
-			if best_match[1] == question['answer']:
-				# exact match
-				num_correct_answer += 1
-			elif retrieval_and_ner_correct:
-				num_ranking_failed += 1
+			if entity_extracted and not entity_extracted_in_correct_sent:
+				num_entity_extracted_not_correct_sent += 1
 				top = get_top_answers(
 					question['question'],
 					matches,
@@ -116,9 +114,17 @@ def test_with_dev():
 				# pp.pprint(matches[:5])
 				print "\n\n"
 
+			if best_match[1] == question['answer']:
+				# exact match
+				num_correct_answer += 1
+			elif retrieval_and_ner_correct:
+				num_ranking_failed += 1
+				
+
 	print "% sentence retrieved:", num_match_sentences / total
 	print "% sentence retrieved as first:", num_match_first_sentence / total
 	print "% entity identified:", num_match_entity / total
+	print "% entity identified but not in correct sentence:", num_entity_extracted_not_correct_sent / total
 	print "% entity identified in first sentence:", num_match_first_sentence_entity / total
 	print "% entity identified in correct sentence:", num_match_correct_sentence_entity / total
 	print "% entity identified in first and correct sentence:", num_match_first_correct_sentence_entity / total

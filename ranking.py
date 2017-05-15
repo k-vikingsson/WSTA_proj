@@ -206,4 +206,4 @@ def get_top_answers(question, answers, doc_set, sentences):
 		for a in answers
 	]
 	key_func = cmp_to_key(cmp_answer)
-	return sorted(answers_added, reverse=True, key=key_func)[:20]
+	return sorted(answers_added, reverse=True, key=key_func)
