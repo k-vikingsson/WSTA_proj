@@ -15,7 +15,7 @@ def get_question_type(question_words):
 	"""Determine question type.
 
 	Args:
-		question (str): the question as a string
+		question_words ([str]): list of words in question
 
 	Returns:
 		(str): type of question as a string

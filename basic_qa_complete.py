@@ -16,12 +16,6 @@ STOPWORDS = set(stopwords.words('english'))
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
-classifier = os.environ.get('STANFORD_MODELS')
-jar = os.environ.get('CLASSPATH')
- 
-st = StanfordNERTagger(classifier,jar)
-
-
 from tqdm import tqdm
 def test_with_dev():
 	# load json
@@ -29,21 +23,21 @@ def test_with_dev():
 		dev = json.load(dev_file)
 
 	total = 0.0
-	match_sentences = 0.0
-	match_first_sentence = 0.0
-	match_entity = 0.0
-	match_first_sentence_entity = 0.0
-	match_correct_sentence_entity = 0.0
-	match_first_correct_sentence_entity = 0.0
-	ranking_failed = 0.0
-	match_best_answer = 0.0
+	num_match_sentences = 0.0
+	num_match_first_sentence = 0.0
+	num_match_entity = 0.0
+	num_match_first_sentence_entity = 0.0
+	num_match_correct_sentence_entity = 0.0
+	num_match_first_correct_sentence_entity = 0.0
+	num_ranking_failed = 0.0
+	num_correct_answer = 0.0
 	for trial in tqdm(dev):
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
-		entities = parse_docs(doc_set)
+		all_entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
@@ -52,48 +46,44 @@ def test_with_dev():
 			if len(possible_sents) == 0:
 				continue
 
-			if question['answer_sentence'] in possible_sents:
-				match_sentences += 1
-
-			if question['answer_sentence'] == possible_sents[0]:
-				match_first_sentence += 1
+			# check sentence retrieval
+			sentence_retrieved = question['answer_sentence'] in possible_sents
+			sentence_retrieved_as_first = question['answer_sentence'] == possible_sents[0]
+			num_match_sentences += sentence_retrieved
+			num_match_first_sentence += sentence_retrieved_as_first
 			
 			# search for entities in possible sents
-			matches = []
-
 			# # take only the best match in sentence retrieval
 			# matches = [e for e in entities if e[0] == possible_sents[0]]
 
 			# OR...
-
 			# take all sentences into ranking
-			for sent in possible_sents:
-				matches.extend([e for e in entities if e[0] == sent])
-
-			# determine if correct answer exists in entities
-			matches_entities = {m[1] for m in matches}
-			first_sentence_entities = {m[1] for m in matches if m[0] == possible_sents[0]}
-
-			retrieval_and_ner_correct = False
-			e = None
-			for entity in matches:
-				if entity[1] == question['answer']:
-					e = entity
-					break
-			
-			if e:
-				match_entity += 1
-				if e[0] == question['answer_sentence']:
-					match_correct_sentence_entity += 1
-					if possible_sents[0] == e[0]:
-						match_first_correct_sentence_entity += 1
-						retrieval_and_ner_correct = True
-
-			if question['answer'] in first_sentence_entities:
-				match_first_sentence_entity += 1
-
+			matches = [e for e in all_entities if e[0] in set(possible_sents)]
 			if len(matches) == 0:
 				continue
+			
+			# search for the correct answer in matches
+			correct_entity = None
+			for entity in matches:
+				if entity[1] == question['answer']:
+					correct_entity = entity
+					break
+
+			# check NER result
+			entity_extracted = bool(correct_entity)
+			entity_extracted_in_correct_sent = False
+			entity_extracted_in_first_sent = False
+			entity_extracted_in_first_correct_sent = False
+			
+			if correct_entity:
+				num_match_entity += 1
+				entity_extracted_in_first_sent = correct_entity[0] == possible_sents[0]
+				entity_extracted_in_correct_sent = correct_entity[0] == question['answer_sentence']
+			
+			num_match_correct_sentence_entity += entity_extracted_in_correct_sent
+			num_match_first_sentence_entity += entity_extracted_in_first_sent
+			retrieval_and_ner_correct = entity_extracted_in_correct_sent and entity_extracted_in_first_sent
+			num_match_first_correct_sentence_entity += retrieval_and_ner_correct
 			
 			# find best answer
 			best_match = get_best_answer(
@@ -104,9 +94,9 @@ def test_with_dev():
 
 			if best_match[1] == question['answer']:
 				# exact match
-				match_best_answer += 1
+				num_correct_answer += 1
 			elif retrieval_and_ner_correct:
-				ranking_failed += 1
+				num_ranking_failed += 1
 				top = get_top_answers(
 					question['question'],
 					matches,
@@ -126,14 +116,14 @@ def test_with_dev():
 				# pp.pprint(matches[:5])
 				print "\n\n"
 
-	print "% sentence retrieved:", match_sentences / total
-	print "% sentence retrieved as first:", match_first_sentence / total
-	print "% entity identified:", match_entity / total
-	print "% entity identified in first sentence:", match_first_sentence_entity / total
-	print "% entity identified in correct sentence:", match_correct_sentence_entity / total
-	print "% entity identified in first and correct sentence:", match_first_correct_sentence_entity / total
-	print "% above but ranking failed:", ranking_failed / total
-	print "% correct best answer:", match_best_answer / total
+	print "% sentence retrieved:", num_match_sentences / total
+	print "% sentence retrieved as first:", num_match_first_sentence / total
+	print "% entity identified:", num_match_entity / total
+	print "% entity identified in first sentence:", num_match_first_sentence_entity / total
+	print "% entity identified in correct sentence:", num_match_correct_sentence_entity / total
+	print "% entity identified in first and correct sentence:", num_match_first_correct_sentence_entity / total
+	print "% above but ranking failed:", num_ranking_failed / total
+	print "% correct best answer:", num_correct_answer / total
 
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
