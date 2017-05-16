@@ -132,9 +132,9 @@ def add_answer_properties(question_words, question_type, open_class_words, answe
 	answer_words = word_tokenizer.tokenize(answer['answer'].lower())
 	answer_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[answer['id']]) ]
 	added = dict(answer)
-	added['sent_retrieval_rank'] = (sentences.index(answer[0]))
+	added['sent_retrieval_rank'] = sentences.index(answer['id'])
 	added['appear_in_question'] = contains_all(question_words, answer_words)
-	added['matches_question_type'] = append(answer[2] == question_type)
+	added['matches_question_type'] = answer['type'] == question_type
 	added['dist_to_open_words'] = get_dist_to_question_word(open_class_words, answer_sent_words, answer)
 	return added
 
@@ -168,7 +168,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	return max(answers_added, key=key_func)
 	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
-def get_top_answers(question, answers, doc_set, sentences):
+def get_top_answers(question, answers, doc_set, sentences, n=None):
 	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
 	question_type = get_question_type(question_words)
 	open_class_words = get_open_class_words(question_words)
@@ -183,4 +183,6 @@ def get_top_answers(question, answers, doc_set, sentences):
 		for a in answers
 	]
 	key_func = cmp_to_key(cmp_answer)
-	return sorted(answers_added, reverse=True, key=key_func)[:20]
+	top = sorted(answers_added, reverse=True, key=key_func)
+	if n: top = top[:n]
+	return top

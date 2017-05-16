@@ -14,11 +14,29 @@ pp = pprint.PrettyPrinter(indent=4)
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
+def answer_to_tuple(answer):
+	return (
+		answer['id'],
+		answer['answer'],
+		answer['type'],
+		answer['start_pos'],
+		answer['end_pos'],
+		answer['appear_in_question'],
+		answer['matches_question_type'],
+		answer['dist_to_open_words']
+		)
+
 from tqdm import tqdm
-def test_with(filename):
+import random
+def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	# load json
 	with open(filename) as file:
-		dev = json.load(file)
+		dataset = json.load(file)
+	
+	# take random sample if specified
+	if sample_trial_size:
+		indices = random.sample(xrange(len(dataset)), sample_trial_size)
+		dataset = [dataset[i] for i in indices]
 
 	total = 0.0
 	num_match_sentences = 0.0
@@ -30,14 +48,21 @@ def test_with(filename):
 	num_entity_extracted_not_correct_sent = 0.0
 	num_ranking_failed = 0.0
 	num_correct_answer = 0.0
-	for trial in tqdm(dev):
+	for trial in tqdm(dataset):
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		all_entities = parse_docs(doc_set)
-		for qa in tqdm(trial['qa']):
+
+		qa_list = trial['qa']
+		# take random sample if specified
+		if sample_trial_size:
+			indices = random.sample(xrange(len(qa_list)), sample_qa_size)
+			qa_list = [qa_list[i] for i in indices]
+
+		for qa in tqdm(qa_list):
 			# sentence retrieval
 			query = process_query(qa['question'])
 			possible_sents = eval_query(query, posting, no_docs)[:20]
@@ -105,11 +130,11 @@ def test_with(filename):
 					doc_set,
 					possible_sents)
 				print "all results:"
-				pp.pprint(top)
+				pp.pprint([answer_to_tuple(a) for a in top])
 				print "question:", qa['question'].encode('utf-8')
 				print "expected:", qa['answer'].encode('utf-8')
 				print "expected sentence:", doc_set[qa['answer_sentence']].encode('utf-8')
-				print "actual:", best_match
+				print "actual:", answer_to_tuple(best_match)
 				print "expected id:", qa['answer_sentence']
 				print "extracted id:", possible_sents
 				question_words = { w.lower() for w in word_tokenizer.tokenize(qa['question']) }
@@ -188,6 +213,6 @@ def make_csv():
 
 
 if __name__ == '__main__':
-	# test_with('QA_train.json')
-	test_with('QA_dev.json')
+	test_with('QA_train.json', sample_trial_size=10, sample_qa_size=10)
+	# test_with('QA_dev.json')
 	# make_csv()
