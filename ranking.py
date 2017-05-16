@@ -29,16 +29,15 @@ def get_question_type(question_words):
 		return "NUMBER"
 	elif "what" in question_words and "year" in question_words:
 		return "NUMBER"
-	elif "when" in question_words:
+	elif "when" in question_words and "what" not in question_words:
 		return "NUMBER"
-	else:
-		if "what" in question_words or "which" in question_words:
-			if "king" in question_words: return "PERSON"
-			elif "name" in question_words: return "PERSON"
-			for w in question_words:
-				if w in common_measurements: return "NUMBER"
-				elif w in common_localities: return "LOCATION"
-		return "OTHER"
+	elif "what" in question_words or "which" in question_words:
+		if "king" in question_words: return "PERSON"
+		elif "name" in question_words: return "PERSON"
+		for w in question_words:
+			if w in common_measurements: return "NUMBER"
+			elif w in common_localities: return "LOCATION"
+	return "OTHER"
 
 def contains_all(items, elems):
 	for e in elems:
@@ -89,34 +88,20 @@ def get_open_class_words(question_words):
 	return [p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"]]
 
 def get_dist_to_question_word(target_words, sentence_words, entity):
-	# # print closed_class_words
-	# answer = entity[1].lower()
-	# answer_words = nltk.word_tokenize(answer)
-	# # cannot proceed if answer word not found in sentence
-	# for w in answer_words:
-	# 	if w not in sentence_words:
-	# 		return None
-	# get positions of closed class question words
+	# get positions of question words
 	question_words_pos = []
 	for w in target_words:
 		for i in range(len(sentence_words)):
 			if w == sentence_words[i]:
 				question_words_pos.append(i)
-	# print question_words_pos
 	# cannot proceed if no such closed word in sentence
 	if len(question_words_pos) == 0:
 		return None
-	# # (naive way to) find answer position in sentence
-	# answer_start_pos = sentence_words.index(answer_words[0])
-	# answer_end_pos = sentence_words.index(answer_words[-1])
 	answer_start_pos = entity[3]
 	answer_end_pos = entity[4]
-	# print "ans start", answer_start_pos
-	# print "ans end", answer_end_pos
-	# calculate distance and find closest
+	# calculate distance and take sum
 	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
 		for p in question_words_pos ]
-	# print dists
 	return sum(dists)
 
 def cmp_answer(a, b):
@@ -206,4 +191,4 @@ def get_top_answers(question, answers, doc_set, sentences):
 		for a in answers
 	]
 	key_func = cmp_to_key(cmp_answer)
-	return sorted(answers_added, reverse=True, key=key_func)
+	return sorted(answers_added, reverse=True, key=key_func)[:20]

@@ -12,15 +12,13 @@ import os
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
-STOPWORDS = set(stopwords.words('english'))
-lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
 from tqdm import tqdm
-def test_with_dev():
+def test_with(filename):
 	# load json
-	with open('QA_dev.json') as dev_file:
-		dev = json.load(dev_file)
+	with open(filename) as file:
+		dev = json.load(file)
 
 	total = 0.0
 	num_match_sentences = 0.0
@@ -95,6 +93,12 @@ def test_with_dev():
 
 			if entity_extracted and not entity_extracted_in_correct_sent:
 				num_entity_extracted_not_correct_sent += 1
+
+			if best_match[1] == question['answer']:
+				# exact match
+				num_correct_answer += 1
+			elif retrieval_and_ner_correct:
+				num_ranking_failed += 1
 				top = get_top_answers(
 					question['question'],
 					matches,
@@ -113,12 +117,7 @@ def test_with_dev():
 				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
 				# pp.pprint(matches[:5])
 				print "\n\n"
-
-			if best_match[1] == question['answer']:
-				# exact match
-				num_correct_answer += 1
-			elif retrieval_and_ner_correct:
-				num_ranking_failed += 1
+				
 				
 
 	print "% sentence retrieved:", num_match_sentences / total
@@ -188,5 +187,6 @@ def make_csv():
 
 
 if __name__ == '__main__':
-	test_with_dev()
+	# test_with('QA_train.json')
+	test_with('QA_dev.json')
 	# make_csv()
