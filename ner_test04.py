@@ -144,15 +144,15 @@ def parse_docs(doc_set):
         for sent_id,entity,tag,start_i,end_i in name_entity_pairs:
             if tag != 'O':
                 if tag == 'ORGANIZATION':
-                    doc_ne_pairs.append((sent_id,entity,'OTHER',start_i,end_i))
+                    doc_ne_pairs.append({'sent_id':sent_id,'entity':entity,'type':'OTHER','start_pos':start_i,'end_pos':end_i})
                 elif tag == 'NUMBER':
                     text = word_tokenizer.tokenize(entity)
                     n = len(text)
                     if n != 1:
                         end_i = end_i + n - 1
-                    doc_ne_pairs.append((sent_id,entity,tag,start_i,end_i))
+                    doc_ne_pairs.append({'sent_id':sent_id,'entity':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
                 else:
-                    doc_ne_pairs.append((sent_id,entity,tag,start_i,end_i))
+                    doc_ne_pairs.append({'sent_id':sent_id,'entity':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
     return doc_ne_pairs
 
 if __name__ == '__main__':
@@ -162,16 +162,5 @@ if __name__ == '__main__':
     for i in range (0,5):
         doc_set = dev[i]['sentences']
         print parse_docs(doc_set)
-
-    #     for pair in test:
-    #         if pair[2] == 'NUMBER':
-    #             print pair
-    # # sents =[dev[2]['sentences'][35],dev[2]['sentences'][36],dev[2]['sentences'][47]]
-    # # parse_docs(sents)
-    # print dev[4]['sentences'][227]
-
-
-    # sent2 = word_tokenizer.tokenize('If you go to bed early, then you will wake up early')
-    # pos_sent2 = nltk.pos_tag(sent2)
-
+        print ''
 
