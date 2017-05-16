@@ -144,15 +144,15 @@ def parse_docs(doc_set):
         for sent_id,entity,tag,start_i,end_i in name_entity_pairs:
             if tag != 'O':
                 if tag == 'ORGANIZATION':
-                    doc_ne_pairs.append({'sent_id':sent_id,'entity':entity,'type':'OTHER','start_pos':start_i,'end_pos':end_i})
+                    doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':'OTHER','start_pos':start_i,'end_pos':end_i})
                 elif tag == 'NUMBER':
                     text = word_tokenizer.tokenize(entity)
                     n = len(text)
                     if n != 1:
                         end_i = end_i + n - 1
-                    doc_ne_pairs.append({'sent_id':sent_id,'entity':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
+                    doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
                 else:
-                    doc_ne_pairs.append({'sent_id':sent_id,'entity':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
+                    doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
     return doc_ne_pairs
 
 if __name__ == '__main__':
