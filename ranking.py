@@ -77,10 +77,10 @@ def contains_all(items, elems):
 # 	rank = sentences.index(answer[0])
 # 	return 1.0 + 100.0/(rank+1)
 
-def get_closed_class_words(question_words):
-	tagged = nltk.pos_tag(question_words, tagset="universal")
-	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP", "AUX", "NUM", "PART"]]
+# def get_closed_class_words(question_words):
+# 	tagged = nltk.pos_tag(question_words, tagset="universal")
+# 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
+# 	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP", "AUX", "NUM", "PART"]]
 
 def get_open_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
@@ -97,8 +97,8 @@ def get_dist_to_question_word(target_words, sentence_words, entity):
 	# cannot proceed if no such closed word in sentence
 	if len(question_words_pos) == 0:
 		return None
-	answer_start_pos = entity[3]
-	answer_end_pos = entity[4]
+	answer_start_pos = entity['start_pos']
+	answer_end_pos = entity['end_pos']
 	# calculate distance and take sum
 	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
 		for p in question_words_pos ]
@@ -107,44 +107,36 @@ def get_dist_to_question_word(target_words, sentence_words, entity):
 def cmp_answer(a, b):
 	# First, answers whose content words all appear
 	# in the question should be ranked lowest.
-	a_all_appear = a[-3]
-	b_all_appear = b[-3]
-	if a_all_appear != b_all_appear:
-		return b_all_appear - a_all_appear
+	if a['appear_in_question'] != b['appear_in_question']:
+		return b['appear_in_question'] - a['appear_in_question']
 	# Second, answers which match the question type
 	# should be ranked higher than those that don't;
-	a_matches_type = a[-2]
-	b_matches_type = b[-2]
-	if a_matches_type != b_matches_type:
-		return a_matches_type - b_matches_type
+	if a['matches_question_type'] != b['matches_question_type']:
+		return a['matches_question_type'] - b['matches_question_type']
 	# consider relavance (rank) in sentence retrieval
-	a_rank = a[-4]
-	b_rank = b[-4]
-	if a_rank != b_rank:
-		return b_rank - a_rank
+	if a['sent_retrieval_rank'] != b['sent_retrieval_rank']:
+		return b['sent_retrieval_rank'] - a['sent_retrieval_rank']
 	# Third, among entities of the same type, the
 	# prefered entity should be the one which is closer
 	# in the sentence to a closed-class word from the question.
-	a_dist = a[-1]
-	b_dist = b[-1]
-	if a_dist != b_dist:
-		if a_dist == None:
+	if a['dist_to_open_words'] != b['dist_to_open_words']:
+		if a['dist_to_open_words'] == None:
 			return -1
-		elif b_dist == None:
+		elif b['dist_to_open_words'] == None:
 			return 1
 		else:
-			return b_dist - a_dist
+			return b['dist_to_open_words'] - a['dist_to_open_words']
 	return 0
 
 def add_answer_properties(question_words, question_type, open_class_words, answer, doc_set, sentences):
-	answer_words = word_tokenizer.tokenize(answer[1].lower())
-	answer_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[answer[0]]) ]
-	added = list(answer)
-	added.append(sentences.index(answer[0]))
-	added.append(contains_all(question_words, answer_words))
-	added.append(answer[2] == question_type)
-	added.append(get_dist_to_question_word(open_class_words, answer_sent_words, answer))
-	return tuple(added)
+	answer_words = word_tokenizer.tokenize(answer['answer'].lower())
+	answer_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[answer['id']]) ]
+	added = dict(answer)
+	added['sent_retrieval_rank'] = (sentences.index(answer[0]))
+	added['appear_in_question'] = contains_all(question_words, answer_words)
+	added['matches_question_type'] = append(answer[2] == question_type)
+	added['dist_to_open_words'] = get_dist_to_question_word(open_class_words, answer_sent_words, answer)
+	return added
 
 from functools import cmp_to_key
 def get_best_answer(question, answers, doc_set, sentences):

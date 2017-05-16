@@ -37,17 +37,17 @@ def test_with(filename):
 		no_docs = len(doc_set)
 		# NER for all sentences
 		all_entities = parse_docs(doc_set)
-		for question in tqdm(trial['qa']):
+		for qa in tqdm(trial['qa']):
 			# sentence retrieval
-			query = process_query(question['question'])
+			query = process_query(qa['question'])
 			possible_sents = eval_query(query, posting, no_docs)[:20]
 			total += 1
 			if len(possible_sents) == 0:
 				continue
 
 			# check sentence retrieval
-			sentence_retrieved = question['answer_sentence'] in possible_sents
-			sentence_retrieved_as_first = question['answer_sentence'] == possible_sents[0]
+			sentence_retrieved = qa['answer_sentence'] in possible_sents
+			sentence_retrieved_as_first = qa['answer_sentence'] == possible_sents[0]
 			num_match_sentences += sentence_retrieved
 			num_match_first_sentence += sentence_retrieved_as_first
 			
@@ -57,14 +57,14 @@ def test_with(filename):
 
 			# OR...
 			# take all sentences into ranking
-			matches = [e for e in all_entities if e[0] in set(possible_sents)]
+			matches = [e for e in all_entities if e['id'] in set(possible_sents)]
 			if len(matches) == 0:
 				continue
 			
 			# search for the correct answer in matches
 			correct_entity = None
 			for entity in matches:
-				if entity[1] == question['answer']:
+				if entity['answer'] == qa['answer']:
 					correct_entity = entity
 					break
 
@@ -76,8 +76,8 @@ def test_with(filename):
 			
 			if correct_entity:
 				num_match_entity += 1
-				entity_extracted_in_first_sent = correct_entity[0] == possible_sents[0]
-				entity_extracted_in_correct_sent = correct_entity[0] == question['answer_sentence']
+				entity_extracted_in_first_sent = correct_entity['id'] == possible_sents[0]
+				entity_extracted_in_correct_sent = correct_entity['id'] == qa['answer_sentence']
 			
 			num_match_correct_sentence_entity += entity_extracted_in_correct_sent
 			num_match_first_sentence_entity += entity_extracted_in_first_sent
@@ -86,7 +86,7 @@ def test_with(filename):
 			
 			# find best answer
 			best_match = get_best_answer(
-				question['question'],
+				qa['question'],
 				matches,
 				doc_set,
 				possible_sents)
@@ -94,25 +94,25 @@ def test_with(filename):
 			if entity_extracted and not entity_extracted_in_correct_sent:
 				num_entity_extracted_not_correct_sent += 1
 
-			if best_match[1] == question['answer']:
+			if best_match['answer'] == qa['answer']:
 				# exact match
 				num_correct_answer += 1
 			elif retrieval_and_ner_correct:
 				num_ranking_failed += 1
 				top = get_top_answers(
-					question['question'],
+					qa['question'],
 					matches,
 					doc_set,
 					possible_sents)
 				print "all results:"
 				pp.pprint(top)
-				print "question:", question['question'].encode('utf-8')
-				print "expected:", question['answer'].encode('utf-8')
-				print "expected sentence:", doc_set[question['answer_sentence']].encode('utf-8')
+				print "question:", qa['question'].encode('utf-8')
+				print "expected:", qa['answer'].encode('utf-8')
+				print "expected sentence:", doc_set[qa['answer_sentence']].encode('utf-8')
 				print "actual:", best_match
-				print "expected id:", question['answer_sentence']
+				print "expected id:", qa['answer_sentence']
 				print "extracted id:", possible_sents
-				question_words = { w.lower() for w in word_tokenizer.tokenize(question['question']) }
+				question_words = { w.lower() for w in word_tokenizer.tokenize(qa['question']) }
 				print "predicted question type:", get_question_type(question_words).encode('utf-8')
 				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
 				# pp.pprint(matches[:5])
@@ -168,9 +168,10 @@ def make_csv():
 
 			# take all sentences into ranking
 			for sent in possible_sents:
-				matches.extend([e for e in entities if e[0] == sent])
+				matches.extend([e for e in entities if e['id'] == sent])
 
 			if len(matches) == 0:
+				# no answer found, write empty answer
 				writer.writerow( [question['id'], ''] )
 				continue
 			
@@ -181,7 +182,7 @@ def make_csv():
 				doc_set,
 				possible_sents)
 
-			writer.writerow( [question['id'], escape_csv(best_match[1]).encode('utf-8')] )
+			writer.writerow( [question['id'], escape_csv(best_match['answer']).encode('utf-8')] )
 
 	csv_file.close()
 
