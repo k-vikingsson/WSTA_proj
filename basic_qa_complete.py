@@ -119,6 +119,10 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			if entity_extracted and not entity_extracted_in_correct_sent:
 				num_entity_extracted_not_correct_sent += 1
 
+			# print qa['question']
+			# question_words = { w.lower() for w in word_tokenizer.tokenize(qa['question']) }
+			# print get_question_type(question_words).encode('utf-8')
+
 			if best_match['answer'] == qa['answer']:
 				# exact match
 				num_correct_answer += 1
@@ -213,6 +217,7 @@ def make_csv():
 
 
 if __name__ == '__main__':
-	test_with('QA_train.json', sample_trial_size=10, sample_qa_size=10)
+	test_with('QA_train.json')
+	# test_with('QA_train.json', sample_trial_size=25, sample_qa_size=2)
 	# test_with('QA_dev.json')
 	# make_csv()

@@ -1,0 +1,100 @@
+What was the preference for all mainland regions?
+OTHER
+What supports 13,053 characters?
+OTHER
+What text is written and sent back to the government if a bill is rejected?
+OTHER
+Since 1993, which body has had power to enact measures?
+OTHER
+In what year were the two southern Italian kingdoms re-united?
+NUMBER
+The Protestant Reformation is attributed to what two developments that resulted from the invention of printing?
+OTHER
+When did Taiwanese Hokkien have a fast change in development?
+NUMBER
+What dialect did western diplomats learn to communicate with the Hokkien speaking people in China?
+OTHER
+What shape is the Plaza del Ayuntamiento?
+OTHER
+What is the population of Valencia's urban area? 
+LOCATION <- [INCORRECT]
+What is the largest city in Connecticuty?
+LOCATION
+In what year were trolleys finally replaced completely by buses?
+NUMBER
+Name one thing that has accounted for Jewish population growth?
+OTHER
+What dictated that when a parent could not contract a legal marriage, offspring would follow the mother?
+OTHER
+Gustavo Gutierrez is faculty of which institute?
+OTHER
+To where are the loyal sons in "Notre Dame Fight Song" marching?
+LOCATION
+What is the golden goal?
+OTHER
+What year did the Football Association arrange The Laws of the Game?
+NUMBER
+What interrupted the renewal of the IMF agreement with the Congo?
+OTHER
+When does the Congo experience dry season?
+NUMBER
+Which countries have school systems somewhat similar to Northern Ireland?
+OTHER
+What did the community school system remove from the comprehensive school model?
+OTHER
+What was the length capacity of the CAA55 format?
+NUMBER
+Which musical artists were featured on LD Jukeboxes in 1985?
+OTHER <- [INCORRECT]
+How many times did Premier League clubs win the Champions League between 1992 and 2013?
+NUMBER
+What is the capacity of Bloomfield Road stadium?
+OTHER <- [INCORRECT?]
+Why was the 360 considered a market success for Microsoft?
+OTHER
+What 360 peripheral was the fastest selling consumer electronic device in history?
+OTHER
+What is the name of the oldest music essay competition?
+PERSON <- [INCORRECT]
+By not going back to Poland Chopin became part of what?
+OTHER <- [INCORRECT?]
+What major problem did bitumen as a pigment show itself to be?  
+OTHER
+To construct what feature was asphalt brought to Babylon?
+OTHER
+Who pleaded to Congress for slaughtering bison?
+PERSON
+In what year was the Reclamation Act passed?
+NUMBER
+Tito was awarded with the Order of the White Rose of what country?
+LOCATION
+When did Tito die?
+NUMBER
+What is it called when government officials use their power for private gain?
+OTHER
+What can trigger famine conditions?
+OTHER
+What does acoelomates mean?
+OTHER
+What is the biological interaction where a predator feeds on its prey called?
+LOCATION <- [INCORRECT]
+Cape Canaveral Air Force Station is located in what state?
+LOCATION
+A Jupiter-C was launched by Von Braum on what date?
+OTHER
+What's another term for "grounded" in the context of PCBs?
+OTHER
+What company used to make radios with additive boards in the mid-20th century?
+OTHER
+When did the first Archivist start at the National Archives?
+NUMBER
+Each record group is classified based on what?
+OTHER
+Who authored the Summa Theologica?
+PERSON
+What new shipbuilding method was invented in this period?
+OTHER
+What city is Dell's New Hampshire facility in?
+LOCATION
+What did Dell maintain lower spending on than its competitors?
+OTHER
