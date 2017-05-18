@@ -1,5 +1,10 @@
+from qtype_classifier import get_classifier, lemmatize_doc, get_que_bow
+
 import nltk
+import json
+
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
+vectorizer, classifier = get_classifier()
 
 common_measurements = set()
 with open("common_measurements.txt") as file:
@@ -20,7 +25,12 @@ def get_question_type(question_words):
 	Returns:
 		(str): type of question as a string
 	"""
-	# TODO more rules
+	# print question_words
+	# print lemmas
+	# q_vec = vectorizer.transform(question_words)
+	# q_type = classifier.predict(q_vec)
+	# return q_type
+	TODO more rules
 	if "who" in question_words:
 		return "PERSON"
 	elif "where" in question_words:
@@ -38,6 +48,7 @@ def get_question_type(question_words):
 			if w in common_measurements: return "NUMBER"
 			elif w in common_localities: return "LOCATION"
 	return "OTHER"
+
 
 def contains_all(items, elems):
 	for e in elems:
@@ -186,3 +197,13 @@ def get_top_answers(question, answers, doc_set, sentences, n=None):
 	top = sorted(answers_added, reverse=True, key=key_func)
 	if n: top = top[:n]
 	return top
+
+if __name__ == '__main__':
+	with open('QA_dev.json') as dev_file:
+		dev_data = json.load(dev_file)
+		questions = [qa['question'] for qa in dev_data[0]['qa']]
+		for q in questions:
+			print q
+			q_bow = get_que_bow(q)
+			print get_question_type(q_bow)
+			print ''

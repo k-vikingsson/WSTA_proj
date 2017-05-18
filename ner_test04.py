@@ -6,8 +6,8 @@ from nltk.tag import StanfordNERTagger
 # nltk.download('maxent_treebank_pos_tagger')
 # nltk.download('averaged_perceptron_tagger')
 
-os.environ['CLASSPATH'] = '/usr/share/stanford-ner/stanford-ner.jar'
-os.environ['STANFORD_MODELS'] = '/usr/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
+os.environ['CLASSPATH'] = '/usr/local/share/stanford-ner/stanford-ner.jar'
+os.environ['STANFORD_MODELS'] = '/usr/local/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
 
 
 classifier = os.environ.get('STANFORD_MODELS')
@@ -160,7 +160,10 @@ if __name__ == '__main__':
         dev = json.load(dev_file)
 
     for i in range (0,5):
-        doc_set = dev[i]['sentences']
-        print parse_docs(doc_set)
-        print ''
+        doc_set = [s['answer'] for s in dev[i]['qa']]
+        for i in range(len(doc_set)):
+            answers = parse_docs([doc_set[i]])
+            print answers
+            print doc_set[i]
+            print ''
 
