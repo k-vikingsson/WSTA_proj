@@ -141,7 +141,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 				print "actual:", answer_to_tuple(best_match)
 				print "expected id:", qa['answer_sentence']
 				print "extracted id:", possible_sents
-				question_words = { w.lower() for w in word_tokenizer.tokenize(qa['question']) }
+				question_words = [ w.lower() for w in word_tokenizer.tokenize(qa['question']) ]
 				print "predicted question type:", get_question_type(question_words).encode('utf-8')
 				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
 				# pp.pprint(matches[:5])
@@ -217,7 +217,7 @@ def make_csv():
 
 
 if __name__ == '__main__':
-	test_with('QA_train.json')
-	# test_with('QA_train.json', sample_trial_size=25, sample_qa_size=2)
+	# test_with('QA_train.json')
+	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=5)
 	# test_with('QA_dev.json')
-	# make_csv()
+	make_csv()

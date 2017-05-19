@@ -6,8 +6,8 @@ from nltk.tag import StanfordNERTagger
 # nltk.download('maxent_treebank_pos_tagger')
 # nltk.download('averaged_perceptron_tagger')
 
-os.environ['CLASSPATH'] = '/usr/local/share/stanford-ner/stanford-ner.jar'
-os.environ['STANFORD_MODELS'] = '/usr/local/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
+os.environ['CLASSPATH'] = '/usr/share/stanford-ner/stanford-ner.jar'
+os.environ['STANFORD_MODELS'] = '/usr/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
 
 
 classifier = os.environ.get('STANFORD_MODELS')
