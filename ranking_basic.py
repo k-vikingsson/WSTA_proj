@@ -1,11 +1,5 @@
-# from qtype_classifier import get_classifier, lemmatize_doc, get_que_bow
-
 import nltk
-import json
-from wordnet_func import get_head_word
-
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
-# vectorizer, classifier = get_classifier()
 
 common_measurements = set()
 with open("common_measurements.txt") as file:
@@ -26,11 +20,6 @@ def get_question_type(question_words):
 	Returns:
 		(str): type of question as a string
 	"""
-	# print question_words
-	# print lemmas
-	# q_vec = vectorizer.transform(question_words)
-	# q_type = classifier.predict(q_vec)
-	# return q_type
 	# TODO more rules
 	if "who" in question_words:
 		return "PERSON"
@@ -43,12 +32,12 @@ def get_question_type(question_words):
 	elif "when" in question_words and "what" not in question_words:
 		return "NUMBER"
 	elif "what" in question_words or "which" in question_words:
-		target = get_head_word(question_words)
-		if target in ["king", "name"]: return "PERSON"
-		elif target in common_measurements: return "NUMBER"
-		elif target in common_localities: return "LOCATION"
+		if "king" in question_words: return "PERSON"
+		elif "name" in question_words: return "PERSON"
+		for w in question_words:
+			if w in common_measurements: return "NUMBER"
+			elif w in common_localities: return "LOCATION"
 	return "OTHER"
-
 
 def contains_all(items, elems):
 	for e in elems:
@@ -162,7 +151,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	Returns:
 		(str, str, str): the best answer to the question
 	"""
-	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
+	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
 	question_type = get_question_type(question_words)
 	open_class_words = get_open_class_words(question_words)
 	answers_added = [
@@ -180,7 +169,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
 def get_top_answers(question, answers, doc_set, sentences, n=None):
-	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
+	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
 	question_type = get_question_type(question_words)
 	open_class_words = get_open_class_words(question_words)
 	answers_added = [
@@ -197,13 +186,3 @@ def get_top_answers(question, answers, doc_set, sentences, n=None):
 	top = sorted(answers_added, reverse=True, key=key_func)
 	if n: top = top[:n]
 	return top
-
-# if __name__ == '__main__':
-# 	with open('QA_dev.json') as dev_file:
-# 		dev_data = json.load(dev_file)
-# 		questions = [qa['question'] for qa in dev_data[0]['qa']]
-# 		for q in questions:
-# 			print q
-# 			q_bow = get_que_bow(q)
-# 			print get_question_type(q_bow)
-# 			print ''

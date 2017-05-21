@@ -23,7 +23,7 @@ def get_pri_sense(word, pos=None):
     sense_freqs = get_sense_freqs(word)
     return None if len(sense_freqs) == 0 else sense_freqs[0][0]
 
-def get_question_target(question_words):
+def get_head_word(question_words):
     what_idx = None
     which_idx = None
     wh_idx = None
@@ -44,8 +44,8 @@ def get_question_target(question_words):
             return w[0]
     return None
 
-def get_question_target_synset(question_words):
-    w = get_question_target(question_words)
+def get_head_word_synset(question_words):
+    w = get_head_word(question_words)
     return get_pri_sense(w, pos=wn.NOUN)
 
 def get_max_wup_similarity(answer, target):
