@@ -1,9 +1,11 @@
 from nltk.corpus import stopwords
 from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
+import numpy as np
 from sent_retrieval import *
 from ner_test04 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
+from evaluation import reciprocal_rank
 
 import numpy as np
 import nltk
@@ -38,6 +40,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 		indices = random.sample(xrange(len(dataset)), sample_trial_size)
 		dataset = [dataset[i] for i in indices]
 
+	reciprocal_ranks = []
 	total = 0.0
 	num_match_sentences = 0.0
 	num_match_first_sentence = 0.0
@@ -110,11 +113,12 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			num_match_first_correct_sentence_entity += retrieval_and_ner_correct
 			
 			# find best answer
-			best_match = get_best_answer(
-				qa['question'],
-				matches,
-				doc_set,
-				possible_sents)
+			top_answers = get_top_answers(
+					qa['question'],
+					matches,
+					doc_set,
+					possible_sents)
+			best_match = top_answers[0]
 
 			if entity_extracted and not entity_extracted_in_correct_sent:
 				num_entity_extracted_not_correct_sent += 1
@@ -123,18 +127,15 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			# question_words = { w.lower() for w in word_tokenizer.tokenize(qa['question']) }
 			# print get_question_type(question_words).encode('utf-8')
 
+			reciprocal_ranks.append(reciprocal_rank(qa['answer'], [a['answer'] for a in top_answers]))
+
 			if best_match['answer'] == qa['answer']:
 				# exact match
 				num_correct_answer += 1
 			elif retrieval_and_ner_correct:
 				num_ranking_failed += 1
-				top = get_top_answers(
-					qa['question'],
-					matches,
-					doc_set,
-					possible_sents)
 				print "all results:"
-				pp.pprint([answer_to_tuple(a) for a in top])
+				pp.pprint([answer_to_tuple(a) for a in top_answers])
 				print "question:", qa['question'].encode('utf-8')
 				print "expected:", qa['answer'].encode('utf-8')
 				print "expected sentence:", doc_set[qa['answer_sentence']].encode('utf-8')
@@ -158,6 +159,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	print "% entity identified in first and correct sentence:", num_match_first_correct_sentence_entity / total
 	print "% above but ranking failed:", num_ranking_failed / total
 	print "% correct best answer:", num_correct_answer / total
+	print "Mean reciprocal rank:", np.mean(reciprocal_ranks)
 
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
@@ -218,6 +220,6 @@ def make_csv():
 
 if __name__ == '__main__':
 	# test_with('QA_train.json')
-	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=5)
+	test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
 	# test_with('QA_dev.json')
-	make_csv()
+	# make_csv()
