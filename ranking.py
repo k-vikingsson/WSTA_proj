@@ -42,6 +42,10 @@ def get_question_type(question_words):
 		return "NUMBER"
 	elif "what" in question_words or "which" in question_words:
 		target = get_head_word(question_words)
+		try:
+			if target[-2:] in ['or','er'] or target[-3:] == 'ist':
+				return 'PERSON'
+		except: pass
 		if target in ["king", "name", "president"]: return "PERSON"
 		elif target in ['year']: return "NUMBER"
 		elif target in common_measurements: return "NUMBER"

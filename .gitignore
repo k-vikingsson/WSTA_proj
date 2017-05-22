@@ -1,3 +1,7 @@
 *.pyc
 local*
 .vscode
+*.sublime-project
+*.sublime-workspace
+*tmp.txt
+*.csv
