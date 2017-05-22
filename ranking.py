@@ -1,11 +1,11 @@
-# from qtype_classifier import get_classifier, lemmatize_doc, get_que_bow
+from qtype_classifier import get_classifier, lemmatize_doc, get_que_bow
 
 import nltk
 import json
-from wordnet_func import get_head_word
+# from wordnet_func import get_head_word
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
-# vectorizer, classifier = get_classifier()
+vectorizer, classifier = get_classifier()
 
 common_measurements = set()
 with open("common_measurements.txt") as file:
@@ -28,29 +28,32 @@ def get_question_type(question_words):
 	"""
 	# print question_words
 	# print lemmas
-	# q_vec = vectorizer.transform(question_words)
-	# q_type = classifier.predict(q_vec)
-	# return q_type
+	q_bow = {}
+	for word in question_words:
+		q_bow[word] = q_bow.get(word, 0) + 1
+	q_vec = vectorizer.transform(q_bow)
+	q_type = classifier.predict(q_vec)
+	return q_type[0]
 	# TODO more rules
-	if "who" in question_words:
-		return "PERSON"
-	elif "where" in question_words:
-		return "LOCATION"
-	elif "how" in question_words and "many" in question_words:
-		return "NUMBER"
-	elif "when" in question_words and "what" not in question_words:
-		return "NUMBER"
-	elif "what" in question_words or "which" in question_words:
-		target = get_head_word(question_words)
-		try:
-			if target[-2:] in ['or','er'] or target[-3:] == 'ist':
-				return 'PERSON'
-		except: pass
-		if target in ["king", "name", "president"]: return "PERSON"
-		elif target in ['year']: return "NUMBER"
-		elif target in common_measurements: return "NUMBER"
-		elif target in common_localities: return "LOCATION"
-	return "OTHER"
+	# if "who" in question_words:
+	# 	return "PERSON"
+	# elif "where" in question_words:
+	# 	return "LOCATION"
+	# elif "how" in question_words and "many" in question_words:
+	# 	return "NUMBER"
+	# elif "when" in question_words and "what" not in question_words:
+	# 	return "NUMBER"
+	# elif "what" in question_words or "which" in question_words:
+	# 	target = get_head_word(question_words)
+	# 	try:
+	# 		if target[-2:] in ['or','er'] or target[-3:] == 'ist':
+	# 			return 'PERSON'
+	# 	except: pass
+	# 	if target in ["king", "name", "president"]: return "PERSON"
+	# 	elif target in ['year']: return "NUMBER"
+	# 	elif target in common_measurements: return "NUMBER"
+	# 	elif target in common_localities: return "LOCATION"
+	# return "OTHER"
 
 
 def contains_all(items, elems):
@@ -184,6 +187,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 
 def get_top_answers(question, answers, doc_set, sentences, n=None):
 	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
+	# question_words = question
 	question_type = get_question_type(question_words)
 	open_class_words = get_open_class_words(question_words)
 	answers_added = [
@@ -201,12 +205,12 @@ def get_top_answers(question, answers, doc_set, sentences, n=None):
 	if n: top = top[:n]
 	return top
 
-# if __name__ == '__main__':
-# 	with open('QA_dev.json') as dev_file:
-# 		dev_data = json.load(dev_file)
-# 		questions = [qa['question'] for qa in dev_data[0]['qa']]
-# 		for q in questions:
-# 			print q
-# 			q_bow = get_que_bow(q)
-# 			print get_question_type(q_bow)
-# 			print ''
+if __name__ == '__main__':
+	with open('QA_dev.json') as dev_file:
+		dev_data = json.load(dev_file)
+		questions = [qa['question'] for qa in dev_data[0]['qa']]
+		for q in questions:
+			print q
+			q_bow = get_que_bow(q)
+			print get_question_type(q_bow)
+			print ''
