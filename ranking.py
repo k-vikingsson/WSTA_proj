@@ -38,13 +38,12 @@ def get_question_type(question_words):
 		return "LOCATION"
 	elif "how" in question_words and "many" in question_words:
 		return "NUMBER"
-	elif "what" in question_words and "year" in question_words:
-		return "NUMBER"
 	elif "when" in question_words and "what" not in question_words:
 		return "NUMBER"
 	elif "what" in question_words or "which" in question_words:
 		target = get_head_word(question_words)
-		if target in ["king", "name"]: return "PERSON"
+		if target in ["king", "name", "president"]: return "PERSON"
+		elif target in ['year']: return "NUMBER"
 		elif target in common_measurements: return "NUMBER"
 		elif target in common_localities: return "LOCATION"
 	return "OTHER"
