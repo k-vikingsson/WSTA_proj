@@ -29,7 +29,7 @@ def get_training_data():
 	sentences = []
 	total_s = 0
 	count = 0
-	with open('QA_test.json') as train_file:
+	with open('QA_train.json') as train_file:
 		train_set = json.load(train_file)
 		for trail in train_set:
 			if count < 100: count += 1

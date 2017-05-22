@@ -221,5 +221,5 @@ def make_csv():
 if __name__ == '__main__':
 	# test_with('QA_train.json')
 	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	# test_with('QA_dev.json')
-	make_csv()
+	test_with('QA_dev.json')
+	# make_csv()
