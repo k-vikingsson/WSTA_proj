@@ -157,6 +157,8 @@ def parse_docs(doc_set):
         #print ne_pairs
 
         doc_ne_pairs.extend(ne_pairs)
+		
+		
 	
 	doc_ne_pairs = set(doc_ne_pairs)
 	
