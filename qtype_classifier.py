@@ -1,6 +1,6 @@
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from ner_test04 import *
+from ner_test06 import *
 
 import numpy as np
 import nltk

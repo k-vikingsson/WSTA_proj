@@ -7,7 +7,7 @@ from syntactic_dist import cfg_path_dist_tagged
 # from wordnet_func import get_head_word
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
-vectorizer, classifier = get_classifier()
+# vectorizer, classifier = get_classifier()
 
 common_measurements = set()
 with open("common_measurements.txt") as file:
@@ -30,32 +30,32 @@ def get_question_type(question_words):
 	"""
 	# print question_words
 	# print lemmas
-	q_bow = {}
-	for word in question_words:
-		q_bow[word] = q_bow.get(word, 0) + 1
-	q_vec = vectorizer.transform(q_bow)
-	q_type = classifier.predict(q_vec)
-	return q_type[0]
-	# # TODO more rules
-	# if "who" in question_words:
-	# 	return "PERSON"
-	# elif "where" in question_words:
-	# 	return "LOCATION"
-	# elif "how" in question_words and "many" in question_words:
-	# 	return "NUMBER"
-	# elif "when" in question_words and "what" not in question_words:
-	# 	return "DATE"
-	# elif "what" in question_words or "which" in question_words:
-	# 	target = get_head_word(question_words)
-	# 	try:
-	# 		if target[-2:] in ['or','er'] or target[-3:] == 'ist':
-	# 			return 'PERSON'
-	# 	except: pass
-	# 	if target in ["king", "name", "president"]: return "PERSON"
-	# 	elif target in ['year']: return "DATE"
-	# 	elif target in common_measurements: return "NUMBER"
-	# 	elif target in common_localities: return "LOCATION"
-	# return "OTHER"
+	# q_bow = {}
+	# for word in question_words:
+	# 	q_bow[word] = q_bow.get(word, 0) + 1
+	# q_vec = vectorizer.transform(q_bow)
+	# q_type = classifier.predict(q_vec)
+	# return q_type[0]
+	# TODO more rules
+	if "who" in question_words:
+		return "PERSON"
+	elif "where" in question_words:
+		return "LOCATION"
+	elif "how" in question_words and "many" in question_words:
+		return "NUMBER"
+	elif "when" in question_words and "what" not in question_words:
+		return "DATE"
+	elif "what" in question_words or "which" in question_words:
+		target = get_head_word(question_words)
+		try:
+			if target[-2:] in ['or','er'] or target[-3:] == 'ist':
+				return 'PERSON'
+		except: pass
+		if target in ["king", "name", "president"]: return "PERSON"
+		elif target in ['year']: return "DATE"
+		elif target in common_measurements: return "NUMBER"
+		elif target in common_localities: return "LOCATION"
+	return "OTHER"
 
 
 def contains_all(items, elems):
@@ -156,7 +156,7 @@ def add_answer_properties(question_words, question_type, open_class_words, answe
 	answer_words = word_tokenizer.tokenize(answer['answer'].lower())
 	answer_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[answer['id']]) ]
 	added = dict(answer)
-	added['sent_retrieval_rank'] = sentences.index(answer['id'])
+	added['sent_retrieval_rank'] = sentences.index(answer['id']) if answer['id'] in sentences else None
 	added['appear_in_question'] = contains_all(question_words, answer_words)
 	added['matches_question_type'] = answer['type'] == question_type
 	added['dist_to_open_words'] = get_dist_to_question_word(open_class_words, answer_sent_words, answer)
