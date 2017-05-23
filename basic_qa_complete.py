@@ -231,11 +231,6 @@ def make_csv():
 
 if __name__ == '__main__':
 	# test_with('QA_train.json')
-<<<<<<< HEAD
-	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	test_with('QA_dev.json')
-=======
 	test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
 	# test_with('QA_dev.json')
->>>>>>> 97dec8d8cceff5850f2f55cc0b3d7a60d2118a0d
 	# make_csv()
