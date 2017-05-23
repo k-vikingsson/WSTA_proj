@@ -133,7 +133,6 @@ def subfinder(sent, entity):
 	return matches
 
 def parse_docs(doc_set):
-<<<<<<< HEAD
 	answers = []
 	processed_docs,processed_docs_pu = process_doc_ner(doc_set)
 	no_docs = len(processed_docs_pu)
@@ -155,32 +154,6 @@ def parse_docs(doc_set):
 		ne_pairs = set(ne_pairs_01 + ne_pairs_02)
 		#print ne_pairs
 		doc_ne_pairs.extend(ne_pairs)
-=======
-    answers = []
-    processed_docs,processed_docs_pu = process_doc_ner(doc_set)
-    no_docs = len(processed_docs_pu)
-
-    # iter 01
-    tagged_sents_01 = ner_tagger(processed_docs_pu,no_docs)
-    name_entity_list_01 = get_continuous_chunks(tagged_sents_01)
-
-    tagged_sents_02 = st.tag_sents(processed_docs)
-    name_entity_list_02 = get_continuous_chunks(tagged_sents_02)
-
-    doc_ne_pairs = []
-    for i in range (0,no_docs):
-        name_entity_01 = name_entity_list_01[i]
-        name_entity_02 = name_entity_list_02[i]
-        # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
-        ne_pairs_01= [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_01 if ne[0][1] != 'O']
-        ne_pairs_02 = [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_02 if ne[0][1] != 'O']
-        ne_pairs = list(set(ne_pairs_01 + ne_pairs_02))
-        #print ne_pairs
-
-        doc_ne_pairs.extend(ne_pairs)
-		
-		
->>>>>>> eb800e85ebea15be4f8470ee10a0061a9180965f
 	
 	doc_ne_pairs = list(set(doc_ne_pairs))
 	
