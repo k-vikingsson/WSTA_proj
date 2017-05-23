@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 # nltk.download('maxent_treebank_pos_tagger')
 # nltk.download('averaged_perceptron_tagger')
 
-os.environ['CLASSPATH'] = '/usr/share/stanford-ner/stanford-ner.jar'
-os.environ['STANFORD_MODELS'] = '/usr/share/stanford-ner/classifiers/english.muc.7class.distsim.crf.ser.gz'
+os.environ['CLASSPATH'] = '/usr/local/share/stanford-ner/stanford-ner.jar'
+os.environ['STANFORD_MODELS'] = '/usr/local/share/stanford-ner/classifiers/english.muc.7class.distsim.crf.ser.gz'
 
 
 
@@ -153,14 +153,14 @@ def parse_docs(doc_set):
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
         ne_pairs_01= [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_01 if ne[0][1] != 'O']
         ne_pairs_02 = [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_02 if ne[0][1] != 'O']
-        ne_pairs = set(ne_pairs_01 + ne_pairs_02)
+        ne_pairs = list(set(ne_pairs_01 + ne_pairs_02))
         #print ne_pairs
 
         doc_ne_pairs.extend(ne_pairs)
 		
 		
 	
-	doc_ne_pairs = set(doc_ne_pairs)
+	doc_ne_pairs = list(set(doc_ne_pairs))
 	
     for entity,tag in doc_ne_pairs:
         for i in range (0,no_docs):

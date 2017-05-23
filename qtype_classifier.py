@@ -32,7 +32,7 @@ def get_training_data():
 	with open('QA_train.json') as train_file:
 		train_set = json.load(train_file)
 		for trail in train_set:
-			if count < 100: count += 1
+			if count < 150: count += 1
 			else: break
 			ans_set = []
 			que_set = []
@@ -62,31 +62,15 @@ def classify_sents(tagged, answers):
 	this_sent = []
 	for entity in tagged:
 		tagged_sents[entity['id']].append(entity)
-		# print entity
-		# if entity['id'] == len(tagged_sents):
-		# 	this_sent.append(entity)
-		# else:
-		# 	tagged_sents.append(this_sent)
-		# 	this_sent = []
-		# 	this_sent.append(entity)
 	# initiaize classified
 	for i in range(len(classified)):
 		classified[i] = (i, None)
 	# print len(tagged_sents), len(answers)
 	# finalize
 	for i in range(len(answers)):
-		# print newsentences[i]
-		# print [sent['answer'] for sent in tagged_sents[i]]
-		# print answers[i]
-		# print ''
 		for entity in tagged_sents[i]:
 			if entity['answer'] == answers[i]:
 				classified[i] = (i, entity['type'])
-		# if answers[i] in [s['answer'] for s in tagged_sents[i]]:
-		# 	if classified[i][1] == None:
-		# 		classified[i] = (i, answers[i]['type'])
-		# 	elif classified[answers[i]['id']][1] != answers[i]['type']:
-		# 		classified[i] = (i, 'OTHER')
 
 	return classified
 
@@ -102,8 +86,9 @@ def filter_train(questions, classes):
 def get_que_bow(question):
 	q_bow = {}
 	question = lemmatize_doc(word_tokenizer.tokenize(question))
-	for token in question:
-		q_bow[token.lower()] = q_bow.get(token.lower(), 0) + 1
+	iters = len(question)
+	for i in range(iters):
+		q_bow[question[i].lower()] = q_bow.get(question[i].lower(), 0) + 1
 	return q_bow
 
 def prepare_questions(questions):
