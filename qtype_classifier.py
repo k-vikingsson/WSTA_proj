@@ -83,27 +83,45 @@ def filter_train(questions, classes):
 			resulting_classes.append(classes[i][1])
 	return resulting_questions, resulting_classes
 
-def get_que_bow(question):
+def get_open_class_words(question_words):
+	tagged = nltk.pos_tag(question_words, tagset="universal")
+	# consider pronouns, determiners, conjunctions, and prepositions as closed class
+	return [p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "VERB"]]
+
+def get_que_bow(question, words):
 	q_bow = {}
 	question = lemmatize_doc(word_tokenizer.tokenize(question))
+	# question = get_open_class_words(question)
 	iters = len(question)
 	for i in range(iters):
+		if question[i] not in words: continue
 		q_bow[question[i].lower()] = q_bow.get(question[i].lower(), 0) + 1
 	return q_bow
 
-def prepare_questions(questions):
+def prepare_questions(questions, words):
 	processed_qs = []
 	for question in questions:
-		q_bow = get_que_bow(question)
+		q_bow = get_que_bow(question,words)
 		processed_qs.append(q_bow)
 	return processed_qs
+
+def get_all_bow(sentences):
+	words = {}
+	for sent in sentences:
+		sent = lemmatize_doc(word_tokenizer.tokenize(sent))
+		for word in sent:
+			words[word] = words.get(word, 0) +  1
+	return words
 
 def get_classifier():
 # if __name__ == '__main__':
 	questions, sentences, answers, asentids = get_training_data()
 	newsentences = [sentences[i] for i in asentids]
+	all_bow = get_all_bow(sentences)
+	words = set([word for word, count in all_bow.items() if count > 20])
 	# print len(newsentences), len(answers)
 	tagged_sents = tag_sents(newsentences)
+
 	# for tag in tagged_sents:
 	# 	print tag
 	classified_sents = classify_sents(tagged_sents, answers)
@@ -116,7 +134,7 @@ def get_classifier():
 
 
 
-	questions = prepare_questions(ques)
+	questions = prepare_questions(ques, words)
 	
 	# ans_tags = tag_answers(answers)
 	vectorizer = DictVectorizer()
