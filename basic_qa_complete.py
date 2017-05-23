@@ -3,9 +3,9 @@ from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
 import numpy as np
 from sent_retrieval import *
-from ner_test04 import parse_docs
+from ner_test06 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
-from evaluation import reciprocal_rank
+from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram
 
 import numpy as np
 import nltk
@@ -28,6 +28,7 @@ def answer_to_tuple(answer):
 		answer['dist_to_open_words']
 		)
 
+from collections import defaultdict
 from tqdm import tqdm
 import random
 def test_with(filename, sample_trial_size=None, sample_qa_size=None):
@@ -41,6 +42,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 		dataset = [dataset[i] for i in indices]
 
 	reciprocal_ranks = []
+	sentence_rank_freq = defaultdict(int)
 	total = 0.0
 	num_match_sentences = 0.0
 	num_match_first_sentence = 0.0
@@ -73,6 +75,9 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			if len(possible_sents) == 0:
 				continue
 
+			if qa['answer_sentence'] in possible_sents:
+				sentence_rank_freq[possible_sents.index(qa['answer_sentence']) + 1] += 1
+
 			# check sentence retrieval
 			sentence_retrieved = qa['answer_sentence'] in possible_sents
 			sentence_retrieved_as_first = qa['answer_sentence'] == possible_sents[0]
@@ -90,22 +95,18 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 				continue
 			
 			# search for the correct answer in matches
-			correct_entity = None
-			for entity in matches:
-				if entity['answer'] == qa['answer']:
-					correct_entity = entity
-					break
+			correct_entities = [e for e in matches if e['answer'] == qa['answer']]
 
 			# check NER result
-			entity_extracted = bool(correct_entity)
+			entity_extracted = bool(correct_entities)
 			entity_extracted_in_correct_sent = False
 			entity_extracted_in_first_sent = False
 			entity_extracted_in_first_correct_sent = False
 			
-			if correct_entity:
+			if correct_entities:
 				num_match_entity += 1
-				entity_extracted_in_first_sent = correct_entity['id'] == possible_sents[0]
-				entity_extracted_in_correct_sent = correct_entity['id'] == qa['answer_sentence']
+				entity_extracted_in_first_sent = bool([e for e in correct_entities if e['id'] == possible_sents[0]])
+				entity_extracted_in_correct_sent = bool([e for e in correct_entities if e['id'] == qa['answer_sentence']]) 
 			
 			num_match_correct_sentence_entity += entity_extracted_in_correct_sent
 			num_match_first_sentence_entity += entity_extracted_in_first_sent
@@ -120,8 +121,17 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 					possible_sents)
 			best_match = top_answers[0]
 
-			if entity_extracted and not entity_extracted_in_correct_sent:
+			# if not entity_extracted:
+			# 	print "Question:", qa['question'].encode('utf-8')
+			# 	print "Answer:", qa['answer'].encode('utf-8')
+			# 	print "Correct sentence", doc_set[qa['answer_sentence']].encode('utf-8')
+			# 	print "Entities in correct sentence:"
+			# 	pp.pprint([e for e in matches if e['id'] == qa['answer_sentence']])
+			# 	print "\n\n"
+
+			if entity_extracted and not entity_extracted_in_correct_sent and sentence_retrieved:
 				num_entity_extracted_not_correct_sent += 1
+				
 
 			# print qa['question']
 			# question_words = { w.lower() for w in word_tokenizer.tokenize(qa['question']) }
@@ -160,6 +170,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	print "% above but ranking failed:", num_ranking_failed / total
 	print "% correct best answer:", num_correct_answer / total
 	print "Mean reciprocal rank:", np.mean(reciprocal_ranks)
+	plot_correct_sent_rank_histogram(sentence_rank_freq)
 
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
@@ -220,6 +231,6 @@ def make_csv():
 
 if __name__ == '__main__':
 	# test_with('QA_train.json')
-	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	test_with('QA_dev.json')
+	test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
+	# test_with('QA_dev.json')
 	# make_csv()
