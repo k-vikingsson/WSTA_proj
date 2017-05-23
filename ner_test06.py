@@ -157,9 +157,10 @@ def parse_docs(doc_set):
         #print ne_pairs
 
         doc_ne_pairs.extend(ne_pairs)
-
-    doc_ne_pairs = set(doc_ne_pairs)
-    
+		
+		
+	
+	doc_ne_pairs = set(doc_ne_pairs)	
     for entity,tag in doc_ne_pairs:
         for i in range (0,no_docs):
             sent = processed_docs[i]
