@@ -4,8 +4,8 @@ import json
 from nltk.tag import StanfordNERTagger
 
 
-os.environ['CLASSPATH'] = '/usr/share/stanford-ner/stanford-ner.jar'
-os.environ['STANFORD_MODELS'] = '/usr/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
+os.environ['CLASSPATH'] = '/usr/local/share/stanford-ner/stanford-ner.jar'
+os.environ['STANFORD_MODELS'] = '/usr/local/share/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz'
 
 
 classifier = os.environ.get('STANFORD_MODELS')
@@ -27,15 +27,15 @@ def process_doc_ner(doc_set):
     return new_docs 
 
 def get_next_tag (tagged_sent,cur_tag):
-    for word, tag in tagged_sent:
+    for word, tag,i in tagged_sent:
         if tag != cur_tag:
-            pos = tagged_sent.index((word,tag))
+            pos = tagged_sent.index((word,tag,i))
             return pos
 
 def get_continuous_chunks(tagged_sents):
     sents_chunks = []
     for tagged_sent in tagged_sents:
-        tagged_sent.append(('end','END'))
+        tagged_sent.append(('end','END','END'))
         continuous_chunk = []
         sent_not_empty = True
 
@@ -57,24 +57,29 @@ def get_tagged(processed_docs):
     ner_tagged_sents = st.tag_sents(processed_docs)
     tagged_sents = []
 
+    
     for sent in ner_tagged_sents:
         tagged_sent =[]
-        for token,tag in sent:
-			if token != '':
-				if tag != 'O':
-					  tagged_sent.append((token,tag))
+        no_tokens = len(sent)
 
-				else:
-					if tag == 'O' and sent.index((token,tag)) != 0 and token[0].isupper():
-						tag = 'OTHER'
-						tagged_sent.append((token,tag))
+        for i in range (0,no_tokens):
+            token = sent[i][0]
+            tag = sent[i][1]
+            if token != '':
+                if tag != 'O':
+                      tagged_sent.append((token,tag,i))
 
-					elif tag == 'O' and token.isdigit():
-						tag = 'NUMBER'
-						tagged_sent.append((token,tag))
-					else:
-						tagged_sent.append((token,tag))
-					
+                else:
+                    if i != 0 and token[0].isupper():
+                        tag = 'OTHER'
+                        tagged_sent.append((token,tag,i))
+
+                    elif token.isdigit():
+                        tag = 'NUMBER'
+                        tagged_sent.append((token,tag,i))
+                    else:
+                        tagged_sent.append((token,tag,i))
+
         tagged_sents.append(tagged_sent)
     return tagged_sents
 
@@ -92,21 +97,21 @@ def parse_docs(doc_set):
     for i in range (0,no_docs):
         name_entity = name_entity_list[i]
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
-        name_entity_pairs = [(i," ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity]
-        for sent_id,entity,tag in name_entity_pairs:
-			if tag != '0':
-				if tag == 'ORGANIZATION':
-					doc_ne_pairs.append((sent_id,entity,'OTHER'))
-				else:
-                	doc_ne_pairs.append((sent_id,entity,tag))
+        name_entity_pairs = [(i," ".join([token for token, tag, pos in ne]), ne[0][1],ne[0][2],ne[-1][2]) for ne in name_entity]
+        for sent_id,entity,tag,start_i,end_i in name_entity_pairs:
+            if tag != '0':
+                if tag == 'ORGANIZATION':
+                    doc_ne_pairs.append((sent_id,entity,'OTHER',start_i, end_i))
+                else:
+                    doc_ne_pairs.append((sent_id,entity, tag, start_i, end_i))
     return doc_ne_pairs
 
 
-with open('QA_dev.json') as dev_file:
-    dev = json.load(dev_file)
-doc_set = dev[0]['sentences']
-print len(doc_set)
-test = parse_docs(doc_set)
-print test
+# with open('QA_dev.json') as dev_file:
+#     dev = json.load(dev_file)
+# doc_set = dev[0]['sentences']
+# print len(doc_set)
+# test = parse_docs(doc_set)
+# print test
 
 

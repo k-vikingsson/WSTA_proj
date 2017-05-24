@@ -2,7 +2,7 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
 from sent_retrieval import *
-from ner_test04 import parse_docs
+from ner_test import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
 
 import numpy as np
@@ -35,13 +35,14 @@ def test_with_dev():
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
+		word_sets = get_word_sets(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		all_entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, no_docs)[:20]
+			possible_sents = eval_query(query, posting, word_sets)
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -60,6 +61,7 @@ def test_with_dev():
 			# take all sentences into ranking
 			matches = [e for e in all_entities if e[0] in set(possible_sents)]
 			if len(matches) == 0:
+				print '0'
 				continue
 			
 			# search for the correct answer in matches
@@ -95,7 +97,8 @@ def test_with_dev():
 			if best_match[1] == question['answer']:
 				# exact match
 				num_correct_answer += 1
-			elif retrieval_and_ner_correct:
+			# elif retrieval_and_ner_correct:
+			else:
 				num_ranking_failed += 1
 				top = get_top_answers(
 					question['question'],
@@ -142,13 +145,14 @@ def make_csv():
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
+		word_sets = get_word_sets(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, no_docs)[:20]
+			possible_sents = eval_query(query, posting, word_sets)
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
 				continue

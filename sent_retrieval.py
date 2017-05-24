@@ -74,21 +74,27 @@ def prepare_doc(doc_set):
 	posting = get_inverted_index(words, tf_idf)
 	return posting
 
-def eval_query(query, posting, no_docs):
+def get_word_sets(doc_set):
+	word_sets = []
+	for doc in doc_set:
+		doc = set(remove_stop(lemmatize_doc(word_tokenizer.tokenize(doc))))
+		word_sets.append(doc)
+	return word_sets
+
+def eval_query(query, posting, word_sets, n=1):
 	scores = {}
 	for term in query:
 		posting_list = posting.get(term, [])
 		for (doc_id, weight) in posting_list:
-			scores[doc_id] = scores.get(doc_id, 0) + weight
+			scores[doc_id] = scores.get(doc_id, 0) + weight * len(set(query).intersection(word_sets[doc_id])) / len(set(query))
 	sorted_scores = sorted(scores.items(), key=lambda x:x[1], reverse=True)
-	return [d for d, w in sorted_scores]
+	return [d for d, w in sorted_scores][:1]
 
-def retrieve_sentences(question, doc_set, n=None):
+def retrieve_sentences(question, doc_set, n=1):
 	query = process_query(question)
 	posting = prepare_doc(doc_set)
-	no_docs = len(doc_set)
-	if n == None: return eval_query(query, posting, no_docs)
-	return eval_query(query, posting, no_docs)[:n]
+	word_sets = get_word_sets(doc_set)
+	return eval_query(query, posting, doc_set, n)
 
 # if __name__ == '__main__':
 
