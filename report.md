@@ -8,7 +8,7 @@ Zequn Ma []
 
 In this project, we have made our attempts on building a question answering system. Starting with an implementation of the basic QA system described in the specification, we have made error analysis and introduced some enhancements to the system. The basic and enhanced system are then evaluated using several different metrics.
 
-The question answering system takes 3 datasets in JSON format, for training, development and testing respectively. Each dataset is a JSON array, with each item being a "trail", that is, a set of documents(sentences) and questions. For training and development sets, answer to each question is also provided, including its content and label of the sentence containing the answer. The system takes the question along with a set of documents as input, and provides the answer as output.
+The question answering system takes 3 datasets in JSON format, for training, development and testing respectively. Each dataset is a JSON array, with each item being a "trial", that is, a set of documents(sentences) and questions. For training and development sets, answer to each question is also provided, including its content and label of the sentence containing the answer. The system takes the question along with a set of documents as input, and provides the answer as output.
 
 ## Basic QA System
 
@@ -35,10 +35,21 @@ The basic system, as described in the specification, is formed by three main com
 ## Enhancement
 
 > Rank answers using a classifier (from textbook, features at p8) FAILED
-> ...
+> Use ML classifier + NER for question type classification (along with more types)
 
-## Results
+## Evaluation
+
+> Metrics: Exact match, partial match, MRR...
+> Test for: Sentence retrieval, NER, answer ranking
+> For rule 1/2/3, could be useful taking random as baseline
+
+
 
 ## Future Improvements
+
+> - Take advantage of semantic information
+> - Apply RNN for a “translation” from answers to questions (ref. TREC 2016 CMU paper)
+> - Other approaches such as learnt pattern matching (ref. Learning Surface Text Patterns for a Question Answering System)
+
 
 ## Conclusion
