@@ -127,13 +127,6 @@ def get_classifier():
 	classified_sents = classify_sents(tagged_sents, answers)
 	ques, classes = filter_train(questions, classified_sents)
 
-	# for i in range(len(ques)):
-	# 	print ques[i]
-	# 	print classes[i]
-	# 	print ''
-
-
-
 	questions = prepare_questions(ques, words)
 	
 	# ans_tags = tag_answers(answers)
@@ -141,15 +134,6 @@ def get_classifier():
 	dataset = vectorizer.fit_transform(questions)
 	classifier = MultinomialNB(2, False, None)
 	classifier.fit(dataset, classes)
-
-	##### TEST WITH FIRST TRAIL OF TEST #####
-	# with open('QA_test.json') as test_file:
-	# 	test_json = json.load(test_file)
-
-	# qa = test_json[0]['qa']
-	# qs = [x['question'] for x in qa]
-	# qs = prepare_questions(qs)
-
 
 	return vectorizer, classifier
 
