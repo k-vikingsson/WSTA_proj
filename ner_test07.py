@@ -36,6 +36,7 @@ units = set(units)
 def process_doc_ner(doc_set):
     # doc as a single sentence
     new_docs = []
+<<<<<<< HEAD
     # new_docs_pu = []
     for doc in doc_set:
         # doc_pu = nltk.word_tokenize(doc)
@@ -43,6 +44,15 @@ def process_doc_ner(doc_set):
         new_docs.append(doc)
         # new_docs_pu.append(doc_pu)
     return new_docs
+=======
+    new_docs_pu = []
+    for doc in doc_set:
+        doc_pu = nltk.word_tokenize(doc)
+        doc = word_tokenizer.tokenize(doc)
+        new_docs.append(doc)
+        new_docs_pu.append(doc_pu)
+    return new_docs,new_docs_pu
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
 
 def get_next_tag (tagged_sent,cur_tag):
     for token, tag in tagged_sent:
@@ -117,7 +127,11 @@ def ner_tagger(processed_docs,no_docs):
                         
                     elif pos_sent[j][1] == 'CD':
                         #print 'num',token,pos_sent[j][1]
+<<<<<<< HEAD
                         if j+1 < no_tokens and pos_sent[j+1][1] in ['NN','NNS','NNP'] and pos_sent[j+1][0] in units:
+=======
+                        if pos_sent[j+1][1] in ['NN','NNS','NNP'] and pos_sent[j+1][0] in units:
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
                             token = token + ' ' + pos_sent[j+1][0]
 
 
@@ -134,7 +148,11 @@ def ner_tagger(processed_docs,no_docs):
 
 def subfinder(sent, entity):
     matches = []
+<<<<<<< HEAD
     tokens = nltk.word_tokenize(entity)
+=======
+    tokens = word_tokenizer.tokenize(entity)
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
     pl = len(tokens)
     
     for i in range(0,len(sent)):
@@ -145,6 +163,7 @@ def subfinder(sent, entity):
 
 def parse_docs(doc_set):
     answers = []
+<<<<<<< HEAD
     processed_docs = process_doc_ner(doc_set)
     no_docs = len(processed_docs)
 
@@ -154,10 +173,22 @@ def parse_docs(doc_set):
 
     # tagged_sents_02 = st.tag_sents(processed_docs)
     # name_entity_list_02 = get_continuous_chunks(tagged_sents_02)
+=======
+    processed_docs,processed_docs_pu = process_doc_ner(doc_set)
+    no_docs = len(processed_docs_pu)
+
+    # iter 01
+    tagged_sents_01,pos_tagged_sents = ner_tagger(processed_docs_pu,no_docs)
+    name_entity_list_01 = get_continuous_chunks(tagged_sents_01)
+
+    tagged_sents_02 = st.tag_sents(processed_docs)
+    name_entity_list_02 = get_continuous_chunks(tagged_sents_02)
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
 
     doc_ne_pairs = []
     for i in range (0,no_docs):
         name_entity_01 = name_entity_list_01[i]
+<<<<<<< HEAD
         #name_entity_02 = name_entity_list_02[i]
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
         ne_pairs_01= [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_01 if ne[0][1] != 'O']
@@ -166,6 +197,16 @@ def parse_docs(doc_set):
         #print ne_pairs
 
         doc_ne_pairs.extend(ne_pairs_01)
+=======
+        name_entity_02 = name_entity_list_02[i]
+        # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
+        ne_pairs_01= [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_01 if ne[0][1] != 'O']
+        ne_pairs_02 = [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_02 if ne[0][1] != 'O']
+        ne_pairs = set(ne_pairs_01 + ne_pairs_02)
+        #print ne_pairs
+
+        doc_ne_pairs.extend(ne_pairs)
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
 
 
     doc_ne_pairs = set(doc_ne_pairs)
@@ -176,14 +217,19 @@ def parse_docs(doc_set):
             sent = processed_docs[i]
             matches = subfinder(sent,entity)
             for match in matches:
+<<<<<<< HEAD
                 tem = {'id':i,'answer':entity,'type':tag,'start_pos':match[0],'end_pos':match[1],'pos_sent':len(pos_sent)}
                 answers.append(tem)
+=======
+                answers.append({'id':i,'answer':entity,'type':tag,'start_pos':match[0],'end_pos':match[1],'pos_sent':pos_sent})
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
 
 
 
     return answers
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     with open('QA_train.json') as dev_file:
         dev = json.load(dev_file)
 
@@ -194,3 +240,13 @@ if __name__ == '__main__':
         #     print r['pos_sent']
         pp.pprint(parse_docs(doc_set))
     print ''
+=======
+    with open('QA_dev.json') as dev_file:
+        dev = json.load(dev_file)
+
+    for i in range (0,3):
+        doc_set = dev[i]['sentences']
+        #parse_docs(doc_set)
+        pp.pprint(parse_docs(doc_set))
+        print ''
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
