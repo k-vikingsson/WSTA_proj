@@ -3,10 +3,6 @@ import nltk
 import json
 from nltk.tag import StanfordNERTagger
 from nltk.corpus import stopwords
-import pprint
-
-
-pp = pprint.PrettyPrinter(indent=4)
 
 # nltk.download('maxent_treebank_pos_tagger')
 # nltk.download('averaged_perceptron_tagger')
@@ -25,12 +21,6 @@ STOPWORDS = set(stopwords.words('english'))
 name_list = nltk.corpus.names
 names = set([name for file in ('female.txt','male.txt') for name in name_list.words(file)])
 
-text_file = open("units.txt", "r")
-units = text_file.read().split("', '")
-text_file.close()
-
-units = set(units)
-
 #sents = ["Rami Eid is studying at Stony Brook University in NY","Anna Brown like Beijing 0709 0303 Shanghai"]
 
 def process_doc_ner(doc_set):
@@ -45,15 +35,15 @@ def process_doc_ner(doc_set):
     return new_docs
 
 def get_next_tag (tagged_sent,cur_tag):
-    for token, tag in tagged_sent:
+    for token, tag, i in tagged_sent:
         if tag != cur_tag:
-            pos = tagged_sent.index((token,tag))
+            pos = tagged_sent.index((token,tag,i))
             return pos
 
 def get_continuous_chunks(tagged_sents):
     sents_chunks = []
     for tagged_sent in tagged_sents:
-        tagged_sent.append(('end','END'))
+        tagged_sent.append(('end','END','END'))
         continuous_chunk = []
         sent_not_empty = True
 
@@ -90,7 +80,7 @@ def ner_tagger(processed_docs,no_docs):
 
             if token != '':
                 if tag != 'O':
-                    tagged_sent.append((token,tag))
+                    tagged_sent.append((token,tag,j))
 
                 else:
                     if j == 0:
@@ -100,7 +90,7 @@ def ner_tagger(processed_docs,no_docs):
                                 #print 'name',token,pos_sent[j][1]
 
                                 tag = 'PERSON'
-                                tagged_sent.append((token,tag))
+                                tagged_sent.append((token,tag,j))
 
 
 
@@ -108,93 +98,64 @@ def ner_tagger(processed_docs,no_docs):
                                 #print 'nnp',token,pos_sent[j][1]
 
                                 tag = 'OTHER'
-                                tagged_sent.append((token,tag))
+                                tagged_sent.append((token,tag,j))
 
                     elif token[0].isupper():
                         tag = 'OTHER'
-                        tagged_sent.append((token,tag))
+                        tagged_sent.append((token,tag,j))
 
                         
                     elif pos_sent[j][1] == 'CD':
                         #print 'num',token,pos_sent[j][1]
-                        if j+1 < no_tokens and pos_sent[j+1][1] in ['NN','NNS','NNP'] and pos_sent[j+1][0] in units:
-                            token = token + ' ' + pos_sent[j+1][0]
-
 
                         tag = 'NUMBER'
-                        tagged_sent.append((token,tag))
+                        tagged_sent.append((token,tag,j))
 
                     else:
-                        tagged_sent.append((token,tag))
+                        tagged_sent.append((token,tag,j))
 
         tagged_sents.append(tagged_sent)
 
-    return tagged_sents,pos_tagged_sents
+    return tagged_sents
 
 
-def subfinder(sent, entity):
-    matches = []
-    tokens = nltk.word_tokenize(entity)
-    pl = len(tokens)
-    
-    for i in range(0,len(sent)):
-        if sent[i] == tokens[0] and sent[i:i+pl] == tokens:
 
-            matches.append((i,i+pl-1))
-    return matches
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 
 def parse_docs(doc_set):
-    answers = []
-
     processed_docs = process_doc_ner(doc_set)
     no_docs = len(processed_docs)
 
-    # iter 01
-    tagged_sents_01, pos_tagged_sents= ner_tagger(processed_docs,no_docs)
-    name_entity_list_01 = get_continuous_chunks(tagged_sents_01)
+    # change
+    tagged_sents = ner_tagger(processed_docs,no_docs)
 
-    # tagged_sents_02 = st.tag_sents(processed_docs)
-    # name_entity_list_02 = get_continuous_chunks(tagged_sents_02)
+    name_entity_list = get_continuous_chunks(tagged_sents)
 
     doc_ne_pairs = []
     for i in range (0,no_docs):
-        name_entity_01 = name_entity_list_01[i]
-
-        #name_entity_02 = name_entity_list_02[i]
+        name_entity = name_entity_list[i]
         # name_entity_str = [" ".join([token for token, tag in ne]) for ne in name_entity]
-        ne_pairs_01= [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_01 if ne[0][1] != 'O']
-        #ne_pairs_02 = [(" ".join([token for token, tag in ne]), ne[0][1]) for ne in name_entity_02 if ne[0][1] != 'O']
-        #ne_pairs = set(ne_pairs_01 + ne_pairs_02)
-        #print ne_pairs
+        name_entity_pairs = [(i," ".join([token for token, tag, start in ne]), ne[0][1],ne[0][2],ne[-1][2]) for ne in name_entity]
+        for sent_id,entity,tag,start_i,end_i in name_entity_pairs:
+            if tag != 'O':
+                # if tag == 'ORGANIZATION':
+                #     doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':'OTHER','start_pos':start_i,'end_pos':end_i})
+                # elif tag == 'NUMBER':
+                # text = nltk.word_tokenize(entity)
+                # n = len(text)
+                #     if n != 1:
+                #         end_i = end_i + n - 1
+                #     doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
+                # else:
+                doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
+    return doc_ne_pairs
 
-        doc_ne_pairs.extend(ne_pairs_01)
-
-
-
-    doc_ne_pairs = set(doc_ne_pairs)
-
-    for entity,tag in doc_ne_pairs:
-        for i in range (0,no_docs):
-            pos_sent = pos_tagged_sents[i]
-            sent = processed_docs[i]
-            matches = subfinder(sent,entity)
-            for match in matches:
-
-                tem = {'id':i,'answer':entity,'type':tag,'start_pos':match[0],'end_pos':match[1],'pos_sent':pos_sent}
-                answers.append(tem)
-
-
-
-    return answers
 
 if __name__ == '__main__':
-    with open('QA_train.json') as dev_file:
+    with open('QA_dev.json') as dev_file:
         dev = json.load(dev_file)
-
-    for i in range (0,10):
+    for i in range (0,5):
         doc_set = dev[i]['sentences']
-        # re = parse_docs(doc_set)
-        # for r in re:
-        #     print r['pos_sent']
         pp.pprint(parse_docs(doc_set))
-    print ''
+        print ''

@@ -7,6 +7,9 @@ def reciprocal_rank(answer, results):
 def get_word_error_rate(answer, result):
     pass
 
+def is_partial_match(answer, target):
+    if answer == target: return False
+    return target.find(answer) >= 0 or answer.find(target) >= 0
 
 import matplotlib.pyplot as plt
 def plot_correct_sent_rank_histogram(freq_dict):

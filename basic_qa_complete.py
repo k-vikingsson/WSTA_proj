@@ -7,7 +7,10 @@ from ner_test07 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
 from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram
 from answer_classify import train_regressor, filter_answers
-
+from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram, is_partial_match
+from collections import defaultdict
+from tqdm import tqdm
+import random
 import numpy as np
 import nltk
 import json
@@ -31,9 +34,7 @@ def answer_to_tuple(answer):
 		answer['dist_to_open_words']
 		)
 
-from collections import defaultdict
-from tqdm import tqdm
-import random
+
 def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	# load json
 	with open(filename) as file:
@@ -57,6 +58,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	num_ranking_failed = 0.0
 	num_correct_answer = 0.0
 	num_classified_answer = 0.0
+	num_partial_answer = 0.0
 	for trial in tqdm(dataset):
 		# make posting list
 		doc_set = trial['sentences']
@@ -75,8 +77,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 		for qa in tqdm(qa_list):
 			# sentence retrieval
 			query = process_query(qa['question'])
-			possible_sents = eval_query(query, posting, word_sets, no_docs)[:20]
-			best_sent = possible_sents[:1]
+			possible_sents = eval_query(query, posting, word_sets, no_docs)[:1]
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -98,9 +99,6 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			# take all sentences into ranking
 			matches = [e for e in all_entities if e['id'] in set(possible_sents)]
 			if len(matches) == 0:
-				continue
-			best_sent_matches = [e for e in all_entities if e['id'] in set(best_sent)]
-			if len(best_sent_matches) == 0:
 				continue
 			
 			# search for the correct answer in matches
@@ -129,7 +127,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			# find best answer
 			top_answers = get_top_answers(
 					qa['question'],
-					best_sent_matches,
+					matches,
 					doc_set,
 					possible_sents)
 			best_match = top_answers[0]
@@ -173,6 +171,10 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
 				# pp.pprint(matches[:5])
 				print "\n\n"
+
+			if is_partial_match(best_match['answer'], qa['answer']):
+				if best_match['id'] == qa['answer_sentence']:
+					num_partial_answer += 1
 				
 				
 
@@ -184,10 +186,11 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	print "% entity identified in correct sentence:", num_match_correct_sentence_entity / total
 	print "% entity identified in first and correct sentence:", num_match_first_correct_sentence_entity / total
 	print "% above but ranking failed:", num_ranking_failed / total
+	print "% partial match in correct sentence:", num_partial_answer / total
 	print "% correct best answer:", num_correct_answer / total
 	print "% answer classified:", num_classified_answer / total
 	print "Mean reciprocal rank:", np.mean(reciprocal_ranks)
-	plot_correct_sent_rank_histogram(sentence_rank_freq)
+	# plot_correct_sent_rank_histogram(sentence_rank_freq)
 
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
@@ -213,7 +216,7 @@ def make_csv():
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, word_sets, no_docs)[:20]
+			possible_sents = eval_query(query, posting, word_sets, no_docs)[:1]
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
 				continue
@@ -252,3 +255,4 @@ if __name__ == '__main__':
 	test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
 	# test_with('QA_dev.json')
 	# make_csv()
+
