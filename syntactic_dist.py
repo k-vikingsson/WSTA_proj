@@ -5,7 +5,7 @@ import os
 import nltk
 from nltk.tree import ParentedTree
 
-os.environ['CLASSPATH'] = '$CLASSPATH:/usr/share/stanford-parser/stanford-parser.jar:/usr/share/stanford-parser/stanford-parser-3.7.0-models.jar'
+os.environ['CLASSPATH'] = '$CLASSPATH:/usr/local/share/stanford-parser/stanford-parser.jar:/usr/local/share/stanford-parser/stanford-parser-3.7.0-models.jar'
 # os.environ['STANFORD_PARSER'] = "stanford-parser.jar"
 # os.environ['STANFORD_MODELS'] = "$STANFORD_MODELS:stanford-parser-3.7.0.models.jar"
 

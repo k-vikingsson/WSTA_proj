@@ -3,7 +3,7 @@ from sklearn.feature_extraction import DictVectorizer
 from nltk.tag import StanfordNERTagger
 import numpy as np
 from sent_retrieval import *
-from ner_test06 import parse_docs
+from ner_test07 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
 from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram
 
@@ -57,6 +57,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
+		word_sets = get_word_sets(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		all_entities = parse_docs(doc_set)
@@ -70,7 +71,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 		for qa in tqdm(qa_list):
 			# sentence retrieval
 			query = process_query(qa['question'])
-			possible_sents = eval_query(query, posting, no_docs)[:20]
+			possible_sents = eval_query(query, posting, word_sets, no_docs)[:20]
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -189,13 +190,14 @@ def make_csv():
 		# make posting list
 		doc_set = trial['sentences']
 		posting = prepare_doc(doc_set)
+		word_sets = get_word_sets(doc_set)
 		no_docs = len(doc_set)
 		# NER for all sentences
 		entities = parse_docs(doc_set)
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, no_docs)[:20]
+			possible_sents = eval_query(query, posting, word_sets, no_docs)[:20]
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
 				continue
@@ -231,6 +233,6 @@ def make_csv():
 
 if __name__ == '__main__':
 	# test_with('QA_train.json')
-	test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	# test_with('QA_dev.json')
+	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
+	test_with('QA_dev.json')
 	# make_csv()
