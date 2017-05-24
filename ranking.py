@@ -4,6 +4,7 @@ import nltk
 import json
 from wordnet_func import get_head_word
 from syntactic_dist import cfg_path_dist_tagged
+from sent_retrieval import remove_stop
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 # vectorizer, classifier = get_classifier()
@@ -103,12 +104,16 @@ def contains_all(items, elems):
 def get_open_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-	return [p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"]]
+	return remove_stop([p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"] and p[0] not in ['what', 'which', 'how', 'who', 'where']])
 
 def get_cfg_dist_to_question_word(target_words, sentence_words, entity):
+	entity_words = [w.lower() for w in nltk.word_tokenize(entity['answer'])]
+	target_words_in_answer = [w for w in target_words if w in set(sentence_words)]
 	tagged = nltk.pos_tag(sentence_words)
-	entity_words = nltk.word_tokenize(entity['answer'])
-	return cfg_path_dist_tagged(tagged, target_words[0], entity_words[0])
+	if target_words_in_answer and entity_words:
+		return cfg_path_dist_tagged(tagged, target_words_in_answer, entity_words)
+	else:
+		return None
 
 def get_dist_to_question_word(target_words, sentence_words, entity):
 	# get positions of question words
@@ -125,7 +130,7 @@ def get_dist_to_question_word(target_words, sentence_words, entity):
 	# calculate distance and take sum
 	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
 		for p in question_words_pos ]
-	return sum(dists)
+	return sum(dists) / float(len(dists))
 
 def cmp_answer(a, b):
 	# First, answers whose content words all appear
@@ -191,6 +196,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	return max(answers_added, key=key_func)
 	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
+from tqdm import tqdm
 def get_top_answers(question, answers, doc_set, sentences, n=None):
 	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
 	# question_words = question
@@ -204,7 +210,7 @@ def get_top_answers(question, answers, doc_set, sentences, n=None):
 			a,
 			doc_set,
 			sentences)
-		for a in answers
+		for a in tqdm(answers)
 	]
 	key_func = cmp_to_key(cmp_answer)
 	top = sorted(answers_added, reverse=True, key=key_func)

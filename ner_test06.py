@@ -155,6 +155,15 @@ def parse_docs(doc_set):
 		#print ne_pairs
 		doc_ne_pairs.extend(ne_pairs)
 	
+<<<<<<< HEAD
+	doc_ne_pairs = set(doc_ne_pairs)	
+    for entity,tag in doc_ne_pairs:
+        for i in range (0,no_docs):
+            sent = processed_docs[i]
+            matches = subfinder(sent,entity)
+            for match in matches:
+                answers.append({'id':i,'answer':entity,'type':tag,'start_pos':match[0],'end_pos':match[1]})
+=======
 	doc_ne_pairs = list(set(doc_ne_pairs))
 	
 	for entity,tag in doc_ne_pairs:
@@ -163,6 +172,7 @@ def parse_docs(doc_set):
 			matches = subfinder(sent,entity)
 			for match in matches:
 				answers.append({'id':i,'answer':entity,'type':tag,'start_pos':match[0],'end_pos':match[1]})
+>>>>>>> 2369524cf3b85e1d50a9471e3678882f60b22d2c
 
 	return answers
 

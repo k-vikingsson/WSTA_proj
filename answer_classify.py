@@ -4,6 +4,7 @@ from tqdm import tqdm
 from ner_test07 import parse_docs
 from sklearn.linear_model import LinearRegression
 from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
 from sent_retrieval import eval_query, process_query, prepare_doc, get_word_sets
 from ranking import add_answer_properties, get_question_type, get_open_class_words
 from word2vec import get_word2vec_model
@@ -45,20 +46,20 @@ def make_feature_vector(answer, question_words, question_type, open_class_words,
 
 	# Apposition features (TODO)
 
-	# # Punctuation location
-	# punct = False
-	# print answer
-	# left = answer['start_pos'] - 1
-	# right = answer['end_pos'] + 1
-	# print left
-	# print right
-	# if left >= 0:
-	# 	if answer['pos_sent'][left][0] in ',.!?;':
-	# 		punct = True
-	# if right < len(answer['pos_sent']):
-	# 	if answer['pos_sent'][right][0] in ',.!?;':
-	# 		punct = True
-	# features.append(float(punct))
+	# Punctuation location
+	punct = False
+	print answer
+	left = answer['start_pos'] - 1
+	right = answer['end_pos'] + 1
+	print left
+	print right
+	if left >= 0:
+		if answer['pos_sent'][left][0] in ',.!?;':
+			punct = True
+	if right < len(answer['pos_sent']):
+		if answer['pos_sent'][right][0] in ',.!?;':
+			punct = True
+	features.append(float(punct))
 
 	# Sequences of question terms (TODO)
 	# qwords = set(question_words)
@@ -119,6 +120,7 @@ def train_regressor(sample_trial_size=None, sample_qa_size=None):
 			question_type = get_question_type(question_words)
 			open_class_words = get_open_class_words(question_words)
 			possible_sents = eval_query(query, posting, word_sets, no_docs)
+			num_incorrect = 0
 			for e in entities:
 				if e['answer'] == qa['answer'] and e['id'] == qa['answer_sentence']:
 					correct_cases.append(make_feature_vector(
@@ -130,14 +132,16 @@ def train_regressor(sample_trial_size=None, sample_qa_size=None):
 						possible_sents
 					))
 				else:
-					incorrect_cases.append(make_feature_vector(
-						e,
-						question_words,
-						question_type,
-						open_class_words,
-						doc_set,
-						possible_sents
-					))
+					if num_incorrect < 5:
+						incorrect_cases.append(make_feature_vector(
+							e,
+							question_words,
+							question_type,
+							open_class_words,
+							doc_set,
+							possible_sents
+						))
+						num_incorrect += 1
 
 	features = np.vstack(( np.array(correct_cases), np.array(incorrect_cases) ))
 	outcomes = np.hstack(( np.full((len(correct_cases),), 1.0), np.full((len(incorrect_cases),), 0.0) ))

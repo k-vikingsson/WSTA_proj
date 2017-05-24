@@ -17,7 +17,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
-answer_classifier = train_regressor(sample_trial_size=100, sample_qa_size=10)
+# answer_classifier = train_regressor(sample_trial_size=50, sample_qa_size=10)
 
 def answer_to_tuple(answer):
 	return (
@@ -76,6 +76,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			# sentence retrieval
 			query = process_query(qa['question'])
 			possible_sents = eval_query(query, posting, word_sets, no_docs)[:20]
+			best_sent = possible_sents[:1]
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -97,6 +98,9 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			# take all sentences into ranking
 			matches = [e for e in all_entities if e['id'] in set(possible_sents)]
 			if len(matches) == 0:
+				continue
+			best_sent_matches = [e for e in all_entities if e['id'] in set(best_sent)]
+			if len(best_sent_matches) == 0:
 				continue
 			
 			# search for the correct answer in matches
@@ -120,30 +124,34 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 
 			if entity_extracted and not entity_extracted_in_correct_sent and sentence_retrieved:
 				num_entity_extracted_not_correct_sent += 1
+
 			
 			# find best answer
-			# top_answers = get_top_answers(
-			# 		qa['question'],
-			# 		matches,
-			# 		doc_set,
-			# 		possible_sents)
-			question_words = [ w.lower() for w in word_tokenizer.tokenize(qa['question']) ]
-			top_answers = filter_answers(
-				answer_classifier,
-				matches,
-				question_words,
-				get_question_type(question_words),
-				get_open_class_words(question_words),
-				doc_set,
-				possible_sents)
-			pp.pprint(top_answers[:20])
-			top_answers_content = {t['answer'] for t in top_answers}
-			if qa['answer'] in top_answers_content:
-				num_classified_answer += 1.0
-			if top_answers:
-				best_match = top_answers[0]
-			else:
-				continue
+			top_answers = get_top_answers(
+					qa['question'],
+					best_sent_matches,
+					doc_set,
+					possible_sents)
+			best_match = top_answers[0]
+			# question_words = [ w.lower() for w in word_tokenizer.tokenize(qa['question']) ]
+			# top_answers = filter_answers(
+			# 	answer_classifier,
+			# 	matches,
+			# 	question_words,
+			# 	get_question_type(question_words),
+			# 	get_open_class_words(question_words),
+			# 	doc_set,
+			# 	possible_sents)
+			# pp.pprint(top_answers[:20])
+			# for i in top_answers:
+			# 	print i['score']
+			# top_answers_content = {t['answer'] for t in top_answers}
+			# if qa['answer'] in top_answers_content:
+			# 	num_classified_answer += 1.0
+			# if top_answers:
+			# 	best_match = top_answers[0]
+			# else:
+			# 	continue
 			
 			reciprocal_ranks.append(reciprocal_rank(qa['answer'], [a['answer'] for a in top_answers]))
 
@@ -152,19 +160,19 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 				num_correct_answer += 1
 			elif retrieval_and_ner_correct:
 				num_ranking_failed += 1
-				# print "all results:"
-				# pp.pprint([answer_to_tuple(a) for a in top_answers])
-				# print "question:", qa['question'].encode('utf-8')
-				# print "expected:", qa['answer'].encode('utf-8')
-				# print "expected sentence:", doc_set[qa['answer_sentence']].encode('utf-8')
-				# print "actual:", answer_to_tuple(best_match)
-				# print "expected id:", qa['answer_sentence']
-				# print "extracted id:", possible_sents
-				# question_words = [ w.lower() for w in word_tokenizer.tokenize(qa['question']) ]
-				# print "predicted question type:", get_question_type(question_words).encode('utf-8')
-				# print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
-				# # pp.pprint(matches[:5])
-				# print "\n\n"
+				print "all results:"
+				pp.pprint([answer_to_tuple(a) for a in top_answers])
+				print "question:", qa['question'].encode('utf-8')
+				print "expected:", qa['answer'].encode('utf-8')
+				print "expected sentence:", doc_set[qa['answer_sentence']].encode('utf-8')
+				print "actual:", answer_to_tuple(best_match)
+				print "expected id:", qa['answer_sentence']
+				print "extracted id:", possible_sents
+				question_words = [ w.lower() for w in word_tokenizer.tokenize(qa['question']) ]
+				print "predicted question type:", get_question_type(question_words).encode('utf-8')
+				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
+				# pp.pprint(matches[:5])
+				print "\n\n"
 				
 				
 
