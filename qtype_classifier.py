@@ -118,7 +118,7 @@ def get_classifier():
 	questions, sentences, answers, asentids = get_training_data()
 	newsentences = [sentences[i] for i in asentids]
 	all_bow = get_all_bow(sentences)
-	words = set([word for word, count in all_bow.items() if count > 20])
+	words = set([word for word, count in all_bow.items() if count > 50])
 	# print len(newsentences), len(answers)
 	tagged_sents = tag_sents(newsentences)
 

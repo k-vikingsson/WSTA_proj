@@ -203,7 +203,7 @@ def make_csv():
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, word_sets, no_docs)[:10]
+			possible_sents = eval_query(query, posting, word_sets, no_docs)[:1]
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
 				continue
