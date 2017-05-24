@@ -117,7 +117,7 @@ def ner_tagger(processed_docs,no_docs):
                         
                     elif pos_sent[j][1] == 'CD':
                         #print 'num',token,pos_sent[j][1]
-                        if pos_sent[j+1][1] in ['NN','NNS','NNP'] and pos_sent[j+1][0] in units:
+                        if j+1 < no_tokens and pos_sent[j+1][1] in ['NN','NNS','NNP'] and pos_sent[j+1][0] in units:
                             token = token + ' ' + pos_sent[j+1][0]
 
 
