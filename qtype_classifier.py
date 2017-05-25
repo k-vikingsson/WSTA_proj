@@ -65,7 +65,6 @@ def classify_sents(tagged, answers):
 	# initiaize classified
 	for i in range(len(classified)):
 		classified[i] = (i, None)
-	# print len(tagged_sents), len(answers)
 	# finalize
 	for i in range(len(answers)):
 		for entity in tagged_sents[i]:
