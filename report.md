@@ -56,7 +56,7 @@ First obvious enhancement was to use a 7-class NER model.
 
 ### 2. Type classification
 
-As more answer types are brought into the system, the basic rule based classification is no longer sufficient. Therefore, we 
+As more answer types are brought into the system, the basic rule based classification is no longer sufficient. Therefore, a Multinomial Naive Bayes classifier was trained to help determining what answer type a question is asking for.
 
 ### 3. POS tagging in answer extraction
 
