@@ -77,7 +77,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 		for qa in tqdm(qa_list):
 			# sentence retrieval
 			query = process_query(qa['question'])
-			possible_sents = eval_query(query, posting, word_sets, no_docs)[:1]
+			possible_sents = eval_query(query, posting, word_sets)
 			total += 1
 			if len(possible_sents) == 0:
 				continue
@@ -216,7 +216,7 @@ def make_csv():
 		for question in tqdm(trial['qa']):
 			# sentence retrieval
 			query = process_query(question['question'])
-			possible_sents = eval_query(query, posting, word_sets, no_docs)[:1]
+			possible_sents = eval_query(query, posting, word_sets)
 			if len(possible_sents) == 0:
 				writer.writerow( [question['id'], ''] )
 				continue
@@ -252,7 +252,7 @@ def make_csv():
 
 if __name__ == '__main__':
 	# test_with('QA_train.json')
-	test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	# test_with('QA_dev.json')
+	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
+	test_with('QA_dev.json')
 	# make_csv()
 
