@@ -95,6 +95,5 @@ def retrieve_sentences(question, doc_set, n=1):
 	word_sets = get_word_sets(doc_set)
 	return eval_query(query, posting, word_sets, n)
 
-# if __name__ == '__main__':
 
 

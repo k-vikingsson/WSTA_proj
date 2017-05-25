@@ -24,7 +24,7 @@ The basic system, as described in the specification, is formed by three main com
 
 ### 2. NER
 
-Significant improvement can be made to the NER steps. While running against the dev set, only 19.3% of answers are extracted as entities.
+Significant room for improvement is identified for the NER steps. While running against the dev set, only 19.3% of answers are extracted as entities.
 
 ### 3. Question type
 
