@@ -79,13 +79,10 @@ def get_dist_to_question_word(target_words, sentence_words, entity):
 		for i in range(len(sentence_words)):
 			if w == sentence_words[i]:
 				question_words_pos.append(i)
-	# print question_words_pos
 	# cannot proceed if no such closed word in sentence
 	if len(question_words_pos) == 0:
 		return None
 	# # (naive way to) find answer position in sentence
-	# answer_start_pos = sentence_words.index(answer_words[0])
-	# answer_end_pos = sentence_words.index(answer_words[-1])
 	answer_start_pos = entity[3]
 	answer_end_pos = entity[4]
 	# calculate distance and find closest

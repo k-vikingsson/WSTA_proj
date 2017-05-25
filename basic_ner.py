@@ -25,13 +25,9 @@ os.environ['STANFORD_MODELS'] = '/usr/local/share/stanford-ner/classifiers/engli
 
 classifier = os.environ.get('STANFORD_MODELS')
 jar = os.environ.get('CLASSPATH')
- 
 st = StanfordNERTagger(classifier,jar)
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
-
-
-#sents = ["Rami Eid is studying at Stony Brook University in NY","Anna Brown like Beijing 0709 0303 Shanghai"]
 
 def process_doc_ner(doc_set):
     # doc as a single sentence
@@ -99,8 +95,6 @@ def get_tagged(processed_docs):
     return tagged_sents
 
 
-
-
 def parse_docs(doc_set):
     processed_docs = process_doc_ner(doc_set)
     no_docs = len(processed_docs)
@@ -120,13 +114,3 @@ def parse_docs(doc_set):
                 else:
                     doc_ne_pairs.append((sent_id,entity, tag, start_i, end_i))
     return doc_ne_pairs
-
-
-# with open('QA_dev.json') as dev_file:
-#     dev = json.load(dev_file)
-# doc_set = dev[0]['sentences']
-# print len(doc_set)
-# test = parse_docs(doc_set)
-# print test
-
-

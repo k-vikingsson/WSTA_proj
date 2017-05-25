@@ -19,7 +19,7 @@ from nltk.tag import StanfordNERTagger
 from sent_retrieval import *
 from basic_ner import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
-from evaluation import is_partial_match
+from evaluation import is_partial_match, reciprocal_rank
 
 import numpy as np
 import nltk
@@ -32,12 +32,16 @@ STOPWORDS = set(stopwords.words('english'))
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
+def answer_to_tuple(answer):
+	return tuple([e for e in answer])
+
 from tqdm import tqdm
 def test_with_dev():
 	# load json
 	with open('QA_dev.json') as dev_file:
 		dev = json.load(dev_file)
 
+	reciprocal_ranks = []
 	total = 0.0
 	num_match_sentences = 0.0
 	num_match_first_sentence = 0.0
@@ -70,15 +74,9 @@ def test_with_dev():
 			num_match_sentences += sentence_retrieved
 			num_match_first_sentence += sentence_retrieved_as_first
 			
-			# search for entities in possible sents
-			# # take only the best match in sentence retrieval
-			# matches = [e for e in entities if e[0] == possible_sents[0]]
-
-			# OR...
 			# take all sentences into ranking
 			matches = [e for e in all_entities if e[0] in set(possible_sents)]
 			if len(matches) == 0:
-				print '0'
 				continue
 			
 			# search for the correct answer in matches
@@ -105,36 +103,20 @@ def test_with_dev():
 			num_match_first_correct_sentence_entity += retrieval_and_ner_correct
 			
 			# find best answer
-			best_match = get_best_answer(
-				question['question'],
-				matches,
-				doc_set,
-				possible_sents)
-
-			if best_match[1] == question['answer']:
-				# exact match
-				num_correct_answer += 1
-			# elif retrieval_and_ner_correct:
-			else:
-				num_ranking_failed += 1
-				top = get_top_answers(
+			top_answers = get_top_answers(
 					question['question'],
 					matches,
 					doc_set,
 					possible_sents)
-				print "all results:"
-				pp.pprint(top)
-				print "question:", question['question'].encode('utf-8')
-				print "expected:", question['answer'].encode('utf-8')
-				print "expected sentence:", doc_set[question['answer_sentence']].encode('utf-8')
-				print "actual:", best_match
-				print "expected id:", question['answer_sentence']
-				print "extracted id:", possible_sents
-				question_words = { w.lower() for w in word_tokenizer.tokenize(question['question']) }
-				print "predicted question type:", get_question_type(question_words).encode('utf-8')
-				print "question open class words:", [w.encode('utf-8') for w in get_open_class_words(question_words)]
-				# pp.pprint(matches[:5])
-				print "\n\n"
+			best_match = top_answers[0]
+
+			reciprocal_ranks.append(reciprocal_rank(question['answer'], [a[1] for a in top_answers]))
+
+			if best_match[1] == question['answer']:
+				# exact match
+				num_correct_answer += 1
+			elif retrieval_and_ner_correct:
+				num_ranking_failed += 1
 
 			if is_partial_match(best_match[1], question['answer']):
 				if possible_sents[0] == question['answer_sentence']:
@@ -149,6 +131,7 @@ def test_with_dev():
 	print "% above but ranking failed:", num_ranking_failed / total
 	print "% partial matches in correct sentence:", num_partial_answer / total
 	print "% correct best answer:", num_correct_answer / total
+	print "Mean reciprocal rank:", np.mean(reciprocal_ranks)
 
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
@@ -181,11 +164,6 @@ def make_csv():
 			
 			# search for entities in possible sents
 			matches = []
-
-			# # take only the best match in sentence retrieval
-			# matches = [e for e in entities if e[0] == possible_sents[0]]
-
-			# OR...
 
 			# take all sentences into ranking
 			for sent in possible_sents:
