@@ -1,26 +1,16 @@
-from nltk.corpus import stopwords
-from sklearn.feature_extraction import DictVectorizer
-from nltk.tag import StanfordNERTagger
-import numpy as np
 from sent_retrieval import *
-from ner_test07 import parse_docs
+from ner_05 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
-from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram
-# from answer_classify import train_regressor, filter_answers
-from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram, is_partial_match
+from evaluation import reciprocal_rank, is_partial_match
 from collections import defaultdict
 from tqdm import tqdm
 import random
 import numpy as np
-import nltk
 import json
-import os
 import pprint
+import csv
+
 pp = pprint.PrettyPrinter(indent=4)
-
-word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
-
-# answer_classifier = train_regressor(sample_trial_size=50, sample_qa_size=10)
 
 def answer_to_tuple(answer):
 	return (
@@ -127,25 +117,6 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 					doc_set,
 					possible_sents)
 			best_match = top_answers[0]
-			# question_words = [ w.lower() for w in word_tokenizer.tokenize(qa['question']) ]
-			# top_answers = filter_answers(
-			# 	answer_classifier,
-			# 	matches,
-			# 	question_words,
-			# 	get_question_type(question_words),
-			# 	get_open_class_words(question_words),
-			# 	doc_set,
-			# 	possible_sents)
-			# pp.pprint(top_answers[:20])
-			# for i in top_answers:
-			# 	print i['score']
-			# top_answers_content = {t['answer'] for t in top_answers}
-			# if qa['answer'] in top_answers_content:
-			# 	num_classified_answer += 1.0
-			# if top_answers:
-			# 	best_match = top_answers[0]
-			# else:
-			# 	continue
 			
 			reciprocal_ranks.append(reciprocal_rank(qa['answer'], [a['answer'] for a in top_answers]))
 
@@ -191,9 +162,7 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
 
-import csv
 def make_csv():
-	# load json
 	with open('QA_test.json') as dev_file:
 		dev = json.load(dev_file)
 
@@ -243,6 +212,6 @@ def make_csv():
 if __name__ == '__main__':
 	# test_with('QA_train.json')
 	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	test_with('QA_dev.json')
-	# make_csv()
+	# test_with('QA_dev.json')
+	make_csv()
 

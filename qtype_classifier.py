@@ -108,22 +108,17 @@ def get_all_bow(sentences):
 	return words
 
 def get_classifier():
-# if __name__ == '__main__':
 	questions, sentences, answers, asentids = get_training_data()
 	newsentences = [sentences[i] for i in asentids]
 	all_bow = get_all_bow(sentences)
 	words = set([word for word, count in all_bow.items() if count > 20])
-	# print len(newsentences), len(answers)
 	tagged_sents = tag_sents(newsentences)
 
-	# for tag in tagged_sents:
-	# 	print tag
 	classified_sents = classify_sents(tagged_sents, answers)
 	ques, classes = filter_train(questions, classified_sents)
 
 	questions = prepare_questions(ques, words)
 	
-	# ans_tags = tag_answers(answers)
 	vectorizer = DictVectorizer()
 	dataset = vectorizer.fit_transform(questions)
 	classifier = MultinomialNB(2, False, None)
