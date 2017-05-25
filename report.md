@@ -84,7 +84,6 @@ Qtype_Classify  |      0.1215      |        0.3585              
 NER             |      0.1655      |        0.2756                    |    0.2276   |     0.6418     |      0.2366       |
 
 
-[CORRECT SENT RANK DISTRIBUTION]
 
 [CORRECT ANSWER RANK DISTRIBUTION]
 
