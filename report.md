@@ -79,7 +79,7 @@ As more answer types are brought into the system, the basic rule based classific
 
 Results         | Overall Accuracy | Overall Accuracy (partial match) | Overall MRR | Sent Retrieval | Entity Extraction | Answer Ranking
 ----------------|------------------|----------------------------------|-------------|----------------|-------------------|----------------
-Basic           |      0.1169      |        0.3461                    |             |     0.6418     |      0.1931       |
+Basic           |      0.1169      |        0.3461                    |    0.1445   |     0.6418     |      0.1931       |
 Qtype_Classify  |                  |                                  |             |     0.6418     |                   |
 NER_07          |                  |                                  |             |     0.6418     |                   |
 
