@@ -1,7 +1,7 @@
 # COMP90042 Project Report
 
 Kuan Qian (Jack) [686464]
-Zequn Ma []
+Zequn Ma [696586]
 
 
 ## Introduction
@@ -17,6 +17,21 @@ For the first part of the project, a basic question answering system has been ma
 The basic system, as described in the specification, is formed by three main components. Firstly, the sentence retrieval component attempts to find the most relavant sentence to a certain question. The retrieved question is then used as a input for the entity extraction component, which aims to extract named entities in the sentence. The entities are finally ranked as potential answers to the question, with the top answer returned as the final result. Implementation details of the system is not included for brievty of the report, the system is designed and implemented to be consistent with the specification.
 
 ## Error Analysis
+
+### 1. Sentence Retrievel
+
+64% sentences retrieved in the basic QA system, while testing against the dev set, are correct sentences for corresponding questions. We are not sure if this function can be easily improved. On the other hand, 64% is quite exceptable considering the performance baseline. If entity recognization and anwser ranking can correctly utilise a third of these sentence, the accuracy is able to achieve roughly 20%.
+
+### 2. NER
+
+Significant improvement can be made to the NER steps. While running against the dev set, only 19.3% of answers are extracted as entities.
+
+### 3. Question type
+
+By inspecting the results from running the QA system on the training set, many questions had been identified as wrong types with the simple rule based classification. Especially for questions starting with "what" or "which", it was difficult to classify the question as correct type. It was also an issue with number types, questions asking for answer types such as year, money, measurements are all classified as "NUMBER" types. If these types can be distinguished, it was expected to increase the accuracy of our QA system.
+
+
+
 
 > - NER has significant room of improvement (only 24% identified in the correct (and retrieved) sentence, 29% in any retrieved sentence), among the failed cases:
 > 	- About 70% that can possibly be extracted
@@ -34,6 +49,10 @@ The basic system, as described in the specification, is formed by three main com
 
 ## Enhancement
 
+### 1. More types
+
+### 2. Type classification
+
 > Rank answers using a classifier (from textbook, features at p8) FAILED
 > Use ML classifier + NER for question type classification (along with more types)
 
@@ -46,6 +65,10 @@ The basic system, as described in the specification, is formed by three main com
 
 
 ## Future Improvements
+
+### Predicates translation with dependency parsing
+
+
 
 > - Take advantage of semantic information
 > - Apply RNN for a “translation” from answers to questions (ref. TREC 2016 CMU paper)
