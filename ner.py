@@ -106,7 +106,6 @@ def ner_tagger(processed_docs,no_docs):
 
                         
                     elif pos_sent[j][1] == 'CD':
-                        #print 'num',token,pos_sent[j][1]
 
                         tag = 'NUMBER'
                         tagged_sent.append((token,tag,j))

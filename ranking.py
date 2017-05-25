@@ -41,56 +41,10 @@ def contains_all(items, elems):
 			return False
 	return True
 
-# def get_score(question, answer, doc_set, sentences):
-# 	"""Calculate the score of an answer given a question.
-
-# 	Args:
-# 		question (str): the question as a string
-# 		answers [(str, str, str)]: an answer to the question
-# 			being a 3-tuple of (sentence, entity, entity type)
-# 		doc_set [str]: a list of all answers, indexed by answer id
-
-# 	Returns:
-# 		(float): score of answer
-# 	"""
-# 	# First, answers whose content words all appear
-# 	# in the question should be ranked lowest.
-# 	ans_words = word_tokenizer.tokenize(doc_set[answer[0]])
-# 	question_words = set(word_tokenizer.tokenize(question))
-# 	if contains_all(question_words, ans_words):
-# 		return 0.0
-
-# 	# Second, answers which match the question type
-# 	# should be ranked higher than those that don't;
-# 	if answer[2] != get_question_type(question):
-# 		return 1.0
-
-# 	# Third, among entities of the same type, the
-# 	# prefered entity should be the one which is closer
-# 	# in the sentence to a closed-class word from the question.
-# 	# TODO
-
-# 	rank = sentences.index(answer[0])
-# 	return 1.0 + 100.0/(rank+1)
-
-# def get_closed_class_words(question_words):
-# 	tagged = nltk.pos_tag(question_words, tagset="universal")
-# 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-# 	return [p[0] for p in tagged if p[1] in ["PRON", "DET", "CONJ", "ADP", "AUX", "NUM", "PART"]]
-
 def get_open_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
 	return remove_stop([p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"] and p[0] not in ['what', 'which', 'how', 'who', 'where']])
-
-def get_cfg_dist_to_question_word(target_words, sentence_words, entity):
-	entity_words = [w.lower() for w in nltk.word_tokenize(entity['answer'])]
-	target_words_in_answer = [w for w in target_words if w in set(sentence_words)]
-	tagged = nltk.pos_tag(sentence_words)
-	if target_words_in_answer and entity_words:
-		return cfg_path_dist_tagged(tagged, target_words_in_answer, entity_words)
-	else:
-		return None
 
 def get_dist_to_question_word(target_words, sentence_words, entity):
 	# get positions of question words
@@ -174,7 +128,7 @@ def get_best_answer(question, answers, doc_set, sentences):
 	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
 from tqdm import tqdm
-def get_top_answers(question, answers, doc_set, sentences, n=None):
+def get_top_answers(question, answers, doc_set, sentences):
 	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
 	# question_words = question
 	question_type = get_question_type(question_words)
@@ -191,7 +145,6 @@ def get_top_answers(question, answers, doc_set, sentences, n=None):
 	]
 	key_func = cmp_to_key(cmp_answer)
 	top = sorted(answers_added, reverse=True, key=key_func)
-	if n: top = top[:n]
 	return top
 
 if __name__ == '__main__':
