@@ -1,0 +1,419 @@
+all results:
+[   (50, u'IR4', 'OTHER', 9, 9, False, True, 12.0),
+    (50, u'1.58\u20131.64', 'NUMBER', 20, 20, False, False, 6.0),
+    (50, u'10.3\u201311.5', 'NUMBER', 12, 12, False, False, 10.0)]
+question: What is the range of the near-infrared channel in micrometers?
+expected: 1.58–1.64
+expected sentence: However, using the difference in brightness of the IR4 channel (10.3–11.5 µm) and the near-infrared channel (1.58–1.64 µm), low cloud can be distinguished, producing a fog satellite picture.
+actual: (50, u'IR4', 'OTHER', 9, 9, False, True, 12.0)
+expected id: 50
+extracted id: [50]
+predicted question type: OTHER
+question open class words: ['range', 'near', 'infrared', 'channel', 'micrometers']
+
+
+
+all results:
+[   (   63,
+        u'900\u201314,000',
+        'NUMBER',
+        14,
+        14,
+        False,
+        False,
+        4.666666666666667),
+    (63, u'0.9\u201314', 'NUMBER', 17, 17, False, False, 7.666666666666667)]
+question: What is the range of the electromagnetic spectrum in micrometers?
+expected: 0.9–14
+expected sentence: Thermographic cameras detect radiation in the infrared range of the electromagnetic spectrum (roughly 900–14,000 nanometers or 0.9–14 μm) and produce images of that radiation.
+actual: (63, u'900\u201314,000', 'NUMBER', 14, 14, False, False, 4.666666666666667)
+expected id: 63
+extracted id: [63]
+predicted question type: OTHER
+question open class words: ['range', 'electromagnetic', 'spectrum', 'micrometers']
+
+
+
+all results:
+[   (2, u'Hag\xe5t\xf1a', u'LOCATION', 4, 4, False, True, 4.333333333333333),
+    (2, u'Dededo', 'OTHER', 12, 12, False, False, 5.0),
+    (2, u'The', 'OTHER', 0, 0, True, False, 7.0)]
+question: What is the most populous city in Guam?
+expected: Dededo
+expected sentence: The capital city is Hagåtña, and the most populous city is Dededo.
+actual: (2, u'Hag\xe5t\xf1a', u'LOCATION', 4, 4, False, True, 4.333333333333333)
+expected id: 2
+extracted id: [2]
+predicted question type: LOCATION
+question open class words: ['populous', 'city', 'guam']
+
+
+
+all results:
+[   (10, u'March 6 , 1521', u'DATE', 13, 16, False, False, 4.75),
+    (10, u'Magellan', u'ORGANIZATION', 3, 3, False, False, 5.25),
+    (10, u'Ferdinand Magellan', u'ORGANIZATION', 2, 3, False, False, 5.25),
+    (10, u'6', 'NUMBER', 14, 14, False, False, 5.75),
+    (10, u'Portuguese', 'OTHER', 0, 0, False, False, 8.25),
+    (10, u'European', 'OTHER', 7, 7, True, False, 1.75)]
+question: Who was the first European to visit the island?
+expected: Ferdinand Magellan
+expected sentence: Portuguese explorer Ferdinand Magellan was the first European to visit the island on March 6, 1521.
+actual: (10, u'March 6 , 1521', u'DATE', 13, 16, False, False, 4.75)
+expected id: 10
+extracted id: [10]
+predicted question type: PERSON
+question open class words: ['first', 'european', 'visit', 'island']
+
+
+
+all results:
+[   (30, u'These', 'OTHER', 0, 0, False, True, 1.5),
+    (30, u'Proas', 'OTHER', 5, 5, False, True, 3.5),
+    (30, u'Guam', 'OTHER', 12, 12, False, True, 10.5),
+    (30, u'Islas', 'OTHER', 13, 13, False, True, 11.5),
+    (30, u'Velas Latinas', 'OTHER', 16, 17, False, True, 14.5),
+    (30, u'Islands', 'OTHER', 20, 20, False, True, 18.5),
+    (30, u'Lateen', 'OTHER', 23, 23, False, True, 21.5),
+    (30, u'Magellan', u'ORGANIZATION', 10, 10, False, False, 8.5),
+    (30, u'Guam', u'LOCATION', 12, 12, False, False, 10.5),
+    (30, u'Guam', u'ORGANIZATION', 12, 12, False, False, 10.5),
+    (30, u'Guam Islas', u'LOCATION', 12, 13, False, False, 10.5)]
+question: What were the name of outrigger canoes?
+expected: Proas
+expected sentence: These outrigger canoes were called Proas, and resulted in Magellan naming Guam Islas de las Velas Latinas ("Islands of the Lateen sails").
+actual: (30, u'These', 'OTHER', 0, 0, False, True, 1.5)
+expected id: 30
+extracted id: [30]
+predicted question type: OTHER
+question open class words: ['name', 'outrigger', 'canoes']
+
+
+
+all results:
+[   (34, u'January', u'DATE', 13, 13, False, True, 3.6666666666666665),
+    (   34,
+        u'January 26 , 1565',
+        u'DATE',
+        13,
+        16,
+        False,
+        True,
+        3.6666666666666665),
+    (34, u'1565', u'DATE', 16, 16, False, True, 6.666666666666667),
+    (34, u'Magellan', u'ORGANIZATION', 1, 1, False, False, 8.333333333333334),
+    (   34,
+        u'General Miguel L\xf3pez de Legazpi',
+        u'ORGANIZATION',
+        18,
+        22,
+        False,
+        False,
+        8.666666666666666),
+    (34, u'Spain', u'LOCATION', 11, 11, True, False, 2.3333333333333335),
+    (34, u'Guam', u'LOCATION', 5, 5, True, False, 4.333333333333333),
+    (34, u'Guam', 'OTHER', 5, 5, True, False, 4.333333333333333),
+    (34, u'Guam', u'ORGANIZATION', 5, 5, True, False, 4.333333333333333)]
+question: In what year was Guam claimed by Spain?
+expected: 1565
+expected sentence: Despite Magellan's visit, Guam was not officially claimed by Spain until January 26, 1565 by General Miguel López de Legazpi.
+actual: (34, u'January', u'DATE', 13, 13, False, True, 3.6666666666666665)
+expected id: 34
+extracted id: [34]
+predicted question type: DATE
+question open class words: ['year', 'guam', 'claimed', 'spain']
+
+
+
+all results:
+[   (   34,
+        u'January 26 , 1565',
+        u'DATE',
+        13,
+        16,
+        False,
+        False,
+        4.333333333333333),
+    (34, u'Spain', u'LOCATION', 11, 11, False, False, 4.666666666666667),
+    (34, u'January', u'DATE', 13, 13, False, False, 5.333333333333333),
+    (34, u'1565', u'DATE', 16, 16, False, False, 6.333333333333333),
+    (   34,
+        u'General Miguel L\xf3pez de Legazpi',
+        u'ORGANIZATION',
+        18,
+        22,
+        False,
+        False,
+        7.0),
+    (34, u'Magellan', u'ORGANIZATION', 1, 1, False, False, 10.666666666666666),
+    (34, u'Guam', 'OTHER', 5, 5, True, True, 6.666666666666667),
+    (34, u'Guam', u'LOCATION', 5, 5, True, False, 6.666666666666667),
+    (34, u'Guam', u'ORGANIZATION', 5, 5, True, False, 6.666666666666667)]
+question: What was the name of the general who claimed Guam?
+expected: General Miguel López de Legazpi
+expected sentence: Despite Magellan's visit, Guam was not officially claimed by Spain until January 26, 1565 by General Miguel López de Legazpi.
+actual: (34, u'January 26 , 1565', u'DATE', 13, 16, False, False, 4.333333333333333)
+expected id: 34
+extracted id: [34]
+predicted question type: OTHER
+question open class words: ['name', 'general', 'claimed', 'guam']
+
+
+
+all results:
+[   (64, u'Chamorros', 'OTHER', 26, 26, False, False, 4.0),
+    (   64,
+        u'Northern Mariana Chamorros',
+        u'ORGANIZATION',
+        24,
+        26,
+        False,
+        False,
+        4.0),
+    (64, u'Mariana', u'LOCATION', 25, 25, False, False, 5.0),
+    (64, u'Mariana', 'OTHER', 25, 25, False, False, 5.0),
+    (64, u'30', 'NUMBER', 20, 20, False, False, 10.0),
+    (64, u'Chamorros', 'OTHER', 2, 2, False, False, 28.0),
+    (64, u'Guam', u'LOCATION', 0, 0, False, False, 30.0),
+    (64, u'Guam', 'OTHER', 0, 0, False, False, 30.0),
+    (64, u'Guam', u'ORGANIZATION', 0, 0, False, False, 30.0),
+    (64, u'Japan', u'LOCATION', 30, 30, True, False, 1.0)]
+question: Who were loyal to Japan?
+expected: Northern Mariana Chamorros
+expected sentence: Guam's Chamorros believed their northern brethren should have been compassionate towards them, whereas having been occupied for over 30 years, the Northern Mariana Chamorros were loyal to Japan.
+actual: (64, u'Chamorros', 'OTHER', 26, 26, False, False, 4.0)
+expected id: 64
+extracted id: [64]
+predicted question type: PERSON
+question open class words: ['loyal', 'japan']
+
+
+
+all results:
+[   (68, u'32nd', 'NUMBER', 28, 28, False, True, 13.666666666666666),
+    (68, u'549 km2', 'NUMBER', 21, 22, False, True, 15.333333333333334),
+    (68, u'212', 'NUMBER', 17, 17, False, True, 17.333333333333332),
+    (68, u'145.0\xb0E', 'NUMBER', 10, 10, False, True, 19.666666666666668),
+    (68, u'144.6\xb0E', 'NUMBER', 8, 8, False, True, 20.333333333333332),
+    (68, u'13.7\xb0N', 'NUMBER', 5, 5, False, True, 21.333333333333332),
+    (68, u'13.2\xb0N', 'NUMBER', 3, 3, False, True, 22.0),
+    (   68,
+        u'United States',
+        u'LOCATION',
+        33,
+        34,
+        False,
+        False,
+        11.333333333333334),
+    (68, u'Guam', u'LOCATION', 0, 0, True, False, 23.0),
+    (68, u'Guam', 'OTHER', 0, 0, True, False, 23.0),
+    (68, u'Guam', u'ORGANIZATION', 0, 0, True, False, 23.0)]
+question: How many square miles is Guam?
+expected: 212
+expected sentence: Guam lies between 13.2°N and 13.7°N and between 144.6°E and 145.0°E, and has an area of 212 square miles (549 km2), making it the 32nd largest island of the United States.
+actual: (68, u'32nd', 'NUMBER', 28, 28, False, True, 13.666666666666666)
+expected id: 68
+extracted id: [68]
+predicted question type: NUMBER
+question open class words: ['many', 'square', 'miles', 'guam']
+
+
+
+all results:
+[   (112, u'Mariana', 'OTHER', 19, 19, False, True, 8.0),
+    (112, u'Islands', 'OTHER', 20, 20, False, True, 9.0),
+    (112, u'Hawaii', u'LOCATION', 13, 13, False, False, 4.4),
+    (   112,
+        u'Northern Mariana Islands',
+        u'ORGANIZATION',
+        18,
+        20,
+        False,
+        False,
+        7.0),
+    (112, u'Northern Mariana Islands', u'LOCATION', 18, 20, False, False, 7.0),
+    (112, u'Mariana', u'LOCATION', 19, 19, False, False, 8.0),
+    (112, u'Mariana Islands', u'LOCATION', 19, 20, False, False, 8.0),
+    (112, u'Guam', 'OTHER', 6, 6, True, True, 6.2),
+    (112, u'Guam', u'LOCATION', 6, 6, True, False, 6.2),
+    (112, u'Guam', u'ORGANIZATION', 6, 6, True, False, 6.2)]
+question: What is the name of this U.S state that could possibly form a union with Guam?
+expected: Hawaii
+expected sentence: Other movements advocate U.S. statehood for Guam, union with the state of Hawaii, union with the Northern Mariana Islands as a single territory, or independence.
+actual: (112, u'Mariana', 'OTHER', 19, 19, False, True, 8.0)
+expected id: 112
+extracted id: [112]
+predicted question type: OTHER
+question open class words: ['name', 'u', 'state', 'could', 'possibly', 'form', 'union', 'guam']
+
+
+
+all results:
+[   (123, u'Republic', 'OTHER', 24, 24, False, True, 13.88888888888889),
+    (123, u'Republic', 'OTHER', 17, 17, False, True, 14.0),
+    (123, u'Territory', 'OTHER', 34, 34, False, True, 16.77777777777778),
+    (123, u'Compacts', 'OTHER', 1, 1, False, True, 24.0),
+    (123, u'Republic of Palau', u'ORGANIZATION', 24, 26, False, False, 13.0),
+    (   123,
+        u'Marshall Islands',
+        u'ORGANIZATION',
+        20,
+        21,
+        False,
+        False,
+        13.11111111111111),
+    (   123,
+        u'Federated States of Micronesia',
+        u'LOCATION',
+        11,
+        14,
+        False,
+        False,
+        13.555555555555555),
+    (   123,
+        u'Trust Territory',
+        u'ORGANIZATION',
+        33,
+        34,
+        False,
+        False,
+        16.11111111111111),
+    (   123,
+        u'Pacific Islands',
+        u'LOCATION',
+        37,
+        38,
+        False,
+        False,
+        17.444444444444443),
+    (123, u'Pacific', u'LOCATION', 37, 37, False, False, 17.77777777777778),
+    (   123,
+        u'The Compacts of Free Association',
+        u'ORGANIZATION',
+        0,
+        4,
+        False,
+        False,
+        21.0),
+    (123, u'Islands', 'OTHER', 21, 21, True, True, 13.555555555555555),
+    (123, u'Islands', 'OTHER', 38, 38, True, True, 18.11111111111111),
+    (123, u'The', 'OTHER', 0, 0, True, True, 25.0),
+    (123, u'Palau', u'ORGANIZATION', 26, 26, True, False, 14.11111111111111),
+    (123, u'Micronesia', u'LOCATION', 14, 14, True, False, 14.333333333333334),
+    (123, u'United States', u'LOCATION', 7, 8, True, False, 17.11111111111111),
+    (   123,
+        u'United States',
+        u'LOCATION',
+        49,
+        50,
+        True,
+        False,
+        24.11111111111111)]
+question: What is the name of the pact held between the United States, Micronesia, Marshal Islands, and Palau?
+expected: The Compacts of Free Association
+expected sentence: The Compacts of Free Association between the United States, the Federated States of Micronesia, the Republic of the Marshall Islands and the Republic of Palau accorded the former entities of the Trust Territory of the Pacific Islands a political status of "free association" with the United States.
+actual: (123, u'Republic', 'OTHER', 24, 24, False, True, 13.88888888888889)
+expected id: 123
+extracted id: [123]
+predicted question type: OTHER
+question open class words: ['name', 'pact', 'held', 'united', 'states', 'micronesia', 'marshal', 'islands', 'palau']
+
+
+
+all results:
+[   (130, u'U.S.', u'LOCATION', 7, 8, False, True, 12.6),
+    (130, u'96910\u201396932', 'NUMBER', 21, 21, False, False, 6.2),
+    (130, u'GU', 'OTHER', 15, 15, False, False, 8.6),
+    (130, u'Postal System', 'OTHER', 9, 10, False, False, 11.4),
+    (130, u'U.S', 'OTHER', 7, 7, False, False, 13.4),
+    (130, u'Guam', u'LOCATION', 26, 26, True, True, 9.2),
+    (130, u'Guam', u'LOCATION', 1, 1, True, True, 17.0),
+    (130, u'ZIP', 'OTHER', 17, 17, True, False, 7.4),
+    (130, u'Guam', 'OTHER', 26, 26, True, False, 9.2),
+    (130, u'Guam', u'ORGANIZATION', 26, 26, True, False, 9.2),
+    (130, u'Guam', 'OTHER', 1, 1, True, False, 17.0),
+    (130, u'Guam', u'ORGANIZATION', 1, 1, True, False, 17.0)]
+question: What is the current Zip Code range in Guam?
+expected: 96910–96932
+expected sentence: Because Guam is also part of the U.S. Postal System (postal abbreviation: GU, ZIP code range: 96910–96932), mail to Guam from the U.S. mainland is considered domestic and no additional charges are required.
+actual: (130, u'U.S.', u'LOCATION', 7, 8, False, True, 12.6)
+expected id: 130
+extracted id: [130]
+predicted question type: LOCATION
+question open class words: ['current', 'zip', 'code', 'range', 'guam']
+
+
+
+all results:
+[   (141, u'Won', 'OTHER', 8, 8, False, True, 3.0),
+    (141, u'Antonio B', 'OTHER', 5, 6, False, True, 5.0),
+    (141, u'Guam', 'OTHER', 0, 0, False, True, 11.0),
+    (141, u'Pat International Airport', u'LOCATION', 9, 11, False, False, 0.0),
+    (141, u'Antonio', 'PERSON', 5, 5, False, False, 6.0),
+    (141, u'United Airlines', u'ORGANIZATION', 18, 19, False, False, 7.0),
+    (141, u'Guam', u'LOCATION', 0, 0, False, False, 11.0),
+    (141, u'Guam', u'ORGANIZATION', 0, 0, False, False, 11.0)]
+question: What major airline resides at the airport?
+expected: United Airlines
+expected sentence: Guam is served by the Antonio B. Won Pat International Airport, which is a hub for United Airlines.
+actual: (141, u'Won', 'OTHER', 8, 8, False, True, 3.0)
+expected id: 141
+extracted id: [141]
+predicted question type: OTHER
+question open class words: ['major', 'airline', 'resides', 'airport']
+
+
+
+all results:
+[   (180, u'Islands', 'OTHER', 1, 1, False, True, 8.333333333333334),
+    (180, u'Schools', 'OTHER', 20, 20, False, True, 10.666666666666666),
+    (   180,
+        u'Transnational Association of Christian Colleges',
+        u'ORGANIZATION',
+        14,
+        18,
+        False,
+        False,
+        6.0),
+    (   180,
+        u'Pacific Islands University',
+        u'ORGANIZATION',
+        0,
+        2,
+        False,
+        False,
+        7.333333333333333),
+    (   180,
+        u'Pacific Islands',
+        u'LOCATION',
+        0,
+        1,
+        False,
+        False,
+        8.333333333333334),
+    (180, u'Pacific', u'LOCATION', 0, 0, False, False, 9.333333333333334),
+    (180, u'Christian', 'OTHER', 6, 6, True, True, 4.0),
+    (180, u'Christian', 'OTHER', 17, 17, True, True, 7.666666666666667)]
+question: What is the name of the small Christian college in Guam?
+expected: Pacific Islands University
+expected sentence: Pacific Islands University is a small Christian liberal arts institution nationally accredited by the Transnational Association of Christian Colleges and Schools.
+actual: (180, u'Islands', 'OTHER', 1, 1, False, True, 8.333333333333334)
+expected id: 180
+extracted id: [180]
+predicted question type: OTHER
+question open class words: ['name', 'small', 'christian', 'college', 'guam']
+
+
+
+all results:
+[   (187, u'Government', 'OTHER', 1, 1, False, True, 8.833333333333334),
+    (   187,
+        u'Guam Memorial Hospital',
+        u'ORGANIZATION',
+        13,
+        15,
+        False,
+        False,
+        3.5),
+    (187, u'Tamuning', u'LOCATION', 18, 18, False, False, 8.166666666666666),
+    (187, u'Guam', 'OTH
