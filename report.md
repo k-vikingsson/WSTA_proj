@@ -32,8 +32,7 @@ By inspecting the results from running the QA system on the training set, many q
 
 ### 4. Answer ranking
 
-In many occasions, the few answers ranked on the top are of same rank. The ranking rules in basic QA system doesn't
-
+In many occasions, the few answers ranked on the top are of same rank. The ranking rules in basic QA system doesn't handle answers of same rank very well. Basic ranking may prefer a wrong answer, this calls for a more specific ranking method.
 
 > - NER has significant room of improvement (only 24% identified in the correct (and retrieved) sentence, 29% in any retrieved sentence), among the failed cases:
 > 	- About 70% that can possibly be extracted
@@ -53,7 +52,11 @@ In many occasions, the few answers ranked on the top are of same rank. The ranki
 
 ### 1. More types
 
+First obvious enhancement was to use a 7-class NER model.
+
 ### 2. Type classification
+
+As more answer types are brought into the system, the basic rule based classification is no longer sufficient. Therefore, we 
 
 > Rank answers using a classifier (from textbook, features at p8) FAILED
 > Use ML classifier + NER for question type classification (along with more types)
