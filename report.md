@@ -30,7 +30,9 @@ Significant room for improvement is identified for the NER steps. While running 
 
 By inspecting the results from running the QA system on the training set, many questions had been identified as wrong types with the simple rule based classification. Especially for questions starting with "what" or "which", it was difficult to classify the question as correct type. It was also an issue with number types, questions asking for answer types such as year, money, measurements are all classified as "NUMBER" types. If these types can be distinguished, it was expected to increase the accuracy of our QA system.
 
+### 4. Answer ranking
 
+In many occasions, the few answers ranked on the top are of same rank. The ranking rules in basic QA system doesn't
 
 
 > - NER has significant room of improvement (only 24% identified in the correct (and retrieved) sentence, 29% in any retrieved sentence), among the failed cases:
