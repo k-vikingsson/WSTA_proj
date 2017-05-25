@@ -90,10 +90,6 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			sentence_retrieved_as_first = qa['answer_sentence'] == possible_sents[0]
 			num_match_sentences += sentence_retrieved
 			num_match_first_sentence += sentence_retrieved_as_first
-			
-			# search for entities in possible sents
-			# # take only the best match in sentence retrieval
-			# matches = [e for e in entities if e[0] == possible_sents[0]]
 
 			# OR...
 			# take all sentences into ranking
@@ -223,12 +219,6 @@ def make_csv():
 			
 			# search for entities in possible sents
 			matches = []
-
-			# # take only the best match in sentence retrieval
-			# matches = [e for e in entities if e[0] == possible_sents[0]]
-
-			# OR...
-
 			# take all sentences into ranking
 			for sent in possible_sents:
 				matches.extend([e for e in entities if e['id'] == sent])
