@@ -1,3 +1,18 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: evaluation.py
+## Description: Some evaluation metrices functions.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 def reciprocal_rank(answer, results):
     if answer not in results:
         return 0.0

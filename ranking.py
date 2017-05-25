@@ -1,3 +1,18 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: ranking.py
+## Description: Basic answer ranking module implemented as described in spec.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 import nltk
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
@@ -46,37 +61,6 @@ def contains_all(items, elems):
 			return False
 	return True
 
-# def get_score(question, answer, doc_set, sentences):
-# 	"""Calculate the score of an answer given a question.
-
-# 	Args:
-# 		question (str): the question as a string
-# 		answers [(str, str, str)]: an answer to the question
-# 			being a 3-tuple of (sentence, entity, entity type)
-# 		doc_set [str]: a list of all answers, indexed by answer id
-
-# 	Returns:
-# 		(float): score of answer
-# 	"""
-# 	# First, answers whose content words all appear
-# 	# in the question should be ranked lowest.
-# 	ans_words = word_tokenizer.tokenize(doc_set[answer[0]])
-# 	question_words = set(word_tokenizer.tokenize(question))
-# 	if contains_all(question_words, ans_words):
-# 		return 0.0
-
-# 	# Second, answers which match the question type
-# 	# should be ranked higher than those that don't;
-# 	if answer[2] != get_question_type(question):
-# 		return 1.0
-
-# 	# Third, among entities of the same type, the
-# 	# prefered entity should be the one which is closer
-# 	# in the sentence to a closed-class word from the question.
-# 	# TODO
-
-# 	rank = sentences.index(answer[0])
-# 	return 1.0 + 100.0/(rank+1)
 
 def get_closed_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
@@ -89,13 +73,6 @@ def get_open_class_words(question_words):
 	return [p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"]]
 
 def get_dist_to_question_word(target_words, sentence_words, entity):
-	# # print closed_class_words
-	# answer = entity[1].lower()
-	# answer_words = nltk.word_tokenize(answer)
-	# # cannot proceed if answer word not found in sentence
-	# for w in answer_words:
-	# 	if w not in sentence_words:
-	# 		return None
 	# get positions of closed class question words
 	question_words_pos = []
 	for w in target_words:
@@ -111,8 +88,6 @@ def get_dist_to_question_word(target_words, sentence_words, entity):
 	# answer_end_pos = sentence_words.index(answer_words[-1])
 	answer_start_pos = entity[3]
 	answer_end_pos = entity[4]
-	# print "ans start", answer_start_pos
-	# print "ans end", answer_end_pos
 	# calculate distance and find closest
 	dists = [ min(abs(p-answer_start_pos), abs(p-answer_end_pos))
 		for p in question_words_pos ]
@@ -189,7 +164,6 @@ def get_best_answer(question, answers, doc_set, sentences):
 	]
 	key_func = cmp_to_key(cmp_answer)
 	return max(answers_added, key=key_func)
-	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
 def get_top_answers(question, answers, doc_set, sentences):
 	question_words = { w.lower() for w in word_tokenizer.tokenize(question) }
