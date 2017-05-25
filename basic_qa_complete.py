@@ -4,6 +4,7 @@ from nltk.tag import StanfordNERTagger
 from sent_retrieval import *
 from ner_test import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
+from evaluation import is_partial_match
 
 import numpy as np
 import nltk
@@ -31,6 +32,7 @@ def test_with_dev():
 	num_match_first_correct_sentence_entity = 0.0
 	num_ranking_failed = 0.0
 	num_correct_answer = 0.0
+	num_partial_answer = 0.0
 	for trial in tqdm(dev):
 		# make posting list
 		doc_set = trial['sentences']
@@ -119,6 +121,10 @@ def test_with_dev():
 				# pp.pprint(matches[:5])
 				print "\n\n"
 
+			if is_partial_match(best_match[1], question['answer']):
+				if possible_sents[0] == question['answer_sentence']:
+					num_partial_answer += 1
+
 	print "% sentence retrieved:", num_match_sentences / total
 	print "% sentence retrieved as first:", num_match_first_sentence / total
 	print "% entity identified:", num_match_entity / total
@@ -126,6 +132,7 @@ def test_with_dev():
 	print "% entity identified in correct sentence:", num_match_correct_sentence_entity / total
 	print "% entity identified in first and correct sentence:", num_match_first_correct_sentence_entity / total
 	print "% above but ranking failed:", num_ranking_failed / total
+	print "% partial matches in correct sentence:", num_partial_answer / total
 	print "% correct best answer:", num_correct_answer / total
 
 def escape_csv(answer):
