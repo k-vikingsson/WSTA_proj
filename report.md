@@ -80,11 +80,10 @@ As more answer types are brought into the system, the basic rule based classific
 Results         | Overall Accuracy | Overall Accuracy (partial match) | Overall MRR | Sent Retrieval | Entity Extraction | Answer Ranking
 ----------------|------------------|----------------------------------|-------------|----------------|-------------------|----------------
 Basic           |      0.1169      |        0.3461                    |    0.1445   |     0.6418     |      0.1931       |
-Qtype_Classify  |                  |                                  |             |     0.6418     |                   |
-NER_05          |                  |                                  |             |     0.6418     |                   |
+Qtype_Classify  |      0.1215      |        0.3585                    |    0.1489   |     0.6418     |      0.2051       |
+NER             |      0.1655      |        0.2756                    |    0.2276   |     0.6418     |      0.2366       |
 
 
-[CORRECT SENT RANK DISTRIBUTION]
 
 [CORRECT ANSWER RANK DISTRIBUTION]
 
