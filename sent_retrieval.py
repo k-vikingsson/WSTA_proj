@@ -22,6 +22,7 @@ STOPWORDS = set(stopwords.words('english'))
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 
+# Remove stopwords in a tokenized sentence.
 def remove_stop(sentence):
 	new = []
 	for word in sentence:
@@ -29,12 +30,14 @@ def remove_stop(sentence):
 			new.append(word)
 	return new
 
+# Lemmatize a word.
 def lemmatize(word):
 	lemma = lemmatizer.lemmatize(word,'v')
 	if lemma == word:
 		lemma = lemmatizer.lemmatize(word,'n')
 	return lemma
 
+# Lemmatize a sentence.
 def lemmatize_doc(document):
 	output = []
 	for word in document:
@@ -42,6 +45,8 @@ def lemmatize_doc(document):
 			output.append(lemmatize(word.lower()))
 	return output
 
+# Get term frequency and document frequency information from a
+# set of document.
 def get_freqencies(documents):
 	term_freqs = []
 	doc_freq = {}
@@ -57,6 +62,7 @@ def get_freqencies(documents):
 		term_freqs.append(term_freq)
 	return term_freqs, doc_freq
 
+# Get tf*idf information.
 def get_tf_idf(term_freqs, doc_freq):
 	tf_idf = []
 	words = doc_freq.keys()
