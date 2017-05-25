@@ -6,7 +6,7 @@ from sent_retrieval import *
 from ner_test07 import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
 from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram
-from answer_classify import train_regressor, filter_answers
+# from answer_classify import train_regressor, filter_answers
 from evaluation import reciprocal_rank, plot_correct_sent_rank_histogram, is_partial_match
 from collections import defaultdict
 from tqdm import tqdm
@@ -253,6 +253,6 @@ def make_csv():
 if __name__ == '__main__':
 	# test_with('QA_train.json')
 	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	test_with('QA_dev.json')
-	# make_csv()
+	# test_with('QA_dev.json')
+	make_csv()
 

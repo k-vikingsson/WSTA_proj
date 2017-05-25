@@ -83,15 +83,9 @@ def filter_train(questions, classes):
 			resulting_classes.append(classes[i][1])
 	return resulting_questions, resulting_classes
 
-def get_open_class_words(question_words):
-	tagged = nltk.pos_tag(question_words, tagset="universal")
-	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-	return [p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "VERB"]]
-
 def get_que_bow(question, words):
 	q_bow = {}
 	question = lemmatize_doc(word_tokenizer.tokenize(question))
-	# question = get_open_class_words(question)
 	iters = len(question)
 	for i in range(iters):
 		if question[i] not in words: continue

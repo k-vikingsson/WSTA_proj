@@ -7,7 +7,7 @@ from syntactic_dist import cfg_path_dist_tagged
 from sent_retrieval import remove_stop
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
-# vectorizer, classifier = get_classifier()
+vectorizer, classifier = get_classifier()
 
 common_measurements = set()
 with open("common_measurements.txt") as file:
