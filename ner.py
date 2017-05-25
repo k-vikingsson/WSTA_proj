@@ -4,13 +4,8 @@ import json
 from nltk.tag import StanfordNERTagger
 from nltk.corpus import stopwords
 
-# nltk.download('maxent_treebank_pos_tagger')
-# nltk.download('averaged_perceptron_tagger')
-
 os.environ['CLASSPATH'] = '/usr/local/share/stanford-ner/stanford-ner.jar'
 os.environ['STANFORD_MODELS'] = '/usr/local/share/stanford-ner/classifiers/english.muc.7class.distsim.crf.ser.gz'
-
-
 
 classifier = os.environ.get('STANFORD_MODELS')
 jar = os.environ.get('CLASSPATH')
@@ -20,8 +15,6 @@ word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 STOPWORDS = set(stopwords.words('english'))
 name_list = nltk.corpus.names
 names = set([name for file in ('female.txt','male.txt') for name in name_list.words(file)])
-
-#sents = ["Rami Eid is studying at Stony Brook University in NY","Anna Brown like Beijing 0709 0303 Shanghai"]
 
 def process_doc_ner(doc_set):
     # doc as a single sentence
@@ -85,7 +78,6 @@ def ner_tagger(processed_docs,no_docs):
                 else:
                     if j == 0:
                         if token.lower() not in STOPWORDS:
-                        #token[0].isupper() and token.lower() not in STOPWORDS:
                             if token in names:
                                 #print 'name',token,pos_sent[j][1]
 
@@ -140,12 +132,6 @@ def parse_docs(doc_set):
             if tag != 'O':
                 if tag == 'ORGANIZATION':
                     doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':'OTHER','start_pos':start_i,'end_pos':end_i})
-                elif tag == 'NUMBER':
-                    text = word_tokenizer.tokenize(entity)
-                    n = len(text)
-                    if n != 1:
-                        end_i = end_i + n - 1
-                    doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
                 else:
                     doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
     return doc_ne_pairs

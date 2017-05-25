@@ -1,5 +1,5 @@
 from sent_retrieval import *
-from ner_05 import parse_docs
+from ner import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words
 from evaluation import reciprocal_rank, is_partial_match
 from collections import defaultdict
@@ -212,6 +212,6 @@ def make_csv():
 if __name__ == '__main__':
 	# test_with('QA_train.json')
 	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	# test_with('QA_dev.json')
-	make_csv()
+	test_with('QA_dev.json')
+	# make_csv()
 
