@@ -39,6 +39,7 @@ def lemmatize_doc(document):
 			output.append(lemmatize(word.lower()))
 	return output
 
+# Get training data from train set.
 def get_training_data():
 	answers = []
 	answers_sents = []
@@ -49,6 +50,7 @@ def get_training_data():
 	with open('QA_train.json') as train_file:
 		train_set = json.load(train_file)
 		for trail in train_set:
+			# take a portion of train set for efficiency
 			if count < 150: count += 1
 			else: break
 			ans_set = []
@@ -70,7 +72,6 @@ def tag_sents(sentences):
 	return parse_docs(sentences)
 
 def classify_sents(tagged, answers):
-	# print tagged
 	classified = np.empty(len(answers), dtype=object)
 	# organize tagged
 	tagged_sents = []
