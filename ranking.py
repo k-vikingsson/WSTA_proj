@@ -1,23 +1,26 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: ranking.py
+## Description: Module used for answer ranking.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 from qtype_classifier import get_classifier, lemmatize_doc, get_que_bow
+from wordnet_func import get_head_word
+from sent_retrieval import remove_stop
 
 import nltk
-import json
-from wordnet_func import get_head_word
-from syntactic_dist import cfg_path_dist_tagged
-from sent_retrieval import remove_stop
 
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 vectorizer, classifier = get_classifier()
-
-common_measurements = set()
-with open("common_measurements.txt") as file:
-	for line in file:
-		common_measurements.add(line.strip())
-
-common_localities = set()
-with open("common_localities.txt") as file:
-	for line in file:
-		common_localities.add(line.strip())
 
 def get_question_type(question_words):
 	"""Determine question type.
@@ -44,7 +47,8 @@ def contains_all(items, elems):
 def get_open_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-	return remove_stop([p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"] and p[0] not in ['what', 'which', 'how', 'who', 'where']])
+	return remove_stop([p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"] \
+			and p[0] not in ['what', 'which', 'how', 'who', 'where']])
 
 def get_dist_to_question_word(target_words, sentence_words, entity):
 	# get positions of question words
@@ -125,7 +129,6 @@ def get_best_answer(question, answers, doc_set, sentences):
 	]
 	key_func = cmp_to_key(cmp_answer)
 	return max(answers_added, key=key_func)
-	# return get_top_answers(question, answers, doc_set, sentences)[0]
 
 from tqdm import tqdm
 def get_top_answers(question, answers, doc_set, sentences):
@@ -146,13 +149,3 @@ def get_top_answers(question, answers, doc_set, sentences):
 	key_func = cmp_to_key(cmp_answer)
 	top = sorted(answers_added, reverse=True, key=key_func)
 	return top
-
-if __name__ == '__main__':
-	with open('QA_dev.json') as dev_file:
-		dev_data = json.load(dev_file)
-		questions = [qa['question'] for qa in dev_data[0]['qa']]
-		for q in questions:
-			print q
-			q_bow = get_que_bow(q)
-			print get_question_type(q_bow)
-			print ''

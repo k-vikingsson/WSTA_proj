@@ -1,3 +1,18 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: ner.py
+## Description: Module to extract answers from a set of documents
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 import os
 import nltk
 import json
@@ -136,12 +151,3 @@ def parse_docs(doc_set):
                     doc_ne_pairs.append({'id':sent_id,'answer':entity,'type':tag,'start_pos':start_i,'end_pos':end_i})
     return doc_ne_pairs
 
-
-if __name__ == '__main__':
-    # with open('QA_dev.json') as dev_file:
-    #     dev = json.load(dev_file)
-    doc_set = ['They are members of the National Collegiate Athletic Association and participate in the University Athletic Association at the Division III level.','Some columnists in The Times are connected to the Conservative Party such as Daniel Finkelstein, Tim Montgomerie, Matthew Parris and Matt Ridley, but there are also columnists connected to the Labour Party such as David Aaronovitch, Phil Collins, Oliver Kamm and Jenni Russell.']  
-
-        #doc_set = dev[i]['sentences']
-    pp.pprint(parse_docs(doc_set))
-    print ''

@@ -1,3 +1,18 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: wordnet_func.py
+## Description: Collection of functions using wordnet interface from nltk.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 from nltk.corpus import wordnet as wn
 from nltk.corpus import stopwords
 from nltk import pos_tag, word_tokenize

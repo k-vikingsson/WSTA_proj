@@ -1,3 +1,21 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: qtype_classifier.py
+## Description: Module to train a Multinomial Naive Bayes model
+##				to determine what type of answer a question is
+##				asking for.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
+
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from ner import *

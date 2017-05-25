@@ -1,3 +1,18 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: complete_qa.py
+## Description: The main program of complete enhanced QA system.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 from sent_retrieval import *
 from ner import parse_docs
 from ranking import get_best_answer, get_top_answers, get_question_type, get_open_class_words

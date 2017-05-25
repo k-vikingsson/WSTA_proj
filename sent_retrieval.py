@@ -1,3 +1,18 @@
+##
+## COMP90042 Web Search and Text Analysis
+## Project
+##
+## File: sent_retrieval.py
+## Description: Sentence retrieval module of QA system.
+##
+## Team: Mainframe
+## Members:
+## Name         | Student ID
+## Kuan QIAN    | 686464
+## Zequn MA     | 696586
+## Yueni CHANG  | 884622
+##
+
 from nltk.corpus import stopwords
 from sklearn.feature_extraction import DictVectorizer
 
