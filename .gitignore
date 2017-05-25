@@ -7,3 +7,5 @@ local*
 *.csv
 ner06_failed.txt
 *.jar
+submission/*
+
