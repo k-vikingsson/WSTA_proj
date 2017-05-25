@@ -15,7 +15,6 @@
 ## Yueni CHANG  | 884622
 ##
 
-
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from ner import *
@@ -116,6 +115,7 @@ def prepare_questions(questions, words):
 		processed_qs.append(q_bow)
 	return processed_qs
 
+# Get the bag of word from all sentences.
 def get_all_bow(sentences):
 	words = {}
 	for sent in sentences:
@@ -124,20 +124,23 @@ def get_all_bow(sentences):
 			words[word] = words.get(word, 0) +  1
 	return words
 
+# Returns a fitted vectorizer and a question type classifier.
 def get_classifier():
+	# prepare data
 	questions, sentences, answers, asentids = get_training_data()
 	newsentences = [sentences[i] for i in asentids]
 	all_bow = get_all_bow(sentences)
 	words = set([word for word, count in all_bow.items() if count > 20])
 	tagged_sents = tag_sents(newsentences)
-
 	classified_sents = classify_sents(tagged_sents, answers)
 	ques, classes = filter_train(questions, classified_sents)
-
 	questions = prepare_questions(ques, words)
-	
+
+	# fit vectorizer
 	vectorizer = DictVectorizer()
 	dataset = vectorizer.fit_transform(questions)
+
+	# build classifier
 	classifier = MultinomialNB(2, False, None)
 	classifier.fit(dataset, classes)
 

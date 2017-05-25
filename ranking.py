@@ -16,6 +16,8 @@
 from qtype_classifier import get_classifier, lemmatize_doc, get_que_bow
 from wordnet_func import get_head_word
 from sent_retrieval import remove_stop
+from functools import cmp_to_key
+from tqdm import tqdm
 
 import nltk
 
@@ -38,16 +40,19 @@ def get_question_type(question_words):
 	q_type = classifier.predict(q_vec)
 	return q_type[0]
 
+# Return True if not items contains all elements.
 def contains_all(items, elems):
 	for e in elems:
 		if e not in items:
 			return False
 	return True
 
+# Get all open class words from a question.
 def get_open_class_words(question_words):
 	tagged = nltk.pos_tag(question_words, tagset="universal")
 	# consider pronouns, determiners, conjunctions, and prepositions as closed class
-	return remove_stop([p[0] for p in tagged if p[1] in ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"] \
+	return remove_stop([p[0] for p in tagged if p[1] in \
+			["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB"] \
 			and p[0] not in ['what', 'which', 'how', 'who', 'where']])
 
 def get_dist_to_question_word(target_words, sentence_words, entity):
@@ -91,6 +96,7 @@ def cmp_answer(a, b):
 			return b['dist_to_open_words'] - a['dist_to_open_words']
 	return 0
 
+# Generated an answer from specific information.
 def add_answer_properties(question_words, question_type, open_class_words, answer, doc_set, sentences):
 	answer_words = word_tokenizer.tokenize(answer['answer'].lower())
 	answer_sent_words = [ w.lower() for w in word_tokenizer.tokenize(doc_set[answer['id']]) ]
@@ -101,7 +107,6 @@ def add_answer_properties(question_words, question_type, open_class_words, answe
 	added['dist_to_open_words'] = get_dist_to_question_word(open_class_words, answer_sent_words, answer)
 	return added
 
-from functools import cmp_to_key
 def get_best_answer(question, answers, doc_set, sentences):
 	"""Return the best answer from answers to a question.
 
@@ -130,10 +135,9 @@ def get_best_answer(question, answers, doc_set, sentences):
 	key_func = cmp_to_key(cmp_answer)
 	return max(answers_added, key=key_func)
 
-from tqdm import tqdm
+# Returns a list of answers ranked on top.
 def get_top_answers(question, answers, doc_set, sentences):
 	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
-	# question_words = question
 	question_type = get_question_type(question_words)
 	open_class_words = get_open_class_words(question_words)
 	answers_added = [

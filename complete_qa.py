@@ -27,6 +27,7 @@ import csv
 
 pp = pprint.PrettyPrinter(indent=4)
 
+# Covert an answer representation to a tuple.
 def answer_to_tuple(answer):
 	return (
 		answer['id'],
@@ -39,7 +40,8 @@ def answer_to_tuple(answer):
 		answer['dist_to_open_words']
 		)
 
-
+# Run test on a given data file, with specified sample size to save
+# testing time.
 def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	# load json
 	with open(filename) as file:
@@ -96,7 +98,6 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 			num_match_sentences += sentence_retrieved
 			num_match_first_sentence += sentence_retrieved_as_first
 
-			# OR...
 			# take all sentences into ranking
 			matches = [e for e in all_entities if e['id'] in set(possible_sents)]
 			if len(matches) == 0:
@@ -172,11 +173,11 @@ def test_with(filename, sample_trial_size=None, sample_qa_size=None):
 	print "% correct best answer:", num_correct_answer / total
 	print "% answer classified:", num_classified_answer / total
 	print "Mean reciprocal rank:", np.mean(reciprocal_ranks)
-	# plot_correct_sent_rank_histogram(sentence_rank_freq)
 
 def escape_csv(answer):
 	return answer.replace('"','').replace(',','-COMMA-')
 
+# Make output csv file from answers to questions in test set.
 def make_csv():
 	with open('QA_test.json') as dev_file:
 		dev = json.load(dev_file)
@@ -225,8 +226,7 @@ def make_csv():
 
 
 if __name__ == '__main__':
-	# test_with('QA_train.json')
 	# test_with('QA_train.json', sample_trial_size=20, sample_qa_size=10)
-	test_with('QA_dev.json')
-	# make_csv()
+	# test_with('QA_dev.json')
+	make_csv()
 

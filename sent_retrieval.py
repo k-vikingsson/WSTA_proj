@@ -76,6 +76,7 @@ def get_tf_idf(term_freqs, doc_freq):
 		tf_idf.append(doc_vector)
 	return words, tf_idf
 
+# Make posting lists.
 def get_inverted_index(words, tf_idf):
 	posting = {}
 	for i in range(len(words)):
@@ -86,21 +87,25 @@ def get_inverted_index(words, tf_idf):
 				posting[words[i]].append((doc_id, word_weight))
 	return posting
 
+# Preprocess a question to query which can then be evaluated.
 def process_query(query):
 	return remove_stop(lemmatize_doc(word_tokenizer.tokenize(query)))
 
+# Generate posting lists from a set of document.
 def prepare_doc(doc_set):
 	term_freqs, doc_freq = get_freqencies(doc_set)
 	words, tf_idf = get_tf_idf(term_freqs, doc_freq)
 	posting = get_inverted_index(words, tf_idf)
 	return posting
 
+# Turn sentences into sets of word.
 def get_word_sets(doc_set):
 	word_sets = []
 	for doc in doc_set:
 		word_sets.append(set(remove_stop(lemmatize_doc(word_tokenizer.tokenize(doc)))))
 	return word_sets
 
+# Evaluate a query with posting list and word sets to return most relevent sentence.
 def eval_query(query, posting, word_sets, n=1):
 	scores = {}
 	for term in query:
@@ -108,11 +113,14 @@ def eval_query(query, posting, word_sets, n=1):
 		for (doc_id, weight) in posting_list:
 			scores[doc_id] = scores.get(doc_id, 0) + \
 								weight \
+								# smooth with the proportion of words in query which overlap
+								# with target sentence.
 								* len(set(query).intersection(word_sets[doc_id])) \
 								/ len(set(query))
 	sorted_scores = sorted(scores.items(), key=lambda x:x[1], reverse=True)
 	return [d for d, w in sorted_scores][:n]
 
+# Retrieve most relevant sentence for a question.
 def retrieve_sentences(question, doc_set, n=1):
 	query = process_query(question)
 	posting = prepare_doc(doc_set)
