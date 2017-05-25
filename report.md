@@ -62,7 +62,16 @@ By inspecting the results from running the QA system on the training set, many q
 > Test for: Sentence retrieval, NER, answer ranking
 > For rule 1/2/3, could be useful taking random as baseline
 
+Results         | Overall Accuracy | Overall Accuracy (partial match) | Overall MRR | Sent Retrieval | Entity Extraction | Answer Ranking
+----------------|------------------|----------------------------------|-------------|----------------|-------------------|----------------
+Basic           |                  |                                  |             |                |                   |
+Qtype_Classify  |                  |                                  |             |                |                   |
+NER_07          |                  |                                  |             |                |                   |
 
+
+[CORRECT SENT RANK DISTRIBUTION]
+
+[CORRECT ANSWER RANK DISTRIBUTION]
 
 ## Future Improvements
 
@@ -76,3 +85,5 @@ By inspecting the results from running the QA system on the training set, many q
 
 
 ## Conclusion
+
+A question answering system has been built for this project, including a basic implementation as well as several enhancements. Although some of the enhancement attempts, such as applying syntactic distance and performing classification on extracted entities directly, does not improve the results, other approaches do seem to contribute. Applying machine learning to classify question type results in..., and.... With the ... enhancements combined, the system achieved an accuracy ... for the development set, and ... as the evaluation result on Kaggle. We believe the system can be further improved by applying more advanced approaches such as ... and ....
