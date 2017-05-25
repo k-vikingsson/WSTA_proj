@@ -92,7 +92,7 @@ NER_07          |                  |                                  |         
 
 ### Predicates translation with dependency parsing
 
-
+The next possible enhancement we will be attempting if given enough time would be extracting predicates (or relations) from documents and questions. Questions will be answered by matching predicate from question to predicate from relevent document (sentences), this process is similar to evaluating predicates in logical programming. This way, question types are less relevent and would yield a higher accuracy.
 
 > - Take advantage of semantic information
 > - Apply RNN for a “translation” from answers to questions (ref. TREC 2016 CMU paper)
