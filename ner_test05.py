@@ -4,13 +4,8 @@ import json
 from nltk.tag import StanfordNERTagger
 from nltk.corpus import stopwords
 
-# nltk.download('maxent_treebank_pos_tagger')
-# nltk.download('averaged_perceptron_tagger')
-
 os.environ['CLASSPATH'] = '/usr/share/stanford-ner/stanford-ner.jar'
 os.environ['STANFORD_MODELS'] = '/usr/share/stanford-ner/classifiers/english.muc.7class.distsim.crf.ser.gz'
-
-
 
 classifier = os.environ.get('STANFORD_MODELS')
 jar = os.environ.get('CLASSPATH')
@@ -20,8 +15,6 @@ word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 STOPWORDS = set(stopwords.words('english'))
 name_list = nltk.corpus.names
 names = set([name for file in ('female.txt','male.txt') for name in name_list.words(file)])
-
-#sents = ["Rami Eid is studying at Stony Brook University in NY","Anna Brown like Beijing 0709 0303 Shanghai"]
 
 def process_doc_ner(doc_set):
     # doc as a single sentence
