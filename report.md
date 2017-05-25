@@ -58,6 +58,16 @@ First obvious enhancement was to use a 7-class NER model.
 
 As more answer types are brought into the system, the basic rule based classification is no longer sufficient. Therefore, we 
 
+### 3. POS tagging in answer extraction
+
+### 4. Unsuccessful attempts
+
+#### Answer classification
+
+#### Syntactic distance
+
+#### 
+
 > Rank answers using a classifier (from textbook, features at p8) FAILED
 > Use ML classifier + NER for question type classification (along with more types)
 
