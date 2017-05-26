@@ -26,6 +26,8 @@ The basic system, as described in the specification, is formed by three main com
 
 Significant room for improvement is identified for the NER steps. While running against the dev set, only 19.3% of answers are extracted as entities.
 
+NOTE: Our program assumes the path to Stanford NER files (jar and models) is "/usr/local/share/stanford-ner" on a Unix-like OS, the path can be configure in the file named "ner.py".
+
 ### 3. Question type
 
 By inspecting the results from running the QA system on the training set, many questions had been identified as wrong types with the simple rule based classification. Especially for questions starting with "what" or "which", it was difficult to classify the question as correct type. It was also an issue with number types, questions asking for answer types such as year, money, measurements are all classified as "NUMBER" types. If these types can be distinguished, it was expected to increase the accuracy of our QA system.
@@ -91,7 +93,7 @@ NER             |      0.1655      |        0.2756           �
 
 ### Predicates translation with dependency parsing
 
-The next possible enhancement we will be attempting if given enough time would be extracting predicates (or relations) from documents and questions. Questions will be answered by matching predicate from question to predicate from relevent document (sentences), this process is similar to evaluating predicates in logical programming. This way, question types are less relevent and would yield a higher accuracy.
+The next possible enhancement we will be attempting if given enough time would be extracting predicates (or relations) from documents and questions. Questions will be answered by matching predicate from question to predicate from relevent document (sentences), this process is similar to evaluating predicates in logical programming. This way, question types are less relevent and would yield a higher accuracy. This could be done by analyzing the dependency trees of sentences. For example, each VERB can be considered a type of predicate with objects being other terms which are dependent to this VERB. Further tuning will be required to generate phrases as pradicate names or objects for the answer extractor to perform well. An idea to do this is, for example, to concatenate words with dependencies such as "nmod" into one phrase as an entity (potentia answer).
 
 > - Take advantage of semantic information
 > - Apply RNN for a “translation” from answers to questions (ref. TREC 2016 CMU paper)
