@@ -24,15 +24,8 @@ import nltk
 word_tokenizer = nltk.tokenize.regexp.WordPunctTokenizer()
 vectorizer, classifier = get_classifier()
 
+# Determine question type as a string
 def get_question_type(question_words):
-	"""Determine question type.
-
-	Args:
-		question_words ([str]): list of words in question
-
-	Returns:
-		(str): type of question as a string
-	"""
 	q_bow = {}
 	for word in question_words:
 		q_bow[word] = q_bow.get(word, 0) + 1
@@ -107,18 +100,8 @@ def add_answer_properties(question_words, question_type, open_class_words, answe
 	added['dist_to_open_words'] = get_dist_to_question_word(open_class_words, answer_sent_words, answer)
 	return added
 
+# Return the best answer from answers to a question
 def get_best_answer(question, answers, doc_set, sentences):
-	"""Return the best answer from answers to a question.
-
-	Args:
-		answers [(str, str, str)]: a list of answers,
-			each being a 3-tuple of (sentence, entity, entity type)
-		doc_set [str]: a list of all answers, indexed by answer id
-		sentences [int]: a list of sentence id's sorted by relavance
-
-	Returns:
-		(str, str, str): the best answer to the question
-	"""
 	question_words = [ w.lower() for w in word_tokenizer.tokenize(question) ]
 	question_type = get_question_type(question_words)
 	open_class_words = get_open_class_words(question_words)
